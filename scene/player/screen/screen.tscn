@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://nmtmi2fu0gk6"]
+
+[ext_resource type="Script" path="res://scene/player/screen/screen.gd" id="1_ayc6u"]
+[ext_resource type="PackedScene" uid="uid://clsatwim6pka7" path="res://scene/player/player.tscn" id="1_ch7dy"]
+
+[node name="Screen" type="Node2D"]
+script = ExtResource("1_ayc6u")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Player" parent="." instance=ExtResource("1_ch7dy")]

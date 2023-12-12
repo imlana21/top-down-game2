@@ -13,10 +13,10 @@ func set_is_attacking(value):
 func angle_to_text(angle):
 	match angle:
 		-90.0, -45.0, -135.0:
-			return "_up"
+			return "up"
 		0.0:
-			return "_right"
+			return "right"
 		180.0:
-			return "_left"
+			return "left"
 		45.0, 90.0, 135.0:
-			return "_down"
+			return "down"

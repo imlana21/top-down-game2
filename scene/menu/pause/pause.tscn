@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxlnecjp8nhas"]
+
+[ext_resource type="Texture2D" uid="uid://bwc0ccjenmbql" path="res://assets/UI/Sheet/Setting menu.png" id="1_d8b5j"]
+[ext_resource type="Script" path="res://scene/menu/pause/pause.gd" id="1_gvii7"]
+[ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="2_hr0kl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_todjq"]
+atlas = ExtResource("1_d8b5j")
+region = Rect2(139, 12, 106, 122)
+
+[node name="Pause" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_gvii7")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_todjq")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+
+[node name="StartBtn" type="Button" parent="MarginContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+text = " ~ CONTINUE ~"
+
+[node name="OptionsBtn" type="Button" parent="MarginContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+text = " ~ OPTIONS ~ "
+
+[node name="ExitBtn" type="Button" parent="MarginContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+text = " ~ EXIT ~ "
+
+[connection signal="pressed" from="MarginContainer2/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="MarginContainer2/MarginContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]

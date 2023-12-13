@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dw8bxihcui6hl" path="res://assets/Characters/Basic Charakter Actions.png" id="1_d8pbi"]
 [ext_resource type="Script" path="res://scene/player/player.gd" id="1_ipdf2"]
-[ext_resource type="Texture2D" uid="uid://cftuuugokc43u" path="res://assets/Characters/Basic Charakter Spritesheet.png" id="2_bem04"]
+[ext_resource type="Texture2D" uid="uid://jtoc0ua8ft8r" path="res://assets/Characters/Basic Charakter Spritesheet.png" id="2_bem04"]
 [ext_resource type="Script" path="res://scene/player/player_sprite.gd" id="4_jkodp"]
 [ext_resource type="Script" path="res://scene/player/HealtBar.gd" id="5_tgfl0"]
 
@@ -297,7 +297,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_ipdf2")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]

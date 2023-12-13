@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjhvvo8nm0hnb"
-path="res://.godot/imported/Egg_And_Nest.png-15081020f1ee49a5a5d442758a71fb29.ctex"
+uid="uid://dhu6tdggmqa4l"
+path="res://.godot/imported/TilesetHouse.png-009fc77d8b80846177bb28d1099fbde2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Characters/Egg_And_Nest.png"
-dest_files=["res://.godot/imported/Egg_And_Nest.png-15081020f1ee49a5a5d442758a71fb29.ctex"]
+source_file="res://assets/Objects/TilesetHouse.png"
+dest_files=["res://.godot/imported/TilesetHouse.png-009fc77d8b80846177bb28d1099fbde2.ctex"]
 
 [params]
 

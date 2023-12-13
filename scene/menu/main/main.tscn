@@ -11,7 +11,19 @@ region = Rect2(139, 12, 106, 122)
 [node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 514.0
+offset_top = 203.0
+offset_right = 514.0
+offset_bottom = 203.0
 script = ExtResource("1_e6e11")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -532.0
+offset_top = -227.0
+offset_right = 670.0
+offset_bottom = 461.0
+color = Color(0.662745, 0.541176, 0.415686, 1)
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 0

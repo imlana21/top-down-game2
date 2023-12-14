@@ -10,7 +10,6 @@ func _on_change_scene(next_path, current):
 	next_scene.connect("change_scene", _on_change_scene)
 	current_scene = current
 	anim_trans.play("fade_in")
-	print(next_scene)
 
 func _on_animation_transition_finished(anim_name):
 	match anim_name:

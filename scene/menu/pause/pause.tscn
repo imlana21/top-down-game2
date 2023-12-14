@@ -10,6 +10,7 @@ region = Rect2(139, 12, 106, 122)
 
 [node name="Pause" type="Control"]
 layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_gvii7")
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]

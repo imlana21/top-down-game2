@@ -6,6 +6,9 @@ signal change_direction
 signal change_velocity
 signal change_attack
 
+func _init():
+	Autoload.player = self
+	
 func _process(delta):
 	# Stop walk while player attack
 	if Autoload.is_attacking:

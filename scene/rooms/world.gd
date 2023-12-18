@@ -3,6 +3,9 @@ extends Node2D
 signal change_scene
 signal play_transition
 
+func _init():
+	Autoload.world = self
+	
 func _ready():
 	$Pause.hide()
 	

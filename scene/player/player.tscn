@@ -6,10 +6,6 @@
 [ext_resource type="Script" path="res://scene/player/player_sprite.gd" id="4_jkodp"]
 [ext_resource type="Script" path="res://scene/player/HealtBar.gd" id="5_tgfl0"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pb0ky"]
-radius = 4.0
-height = 16.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vmh1"]
 atlas = ExtResource("1_d8pbi")
 region = Rect2(0, 0, 48, 48)
@@ -297,19 +293,30 @@ animations = [{
 "speed": 5.0
 }]
 
+<<<<<<< HEAD
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 collision_mask = 7
 platform_wall_layers = 7
 script = ExtResource("1_ipdf2")
+=======
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pb0ky"]
+radius = 5.0
+height = 16.0
+>>>>>>> c84cf51 (Add move back and fort)
 
-[node name="PlayerCollision" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_pb0ky")
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_ipdf2")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dnjfl")
 animation = &"attack_up"
 script = ExtResource("4_jkodp")
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_pb0ky")
 
 [node name="HealtBar" type="ProgressBar" parent="."]
 self_modulate = Color(0, 0.00392157, 0, 1)

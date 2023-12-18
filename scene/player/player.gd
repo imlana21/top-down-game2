@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const PLAYER_SPEED = 100
+const PLAYER_SPEED = 1500
 
 signal change_direction
 signal change_velocity
@@ -16,29 +16,27 @@ func _process(delta):
 	
 func _physics_process(delta):
 	if Autoload.is_attacking == false:
-		walk()
+		walk(delta)
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
-		change_direction.emit(vector_movement())
+		change_direction.emit(get_axis_input())
 	elif event is InputEventMouseButton and event.pressed:
 		change_attack.emit(Autoload.deg_mouse_position(self))
 		
 # if WASD pressed, read as vector
-func vector_movement():
-	var left = Input.is_action_pressed("walk_left")
-	var right = Input.is_action_pressed("walk_right")
-	var up = Input.is_action_pressed("walk_up")
-	var down = Input.is_action_pressed("walk_down")
-	
+func get_axis_input():
+	var axis = Input.get_vector("walk_left", "walk_right", "walk_up", "walk_down")
+	axis.x = int(Input.is_action_pressed("walk_right"))-int(Input.is_action_pressed("walk_left"))
+	axis.y = int(Input.is_action_pressed("walk_down"))-int(Input.is_action_pressed("walk_up"))
 	# Convert input to vector and return it
-	return Vector2(-int(left)+int(right),-int(up)+int(down))
+	return axis.normalized()
 
-func walk():
-	var walk_movement = Vector2()
-	walk_movement += vector_movement()
-	set_velocity(walk_movement * PLAYER_SPEED)
+func walk(delta):
+	var walk_movement = get_axis_input()
+	set_velocity(walk_movement * PLAYER_SPEED * delta)
 	change_velocity.emit(velocity.length())
-	velocity = velocity
 	move_and_slide()
+	
+	
 	

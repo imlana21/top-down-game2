@@ -108,7 +108,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8wlel")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -122,7 +122,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2ku0h")
 }],
-"loop": true,
+"loop": false,
 "name": &"get_attack",
 "speed": 5.0
 }, {
@@ -139,7 +139,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4lx56")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -162,7 +162,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bvbbx")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk",
 "speed": 5.0
 }]
@@ -196,6 +196,7 @@ navigation_layers = 3
 avoidance_enabled = true
 radius = 100.0
 neighbor_distance = 40.0
+debug_enabled = true
 debug_path_custom_color = Color(0.997161, 0.46071, 0.517231, 1)
 
 [node name="ReCalcTimer" type="Timer" parent="Node2D"]
@@ -209,7 +210,10 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 shape = SubResource("CircleShape2D_0wdlx")
 
+[connection signal="change_attack" from="." to="SlimeSprite" method="_on_slime_change_attack"]
+[connection signal="animation_finished" from="SlimeSprite" to="SlimeSprite" method="_on_animation_finished"]
 [connection signal="navigation_finished" from="Node2D/SlimeNavigation" to="." method="_on_slime_navigation_navigation_finished"]
+[connection signal="velocity_computed" from="Node2D/SlimeNavigation" to="." method="_on_slime_navigation_velocity_computed"]
 [connection signal="timeout" from="Node2D/ReCalcTimer" to="." method="_on_re_calc_timer_timeout"]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

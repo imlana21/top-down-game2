@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Autoload="*res://autoload.gd"
+CombatDetail="*res://scene/combat/combat_detail.gd"
 
 [input]
 

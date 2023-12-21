@@ -1,27 +1,32 @@
 extends CharacterBody2D
 
 const PLAYER_SPEED = 1500
+var CHAR_DETAIL = {
+	"atk_speed": 0.6,
+	"max_hp": 50,
+	"curr_hp": 50,
+	"luk": 0.5,
+	"def": 1,
+	"str": 3
+}
 
 signal change_direction
 signal change_velocity
+signal start_combat
 signal change_attack
 
 func _init():
 	Autoload.player = self
 	
-func _process(delta):
-	# Stop walk while player attack
-	if Autoload.is_attacking:
-		return
-	
 func _physics_process(delta):
-	if Autoload.is_attacking == false:
+	if CombatDetail.is_attacking == false:
 		walk(delta)
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		change_direction.emit(get_axis_input())
-	elif event is InputEventMouseButton and event.pressed:
+	
+	if event is InputEventMouseButton and event.pressed:
 		change_attack.emit(Autoload.deg_mouse_position(self))
 		
 # if WASD pressed, read as vector
@@ -37,6 +42,17 @@ func walk(delta):
 	set_velocity(walk_movement * PLAYER_SPEED * delta)
 	change_velocity.emit(velocity.length())
 	move_and_slide()
-	
-	
-	
+
+func _on_enemy_detector_body_entered(body):
+	if CombatDetail.is_attacking == false:
+		CombatDetail.enemy_detail = body.CHAR_DETAIL
+		CombatDetail.player_detail = CHAR_DETAIL
+		CombatDetail.is_attacking = true
+		
+		start_combat.emit()
+
+func take_damage(str):
+	CHAR_DETAIL["curr_hp"] = CHAR_DETAIL["curr_hp"] - str 
+
+func attacking():
+	change_attack.emit()

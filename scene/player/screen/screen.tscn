@@ -10,3 +10,5 @@ script = ExtResource("1_ayc6u")
 zoom = Vector2(4, 4)
 
 [node name="Player" parent="." instance=ExtResource("1_ch7dy")]
+
+[connection signal="start_combat" from="Player" to="." method="_on_player_start_combat"]

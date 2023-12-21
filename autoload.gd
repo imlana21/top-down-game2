@@ -34,3 +34,4 @@ func angle_to_text(angle):
 			return "left"
 		45.0, 90.0, 135.0:
 			return "down"
+

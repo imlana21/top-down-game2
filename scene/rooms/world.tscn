@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://dwki8cn7xuhuy"]
+[gd_scene load_steps=64 format=3 uid="uid://dwki8cn7xuhuy"]
 
 [ext_resource type="Script" path="res://scene/rooms/world.gd" id="1_g8ju8"]
 [ext_resource type="Texture2D" uid="uid://be8lp8jw2bnxj" path="res://assets/Tilesets/Hills.png" id="2_qqjr5"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://jw7o31p08boe" path="res://assets/Objects/Free_Chicken_House.png" id="9_6oglp"]
 [ext_resource type="Texture2D" uid="uid://dhu6tdggmqa4l" path="res://assets/Objects/TilesetHouse.png" id="10_nvyyn"]
 [ext_resource type="PackedScene" uid="uid://c33irnw324lml" path="res://scene/enemies/slime/slime.tscn" id="11_fljeq"]
-[ext_resource type="PackedScene" uid="uid://dxlnecjp8nhas" path="res://scene/menu/pause/pause.tscn" id="12_0alcc"]
 [ext_resource type="PackedScene" uid="uid://nmtmi2fu0gk6" path="res://scene/player/screen/screen.tscn" id="12_x1sqv"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_tvqbc"]
@@ -2804,15 +2803,19 @@ position = Vector2(210, 148)
 
 [node name="Slime" parent="." instance=ExtResource("11_fljeq")]
 position = Vector2(141, 234)
+up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime2" parent="." instance=ExtResource("11_fljeq")]
 position = Vector2(381, 143)
+up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime3" parent="." instance=ExtResource("11_fljeq")]
 position = Vector2(328, 341)
+up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime4" parent="." instance=ExtResource("11_fljeq")]
 position = Vector2(130, 453)
+up_direction = Vector2(0.986548, -0.163471)
 
 [node name="DoorArea" type="Area2D" parent="."]
 visible = false
@@ -2822,15 +2825,5 @@ collision_mask = 3
 position = Vector2(264, 87)
 shape = SubResource("RectangleShape2D_qlerh")
 
-[node name="Pause" parent="." instance=ExtResource("12_0alcc")]
-process_mode = 2
-visible = false
-anchors_preset = -1
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-
+[connection signal="start_combat" from="Screen" to="." method="_on_player_start_combat"]
 [connection signal="body_entered" from="DoorArea" to="." method="_on_door_area_body_entered"]

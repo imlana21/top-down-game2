@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dwki8cn7xuhuy" path="res://scene/rooms/world.tscn" id="1_dlu8p"]
 [ext_resource type="Script" path="res://scene/scene_manager.gd" id="1_qod2y"]
+[ext_resource type="PackedScene" uid="uid://dxlnecjp8nhas" path="res://scene/menu/pause/pause.tscn" id="3_8py1g"]
 
 [sub_resource type="Animation" id="Animation_ys5mu"]
 length = 0.001
@@ -57,11 +58,8 @@ _data = {
 "fade_out": SubResource("Animation_ovb1h")
 }
 
-[sub_resource type="GDScript" id="GDScript_xhfc4"]
-script/source = "extends Node2D
-"
-
 [node name="SceneManager" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_qod2y")
 
 [node name="ScreenTransition" type="CanvasLayer" parent="."]
@@ -85,10 +83,21 @@ libraries = {
 }
 
 [node name="CurrentScene" type="Node2D" parent="."]
+process_mode = 1
 z_index = 1
-script = SubResource("GDScript_xhfc4")
 
 [node name="World" parent="CurrentScene" instance=ExtResource("1_dlu8p")]
+process_mode = 0
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Pause" parent="PauseLayer" instance=ExtResource("3_8py1g")]
+process_mode = 2
+offset_left = -577.0
+offset_top = -325.0
+offset_right = -577.0
+offset_bottom = -325.0
 
 [connection signal="animation_finished" from="ScreenTransition/AnimationTransition" to="." method="_on_animation_transition_finished"]
 [connection signal="change_scene" from="CurrentScene/World" to="." method="_on_change_scene"]

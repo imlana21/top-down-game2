@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://clsatwim6pka7" path="res://scene/player/player.tscn" id="1_ch7dy"]
 
 [node name="Screen" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_ayc6u")
 
 [node name="Camera2D" type="Camera2D" parent="."]

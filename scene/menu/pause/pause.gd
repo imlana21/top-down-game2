@@ -1,8 +1,20 @@
 extends Control
 
+@onready var HPLabel = $PlayerDetail/MarginContainer/VBoxContainer/MaxHP/MaxHPValue
+@onready var DefLabel = $PlayerDetail/MarginContainer/VBoxContainer/Def/DefValue
+@onready var AtkSpeedLabel = $PlayerDetail/MarginContainer/VBoxContainer/AtkSpeed/AtkSpeedValue
+@onready var StrengthLabel = $PlayerDetail/MarginContainer/VBoxContainer/Strength/StrengthValue
+@onready var LuckLabel = $PlayerDetail/MarginContainer/VBoxContainer/Luck/LuckValue
+
+func _process(delta):
+	HPLabel.text = str(Autoload.player.CHAR_DETAIL["curr_hp"]) + "/" + str(Autoload.player.CHAR_DETAIL["max_hp"])
+	DefLabel.text = str(Autoload.player.CHAR_DETAIL["def"])
+	AtkSpeedLabel.text = str(Autoload.player.CHAR_DETAIL["atk_speed"])
+	StrengthLabel.text = str(Autoload.player.CHAR_DETAIL["str"])
+	LuckLabel.text = str(Autoload.player.CHAR_DETAIL["luk"])
+
 func _on_exit_btn_pressed():
-	#get_tree().quit()
-	print(get_tree())
+	get_tree().quit()
 
 func _on_start_btn_pressed():
 	Autoload.toggle_pause()

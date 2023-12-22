@@ -300,6 +300,7 @@ height = 16.0
 radius = 18.2483
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+process_mode = 1
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_ipdf2")

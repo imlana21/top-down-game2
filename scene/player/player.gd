@@ -17,6 +17,7 @@ signal change_attack
 
 func _init():
 	Autoload.player = self
+	CombatDetail.player_detail = CHAR_DETAIL
 	
 func _physics_process(delta):
 	if CombatDetail.is_attacking == false:
@@ -45,8 +46,6 @@ func walk(delta):
 
 func _on_enemy_detector_body_entered(body):
 	if CombatDetail.is_attacking == false:
-		CombatDetail.enemy_detail = body.CHAR_DETAIL
-		CombatDetail.player_detail = CHAR_DETAIL
 		CombatDetail.is_attacking = true
 		
 		start_combat.emit()

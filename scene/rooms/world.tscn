@@ -2803,19 +2803,15 @@ position = Vector2(210, 148)
 
 [node name="Slime" parent="." instance=ExtResource("11_fljeq")]
 position = Vector2(141, 234)
-up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime2" parent="." instance=ExtResource("11_fljeq")]
 position = Vector2(381, 143)
-up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime3" parent="." instance=ExtResource("11_fljeq")]
 position = Vector2(328, 341)
-up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime4" parent="." instance=ExtResource("11_fljeq")]
 position = Vector2(130, 453)
-up_direction = Vector2(0.986548, -0.163471)
 
 [node name="DoorArea" type="Area2D" parent="."]
 visible = false

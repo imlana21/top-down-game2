@@ -6,6 +6,16 @@ var current_scene = null
 @onready var anim_trans = $ScreenTransition/AnimationTransition
 @onready var combat_scene = preload("res://scene/combat/battle_combat.tscn")
 
+func _ready():
+	$PauseLayer/Pause.hide()
+
+func _process(delta):
+	if Input.is_action_just_pressed("pause"):
+		$PauseLayer/Pause.z_index = 10
+		$PauseLayer/Pause.scale = Autoload.pause_scale
+		$PauseLayer/Pause.position = Autoload.pause_position
+		Autoload.pause_game($PauseLayer/Pause)
+
 func _on_change_scene(next_path, current):
 	next_scene = load(next_path).instantiate()
 	next_scene.connect("change_scene", _on_change_scene)

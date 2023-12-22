@@ -10,42 +10,158 @@ region = Rect2(139, 12, 106, 122)
 
 [node name="Pause" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 script = ExtResource("1_gvii7")
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -84.0
-offset_top = -65.0
-offset_right = 82.0
-offset_bottom = 107.0
+offset_left = -592.0
+offset_top = -343.0
+offset_right = 602.0
+offset_bottom = 340.0
+color = Color(0.431373, 0.431373, 0.431373, 0.509804)
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer2"]
+[node name="ButtonAreana" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -106.0
+offset_right = -36.0
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="ButtonAreana"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_todjq")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="ButtonAreana"]
 layout_mode = 2
 theme = ExtResource("2_hr0kl")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonAreana/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("2_hr0kl")
 
-[node name="StartBtn" type="Button" parent="MarginContainer2/MarginContainer/VBoxContainer"]
+[node name="StartBtn" type="Button" parent="ButtonAreana/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_hr0kl")
+action_mode = 0
 text = " ~ CONTINUE ~"
 
-[node name="OptionsBtn" type="Button" parent="MarginContainer2/MarginContainer/VBoxContainer"]
+[node name="OptionsBtn" type="Button" parent="ButtonAreana/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_hr0kl")
+action_mode = 0
 text = " ~ OPTIONS ~ "
 
-[node name="ExitBtn" type="Button" parent="MarginContainer2/MarginContainer/VBoxContainer"]
+[node name="ExitBtn" type="Button" parent="ButtonAreana/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_hr0kl")
+action_mode = 0
 text = " ~ EXIT ~ "
 
-[connection signal="pressed" from="MarginContainer2/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
-[connection signal="pressed" from="MarginContainer2/MarginContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]
+[node name="PlayerDetail" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -176.0
+offset_right = 242.0
+offset_bottom = 164.0
+theme = ExtResource("2_hr0kl")
+
+[node name="TextureRect" type="TextureRect" parent="PlayerDetail"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_todjq")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PlayerDetail"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerDetail/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+
+[node name="MaxHP" type="HBoxContainer" parent="PlayerDetail/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+
+[node name="MaxHPLabel" type="Label" parent="PlayerDetail/MarginContainer/VBoxContainer/MaxHP"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+text = "HP ="
+
+[node name="MaxHPValue" type="Label" parent="PlayerDetail/MarginContainer/VBoxContainer/MaxHP"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+text = "10
+"
+
+[node name="Def" type="HBoxContainer" parent="PlayerDetail/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+
+[node name="DefLabel" type="Label" parent="PlayerDetail/MarginContainer/VBoxContainer/Def"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+text = "Defense ="
+
+[node name="DefValue" type="Label" parent="PlayerDetail/MarginContainer/VBoxContainer/Def"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+text = "0"
+
+[node name="AtkSpeed" type="HBoxContainer" parent="PlayerDetail/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+
+[node name="AtkSpeedLabel" type="Label" parent="PlayerDetail/MarginContainer/VBoxContainer/AtkSpeed"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+text = "Attack Speed ="
+
+[node name="AtkSpeedValue" type="Label" parent="PlayerDetail/MarginContainer/VBoxContainer/AtkSpeed"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+text = "0"
+
+[node name="Strength" type="HBoxContainer" parent="PlayerDetail/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+
+[node name="StrengthLabel" type="Label" parent="PlayerDetail/MarginContainer/VBoxContainer/Strength"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+text = "Strength ="
+
+[node name="StrengthValue" type="Label" parent="PlayerDetail/MarginContainer/VBoxContainer/Strength"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+text = "0"
+
+[node name="Luck" type="HBoxContainer" parent="PlayerDetail/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+
+[node name="LuckLabel" type="Label" parent="PlayerDetail/MarginContainer/VBoxContainer/Luck"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+text = "Luck ="
+
+[node name="LuckValue" type="Label" parent="PlayerDetail/MarginContainer/VBoxContainer/Luck"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+text = "0"
+
+[connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]

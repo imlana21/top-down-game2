@@ -4,6 +4,8 @@ var is_attacking: bool = false: set = set_is_attacking
 var is_paused: bool = false
 var player: CharacterBody2D
 var world: Node2D
+var pause_scale: Vector2
+var pause_position: Vector2
 
 func toggle_pause():
 	is_paused = !is_paused

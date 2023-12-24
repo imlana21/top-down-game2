@@ -8,7 +8,7 @@ func _init():
 	Autoload.world = self
 	
 func _process(delta):
-	Autoload.pause_scale = Vector2(0.3, 0.3)
+	Autoload.pause_scale = Vector2(0.5, 0.5)
 	Autoload.pause_position = Autoload.player.get_global_position()
 
 func _on_door_area_body_entered(body):

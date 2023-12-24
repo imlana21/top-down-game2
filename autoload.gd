@@ -6,6 +6,7 @@ var player: CharacterBody2D
 var world: Node2D
 var pause_scale: Vector2
 var pause_position: Vector2
+var scene_manager: set = set_scene_manager
 
 func toggle_pause():
 	is_paused = !is_paused
@@ -37,3 +38,5 @@ func angle_to_text(angle):
 		45.0, 90.0, 135.0:
 			return "down"
 
+func set_scene_manager(val):
+	scene_manager = val

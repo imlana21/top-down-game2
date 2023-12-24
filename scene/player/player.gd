@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const PLAYER_SPEED = 1500
+const PLAYER_SPEED = 3500
 var CHAR_DETAIL = {
 	"atk_speed": 0.6,
 	"max_hp": 50,
@@ -18,6 +18,9 @@ signal change_attack
 func _init():
 	Autoload.player = self
 	CombatDetail.player_detail = CHAR_DETAIL
+	if CombatDetail.last_position != null and !CombatDetail.is_attacking:
+		position = CombatDetail.last_position
+		CombatDetail.last_position = null
 	
 func _physics_process(delta):
 	if CombatDetail.is_attacking == false:
@@ -26,9 +29,6 @@ func _physics_process(delta):
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		change_direction.emit(get_axis_input())
-	
-	if event is InputEventMouseButton and event.pressed:
-		change_attack.emit(Autoload.deg_mouse_position(self))
 		
 # if WASD pressed, read as vector
 func get_axis_input():
@@ -46,9 +46,9 @@ func walk(delta):
 
 func _on_enemy_detector_body_entered(body):
 	if CombatDetail.is_attacking == false:
+		CombatDetail.last_position = position
+		start_combat.emit(body)
 		CombatDetail.is_attacking = true
-		
-		start_combat.emit()
 
 func take_damage(str):
 	CHAR_DETAIL["curr_hp"] = CHAR_DETAIL["curr_hp"] - str 

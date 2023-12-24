@@ -17,5 +17,5 @@ func _on_door_area_body_entered(body):
 	
 	change_scene.emit(next_path, current_scene)
 
-func _on_player_start_combat():
-	start_combat.emit(self)
+func _on_player_start_combat(enemy):
+	start_combat.emit(self, enemy)

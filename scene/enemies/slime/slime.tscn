@@ -197,7 +197,6 @@ navigation_layers = 3
 avoidance_enabled = true
 radius = 100.0
 neighbor_distance = 40.0
-debug_enabled = true
 debug_path_custom_color = Color(0.997161, 0.46071, 0.517231, 1)
 
 [node name="ReCalcTimer" type="Timer" parent="Node2D"]

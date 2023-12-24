@@ -10,9 +10,9 @@ extends Node2D
 var characters: Array = []
 var repeat_turn = true
 
+signal change_scene
+
 func _ready():
-	# Set attack to to prevent movement player
-	CombatDetail.is_attacking = true
 	Autoload.pause_scale = Vector2(1, 1)
 	Autoload.pause_position = get_viewport_rect(). size / 2
 	
@@ -49,10 +49,17 @@ func generate_turn():
 				await get_tree().create_timer(2).timeout
 				
 func lose_action(marker, char, message):
-		marker.remove_child(char)
-		$Label.text = "Enemy kalah"
-		repeat_turn = false
-		CombatDetail.is_attacking = false
+	marker.remove_child(char)
+	$Label.text = "Enemy kalah"
+	repeat_turn = false
+	CombatDetail.is_attacking = false
+	battle_finished()
+
+func battle_finished():
+	#Move world
+	var next_path = 'res://scene/rooms/world.tscn'
+	var current_scene = self
+	change_scene.emit(next_path, current_scene)
 	
 func take_damage(char):
 	$Label.text = char.name + " Turn"

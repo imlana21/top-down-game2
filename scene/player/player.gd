@@ -29,7 +29,13 @@ func _physics_process(delta):
 func _input(event):
 	if event is InputEventKey and event.pressed:
 		change_direction.emit(get_axis_input())
-		
+
+func _on_enemy_detector_body_entered(body):
+	if CombatDetail.is_attacking == false:
+		CombatDetail.last_position = position
+		start_combat.emit(body)
+		CombatDetail.is_attacking = true
+
 # if WASD pressed, read as vector
 func get_axis_input():
 	var axis = Input.get_vector("walk_left", "walk_right", "walk_up", "walk_down")
@@ -43,12 +49,6 @@ func walk(delta):
 	set_velocity(walk_movement * PLAYER_SPEED * delta)
 	change_velocity.emit(velocity.length())
 	move_and_slide()
-
-func _on_enemy_detector_body_entered(body):
-	if CombatDetail.is_attacking == false:
-		CombatDetail.last_position = position
-		start_combat.emit(body)
-		CombatDetail.is_attacking = true
 
 func take_damage(str):
 	CHAR_DETAIL["curr_hp"] = CHAR_DETAIL["curr_hp"] - str 

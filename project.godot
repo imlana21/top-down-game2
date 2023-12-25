@@ -20,6 +20,16 @@ config/icon="res://icon.svg"
 Autoload="*res://autoload.gd"
 CombatDetail="*res://scene/combat/combat_detail.gd"
 
+[file_customization]
+
+folder_colors={
+"res://scene/combat/": "teal",
+"res://scene/enemies/": "red",
+"res://scene/menu/": "yellow",
+"res://scene/player/": "green",
+"res://scene/rooms/": "pink"
+}
+
 [input]
 
 walk_up={

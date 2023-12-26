@@ -22,10 +22,10 @@ script = ExtResource("1_gvii7")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -592.0
-offset_top = -343.0
-offset_right = 602.0
-offset_bottom = 340.0
+offset_left = -717.0
+offset_top = -411.0
+offset_right = 705.0
+offset_bottom = 402.0
 color = Color(0.431373, 0.431373, 0.431373, 0.509804)
 
 [node name="ButtonAreana" type="MarginContainer" parent="."]

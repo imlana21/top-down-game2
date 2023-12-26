@@ -15,20 +15,25 @@ offset_left = 514.0
 offset_top = 203.0
 offset_right = 514.0
 offset_bottom = 203.0
+size_flags_horizontal = 4
 script = ExtResource("1_e6e11")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -532.0
-offset_top = -227.0
-offset_right = 670.0
-offset_bottom = 461.0
+offset_left = -522.0
+offset_top = -218.0
+offset_right = 862.0
+offset_bottom = 531.0
 color = Color(0.662745, 0.541176, 0.415686, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 28.0
+offset_top = 4.0
+offset_right = 271.0
+offset_bottom = 245.0
+scale = Vector2(1.2, 1.2)
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer2"]
 layout_mode = 2
@@ -44,16 +49,22 @@ theme = ExtResource("1_wr0fu")
 
 [node name="StartBtn" type="Button" parent="MarginContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
 theme = ExtResource("1_wr0fu")
 text = " ~ START ~"
 
 [node name="OptionsBtn" type="Button" parent="MarginContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
 theme = ExtResource("1_wr0fu")
 text = " ~ OPTIONS ~ "
 
 [node name="ExitBtn" type="Button" parent="MarginContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
 theme = ExtResource("1_wr0fu")
 text = " ~ EXIT ~ "
 

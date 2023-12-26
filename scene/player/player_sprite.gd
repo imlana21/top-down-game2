@@ -2,6 +2,7 @@ extends AnimatedSprite2D
 
 var sprite_direction = "down": set = set_sprite_direction
 var sprite_action = "idle": set = set_sprite_action
+var animation_speed = 10
 
 signal player_move 
 signal player_idle
@@ -9,6 +10,12 @@ signal player_idle
 func _ready():
 	if CombatDetail.is_attacking:
 		play("idle_right")
+
+func _physics_process(delta):
+	if Input.is_action_pressed("run"):
+		animation_speed = 2.0
+	else:
+		animation_speed = 1.0
 		
 # Convert vector to get player direction
 func _on_player_change_direction(vector):
@@ -31,9 +38,9 @@ func _on_animation_finished():
 
 func play_animation():
 	if CombatDetail.is_attacking:
-		play(sprite_action + "_" + "right")
+		play(sprite_action + "_" + "right", animation_speed)
 	else:
-		play(sprite_action + "_" + sprite_direction)
+		play(sprite_action + "_" + sprite_direction, animation_speed)
 
 func set_sprite_direction(val):
 	sprite_direction = val

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const PLAYER_SPEED = 3500
+const PLAYER_SPEED = 6000
 var CHAR_DETAIL = {
 	"atk_speed": 0.6,
 	"max_hp": 50,
@@ -45,8 +45,14 @@ func get_axis_input():
 	return axis.normalized()
 
 func walk(delta):
+	var speed = 0
+	if Input.is_action_pressed("run"):
+		speed = PLAYER_SPEED + 500
+	else:
+		speed = PLAYER_SPEED/2
+		
 	var walk_movement = get_axis_input()
-	set_velocity(walk_movement * PLAYER_SPEED * delta)
+	set_velocity(walk_movement * speed * delta)
 	change_velocity.emit(velocity.length())
 	move_and_slide()
 

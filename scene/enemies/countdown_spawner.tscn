@@ -1,11 +1,24 @@
 [gd_scene load_steps=2 format=3 uid="uid://bx8opftaafs5x"]
 
-[ext_resource type="Script" path="res://scene/enemies/countdown_spawner.gd" id="1_x6rc0"]
+[sub_resource type="GDScript" id="GDScript_4q8bh"]
+script/source = "extends Timer
+
+@export var max_time = 10
+
+signal spawn_enemy
+
+func _ready():
+	wait_time = max_time
+	
+func _on_timeout():
+	spawn_enemy.emit()
+	queue_free()
+"
 
 [node name="CountdownSpawner" type="Timer"]
 wait_time = 3.0
 one_shot = true
 autostart = true
-script = ExtResource("1_x6rc0")
+script = SubResource("GDScript_4q8bh")
 
 [connection signal="timeout" from="." to="." method="_on_timeout"]

@@ -307,13 +307,16 @@ script = ExtResource("1_ipdf2")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dnjfl")
-animation = &"walk_up"
+animation = &"idle_down"
+frame_progress = 0.384131
 script = ExtResource("4_jkodp")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_pb0ky")
 
 [node name="EnemyDetector" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 4
 

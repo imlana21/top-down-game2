@@ -1,7 +1,6 @@
 extends Node
 
-@onready var load_enemy = preload("res://scene/enemies/slime/slime.tscn")
-
+var player_skin = "normal"
 var is_attacking: bool = false
 var is_paused: bool = false
 var player: CharacterBody2D
@@ -58,7 +57,7 @@ func random_position(world):
 	return Vector2(spawn_x, spawn_y)
 
 func spawn_enemy(world, pos):
-	var enemy_instance = load_enemy.instantiate()
+	var enemy_instance = load("res://scene/enemies/slime/slime.tscn").instantiate()
 	enemy_instance.position = pos
 	enemy_instance.name = enemy_instance.name + str(pos.x) + "_" + str(pos.y)
 	enemy_list.append(enemy_instance.name)

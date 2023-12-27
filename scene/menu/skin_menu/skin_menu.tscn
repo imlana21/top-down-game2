@@ -1,0 +1,147 @@
+[gd_scene load_steps=13 format=3 uid="uid://cde2e3b5sdpqo"]
+
+[ext_resource type="Script" path="res://scene/menu/skin_menu/skin_menu.gd" id="1_mc5b6"]
+[ext_resource type="Texture2D" uid="uid://jtoc0ua8ft8r" path="res://assets/Characters/Basic Charakter Spritesheet.png" id="1_t0p2q"]
+[ext_resource type="Texture2D" uid="uid://bwc0ccjenmbql" path="res://assets/UI/Sheet/Setting menu.png" id="2_2uqmm"]
+[ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="2_b5qxk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vtgc"]
+atlas = ExtResource("2_2uqmm")
+region = Rect2(139, 12, 106, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0phti"]
+atlas = ExtResource("1_t0p2q")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f23mq"]
+atlas = ExtResource("1_t0p2q")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cmjyd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0phti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f23mq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c30b"]
+atlas = ExtResource("2_2uqmm")
+region = Rect2(139, 12, 106, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qo5w2"]
+atlas = ExtResource("1_t0p2q")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nslb5"]
+atlas = ExtResource("1_t0p2q")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2auot"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qo5w2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nslb5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SkinMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mc5b6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -733.0
+offset_top = -402.0
+offset_right = 723.0
+offset_bottom = 402.0
+color = Color(0.662745, 0.541176, 0.415686, 1)
+
+[node name="NormalSkin" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -421.0
+offset_top = -153.0
+offset_right = -191.0
+offset_bottom = 93.0
+texture_normal = SubResource("AtlasTexture_3vtgc")
+stretch_mode = 0
+
+[node name="Normal" type="AnimatedSprite2D" parent="NormalSkin"]
+position = Vector2(114, 111)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_cmjyd")
+frame_progress = 0.672616
+
+[node name="Label" type="Label" parent="NormalSkin"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = 66.0
+offset_right = 50.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_b5qxk")
+theme_override_colors/font_color = Color(0.996078, 0.996078, 0.996078, 1)
+theme_override_font_sizes/font_size = 25
+text = "Normal"
+
+[node name="RedSkin" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 171.0
+offset_top = -153.0
+offset_right = 401.0
+offset_bottom = 93.0
+texture_normal = SubResource("AtlasTexture_2c30b")
+stretch_mode = 0
+
+[node name="Red" type="AnimatedSprite2D" parent="RedSkin"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(117, 111)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_2auot")
+frame_progress = 0.184105
+
+[node name="Label" type="Label" parent="RedSkin"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = 66.0
+offset_right = 31.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_b5qxk")
+theme_override_colors/font_color = Color(0.952941, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Red"
+
+[connection signal="pressed" from="NormalSkin" to="." method="_on_normal_skin_pressed"]
+[connection signal="pressed" from="RedSkin" to="." method="_on_red_skin_pressed"]

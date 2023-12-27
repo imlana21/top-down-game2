@@ -21,6 +21,8 @@ func _ready():
 	characters.append(enemy)
 	call_character(player, player_node, player_bar)
 	call_character(enemy, enemy_node, enemy_bar)
+	await get_tree().create_timer(2).timeout
+	# Start Battle
 	generate_turn()
 
 func _process(delta):
@@ -50,6 +52,7 @@ func generate_turn():
 				
 func lose_action(marker, char, message):
 	marker.remove_child(char)
+	await get_tree().create_timer(2).timeout
 	$Label.text = "Enemy kalah"
 	repeat_turn = false
 	CombatDetail.is_attacking = false

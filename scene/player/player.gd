@@ -21,6 +21,12 @@ func _init():
 	if CombatDetail.last_position != null and !CombatDetail.is_attacking:
 		position = CombatDetail.last_position
 		CombatDetail.last_position = null
+
+func _process(delta):
+	if Autoload.player_skin == "red":
+		$PlayerSprite.modulate = "ff0000"
+	else:
+		$PlayerSprite.modulate = "ffffff"
 	
 func _physics_process(delta):
 	if CombatDetail.is_attacking == false:

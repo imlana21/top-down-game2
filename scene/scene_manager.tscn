@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://qwria8jiy8vr"]
+[gd_scene load_steps=9 format=3 uid="uid://qwria8jiy8vr"]
 
 [ext_resource type="PackedScene" uid="uid://dwki8cn7xuhuy" path="res://scene/rooms/world.tscn" id="1_dlu8p"]
 [ext_resource type="Script" path="res://scene/scene_manager.gd" id="1_qod2y"]
 [ext_resource type="PackedScene" uid="uid://dxlnecjp8nhas" path="res://scene/menu/pause/pause.tscn" id="3_8py1g"]
+[ext_resource type="PackedScene" uid="uid://cde2e3b5sdpqo" path="res://scene/menu/skin_menu/skin_menu.tscn" id="4_spqbo"]
 
 [sub_resource type="Animation" id="Animation_ys5mu"]
 length = 0.001
@@ -94,10 +95,20 @@ follow_viewport_enabled = true
 
 [node name="Pause" parent="PauseLayer" instance=ExtResource("3_8py1g")]
 process_mode = 2
-offset_left = -577.0
-offset_top = -325.0
-offset_right = -577.0
-offset_bottom = -325.0
+offset_left = -680.0
+offset_top = -360.0
+offset_right = -680.0
+offset_bottom = -360.0
+
+[node name="ChangeSkinLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="SkinMenu" parent="ChangeSkinLayer" instance=ExtResource("4_spqbo")]
+process_mode = 2
+offset_left = -680.0
+offset_top = -360.0
+offset_right = -680.0
+offset_bottom = -360.0
 
 [connection signal="animation_finished" from="ScreenTransition/AnimationTransition" to="." method="_on_animation_transition_finished"]
 [connection signal="change_scene" from="CurrentScene/World" to="." method="_on_change_scene"]

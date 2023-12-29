@@ -2,7 +2,7 @@ extends Node2D
 
 signal start_combat
 
-func _process(delta):
+func _process(_delta):
 	# Move Camera position to follow user
 	$Camera2D.position = $Player.position
 

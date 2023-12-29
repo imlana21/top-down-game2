@@ -40,8 +40,8 @@ func _on_slime_navigation_velocity_computed(safe_velocity):
 	velocity = safe_velocity
 	move_and_slide()
 
-func take_damage(str):
-	CHAR_DETAIL["curr_hp"] = CHAR_DETAIL["curr_hp"] - str
+func take_damage(strength):
+	CHAR_DETAIL["curr_hp"] = CHAR_DETAIL["curr_hp"] - strength
 	
 func attacking():
 	change_attack.emit()

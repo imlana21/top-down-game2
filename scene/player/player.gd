@@ -22,7 +22,7 @@ func _init():
 		position = CombatDetail.last_position
 		CombatDetail.last_position = null
 
-func _process(delta):
+func _process(_delta):
 	if Autoload.player_skin == "red":
 		$PlayerSprite.modulate = "ff0000"
 	else:
@@ -62,8 +62,8 @@ func walk(delta):
 	change_velocity.emit(velocity.length())
 	move_and_slide()
 
-func take_damage(str):
-	CHAR_DETAIL["curr_hp"] = CHAR_DETAIL["curr_hp"] - str 
+func take_damage(strength):
+	CHAR_DETAIL["curr_hp"] = CHAR_DETAIL["curr_hp"] - strength 
 
 func attacking():
 	change_attack.emit()

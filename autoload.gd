@@ -8,7 +8,7 @@ var world: Node2D
 var scene_manager: Node2D
 var pause_scale: Vector2
 var pause_position: Vector2
-var enemy_position = [
+var enemy_position: Array = [
 	Vector2(64, 256), 
 	Vector2(352, 288), 
 	Vector2(512, 100),
@@ -16,7 +16,13 @@ var enemy_position = [
 	Vector2(256, 512)
 ]
 var enemy_list: Array
-
+var enter_world_position: Dictionary = {
+	"WorldToLivingRoom": Vector2(0,0),
+	"LivingRoomToWorld": Vector2(55, -45),
+	"LivingRoomToKitchen": Vector2(0,0),
+	"KitchenToLivingRoom": Vector2(160, -78)	
+}
+	
 # Toggle Pause Game
 func toggle_pause():
 	is_paused = !is_paused
@@ -48,17 +54,15 @@ func angle_to_text(angle):
 			return "down"
 
 # Generate Random Position
-func random_position(world):
+func random_position():
 	randomize()
-	#var spawn_x = randi() % (world.get_viewport().size.x)
 	var spawn_x = randi_range(0, 1000)
-	#var spawn_y = randi() % (world.get_viewport().size.y)
 	var spawn_y = randi_range(30, 500)
 	return Vector2(spawn_x, spawn_y)
 
-func spawn_enemy(world, pos):
+func spawn_enemy(rooms, pos):
 	var enemy_instance = load("res://scene/enemies/slime/slime.tscn").instantiate()
 	enemy_instance.position = pos
 	enemy_instance.name = enemy_instance.name + str(pos.x) + "_" + str(pos.y)
 	enemy_list.append(enemy_instance.name)
-	world.add_child(enemy_instance)
+	rooms.add_child(enemy_instance)

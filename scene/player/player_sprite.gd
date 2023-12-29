@@ -11,7 +11,7 @@ func _ready():
 	if CombatDetail.is_attacking:
 		play("idle_right")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_pressed("run"):
 		animation_speed = 2.0
 	else:

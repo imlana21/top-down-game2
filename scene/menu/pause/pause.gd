@@ -6,7 +6,7 @@ extends Control
 @onready var StrengthLabel = $PlayerDetail/MarginContainer/VBoxContainer/Strength/StrengthValue
 @onready var LuckLabel = $PlayerDetail/MarginContainer/VBoxContainer/Luck/LuckValue
 
-func _process(delta):
+func _process(_delta):
 	HPLabel.text = str(Autoload.player.CHAR_DETAIL["curr_hp"]) + "/" + str(Autoload.player.CHAR_DETAIL["max_hp"])
 	DefLabel.text = str(Autoload.player.CHAR_DETAIL["def"])
 	AtkSpeedLabel.text = str(Autoload.player.CHAR_DETAIL["atk_speed"])

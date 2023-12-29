@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 Autoload="*res://autoload.gd"
 CombatDetail="*res://scene/combat/combat_detail.gd"
 
+[debug]
+
+gdscript/warnings/integer_division=0
+
 [display]
 
 window/size/viewport_width=1360

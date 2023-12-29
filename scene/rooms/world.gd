@@ -16,21 +16,22 @@ func _ready():
 		countdown_instance.connect("spawn_enemy", Autoload.scene_manager._on_timeout_spawn_enemy)
 		Autoload.scene_manager.add_child(countdown_instance)
 
-func _process(delta):
+func _process(_delta):
 	pause_config()
 
 # if touch door, change scee
-func _on_door_area_body_entered(body):
+func _on_door_area_body_entered(_body):
 	var next_path = 'res://scene/rooms/home/living_room.tscn'
 	var current_scene = self
-	change_scene.emit(next_path, current_scene)
+	change_scene.emit(next_path, current_scene, "WorldToLivingRoom")
+	Autoload.world = null
 
 func _on_player_start_combat(enemy):
 	# Remove enemy from array
 	var enemy_index = Autoload.enemy_list.find(enemy.name)
 	Autoload.enemy_position.remove_at(enemy_index)
 	# Emit Combat
-	start_combat.emit(self, enemy)
+	start_combat.emit(self)
 
 func pause_config():
 	Autoload.pause_scale = Vector2(0.5, 0.5)

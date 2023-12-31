@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://c33irnw324lml"]
+[gd_scene load_steps=28 format=3 uid="uid://c33irnw324lml"]
 
 [ext_resource type="Script" path="res://scene/enemies/slime/slime.gd" id="1_fp4nq"]
 [ext_resource type="Texture2D" uid="uid://ulklvcpniqoa" path="res://assets/Characters/slime.png" id="1_mgres"]
 [ext_resource type="Script" path="res://scene/enemies/slime/slime_sprite.gd" id="3_3jwdr"]
+[ext_resource type="Theme" uid="uid://bnxyqifnolrd1" path="res://scene/combat/combat.tres" id="4_ys504"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b62pg"]
 atlas = ExtResource("1_mgres")
@@ -204,11 +205,22 @@ wait_time = 0.1
 autostart = true
 
 [node name="PlayerDetector" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 shape = SubResource("CircleShape2D_0wdlx")
+
+[node name="Name" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -21.0
+offset_right = 22.0
+offset_bottom = -11.0
+theme = ExtResource("4_ys504")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 7
+text = "Slime Boss"
 
 [connection signal="change_attack" from="." to="SlimeSprite" method="_on_slime_change_attack"]
 [connection signal="animation_finished" from="SlimeSprite" to="SlimeSprite" method="_on_animation_finished"]

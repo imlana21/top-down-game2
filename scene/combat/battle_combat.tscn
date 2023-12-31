@@ -579,13 +579,12 @@ theme = ExtResource("3_yrmua")
 text = "Player"
 
 [node name="ProgressBar" type="ProgressBar" parent="HealthBar/Player"]
-modulate = Color(0.00424908, 0.0138565, 0.0105705, 1)
+modulate = Color(0, 0, 0, 1)
 offset_left = 123.0
 offset_top = 570.0
 offset_right = 600.0
 offset_bottom = 630.0
 rounded = true
-show_percentage = false
 
 [node name="Label3" type="Label" parent="HealthBar"]
 offset_left = 638.0
@@ -614,7 +613,6 @@ offset_left = 747.0
 offset_top = 570.0
 offset_right = 1224.0
 offset_bottom = 630.0
-show_percentage = false
 
 [node name="Label" type="Label" parent="."]
 offset_left = 616.0

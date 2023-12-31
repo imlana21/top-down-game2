@@ -2,7 +2,6 @@ extends Node2D
 
 var next_scene = null
 var current_scene = null
-var last_enemy = null
 var player_point = null
 
 @export var MAX_ENEMY = 5
@@ -68,21 +67,16 @@ func _on_animation_transition_finished(anim_name):
 			start_fade_in()
 		"fade_out":
 			start_fade_out()
-			if player_point != null:
-				Autoload.player.position = Autoload.enter_world_position[player_point]
-			player_point = null
 
 func start_fade_in():
 	current_scene.queue_free()
 	anim_trans.play("fade_out")
 
 func start_fade_out():
-	#if next_scene.name != "BattleCombat":
-		#var loading_instance = loading_scene.instantiate()
-		#loading_instance.connect("start_combat", _on_loader_start_combat)
-		#add_child(loading_instance)
-	#else:
 	_on_loader_start_combat()
+	if player_point != null:
+		Autoload.player.position = Autoload.enter_world_position[player_point]
+	player_point = null
 	
 func _on_loader_start_combat():
 	$CurrentScene.add_child(next_scene)

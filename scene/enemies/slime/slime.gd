@@ -12,6 +12,7 @@ var CHAR_DETAIL = {
 
 @export var SPEED = 700
 @onready var nav_agent: NavigationAgent2D = $Node2D/SlimeNavigation
+@export var is_boss = false
 
 var target_node = null
 
@@ -20,6 +21,10 @@ signal change_attack
 func _ready():
 	nav_agent.path_desired_distance = 4
 	nav_agent.target_desired_distance = 4
+	if is_boss:
+		set_to_boss()
+	else:
+		$Name.hide()
 	
 func _physics_process(delta):
 	if nav_agent.is_navigation_finished() or CombatDetail.is_attacking:
@@ -45,3 +50,14 @@ func take_damage(strength):
 	
 func attacking():
 	change_attack.emit()
+
+func set_to_boss():
+	$Name.text = "Slime Boss"
+	$Name.show()
+	$SlimeSprite.scale = Vector2(3.0, 3.0)
+	$SlimeCollision.scale = Vector2(3.0, 3.0)
+	$SlimeSprite.modulate = "00ff00"
+	$PlayerDetector/CollisionShape2D.disabled = true
+	CHAR_DETAIL["max_hp"] = CHAR_DETAIL["max_hp"] * 3
+	CHAR_DETAIL["curr_hp"] = CHAR_DETAIL["max_hp"]
+	CHAR_DETAIL["str"] = CHAR_DETAIL["str"] * 3

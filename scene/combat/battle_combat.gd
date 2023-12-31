@@ -16,7 +16,9 @@ signal change_combat
 func _ready():
 	Autoload.pause_scale = Vector2(1, 1)
 	Autoload.pause_position = get_viewport_rect(). size / 2
-	
+	# Setup Enemy is Boss
+	if CombatDetail.is_enemy_boss:
+		enemy.CHAR_DETAIL = CombatDetail.enemy_detail
 	# SetUp Battle Combat
 	characters.append(player)
 	characters.append(enemy)
@@ -31,7 +33,11 @@ func _process(_delta):
 	enemy_bar.value = enemy.CHAR_DETAIL["curr_hp"]
 	
 func call_character(char_instance, node, bar):
-	char_instance.scale = Vector2(7.0, 7.0)
+	if "enemy_name" in char_instance.CHAR_DETAIL and CombatDetail.is_enemy_boss:
+		char_instance.scale = Vector2(18.0, 18.0)
+		$Character/EnemyMarker.position += Vector2(0, -80)
+	else:
+		char_instance.scale = Vector2(6.0, 6.0)
 	node.add_child(char_instance)
 	# Set Bar
 	bar.max_value = char_instance.CHAR_DETAIL["max_hp"]
@@ -41,7 +47,6 @@ func generate_turn():
 	# localization array
 	var character_list = characters
 	characters.sort_custom(_compare_intiative_attack)
-	
 	while(repeat_turn):
 		for character in character_list:				
 			if CombatDetail.is_attacking == false: return
@@ -64,6 +69,12 @@ func battle_finished():
 	var next_path = 'res://scene/rooms/world.tscn'
 	var current_scene = self
 	CombatDetail.player_energy -= 1
+	if CombatDetail.is_enemy_boss:
+		CombatDetail.player_energy += 3
+		CombatDetail.enemy_detail = {}
+		CombatDetail.is_enemy_boss = false
+		CombatDetail.is_boss_killed = true
+		
 	change_combat.emit(next_path, current_scene)
 	
 func take_damage(character):

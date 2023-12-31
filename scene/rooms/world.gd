@@ -8,8 +8,12 @@ signal start_combat
 func _ready():
 	Autoload.world = self
 	Autoload.enemy_list = []
+	# Call small enemy
 	for pos in Autoload.enemy_position:
 		Autoload.spawn_enemy(self, pos)
+	# Call bos enemy
+	if !CombatDetail.is_boss_killed:
+		Autoload.spawn_enemy(self, Vector2(768, -64), true)
 		
 	if Autoload.enemy_position.size() < MAX_ENEMY:
 		var countdown_instance = load("res://scene/enemies/countdown_spawner.tscn").instantiate()
@@ -28,8 +32,12 @@ func _on_door_area_body_entered(_body):
 
 func _on_player_start_combat(enemy):
 	# Remove enemy from array
-	var enemy_index = Autoload.enemy_list.find(enemy.name)
-	Autoload.enemy_position.remove_at(enemy_index)
+	if enemy.is_boss:
+		CombatDetail.is_enemy_boss = enemy.is_boss
+		CombatDetail.enemy_detail = enemy.CHAR_DETAIL
+	else:
+		var enemy_index = Autoload.enemy_list.find(enemy.name)
+		Autoload.enemy_position.remove_at(enemy_index)
 	# Emit Combat
 	start_combat.emit(self)
 

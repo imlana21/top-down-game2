@@ -1,7 +1,6 @@
 extends Node
 
 var player_skin = "normal"
-var is_attacking: bool = false
 var is_paused: bool = false
 var player: CharacterBody2D
 var world: Node2D
@@ -60,9 +59,12 @@ func random_position():
 	var spawn_y = randi_range(30, 500)
 	return Vector2(spawn_x, spawn_y)
 
-func spawn_enemy(rooms, pos):
+# Generate Enemy
+func spawn_enemy(rooms, pos, is_boss = false):
 	var enemy_instance = load("res://scene/enemies/slime/slime.tscn").instantiate()
 	enemy_instance.position = pos
 	enemy_instance.name = enemy_instance.name + str(pos.x) + "_" + str(pos.y)
+	enemy_instance.is_boss = is_boss
+	#set random enemy color
 	enemy_list.append(enemy_instance.name)
 	rooms.add_child(enemy_instance)

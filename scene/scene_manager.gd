@@ -77,12 +77,12 @@ func start_fade_in():
 	anim_trans.play("fade_out")
 
 func start_fade_out():
-	if next_scene.name != "BattleCombat":
-		var loading_instance = loading_scene.instantiate()
-		loading_instance.connect("start_combat", _on_loader_start_combat)
-		add_child(loading_instance)
-	else:
-		_on_loader_start_combat()
+	#if next_scene.name != "BattleCombat":
+		#var loading_instance = loading_scene.instantiate()
+		#loading_instance.connect("start_combat", _on_loader_start_combat)
+		#add_child(loading_instance)
+	#else:
+	_on_loader_start_combat()
 	
 func _on_loader_start_combat():
 	$CurrentScene.add_child(next_scene)

@@ -63,6 +63,7 @@ func battle_finished():
 	#Move world
 	var next_path = 'res://scene/rooms/world.tscn'
 	var current_scene = self
+	CombatDetail.player_energy -= 1
 	change_combat.emit(next_path, current_scene)
 	
 func take_damage(character):

@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://nmtmi2fu0gk6"]
+[gd_scene load_steps=6 format=3 uid="uid://nmtmi2fu0gk6"]
 
 [ext_resource type="Script" path="res://scene/player/screen/screen.gd" id="1_ayc6u"]
 [ext_resource type="PackedScene" uid="uid://clsatwim6pka7" path="res://scene/player/player.tscn" id="1_ch7dy"]
+[ext_resource type="Texture2D" uid="uid://bdlb2giyyg238" path="res://assets/UI/Sheet/buttons/Square Buttons 19x26.png" id="2_3ha78"]
+[ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="2_xtnd7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8na4g"]
+atlas = ExtResource("2_3ha78")
+region = Rect2(7, 57, 18, 30)
 
 [node name="Screen" type="Node2D"]
 process_mode = 1
@@ -9,6 +15,43 @@ script = ExtResource("1_ayc6u")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="Camera2D"]
+z_index = 100
+offset_left = 287.0
+offset_top = -171.0
+offset_right = 319.0
+offset_bottom = -162.0
+theme = ExtResource("2_xtnd7")
+theme_override_font_sizes/font_size = 7
+text = "Energy"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Energy" type="Label" parent="Camera2D"]
+modulate = Color(0.136826, 0.136826, 0.136826, 1)
+light_mask = 7
+visibility_layer = 7
+z_index = 100
+offset_left = 289.0
+offset_top = -164.0
+offset_right = 317.0
+offset_bottom = -147.0
+theme = ExtResource("2_xtnd7")
+theme_override_font_sizes/font_size = 12
+text = "-"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D"]
+z_index = 99
+offset_left = 279.0
+offset_top = -174.0
+offset_right = 327.0
+offset_bottom = -144.0
+theme = ExtResource("2_xtnd7")
+texture = SubResource("AtlasTexture_8na4g")
 
 [node name="Player" parent="." instance=ExtResource("1_ch7dy")]
 

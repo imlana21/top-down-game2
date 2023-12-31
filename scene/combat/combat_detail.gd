@@ -5,6 +5,7 @@ var enemy_detail: set = set_enemy_detail
 var is_attacking = false
 var last_position = null: set = set_last_position
 var last_enemy = null
+var player_energy = 1
 
 func set_player_detail(val):
 	player_detail = val

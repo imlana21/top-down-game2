@@ -37,7 +37,7 @@ func _input(event):
 		change_direction.emit(get_axis_input())
 
 func _on_enemy_detector_body_entered(body):
-	if CombatDetail.is_attacking == false:
+	if CombatDetail.is_attacking == false and CombatDetail.player_energy > 0:
 		CombatDetail.last_position = position
 		start_combat.emit(body)
 		CombatDetail.is_attacking = true

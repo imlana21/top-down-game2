@@ -292,9 +292,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pb0ky"]
-radius = 5.0
-height = 16.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwpk0"]
+size = Vector2(12, 15)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3t38j"]
 radius = 18.2483
@@ -312,8 +311,8 @@ frame_progress = 0.384131
 script = ExtResource("4_jkodp")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("CapsuleShape2D_pb0ky")
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_vwpk0")
 
 [node name="EnemyDetector" type="Area2D" parent="."]
 visible = false

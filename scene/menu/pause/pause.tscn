@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxlnecjp8nhas"]
+[gd_scene load_steps=6 format=3 uid="uid://dxlnecjp8nhas"]
 
 [ext_resource type="Texture2D" uid="uid://bwc0ccjenmbql" path="res://assets/UI/Sheet/Setting menu.png" id="1_d8b5j"]
 [ext_resource type="Script" path="res://scene/menu/pause/pause.gd" id="1_gvii7"]
 [ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="2_hr0kl"]
+[ext_resource type="PackedScene" uid="uid://b2n66cjkm161f" path="res://scene/combat/battle_speed_btn/battle_speed_btn.tscn" id="4_b3ty6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_todjq"]
 atlas = ExtResource("1_d8b5j")
@@ -162,6 +163,22 @@ text = "Luck ="
 layout_mode = 2
 theme = ExtResource("2_hr0kl")
 text = "0"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -79.0
+offset_top = 188.0
+offset_right = 64.0
+offset_bottom = 216.0
+theme = ExtResource("2_hr0kl")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Battle Speed"
+
+[node name="BattleSpeedBtn" parent="." instance=ExtResource("4_b3ty6")]
+offset_left = -35.0
+offset_top = 204.0
+offset_right = -35.0
+offset_bottom = 204.0
 
 [connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]

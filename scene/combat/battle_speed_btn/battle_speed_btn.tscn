@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2n66cjkm161f"]
+
+[ext_resource type="Script" path="res://scene/combat/battle_speed_btn/battle_speed_btn.gd" id="1_76bu3"]
+[ext_resource type="Theme" uid="uid://bnxyqifnolrd1" path="res://scene/combat/combat.tres" id="2_n2td0"]
+
+[node name="BattleSpeedBtn" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_76bu3")
+
+[node name="ButtonSpeedContainer" type="HBoxContainer" parent="."]
+offset_left = -64.0
+offset_top = 20.0
+offset_right = 121.0
+offset_bottom = 60.0
+theme = ExtResource("2_n2td0")
+alignment = 1
+
+[node name="Speed1" type="Button" parent="ButtonSpeedContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_n2td0")
+text = "1X"
+
+[node name="Speed1_5" type="Button" parent="ButtonSpeedContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "1.5X"
+
+[node name="Speed2" type="Button" parent="ButtonSpeedContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "2X"
+
+[connection signal="pressed" from="ButtonSpeedContainer/Speed1" to="." method="_on_speed_1_pressed"]
+[connection signal="pressed" from="ButtonSpeedContainer/Speed1_5" to="." method="_on_speed_1_5_pressed"]
+[connection signal="pressed" from="ButtonSpeedContainer/Speed2" to="." method="_on_speed_2_pressed"]

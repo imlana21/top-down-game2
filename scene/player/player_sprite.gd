@@ -38,7 +38,7 @@ func _on_animation_finished():
 
 func play_animation():
 	if CombatDetail.is_attacking:
-		play(sprite_action + "_" + "right", animation_speed)
+		play(sprite_action + "_" + "right", CombatDetail.battle_speed)
 	else:
 		play(sprite_action + "_" + sprite_direction, animation_speed)
 

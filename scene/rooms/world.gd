@@ -34,12 +34,11 @@ func _on_player_start_combat(enemy):
 	# Remove enemy from array
 	if enemy.is_boss:
 		CombatDetail.is_enemy_boss = enemy.is_boss
-		CombatDetail.enemy_detail = enemy.CHAR_DETAIL
 	else:
 		var enemy_index = Autoload.enemy_list.find(enemy.name)
-		print(Autoload.enemy_position)
 		Autoload.enemy_position.remove_at(enemy_index)
 	# Emit Combat
+	CombatDetail.enemy_detail = enemy.CHAR_DETAIL
 	start_combat.emit(self)
 
 func pause_config():

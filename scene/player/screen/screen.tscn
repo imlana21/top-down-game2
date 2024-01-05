@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://nmtmi2fu0gk6"]
+[gd_scene load_steps=7 format=3 uid="uid://nmtmi2fu0gk6"]
 
 [ext_resource type="Script" path="res://scene/player/screen/screen.gd" id="1_ayc6u"]
 [ext_resource type="PackedScene" uid="uid://clsatwim6pka7" path="res://scene/player/player.tscn" id="1_ch7dy"]
 [ext_resource type="Texture2D" uid="uid://bdlb2giyyg238" path="res://assets/UI/Sheet/buttons/Square Buttons 19x26.png" id="2_3ha78"]
 [ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="2_xtnd7"]
+[ext_resource type="PackedScene" uid="uid://ci073ospwb7tw" path="res://scene/player/exp_bar/exp_bar.tscn" id="5_kfqb5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8na4g"]
 atlas = ExtResource("2_3ha78")
@@ -52,6 +53,12 @@ offset_right = 327.0
 offset_bottom = -144.0
 theme = ExtResource("2_xtnd7")
 texture = SubResource("AtlasTexture_8na4g")
+
+[node name="ExpBar" parent="Camera2D" instance=ExtResource("5_kfqb5")]
+offset_left = -329.0
+offset_top = -169.0
+offset_right = -329.0
+offset_bottom = -169.0
 
 [node name="Player" parent="." instance=ExtResource("1_ch7dy")]
 

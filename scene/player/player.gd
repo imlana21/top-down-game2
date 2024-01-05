@@ -7,9 +7,10 @@ var CHAR_DETAIL = {
 	"curr_hp": 50,
 	"luk": 0.5,
 	"def": 1,
-	"str": 3
+	"str": 3,
+	"exp": 0,
+	"level": 1
 }
-
 signal change_direction
 signal change_velocity
 signal start_combat
@@ -17,7 +18,10 @@ signal change_attack
 
 func _init():
 	Autoload.player = self
-	CombatDetail.player_detail = CHAR_DETAIL
+	if CombatDetail.player_detail == {}:
+		CombatDetail.player_detail = CHAR_DETAIL
+	
+func _ready():
 	if CombatDetail.last_position != null and !CombatDetail.is_attacking:
 		position = CombatDetail.last_position
 		CombatDetail.last_position = null

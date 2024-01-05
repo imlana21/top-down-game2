@@ -4,10 +4,11 @@ var CHAR_DETAIL = {
 	"enemy_name": "slime",
 	"atk_speed": 0.3,
 	"max_hp": 15,
-	"curr_hp": 15,
+	"curr_hp": 3,
 	"luk": 0.5,
 	"def": 1,
-	"str": 1
+	"str": 1,
+	"exp": 0
 }
 
 @export var SPEED = 700
@@ -24,7 +25,7 @@ func _ready():
 	if is_boss:
 		set_to_boss()
 	else:
-		$Name.hide()
+		set_to_normal()
 	
 func _physics_process(delta):
 	if nav_agent.is_navigation_finished() or CombatDetail.is_attacking:
@@ -61,3 +62,8 @@ func set_to_boss():
 	CHAR_DETAIL["max_hp"] = CHAR_DETAIL["max_hp"] * 3
 	CHAR_DETAIL["curr_hp"] = CHAR_DETAIL["max_hp"]
 	CHAR_DETAIL["str"] = CHAR_DETAIL["str"] * 3
+	CHAR_DETAIL["exp"] = randi_range(3000, 5000)
+
+func set_to_normal():
+	$Name.hide()
+	CHAR_DETAIL["exp"] = randi_range(700, 1500)

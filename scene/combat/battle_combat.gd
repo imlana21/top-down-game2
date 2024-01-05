@@ -58,16 +58,17 @@ func generate_turn():
 			
 func lose_action(marker, character, message):
 	if CombatDetail.is_attacking == false: return
-	#await get_tree().create_timer(2).timeout
 	$Label.text = message
 	repeat_turn = false
 	CombatDetail.is_attacking = false
 	CombatDetail.player_energy -= 1
+	CombatDetail.player_detail["exp"] += CombatDetail.enemy_detail["exp"]
 	if CombatDetail.is_enemy_boss:
 		CombatDetail.player_energy += 3
-		CombatDetail.enemy_detail = {}
 		CombatDetail.is_enemy_boss = false
 		CombatDetail.is_boss_killed = true
+	# Clean enemy
+	CombatDetail.enemy_detail = {}
 	marker.remove_child(character)
 
 func battle_finished():

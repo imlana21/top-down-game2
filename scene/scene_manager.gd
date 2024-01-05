@@ -8,7 +8,6 @@ var player_point = null
 
 @onready var anim_trans = $ScreenTransition/AnimationTransition
 @onready var combat_scene = preload("res://scene/combat/battle_combat.tscn")
-@onready var loading_scene = preload("res://scene/menu/loading_screen/loading_screen.tscn")
 @onready var countdown_spawn = preload("res://scene/enemies/countdown_spawner.tscn")
 
 func _ready():
@@ -36,7 +35,7 @@ func skin_menu():
 	
 func _on_timeout_spawn_enemy():
 	var random_pos = Autoload.random_position()
-	print("Enemy muncul di ", random_pos)
+	print("Enemy spawn in position ", random_pos)
 	Autoload.enemy_position.append(random_pos)
 	Autoload.spawn_enemy(Autoload.world, random_pos)	
 	

@@ -37,6 +37,7 @@ func _on_player_start_combat(enemy):
 		CombatDetail.enemy_detail = enemy.CHAR_DETAIL
 	else:
 		var enemy_index = Autoload.enemy_list.find(enemy.name)
+		print(Autoload.enemy_position)
 		Autoload.enemy_position.remove_at(enemy_index)
 	# Emit Combat
 	start_combat.emit(self)

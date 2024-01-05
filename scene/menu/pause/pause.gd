@@ -13,7 +13,7 @@ func _process(_delta):
 	StrengthLabel.text = str(Autoload.player.CHAR_DETAIL["str"])
 	LuckLabel.text = str(Autoload.player.CHAR_DETAIL["luk"])
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_released("pause"):
 		$BattleSpeedBtn.set_pressed_btn()
 

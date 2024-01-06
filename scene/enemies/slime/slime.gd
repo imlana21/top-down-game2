@@ -4,7 +4,7 @@ var CHAR_DETAIL = {
 	"enemy_name": "slime",
 	"atk_speed": 0.3,
 	"max_hp": 15,
-	"curr_hp": 3,
+	"curr_hp": 15,
 	"luk": 0.5,
 	"def": 1,
 	"str": 1,
@@ -13,7 +13,7 @@ var CHAR_DETAIL = {
 
 @export var SPEED = 700
 @onready var nav_agent: NavigationAgent2D = $Node2D/SlimeNavigation
-@export var is_boss = false
+@export var type: String = ""
 
 var target_node = null
 
@@ -22,10 +22,14 @@ signal change_attack
 func _ready():
 	nav_agent.path_desired_distance = 4
 	nav_agent.target_desired_distance = 4
-	if is_boss:
-		set_to_boss()
-	else:
-		set_to_normal()
+	match type:
+		"bos":
+			set_to_boss()
+		"red":
+			set_to_red()
+			set_to_normal()
+		_:
+			set_to_normal()
 	
 func _physics_process(delta):
 	if nav_agent.is_navigation_finished() or CombatDetail.is_attacking:
@@ -67,3 +71,7 @@ func set_to_boss():
 func set_to_normal():
 	$Name.hide()
 	CHAR_DETAIL["exp"] = randi_range(700, 1500)
+
+func set_to_red():
+	$SlimeSprite.modulate = "ff0000"
+	

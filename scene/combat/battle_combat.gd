@@ -17,7 +17,7 @@ func _ready():
 	Autoload.pause_scale = Vector2(1, 1)
 	Autoload.pause_position = get_viewport_rect(). size / 2
 	# Setup Enemy is Boss
-	if CombatDetail.is_enemy_boss:
+	if CombatDetail.enemy_type == "bos":
 		enemy.CHAR_DETAIL = CombatDetail.enemy_detail
 	# SetUp Battle Combat
 	characters.append(player)
@@ -33,7 +33,7 @@ func _process(_delta):
 	enemy_bar.value = enemy.CHAR_DETAIL["curr_hp"]
 	
 func call_character(char_instance, node, bar):
-	if "enemy_name" in char_instance.CHAR_DETAIL and CombatDetail.is_enemy_boss:
+	if "enemy_name" in char_instance.CHAR_DETAIL and CombatDetail.enemy_type == "bos":
 		char_instance.scale = Vector2(18.0, 18.0)
 		$Character/EnemyMarker.position += Vector2(0, -80)
 	else:
@@ -63,10 +63,10 @@ func lose_action(marker, character, message):
 	CombatDetail.is_attacking = false
 	CombatDetail.player_energy -= 1
 	CombatDetail.player_detail["exp"] += CombatDetail.enemy_detail["exp"]
-	if CombatDetail.is_enemy_boss:
+	if CombatDetail.enemy_type == "bos":
 		CombatDetail.player_energy += 3
-		CombatDetail.is_enemy_boss = false
-		CombatDetail.is_boss_killed = true
+		CombatDetail.enemy_type = "normal"
+		CombatDetail.status_boss = "killed"
 	# Clean enemy
 	CombatDetail.enemy_detail = {}
 	marker.remove_child(character)

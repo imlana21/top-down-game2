@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://cwed40m1nrr6c"]
+
+[ext_resource type="Script" path="res://scene/enemies/currencies/gems/gem.gd" id="1_ayt6d"]
+[ext_resource type="Texture2D" uid="uid://7tlec5uo6fru" path="res://assets/Characters/spr_coin_roj.png" id="1_nwywb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqbg7"]
+atlas = ExtResource("1_nwywb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya4mx"]
+atlas = ExtResource("1_nwywb")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1271"]
+atlas = ExtResource("1_nwywb")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7t8r"]
+atlas = ExtResource("1_nwywb")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8o0l3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqbg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya4mx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1271")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7t8r")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_suog5"]
+radius = 4.0
+height = 10.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qjcxw"]
+radius = 7.0
+height = 20.0
+
+[node name="Gem" type="CharacterBody2D"]
+script = ExtResource("1_ayt6d")
+
+[node name="GemSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8o0l3")
+animation = &"idle"
+frame_progress = 0.646193
+
+[node name="GemCollisiona" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_suog5")
+
+[node name="GemAreaDetector" type="Area2D" parent="."]
+
+[node name="GemAreaCollision" type="CollisionShape2D" parent="GemAreaDetector"]
+shape = SubResource("CapsuleShape2D_qjcxw")
+
+[connection signal="body_entered" from="GemAreaDetector" to="." method="_on_gem_area_detector_player_entered"]

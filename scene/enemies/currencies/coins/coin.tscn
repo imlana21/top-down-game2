@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://byd0m4cf6d3fv"]
+
+[ext_resource type="Texture2D" uid="uid://b41dlnmuu6hmi" path="res://assets/Characters/MonedaD.png" id="1_43tgi"]
+[ext_resource type="Script" path="res://scene/enemies/currencies/coins/coin.gd" id="1_jkbax"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8esst"]
+atlas = ExtResource("1_43tgi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hx4p"]
+atlas = ExtResource("1_43tgi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx13w"]
+atlas = ExtResource("1_43tgi")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi2fr"]
+atlas = ExtResource("1_43tgi")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxnxw"]
+atlas = ExtResource("1_43tgi")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0elho"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8esst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hx4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qx13w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi2fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxnxw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2myw7"]
+radius = 6.08276
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hptps"]
+
+[node name="Coin" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_jkbax")
+
+[node name="CoinSprites" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0elho")
+animation = &"idle"
+frame_progress = 0.512782
+
+[node name="CoinCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2myw7")
+
+[node name="CoinAreaDetector" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CoinAreaCollision" type="CollisionShape2D" parent="CoinAreaDetector"]
+shape = SubResource("CircleShape2D_hptps")
+
+[connection signal="body_entered" from="CoinAreaDetector" to="." method="_on_coin_area_detector_player_entered"]

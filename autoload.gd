@@ -15,6 +15,13 @@ var enemy_position: Array = [
 	Vector2(256, 512)
 ]
 var enemy_list: Array
+var red_enemy_position: Array = [
+	Vector2(128, 384), 
+	Vector2(704, 320), 
+	Vector2(832, 448)
+]
+var red_enemy_list: Array = []
+var red_coin_position: Array = []
 var enter_world_position: Dictionary = {
 	"WorldToLivingRoom": Vector2(0,0),
 	"LivingRoomToWorld": Vector2(55, -45),
@@ -60,11 +67,14 @@ func random_position():
 	return Vector2(spawn_x, spawn_y)
 
 # Generate Enemy
-func spawn_enemy(rooms, pos, is_boss = false):
+func spawn_enemy(rooms, pos, type = ""):
 	var enemy_instance = load("res://scene/enemies/slime/slime.tscn").instantiate()
 	enemy_instance.position = pos
 	enemy_instance.name = enemy_instance.name + str(pos.x) + "_" + str(pos.y)
-	enemy_instance.is_boss = is_boss
-	#set random enemy color
-	enemy_list.append(enemy_instance.name)
+	enemy_instance.type = type
+	if type == "normal":
+		enemy_list.append(enemy_instance.name)
+	if type == "red":
+		enemy_instance.modulate = "ff0000"
+		red_enemy_list.append(enemy_instance.name)
 	rooms.add_child(enemy_instance)

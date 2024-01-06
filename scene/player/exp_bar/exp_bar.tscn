@@ -8,48 +8,35 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_u82hg")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 10.0
-offset_right = 26.0
-offset_bottom = 27.0
-theme = ExtResource("1_t30ia")
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
-text = "Exp"
-
 [node name="ProgressLevel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 91.0
-offset_right = 113.0
-offset_bottom = 17.0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 23.0
+offset_bottom = 19.0
 theme = ExtResource("1_t30ia")
-theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 10
 text = "1"
-horizontal_alignment = 1
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-modulate = Color(1, 0, 0, 1)
 layout_mode = 0
-offset_left = 28.0
-offset_top = 17.0
-offset_right = 185.0
-offset_bottom = 22.0
+offset_left = 24.0
+offset_top = 9.0
+offset_right = 181.0
+offset_bottom = 14.0
 step = 1.0
 rounded = true
 show_percentage = false
 
 [node name="ProgressNumber" type="Label" parent="."]
 layout_mode = 0
-offset_left = 189.0
-offset_top = 11.0
-offset_right = 251.0
-offset_bottom = 28.0
+offset_left = 185.0
+offset_top = 3.0
+offset_right = 247.0
+offset_bottom = 20.0
 theme = ExtResource("1_t30ia")
-theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/font_size = 10
 text = "0"
 vertical_alignment = 1

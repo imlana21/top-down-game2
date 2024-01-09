@@ -15,24 +15,6 @@ func _ready():
 	$PauseLayer/Pause.hide()
 	$ChangeSkinLayer/SkinMenu.hide()
 	
-func _process(_delta):
-	pause_menu()
-	skin_menu()
-	
-func pause_menu():
-	if Input.is_action_just_pressed("pause"):
-		$PauseLayer/Pause.z_index = 10
-		$PauseLayer/Pause.scale = Autoload.pause_scale
-		$PauseLayer/Pause.position = Autoload.pause_position
-		Autoload.pause_game($PauseLayer/Pause)
-
-func skin_menu():
-	if Input.is_action_just_pressed("change_skin"):
-		$ChangeSkinLayer/SkinMenu.z_index = 10
-		$ChangeSkinLayer/SkinMenu.scale = Autoload.pause_scale
-		$ChangeSkinLayer/SkinMenu.position = Autoload.pause_position
-		Autoload.pause_game($ChangeSkinLayer/SkinMenu)
-	
 func _on_timeout_spawn_enemy():
 	var random_pos = Autoload.random_position()
 	print("Enemy spawn in position ", random_pos)
@@ -67,6 +49,11 @@ func _on_animation_transition_finished(anim_name):
 		"fade_out":
 			start_fade_out()
 
+func _on_loader_start_combat():
+	$CurrentScene.add_child(next_scene)
+	current_scene = next_scene
+	next_scene = null
+	
 func start_fade_in():
 	current_scene.queue_free()
 	anim_trans.play("fade_out")
@@ -76,9 +63,6 @@ func start_fade_out():
 	if player_point != null:
 		Autoload.player.position = Autoload.enter_world_position[player_point]
 	player_point = null
-	
-func _on_loader_start_combat():
-	$CurrentScene.add_child(next_scene)
-	current_scene = next_scene
-	next_scene = null
-	
+
+
+

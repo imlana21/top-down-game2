@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dlly28p2rubvu"]
+[gd_scene load_steps=16 format=3 uid="uid://dlly28p2rubvu"]
 
 [ext_resource type="Script" path="res://scene/rooms/home/living_room.gd" id="1_giiyw"]
 [ext_resource type="Texture2D" uid="uid://cr7ihq3dm4whx" path="res://assets/Sprout Lands color pallet/Sprout Lands defautlt palette snip.PNG" id="1_lpncu"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bav3g3p0dindl" path="res://assets/Tilesets/TilesetInterior.png" id="3_ejd7d"]
 [ext_resource type="Texture2D" uid="uid://jgixfnu4f6mk" path="res://assets/Tilesets/TilesetWallSimple.png" id="4_y2cua"]
 [ext_resource type="PackedScene" uid="uid://nmtmi2fu0gk6" path="res://scene/player/screen/screen.tscn" id="5_v3dsk"]
+[ext_resource type="PackedScene" uid="uid://crgtsjf5lnuat" path="res://scene/npc/redpig/red_pig.tscn" id="7_3uhqj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xab88"]
 texture = ExtResource("1_lpncu")
@@ -2330,6 +2331,12 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToOutDoorArea"]
 position = Vector2(456, 454.5)
 shape = SubResource("RectangleShape2D_wkfhm")
+
+[node name="RedPig" parent="." instance=ExtResource("7_3uhqj")]
+position = Vector2(446, 335)
+scale = Vector2(0.5, 0.5)
+collision_layer = 9
+collision_mask = 2
 
 [connection signal="body_entered" from="ToKitchenDoorArea" to="." method="_on_to_kitchen_door_area_body_entered"]
 [connection signal="body_entered" from="ToOutDoorArea" to="." method="_on_to_out_door_area_body_entered"]

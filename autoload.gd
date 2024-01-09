@@ -34,13 +34,6 @@ func toggle_pause():
 	is_paused = !is_paused
 	get_tree().paused = is_paused
 
-func pause_game(body):
-	toggle_pause()
-	if is_paused:
-		body.show()
-	else:
-		body.hide()
-
 # Convet mouse position to deg
 func deg_mouse_position(body):
 	var mouse_position = body.get_global_mouse_position()

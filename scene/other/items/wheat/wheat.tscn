@@ -2,10 +2,23 @@
 
 [ext_resource type="Texture2D" uid="uid://c16nvpy5dxo4s" path="res://assets/Objects/wheat.png" id="1_ltsb3"]
 [ext_resource type="Script" path="res://scene/other/items/wheat/wheat.gd" id="1_pgpyp"]
-[ext_resource type="Script" path="res://scene/other/items/wheat/InventoryItemsJSON.gd" id="3_hg4y0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cgyll"]
 radius = 8.0
+
+[sub_resource type="GDScript" id="GDScript_bknkt"]
+script/source = "extends Area2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d2qbq"]
 radius = 8.0
@@ -26,7 +39,7 @@ shape = SubResource("CapsuleShape2D_cgyll")
 [node name="WheatAreaDetector" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("3_hg4y0")
+script = SubResource("GDScript_bknkt")
 
 [node name="WheatAreaDetectorCollision" type="CollisionShape2D" parent="WheatAreaDetector"]
 rotation = 0.785398

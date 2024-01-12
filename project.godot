@@ -22,6 +22,7 @@ CombatDetail="*res://scene/combat/combat_detail.gd"
 
 [debug]
 
+gdscript/warnings/unused_parameter=0
 gdscript/warnings/integer_division=0
 
 [display]

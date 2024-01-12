@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cwed40m1nrr6c"]
 
-[ext_resource type="Script" path="res://scene/enemies/currencies/gems/gem.gd" id="1_ayt6d"]
+[ext_resource type="Script" path="res://scene/other/currencies/gems/gem.gd" id="1_ayt6d"]
 [ext_resource type="Texture2D" uid="uid://7tlec5uo6fru" path="res://assets/Characters/spr_coin_roj.png" id="1_nwywb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yqbg7"]

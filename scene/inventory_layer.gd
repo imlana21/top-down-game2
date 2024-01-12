@@ -2,7 +2,7 @@ extends CanvasLayer
 
 var is_content_show: bool = false
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("inventory"):
 		$Inventory.visible = !$Inventory.visible 
 		$Inventory.z_index = 10

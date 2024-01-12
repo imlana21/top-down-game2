@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://colufcx6xfu8i"]
+
+[ext_resource type="Texture2D" uid="uid://c16nvpy5dxo4s" path="res://assets/Objects/wheat.png" id="1_ltsb3"]
+[ext_resource type="Script" path="res://scene/other/items/wheat/wheat.gd" id="1_pgpyp"]
+[ext_resource type="Script" path="res://scene/other/items/wheat/InventoryItemsJSON.gd" id="3_hg4y0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cgyll"]
+radius = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d2qbq"]
+radius = 8.0
+
+[node name="Wheat" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_pgpyp")
+
+[node name="WheatSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ltsb3")
+
+[node name="WheatCollision" type="CollisionShape2D" parent="."]
+rotation = 0.785398
+scale = Vector2(0.4, 0.6)
+shape = SubResource("CapsuleShape2D_cgyll")
+
+[node name="WheatAreaDetector" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("3_hg4y0")
+
+[node name="WheatAreaDetectorCollision" type="CollisionShape2D" parent="WheatAreaDetector"]
+rotation = 0.785398
+scale = Vector2(0.6, 0.6)
+shape = SubResource("CapsuleShape2D_d2qbq")
+
+[connection signal="body_entered" from="WheatAreaDetector" to="." method="_on_wheat_area_detector_player_entered"]

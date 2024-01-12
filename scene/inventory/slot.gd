@@ -9,17 +9,11 @@ signal slot_input_event
 func _ready():
 	# modify signal gui_input from godot
 	connect("gui_input", _on_gui_input)
-	# fill inventori with random item
-	if randi() % 3 == 0:
-		item = Item.instantiate()
-		item.scale = Vector2(1.4, 1.4)
-		item.position = Vector2(5, 0)
-		add_child(item)
 	refresh_style()
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		slot_input_event.emit(event, self)
+		slot_input_event.emit(self)
 
 func refresh_style():
 	if item == null:
@@ -31,7 +25,6 @@ func pick_from_slot():
 	# remove child from slot panel
 	remove_child(item)
 	# move item to parent and make item floating
-	#item.z_index = 99
 	find_parent("Inventory").add_child(item)
 	# reset item variabel
 	item = null
@@ -47,5 +40,16 @@ func put_into_slot(new_item):
 	find_parent("Inventory").remove_child(item)
 	# move item to slot panel
 	self.add_child(item)
+	refresh_style()
+
+func init_item_into_slot(data):
+	if item == null:
+		item = Item.instantiate()
+		item.scale = Vector2(1.4, 1.4)
+		item.position = Vector2(5, 0)
+		add_child(item)
+		item.set_item(data)
+	else:
+		item.set_item(data)
 	refresh_style()
 	

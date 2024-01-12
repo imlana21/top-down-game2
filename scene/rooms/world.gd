@@ -26,10 +26,14 @@ func _on_player_start_combat(enemy):
 		"normal":
 			var enemy_index = Autoload.enemy_list.find(enemy.name)
 			CombatDetail.coin_position.append(Autoload.enemy_position[enemy_index])
+			if CombatDetail.spawn_chance():
+				CombatDetail.tomato_position.append(Autoload.enemy_position[enemy_index] - Vector2(11, 0))
 			Autoload.enemy_position.remove_at(enemy_index)
 		"red":
 			var enemy_index = Autoload.red_enemy_list.find(enemy.name)
 			Autoload.red_coin_position.append(Autoload.red_enemy_position[enemy_index])
+			#if CombatDetail.spawn_chance():
+			CombatDetail.wheat_position.append(Autoload.red_enemy_position[enemy_index] - Vector2(11, 0))
 			Autoload.red_enemy_position.remove_at(enemy_index)
 	# Emit Combat
 	CombatDetail.enemy_detail = enemy.CHAR_DETAIL
@@ -50,9 +54,12 @@ func call_normal_enemy():
 		var countdown_instance = load("res://scene/enemies/countdown_spawner.tscn").instantiate()
 		countdown_instance.connect("spawn_enemy", Autoload.scene_manager._on_timeout_spawn_enemy)
 		Autoload.scene_manager.add_child(countdown_instance)
-		
-	for i in CombatDetail.coin_position:
-		CombatDetail.spawn_coin(self, i, "normal")
+	
+	for pos in CombatDetail.coin_position:
+		CombatDetail.spawn_coin(self, pos, "normal")
+
+	for pos in CombatDetail.tomato_position:
+		CombatDetail.spawn_tomato(self, pos, "normal")
 
 func call_boss_enemy():
 	var bos_position = Vector2(768, -64)
@@ -60,6 +67,8 @@ func call_boss_enemy():
 		Autoload.spawn_enemy(self, bos_position, "bos")
 	elif CombatDetail.status_boss == "killed":
 		CombatDetail.spawn_coin(self, bos_position, "bos")
+		#CombatDetail.spawn_tomato(self, bos_position, "bos")
+		#CombatDetail.spawn_wheat(self, bos_position, "bos")
 
 func call_red_enemy():
 	Autoload.red_enemy_list = []
@@ -68,4 +77,5 @@ func call_red_enemy():
 	
 	for pos in Autoload.red_coin_position:
 		CombatDetail.spawn_coin(self, pos, "red")
-
+	for pos in CombatDetail.wheat_position:
+		CombatDetail.spawn_wheat(self, pos, "red")

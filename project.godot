@@ -32,8 +32,13 @@ window/size/viewport_height=720
 [file_customization]
 
 folder_colors={
+"res://assets/": "red",
 "res://scene/combat/": "teal",
+"res://scene/enemies/": "blue",
+"res://scene/inventory/": "purple",
 "res://scene/menu/": "yellow",
+"res://scene/npc/": "orange",
+"res://scene/other/": "gray",
 "res://scene/player/": "green",
 "res://scene/rooms/": "pink"
 }

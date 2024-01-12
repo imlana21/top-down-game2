@@ -12,6 +12,9 @@ var exp_max: int = 1000
 var coin: int = 0
 var gem: int = 0
 var coin_position: Array = []
+var wheat_position: Array = []
+var tomato_position: Array = []
+var chance: bool = false
 
 func set_player_detail(val):
 	player_detail = val
@@ -35,10 +38,34 @@ func level():
 		set_exp_max()
 		
 func spawn_coin(world, pos, status):
-	var coin_intance = load("res://scene/enemies/currencies/coins/coin.tscn").instantiate()
+	var coin_instance = load("res://scene/other/currencies/coins/coin.tscn").instantiate()
 	if status != "bos":
-		coin_intance.scale = Vector2(0.5, 0.5)
-	coin_intance.position = pos
-	coin_intance.enemy_status = status
-	world.add_child(coin_intance)
-	
+		coin_instance.scale = Vector2(0.5, 0.5)
+	coin_instance.position = pos
+	coin_instance.enemy_status = status
+	world.add_child(coin_instance)
+
+func spawn_tomato(world, pos, status):
+	var tomato_instance = load("res://scene/other/items/tomato/tomato.tscn").instantiate()
+	if status != "bos":
+		tomato_instance.scale = Vector2(0.5, 0.5)
+	tomato_instance.position = pos
+	tomato_instance.enemy_status = status
+	world.add_child(tomato_instance)
+
+func spawn_wheat(world, pos, status):
+	var wheat_instance = load("res://scene/other/items/wheat/wheat.tscn").instantiate()
+	if status != "bos":
+		wheat_instance.scale = Vector2(0.5, 0.5)
+	wheat_instance.position = pos
+	wheat_instance.enemy_status = status
+	world.add_child(wheat_instance)
+
+func spawn_chance():
+	randomize()
+	var random = randf_range(0, 1)
+	print(random)
+	if random >= 0.5:
+		return true
+	return false
+

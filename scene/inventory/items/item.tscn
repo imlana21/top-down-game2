@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqapx6lhnn64b"]
+[gd_scene load_steps=4 format=3 uid="uid://bqapx6lhnn64b"]
 
 [ext_resource type="Script" path="res://scene/inventory/items/item.gd" id="1_2isr8"]
+[ext_resource type="Texture2D" uid="uid://mxt7gnq3y47a" path="res://assets/Objects/tomato.png" id="2_072fg"]
+[ext_resource type="FontFile" uid="uid://b2faembn2nemy" path="res://assets/UI/Font/NormalFont.ttf" id="3_alihg"]
 
 [node name="Item" type="Node2D"]
 script = ExtResource("1_2isr8")
@@ -9,3 +11,16 @@ script = ExtResource("1_2isr8")
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
+texture = ExtResource("2_072fg")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 28.0
+offset_top = 25.0
+offset_right = 44.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_alihg")
+theme_override_font_sizes/font_size = 11
+text = "1"
+horizontal_alignment = 1
+justification_flags = 162

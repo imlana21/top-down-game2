@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("change_skin"):
 		$SkinMenu.visible = !$SkinMenu.visible 
 		$SkinMenu.z_index = 10

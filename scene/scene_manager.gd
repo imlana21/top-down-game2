@@ -65,4 +65,3 @@ func start_fade_out():
 	player_point = null
 
 
-

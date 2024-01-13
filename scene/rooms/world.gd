@@ -16,7 +16,7 @@ func _process(_delta):
 
 # if touch door, change scee
 func _on_door_area_body_entered(_body):
-	var next_path = 'res://scene/rooms/home/living_room.tscn'
+	var next_path = 'res://scene/rooms/home/living_room/living_room.tscn'
 	var current_scene = self
 	change_scene.emit(next_path, current_scene, "WorldToLivingRoom")
 	Autoload.world = null
@@ -26,8 +26,8 @@ func _on_player_start_combat(enemy):
 		"normal":
 			var enemy_index = Autoload.enemy_list.find(enemy.name)
 			CombatDetail.coin_position.append(Autoload.enemy_position[enemy_index])
-			if CombatDetail.spawn_chance():
-				CombatDetail.tomato_position.append(Autoload.enemy_position[enemy_index] - Vector2(11, 0))
+			#if CombatDetail.spawn_chance():
+			CombatDetail.tomato_position.append(Autoload.enemy_position[enemy_index] - Vector2(11, 0))
 			Autoload.enemy_position.remove_at(enemy_index)
 		"red":
 			var enemy_index = Autoload.red_enemy_list.find(enemy.name)

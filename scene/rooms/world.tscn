@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://dwki8cn7xuhuy"]
+[gd_scene load_steps=65 format=3 uid="uid://dwki8cn7xuhuy"]
 
 [ext_resource type="Script" path="res://scene/rooms/world.gd" id="1_g8ju8"]
 [ext_resource type="Texture2D" uid="uid://be8lp8jw2bnxj" path="res://assets/Tilesets/Hills.png" id="2_qqjr5"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://jw7o31p08boe" path="res://assets/Objects/Free_Chicken_House.png" id="9_6oglp"]
 [ext_resource type="Texture2D" uid="uid://dhu6tdggmqa4l" path="res://assets/Objects/TilesetHouse.png" id="10_nvyyn"]
 [ext_resource type="PackedScene" uid="uid://nmtmi2fu0gk6" path="res://scene/player/screen/screen.tscn" id="12_x1sqv"]
+[ext_resource type="PackedScene" uid="uid://colufcx6xfu8i" path="res://scene/other/items/wheat/wheat.tscn" id="12_x26ra"]
+[ext_resource type="PackedScene" uid="uid://bnb2j8htna5hw" path="res://scene/other/items/tomato/tomato.tscn" id="13_s2gey"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_tvqbc"]
 tile_data = PackedInt32Array(0, 131072, 1, 65536, 131072, 1, 131072, 131072, 1, 196608, 131072, 1, 1, 131072, 1, 65537, 131072, 1, 131073, 131072, 1, 196609, 131072, 1, 2, 131072, 1, 65538, 131072, 1, 131074, 131072, 1, 196610, 131072, 1, 3, 131072, 1, 65539, 131072, 1, 131075, 131072, 1, 196611, 131072, 1, 4, 131072, 1, 65540, 131072, 1, 131076, 131072, 1, 196612, 131072, 1, 5, 131072, 1, 65541, 131072, 1, 131077, 131072, 1, 196613, 131072, 1, 6, 131072, 1, 65542, 131072, 1, 131078, 131072, 1, 196614, 131072, 1, 7, 131072, 1, 65543, 131072, 1, 131079, 131072, 1, 196615, 131072, 1)
@@ -2802,11 +2804,66 @@ layer_2/tile_data = PackedInt32Array(2031614, 65538, 0, 2359294, 65538, 2, 22937
 position = Vector2(208, 151)
 
 [node name="DoorArea" type="Area2D" parent="."]
-collision_mask = 3
+position = Vector2(-1, -1)
+collision_mask = 2
 
 [node name="DoorCollision" type="CollisionShape2D" parent="DoorArea"]
 position = Vector2(264, 87)
 shape = SubResource("RectangleShape2D_qlerh")
+
+[node name="Wheat" parent="." instance=ExtResource("12_x26ra")]
+position = Vector2(128, 95)
+
+[node name="Wheat2" parent="." instance=ExtResource("12_x26ra")]
+position = Vector2(56, 159)
+
+[node name="Wheat3" parent="." instance=ExtResource("12_x26ra")]
+position = Vector2(200, 79)
+
+[node name="Wheat4" parent="." instance=ExtResource("12_x26ra")]
+position = Vector2(112, 199)
+
+[node name="Wheat5" parent="." instance=ExtResource("12_x26ra")]
+position = Vector2(176, 151)
+
+[node name="Wheat6" parent="." instance=ExtResource("12_x26ra")]
+position = Vector2(320, 119)
+
+[node name="Wheat7" parent="." instance=ExtResource("12_x26ra")]
+position = Vector2(248, 183)
+
+[node name="Wheat8" parent="." instance=ExtResource("12_x26ra")]
+position = Vector2(304, 175)
+
+[node name="Wheat9" parent="." instance=ExtResource("12_x26ra")]
+position = Vector2(304, 223)
+
+[node name="Wheat10" parent="." instance=ExtResource("12_x26ra")]
+position = Vector2(368, 175)
+
+[node name="Tomato" parent="." instance=ExtResource("13_s2gey")]
+position = Vector2(112, 143)
+
+[node name="Tomato2" parent="." instance=ExtResource("13_s2gey")]
+position = Vector2(264, 135)
+
+[node name="Tomato3" parent="." instance=ExtResource("13_s2gey")]
+position = Vector2(224, 111)
+
+[node name="Tomato4" parent="." instance=ExtResource("13_s2gey")]
+position = Vector2(168, 103)
+
+[node name="Tomato5" parent="." instance=ExtResource("13_s2gey")]
+position = Vector2(152, 183)
+
+[node name="Tomato6" parent="." instance=ExtResource("13_s2gey")]
+position = Vector2(280, 199)
+
+[node name="Tomato7" parent="." instance=ExtResource("13_s2gey")]
+position = Vector2(152, 135)
+
+[node name="Tomato8" parent="." instance=ExtResource("13_s2gey")]
+position = Vector2(200, 191)
 
 [connection signal="start_combat" from="Screen" to="." method="_on_player_start_combat"]
 [connection signal="body_entered" from="DoorArea" to="." method="_on_door_area_body_entered"]

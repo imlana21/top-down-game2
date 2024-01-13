@@ -443,7 +443,3 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
 script = ExtResource("5_j0al3")
-
-[node name="Items" type="Node2D" parent="."]
-position = Vector2(-274, -319)
-rotation = -0.532476

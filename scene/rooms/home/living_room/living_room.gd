@@ -15,7 +15,7 @@ func _on_change_scene():
 
 func _on_to_kitchen_door_area_body_entered(body):
 	if body.is_in_group("player"):
-		next_path = 'res://scene/rooms/home/kitchen.tscn'
+		next_path = 'res://scene/rooms/home/kitchen/kitchen.tscn'
 		player_position = "LivingRoomToKitchen"
 		_on_change_scene()
 

@@ -34,8 +34,8 @@ func _on_player_start_combat(enemy):
 			Autoload.red_coin_position.append(Autoload.red_enemy_position[enemy_index])
 			if CombatDetail.spawn_chance(0.5):
 				CombatDetail.wheat_position.append(Autoload.red_enemy_position[enemy_index] - Vector2(11, 0))
-			#if CombatDetail.spawn_chance(0.3):
-			CombatDetail.silver_key_position.append(Autoload.red_enemy_position[enemy_index] - Vector2(0, 10))
+			if CombatDetail.spawn_chance(0.3):
+				CombatDetail.silver_key_position.append(Autoload.red_enemy_position[enemy_index] - Vector2(0, 10))
 			Autoload.red_enemy_position.remove_at(enemy_index)
 	# Emit Combat
 	CombatDetail.enemy_detail = enemy.CHAR_DETAIL

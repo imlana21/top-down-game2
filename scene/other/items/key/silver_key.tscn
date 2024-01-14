@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://bnb2j8htna5hw"]
+
+[ext_resource type="Script" path="res://scene/other/items/key/silver_key.gd" id="1_7simv"]
+[ext_resource type="Texture2D" uid="uid://b4htbmr4l4xd5" path="res://assets/Characters/key-white.png" id="2_y0d0p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqqq4"]
+atlas = ExtResource("2_y0d0p")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppg5a"]
+atlas = ExtResource("2_y0d0p")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbksd"]
+atlas = ExtResource("2_y0d0p")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up4c4"]
+atlas = ExtResource("2_y0d0p")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8p6y"]
+atlas = ExtResource("2_y0d0p")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_727u1"]
+atlas = ExtResource("2_y0d0p")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8otp"]
+atlas = ExtResource("2_y0d0p")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bpoc7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqqq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppg5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbksd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_up4c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8p6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_727u1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8otp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1mnmi"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_trtu7"]
+
+[node name="SilverKey" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_7simv")
+
+[node name="SilverKeySprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bpoc7")
+animation = &"idle"
+frame_progress = 0.0123171
+
+[node name="SilverKeyCollision" type="CollisionShape2D" parent="."]
+scale = Vector2(0.7, 0.7)
+shape = SubResource("CircleShape2D_1mnmi")
+
+[node name="SilverKeyAreaDetect" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="SilverKeyAreaDetectCollision" type="CollisionShape2D" parent="SilverKeyAreaDetect"]
+shape = SubResource("CircleShape2D_trtu7")
+
+[connection signal="body_entered" from="SilverKeyAreaDetect" to="." method="_on_tomato_area_detector_player_entered"]

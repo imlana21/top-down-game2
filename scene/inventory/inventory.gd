@@ -15,9 +15,15 @@ func get_inventoy_data():
 	var inv_class = InventoryItems.new()
 	var data = inv_class.load_data("player") 
 	var index = 0
-	
-	for item in data:
-		var slot = slot_container.get_children()[index]
+
+	for slot in slot_container.get_children():
+		var item = {
+			"name": "",
+			"qty": 0,
+			"id": ""
+		}
+		if index < data.size():
+			item = data[index]
 		if int(item.qty) > 0:
 			slot.init_item_into_slot(item)
 			index += 1

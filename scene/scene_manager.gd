@@ -15,6 +15,7 @@ func _ready():
 	$PauseLayer/Pause.hide()
 	$ChangeSkinLayer/SkinMenu.hide()
 	Autoload.world.connect("change_scene", _on_change_scene)
+	Autoload.world.connect("start_combat", _on_player_start_combat)
 	
 func _on_timeout_spawn_enemy():
 	var random_pos = Autoload.random_position()
@@ -31,6 +32,7 @@ func _on_change_scene(next_path, current, player_pos):
 	anim_trans.play("fade_in")
 
 func _on_player_start_combat(current_world):	
+	print("StartCombat")
 	current_scene = current_world
 	next_scene = combat_scene.instantiate()
 	next_scene.connect("change_combat", _on_player_finish_combat)

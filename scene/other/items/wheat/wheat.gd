@@ -12,4 +12,9 @@ func _on_wheat_area_detector_player_entered(_body):
 
 func pick_wheat():
 	var item_class = InventoryItems.new()
-	item_class.inc_qty('wheat', 1)
+	item_class.inc_qty({
+		"inventory":"player",
+		"name":"wheat",
+		"qty":"1",
+		"stack_size":"12"
+	})

@@ -11,3 +11,9 @@ House TileSet from https://pixel-boy.itch.io/ninja-adventure-asset-pack
 Coin and Game from https://laredgames.itch.io/gems-coins-free
 
 RedPig (Greg) from https://pixelfrog-assets.itch.io/pixel-adventure-2
+
+Gold Key from https://frakassets.itch.io/free-rotating-key
+
+Silver Key from https://drxwat.itch.io/pixel-art-key
+
+Apple, Wheat from https://cupnooble.itch.io/sprout-lands-ui-pack1	

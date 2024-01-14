@@ -26,14 +26,16 @@ func _on_player_start_combat(enemy):
 		"normal":
 			var enemy_index = Autoload.enemy_list.find(enemy.name)
 			CombatDetail.coin_position.append(Autoload.enemy_position[enemy_index])
-			#if CombatDetail.spawn_chance():
-			CombatDetail.tomato_position.append(Autoload.enemy_position[enemy_index] - Vector2(11, 0))
+			if CombatDetail.spawn_chance(0.5):
+				CombatDetail.tomato_position.append(Autoload.enemy_position[enemy_index] - Vector2(11, 0))
 			Autoload.enemy_position.remove_at(enemy_index)
 		"red":
 			var enemy_index = Autoload.red_enemy_list.find(enemy.name)
 			Autoload.red_coin_position.append(Autoload.red_enemy_position[enemy_index])
-			#if CombatDetail.spawn_chance():
-			CombatDetail.wheat_position.append(Autoload.red_enemy_position[enemy_index] - Vector2(11, 0))
+			if CombatDetail.spawn_chance(0.5):
+				CombatDetail.wheat_position.append(Autoload.red_enemy_position[enemy_index] - Vector2(11, 0))
+			#if CombatDetail.spawn_chance(0.3):
+			CombatDetail.silver_key_position.append(Autoload.red_enemy_position[enemy_index] - Vector2(0, 10))
 			Autoload.red_enemy_position.remove_at(enemy_index)
 	# Emit Combat
 	CombatDetail.enemy_detail = enemy.CHAR_DETAIL
@@ -79,3 +81,5 @@ func call_red_enemy():
 		CombatDetail.spawn_coin(self, pos, "red")
 	for pos in CombatDetail.wheat_position:
 		CombatDetail.spawn_wheat(self, pos, "red")
+	for pos in CombatDetail.silver_key_position:
+		CombatDetail.spawn_silver_key(self, pos, "red")

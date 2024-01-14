@@ -14,6 +14,7 @@ var gem: int = 0
 var coin_position: Array = []
 var wheat_position: Array = []
 var tomato_position: Array = []
+var silver_key_position: Array = []
 var chance: bool = false
 
 func set_player_detail(val):
@@ -61,11 +62,19 @@ func spawn_wheat(world, pos, status):
 	wheat_instance.enemy_status = status
 	world.add_child(wheat_instance)
 
-func spawn_chance():
+func spawn_silver_key(world, pos, status):
+	var key_instance = load("res://scene/other/items/key/silver_key.tscn").instantiate()
+	if status != "bos":
+		key_instance.scale = Vector2(0.5, 0.5)
+	key_instance.position = pos
+	key_instance.enemy_status = status
+	world.add_child(key_instance)
+
+func spawn_chance(percent: float):
 	randomize()
 	var random = randf_range(0, 1)
 	print(random)
-	if random >= 0.5:
+	if random >= percent:
 		return true
 	return false
 

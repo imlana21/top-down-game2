@@ -18,6 +18,6 @@ func pick_key():
 	item_class.inc_qty({
 		"inventory":"player",
 		"name":"silver_key",
-		"qty":"1",
-		"stack_size":"1"
+		"qty":1,
+		"stack_size":1
 	})

@@ -1,7 +1,8 @@
 extends Node
 
 var player_skin = "normal"
-var is_paused: bool = false
+#var is_paused: bool = false
+var paused_on: String = ""
 var player: CharacterBody2D
 var world: Node2D
 var scene_manager: Node2D
@@ -30,9 +31,13 @@ var enter_world_position: Dictionary = {
 }
 var chest_store: CharacterBody2D
 # Toggle Pause Game
-func toggle_pause():
-	is_paused = !is_paused
-	get_tree().paused = is_paused
+func toggle_pause(layer):
+	if paused_on == "":
+		paused_on = layer
+		get_tree().paused = true
+	else: 
+		paused_on = ""
+		get_tree().paused = false
 
 # Convet mouse position to deg
 func deg_mouse_position(body):

@@ -16,8 +16,8 @@ func _on_red_skin_pressed():
 	
 func select_skin(skin):
 	Autoload.player_skin = skin
-	Autoload.toggle_pause()
-	if !Autoload.is_paused:
+	if Autoload.paused_on == "change_skin":
+		Autoload.toggle_pause("change_skin")
 		$".".hide()
 
 func check_active_skin():

@@ -42,7 +42,7 @@ func put_into_slot(new_item):
 	self.add_child(item)
 	refresh_style()
 
-func init_item_into_slot(data):
+func init_item_into_slot(data):		
 	if item == null:
 		item = Item.instantiate()
 		item.scale = Vector2(1.4, 1.4)

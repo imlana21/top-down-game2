@@ -1,5 +1,5 @@
-class_name InventoryItems
 extends Node
+class_name InventoryItems
 
 var file_path: String = "res://data/json/player_inventory.json"
 
@@ -31,14 +31,15 @@ func inc_qty(item):
 		for i in range(0, data.size()):
 			if data[i].name == item.name and data[i].inventory == item.inventory:
 				if int(data[i].qty) + int(item.qty) <= int(data[i].stack_size):
-					data[i].qty = int(data[i].qty) + int(item.qty)
+					data[i].qty = str(int(data[i].qty) + int(item.qty))
 					state_inc = false
 					break
 			elif !state_inc:
 				state_inc = true
+				
 	if state_inc:
 		var temp = item.duplicate()
-		temp.id = data.size() + 1
+		temp.id = str(data.size() + 1)
 		data.append(temp)
 		
 	save_items(data)
@@ -48,7 +49,6 @@ func load_data(inv):
 	for d in load_all_data():
 		if d.inventory == inv:
 			temp_data.append(d)
-	print(temp_data)
 	return temp_data
 	
 func change_inventory(item, inv_name):

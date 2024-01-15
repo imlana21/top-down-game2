@@ -73,7 +73,6 @@ func spawn_silver_key(world, pos, status):
 func spawn_chance(percent: float):
 	randomize()
 	var random = randf_range(0, 1)
-	print(random)
 	if random >= percent:
 		return true
 	return false

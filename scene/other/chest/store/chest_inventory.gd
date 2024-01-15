@@ -23,6 +23,6 @@ func get_chest_data():
 		}
 		if index < data.size():
 			item = data[index]
-		if int(item.qty) > 0:
-			slot.init_item_into_slot(item)
-			index += 1
+			
+		slot.init_item_into_slot(item)
+		index += 1

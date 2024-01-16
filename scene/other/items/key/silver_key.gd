@@ -2,6 +2,12 @@ extends CharacterBody2D
 
 var value: int = 0
 var enemy_status: String = ""
+const item_detail: Dictionary = {
+	"inventory":"player",
+	"name":"silver_key",
+	"qty":1,
+	"stack_size":1
+}
 
 func _ready():
 	$SilverKeySprite.play("idle")
@@ -15,9 +21,4 @@ func _on_tomato_area_detector_player_entered(_body):
 	
 func pick_key():
 	var item_class = InventoryItems.new()
-	item_class.inc_qty({
-		"inventory":"player",
-		"name":"silver_key",
-		"qty":1,
-		"stack_size":1
-	})
+	item_class.inc_qty(item_detail)

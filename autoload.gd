@@ -30,6 +30,8 @@ var enter_world_position: Dictionary = {
 	"KitchenToLivingRoom": Vector2(160, -78)	
 }
 var chest_store: CharacterBody2D
+var player_inventory: Node2D
+
 # Toggle Pause Game
 func toggle_pause(layer):
 	if paused_on == "":

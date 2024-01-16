@@ -2323,7 +2323,7 @@ position = Vector2(632, 360)
 shape = SubResource("RectangleShape2D_x8kh7")
 
 [node name="Screen" parent="." instance=ExtResource("5_v3dsk")]
-position = Vector2(456, 436)
+position = Vector2(456, 439)
 
 [node name="ToOutDoorArea" type="Area2D" parent="."]
 collision_mask = 3

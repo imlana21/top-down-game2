@@ -21,4 +21,5 @@ func _input(_event):
 			Autoload.toggle_pause("store")
 		
 func _on_player_near_store_chest(val):
+	print("DEkat chest")
 	is_store_chest = val

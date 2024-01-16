@@ -2,6 +2,7 @@ class_name InventoryItems
 extends Node
 
 var file_path: String = "res://data/json/player_inventory.json"
+var all_data: Array
 
 func load_all_data():
 	if !FileAccess.file_exists(file_path):
@@ -11,6 +12,13 @@ func load_all_data():
 	data = JSON.parse_string(data)
 	return data
 	
+func load_data(inv):
+	var temp_data = []
+	for d in load_all_data():
+		if d.inventory == inv:
+			temp_data.append(d)
+	return temp_data
+
 func save_items(data):
 	var json_string = JSON.stringify(data)
 	var file = FileAccess.open(file_path, FileAccess.WRITE)
@@ -22,7 +30,7 @@ func search_by_name(item_name):
 		if data.name == item_name:
 			return data
 
-func inc_qty(item):
+func inc_qty(item, slot_id):
 	var data = load_all_data()
 	var state_inc = false
 	if data.size() < 1:
@@ -39,21 +47,21 @@ func inc_qty(item):
 	if state_inc:
 		var temp = item.duplicate()
 		temp.id = data.size() + 1
+		temp.slot_id = slot_id
 		data.append(temp)
 		
 	save_items(data)
-	
-func load_data(inv):
-	var temp_data = []
-	for d in load_all_data():
-		if d.inventory == inv:
-			temp_data.append(d)
-	print(temp_data)
-	return temp_data
 	
 func change_inventory(item, inv_name):
 	var data = load_all_data()
 	for i in range(data.size()):
 		if data[i].name == item.item_name and data[i].id == item.item_id:
 			data[i].inventory = inv_name
+	save_items(data)
+
+func update_slot_position(item, slot_id):
+	var data = load_all_data()
+	for i in range(data.size()):
+		if data[i].id == item.item_id:
+			data[i].slot_id = slot_id
 	save_items(data)

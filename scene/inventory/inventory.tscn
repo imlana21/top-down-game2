@@ -35,28 +35,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -309.0
-offset_top = -241.0
-offset_right = 309.0
-offset_bottom = 228.0
+offset_left = -204.0
+offset_top = -154.0
+offset_right = 204.0
+offset_bottom = 154.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_5v44r")
-
-[node name="ColorRect" type="ColorRect" parent="Background"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -285.0
-offset_top = -174.0
-offset_right = 285.0
-offset_bottom = 206.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.909804, 0.811765, 0.65098, 1)
 
 [node name="Label" type="Label" parent="Background"]
 layout_mode = 1
@@ -66,9 +51,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -78.0
-offset_top = -222.5
+offset_top = -139.0
 offset_right = 78.0
-offset_bottom = -192.5
+offset_bottom = -109.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_gjl7f")
@@ -87,11 +72,26 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -106.0
-offset_top = -190.0
+offset_top = -102.0
 offset_right = 106.0
-offset_bottom = -188.0
+offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -187.5
+offset_top = -84.0
+offset_right = 187.5
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.909804, 0.811765, 0.65098, 1)
 
 [node name="InventoryContainer" type="GridContainer" parent="."]
 anchors_preset = 8
@@ -99,19 +99,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -276.0
-offset_top = -166.0
-offset_right = 276.0
-offset_bottom = 198.0
+offset_left = -181.0
+offset_top = -76.5
+offset_right = 181.0
+offset_bottom = 134.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 5
-columns = 8
+columns = 5
 
 [node name="Slot1" type="Panel" parent="InventoryContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
 script = ExtResource("5_j0al3")
 
@@ -213,233 +215,18 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
 script = ExtResource("5_j0al3")
 
-[node name="Slot16" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot17" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot18" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot19" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot20" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot21" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot22" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot23" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot24" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot25" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot26" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot27" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot28" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot29" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot30" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot31" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot32" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot33" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot34" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot35" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot36" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot37" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot38" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot39" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot40" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot41" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot42" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot43" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot44" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot45" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot46" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot47" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
-
-[node name="Slot48" type="Panel" parent="InventoryContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
-script = ExtResource("5_j0al3")
+[connection signal="slot_input_event" from="InventoryContainer/Slot1" to="." method="_slot_input_event"]
+[connection signal="slot_input_event" from="InventoryContainer/Slot2" to="." method="_slot_input_event"]
+[connection signal="slot_input_event" from="InventoryContainer/Slot3" to="." method="_slot_input_event"]
+[connection signal="slot_input_event" from="InventoryContainer/Slot4" to="." method="_slot_input_event"]
+[connection signal="slot_input_event" from="InventoryContainer/Slot5" to="." method="_slot_input_event"]
+[connection signal="slot_input_event" from="InventoryContainer/Slot6" to="." method="_slot_input_event"]
+[connection signal="slot_input_event" from="InventoryContainer/Slot7" to="." method="_slot_input_event"]
+[connection signal="slot_input_event" from="InventoryContainer/Slot8" to="." method="_slot_input_event"]
+[connection signal="slot_input_event" from="InventoryContainer/Slot9" to="." method="_slot_input_event"]
+[connection signal="slot_input_event" from="InventoryContainer/Slot10" to="." method="_slot_input_event"]
+[connection signal="slot_input_event" from="InventoryContainer/Slot11" to="." method="_slot_input_event"]
+[connection signal="slot_input_event" from="InventoryContainer/Slot12" to="." method="_slot_input_event"]
+[connection signal="slot_input_event" from="InventoryContainer/Slot13" to="." method="_slot_input_event"]
+[connection signal="slot_input_event" from="InventoryContainer/Slot14" to="." method="_slot_input_event"]
+[connection signal="slot_input_event" from="InventoryContainer/Slot15" to="." method="_slot_input_event"]

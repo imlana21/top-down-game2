@@ -3,6 +3,7 @@ extends Panel
 @onready var Item = preload("res://scene/inventory/items/item.tscn")
 var slot_id: int = 0
 var item = null
+var inventory
 
 signal slot_input_event
 
@@ -10,6 +11,7 @@ func _ready():
 	# modify signal gui_input from godot
 	connect("gui_input", _on_gui_input)
 	refresh_style() 
+	inventory = InventoryItems.new()
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -35,7 +37,7 @@ func put_into_slot(new_item):
 	item.scale = Vector2(1.4, 1.4)
 	item.position = Vector2(5, 5)
 	find_parent("Inventory").remove_child(item)
-	update_slot_position(new_item, slot_id)
+	inventory.update_slot_position(new_item, slot_id)
 	# move item to slot panel
 	self.add_child(item)
 	refresh_style()
@@ -50,7 +52,3 @@ func init_item_into_slot(data):
 	else:
 		item.set_item(data)
 	refresh_style()
-
-func update_slot_position(new_item, new_slot_id):
-	var inventory = InventoryItems.new()
-	inventory.update_slot_position(new_item, new_slot_id)

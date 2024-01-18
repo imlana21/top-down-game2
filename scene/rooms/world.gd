@@ -21,6 +21,12 @@ func _on_door_area_body_entered(_body):
 	change_scene.emit(next_path, current_scene, "WorldToLivingRoom")
 	Autoload.world = null
 
+func _on_cave_enter_area_body_entered(_body):
+	var next_path = 'res://scene/rooms/cave/cave.tscn'
+	var current_scene = self
+	change_scene.emit(next_path, current_scene, "WorldToCave")
+	Autoload.world = null
+
 func _on_player_start_combat(enemy):
 	match enemy.type:
 		"normal":

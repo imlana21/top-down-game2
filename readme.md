@@ -17,3 +17,7 @@ Gold Key from https://frakassets.itch.io/free-rotating-key
 Silver Key from https://drxwat.itch.io/pixel-art-key
 
 Apple, Wheat from https://cupnooble.itch.io/sprout-lands-ui-pack1	
+
+Cave from https://dschunus.itch.io/cave-tileset
+
+Dungeon from https://kenney-assets.itch.io/tiny-dungeon

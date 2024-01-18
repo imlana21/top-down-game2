@@ -25,9 +25,11 @@ var red_enemy_list: Array = []
 var red_coin_position: Array = []
 var enter_world_position: Dictionary = {
 	"WorldToLivingRoom": Vector2(0,0),
+	"WorldToCave": Vector2(0,0),
 	"LivingRoomToWorld": Vector2(55, -45),
 	"LivingRoomToKitchen": Vector2(0,0),
-	"KitchenToLivingRoom": Vector2(160, -78)	
+	"KitchenToLivingRoom": Vector2(160, -78),
+	"CaveToWorld": Vector2(680, -68)
 }
 var chest_store: CharacterBody2D
 var player_inventory: Node2D

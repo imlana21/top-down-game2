@@ -14,10 +14,7 @@ func _on_gui_input(event):
 		slot_input_event.emit(self)
 
 func refresh_style():
-	if item == null:
-		self.modulate = "3d3b45"
-	else:
-		self.modulate = "fff"
+	self.modulate = "fff"
 
 func init_item_into_slot(data):	
 	if data != null:
@@ -30,6 +27,8 @@ func init_item_into_slot(data):
 		else:
 			item.set_item(data)
 	else:
+		if item != null:
+			remove_child(item)
 		item = null
 	refresh_style()
 

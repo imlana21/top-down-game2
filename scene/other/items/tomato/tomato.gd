@@ -17,7 +17,7 @@ func _on_tomato_area_detector_player_entered(_body):
 		CombatDetail.tomato_position.remove_at(tomato_index)
 	
 func pick_apple():
-	var empty_slot = Autoload.player_inventory.get_empty_slot('player')
+	var empty_slot = Autoload.player_inventory.get_empty_slot("player")
 	var item_class = InventoryItems.new()
 	
 	item_class.inc_qty(item_detail, empty_slot)

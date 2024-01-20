@@ -17,7 +17,8 @@ func _on_wheat_area_detector_player_entered(_body) -> void:
 		CombatDetail.wheat_position.remove_at(wheat_index)
 
 func pick_wheat() -> void:
-	var empty_slot = Autoload.player_inventory.get_empty_slot('player')
+	#var inventory_container = Autoload.player_inventory.slot_container
+	var empty_slot = Autoload.player_inventory.get_empty_slot("player")
 	var item_class = InventoryItems.new()
 	
 	item_class.inc_qty(item_detail, empty_slot)

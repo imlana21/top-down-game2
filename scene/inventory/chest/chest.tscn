@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b38aies6xtnau"]
 
 [ext_resource type="Texture2D" uid="uid://b6q8xa4ujpn7k" path="res://assets/Objects/Destructible Objects Sprite Sheet.png" id="1_lb3vn"]
-[ext_resource type="Script" path="res://scene/other/chest/chest.gd" id="1_wkml0"]
+[ext_resource type="Script" path="res://scene/inventory/chest/chest.gd" id="1_wkml0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yqo4r"]
 atlas = ExtResource("1_lb3vn")

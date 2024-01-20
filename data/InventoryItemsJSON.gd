@@ -33,6 +33,7 @@ func search_by_name(item_name):
 func inc_qty(item, slot_id):
 	var data = load_all_data()
 	var state_inc = false
+	print(item)
 	if data.size() < 1:
 		state_inc = true
 	else:
@@ -51,17 +52,43 @@ func inc_qty(item, slot_id):
 		data.append(temp)
 		
 	save_items(data)
+
+func stack_item(new_item, old_item, new_qty):
+	var data = load_all_data()
+	# Update qty
+	for i in range(0, data.size()):
+		if data[i].id == new_item.data.id and data[i].name == new_item.data.name:
+			data[i].qty = new_qty
+			break
+	# Remove old item
+	for i in range(0, data.size()):
+		if data[i].id == old_item.data.id and data[i].name == old_item.data.name:
+			data.remove_at(i)
+			break
+	# Update id
+	for i in range(0, data.size()):
+		data[i].id = i
+		
+	save_items(data)
+
+func remove_item(item):
+	var data = load_all_data()
+	for i in range(0, data.size()):	
+		if data[i].id == item.data.id and data[i].name == item.data.name:
+			data.remove_at(i)
+			break
+	save_items(data)
 	
 func change_inventory(item, inv_name):
 	var data = load_all_data()
 	for i in range(data.size()):
-		if data[i].name == item.item_name and data[i].id == item.item_id:
+		if data[i].name == item.data.name and data[i].id == item.data.id:
 			data[i].inventory = inv_name
 	save_items(data)
 
 func update_slot_position(item, slot_id):
 	var data = load_all_data()
 	for i in range(data.size()):
-		if data[i].id == item.item_id:
+		if data[i].id == item.data.id:
 			data[i].slot_id = slot_id
 	save_items(data)

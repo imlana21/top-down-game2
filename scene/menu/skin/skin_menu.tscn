@@ -1,10 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://cde2e3b5sdpqo"]
 
-[ext_resource type="Script" path="res://scene/menu/skin_menu/skin_menu.gd" id="1_mc5b6"]
+[ext_resource type="Script" path="res://scene/menu/skin/skin_menu.gd" id="1_mc5b6"]
 [ext_resource type="Texture2D" uid="uid://jtoc0ua8ft8r" path="res://assets/Characters/Basic Charakter Spritesheet.png" id="1_t0p2q"]
 [ext_resource type="Texture2D" uid="uid://bwc0ccjenmbql" path="res://assets/UI/Sheet/Setting menu.png" id="2_2uqmm"]
 [ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="2_b5qxk"]
-[ext_resource type="Texture2D" uid="uid://uedo0r56n2n3" path="res://scene/menu/skin_menu/skin_btn.tres" id="2_ymmo3"]
+[ext_resource type="Texture2D" uid="uid://uedo0r56n2n3" path="res://scene/menu/skin/skin_btn.tres" id="2_ymmo3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0phti"]
 atlas = ExtResource("1_t0p2q")

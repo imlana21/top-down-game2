@@ -11,8 +11,8 @@ const item_detail: Dictionary = {
 
 func _ready():
 	$SilverKeySprite.play("idle")
-
-func _on_tomato_area_detector_player_entered(_body):
+	
+func _on_silver_key_area_body_entered(body):
 	var index = CombatDetail.silver_key_position.find(position)
 	pick_key()
 	queue_free()
@@ -20,5 +20,7 @@ func _on_tomato_area_detector_player_entered(_body):
 		CombatDetail.silver_key_position.remove_at(index)
 	
 func pick_key():
+	var empty_slot = Autoload.player_inventory.get_empty_slot("player")
 	var item_class = InventoryItems.new()
-	item_class.inc_qty(item_detail)
+	
+	item_class.inc_qty(item_detail, empty_slot)

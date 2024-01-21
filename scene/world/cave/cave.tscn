@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://co3g51v2dbxhx"]
+[gd_scene load_steps=11 format=3 uid="uid://co3g51v2dbxhx"]
 
-[ext_resource type="Script" path="res://scene/rooms/cave/cave.gd" id="1_in2o7"]
+[ext_resource type="Script" path="res://scene/world/cave/cave.gd" id="1_in2o7"]
 [ext_resource type="Texture2D" uid="uid://bav3g3p0dindl" path="res://assets/Tilesets/TilesetInterior.png" id="1_kk2ro"]
 [ext_resource type="Texture2D" uid="uid://ojvmlk36q4c0" path="res://assets/Tilesets/Dungeon_by_kenney-.png" id="2_f5y0w"]
 [ext_resource type="PackedScene" uid="uid://nmtmi2fu0gk6" path="res://scene/player/screen/screen.tscn" id="3_6quf6"]
+[ext_resource type="PackedScene" uid="uid://cho6dkt3vm80h" path="res://scene/other/object/ore/ore.tscn" id="5_8kqgi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1qnq3"]
 texture = ExtResource("1_kk2ro")
@@ -1274,5 +1275,32 @@ collision_mask = 2
 [node name="OutsideCaveCollision" type="CollisionShape2D" parent="OutsideCave"]
 position = Vector2(5.68744, -18.9424)
 shape = SubResource("RectangleShape2D_bjxqp")
+
+[node name="Ore" parent="." instance=ExtResource("5_8kqgi")]
+position = Vector2(673, 610)
+
+[node name="Ore2" parent="." instance=ExtResource("5_8kqgi")]
+position = Vector2(375, 263)
+
+[node name="Ore3" parent="." instance=ExtResource("5_8kqgi")]
+position = Vector2(473, 263)
+
+[node name="Ore4" parent="." instance=ExtResource("5_8kqgi")]
+position = Vector2(431, 275)
+
+[node name="Ore5" parent="." instance=ExtResource("5_8kqgi")]
+position = Vector2(463, 293)
+
+[node name="Ore6" parent="." instance=ExtResource("5_8kqgi")]
+position = Vector2(467, 328)
+
+[node name="Ore7" parent="." instance=ExtResource("5_8kqgi")]
+position = Vector2(433, 310)
+
+[node name="Ore8" parent="." instance=ExtResource("5_8kqgi")]
+position = Vector2(397, 291)
+
+[node name="Ore9" parent="." instance=ExtResource("5_8kqgi")]
+position = Vector2(395, 263)
 
 [connection signal="body_entered" from="OutsideCave" to="." method="_on_outside_cave_body_entered"]

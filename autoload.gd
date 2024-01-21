@@ -33,6 +33,11 @@ var enter_world_position: Dictionary = {
 }
 var chest_store: CharacterBody2D
 var player_inventory: Node2D
+var ore_default_position: Array = [
+	Vector2(128, 384), 
+	Vector2(704, 320), 
+	Vector2(832, 448)
+]
 
 # Toggle Pause Game
 func toggle_pause(layer):

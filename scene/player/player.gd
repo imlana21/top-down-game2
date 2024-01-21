@@ -14,7 +14,7 @@ var CHAR_DETAIL = {
 signal change_direction
 signal change_velocity
 signal start_combat
-signal change_attack
+signal player_hit
 
 func _init():
 	Autoload.player = self
@@ -33,7 +33,7 @@ func _process(_delta):
 		$PlayerSprite.modulate = "ffffff"
 	
 func _physics_process(delta):
-	if CombatDetail.is_attacking == false:
+	if !CombatDetail.is_attacking:
 		walk(delta)
 
 func _input(event):
@@ -68,6 +68,3 @@ func walk(delta):
 
 func take_damage(strength):
 	CHAR_DETAIL["curr_hp"] = CHAR_DETAIL["curr_hp"] - strength 
-
-func attacking():
-	change_attack.emit()

@@ -144,7 +144,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack_down",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -306,12 +306,12 @@ script = ExtResource("1_ipdf2")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dnjfl")
-animation = &"idle_down"
-frame_progress = 0.384131
+animation = &"attack_down"
+frame = 1
+frame_progress = 1.0
 script = ExtResource("4_jkodp")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_vwpk0")
 
 [node name="EnemyDetector" type="Area2D" parent="."]
@@ -322,7 +322,6 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
 shape = SubResource("CircleShape2D_3t38j")
 
-[connection signal="change_attack" from="." to="PlayerSprite" method="_on_player_change_attack"]
 [connection signal="change_direction" from="." to="PlayerSprite" method="_on_player_change_direction"]
 [connection signal="change_velocity" from="." to="PlayerSprite" method="_on_player_change_velocity"]
 [connection signal="animation_finished" from="PlayerSprite" to="PlayerSprite" method="_on_animation_finished"]

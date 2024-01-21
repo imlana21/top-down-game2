@@ -1,0 +1,97 @@
+[gd_scene load_steps=14 format=3 uid="uid://cho6dkt3vm80h"]
+
+[ext_resource type="Texture2D" uid="uid://uso3t3cdeosg" path="res://assets/Objects/Basic Grass Biom things 1.png" id="1_csb1h"]
+[ext_resource type="Script" path="res://scene/other/object/ore/ore.gd" id="1_ysju5"]
+[ext_resource type="Texture2D" uid="uid://dd3q8xbdc5nw4" path="res://assets/Other/smoke.png" id="2_onkiw"]
+[ext_resource type="Texture2D" uid="uid://ulklvcpniqoa" path="res://assets/Characters/slime.png" id="3_120us"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3lig"]
+atlas = ExtResource("1_csb1h")
+region = Rect2(128, 18, 16, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hafvl"]
+radius = 6.32456
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htdi1"]
+atlas = ExtResource("3_120us")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8biy"]
+atlas = ExtResource("2_onkiw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2pu5"]
+atlas = ExtResource("2_onkiw")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1buh5"]
+atlas = ExtResource("2_onkiw")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtctc"]
+atlas = ExtResource("2_onkiw")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m65i7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htdi1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8biy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2pu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1buh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtctc")
+}],
+"loop": false,
+"name": &"destroy",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7met2"]
+radius = 8.0
+
+[node name="Ore" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_ysju5")
+
+[node name="RockAnimation" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_p3lig")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hafvl")
+
+[node name="DestroyAnimation" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_m65i7")
+animation = &"destroy"
+frame_progress = 0.562612
+
+[node name="OreArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="OreAreaCollision" type="CollisionShape2D" parent="OreArea"]
+shape = SubResource("CircleShape2D_7met2")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(0.556863, 0.937255, 0.592157, 1)
+self_modulate = Color(0.556863, 0.937255, 0.592157, 1)
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -9.0
+show_percentage = false
+
+[connection signal="animation_finished" from="DestroyAnimation" to="." method="_on_destroy_animation_finished"]
+[connection signal="body_entered" from="OreArea" to="." method="_on_ore_area_body_entered"]
+[connection signal="body_exited" from="OreArea" to="." method="_on_ore_area_body_exited"]

@@ -2,10 +2,10 @@ extends AnimatedSprite2D
 
 var sprite_direction = "down": set = set_sprite_direction
 var sprite_action = "idle": set = set_sprite_action
-var animation_speed = 10
+var animation_speed = 1.0
+var hit_object = false
 
-signal player_move 
-signal player_idle
+signal player_hit
 
 func _ready():
 	if CombatDetail.is_attacking:
@@ -14,6 +14,8 @@ func _ready():
 func _physics_process(_delta):
 	if Input.is_action_pressed("run"):
 		animation_speed = 2.0
+	elif Input.is_action_just_pressed("attack") and !CombatDetail.is_attacking:
+		hit_object = true
 	else:
 		animation_speed = 1.0
 		
@@ -23,24 +25,17 @@ func _on_player_change_direction(vector):
 	sprite_direction = Autoload.angle_to_text(vector_to_angle)
 
 func _on_player_change_velocity(velocity_length):
-	if velocity_length > 0:
-		sprite_action = "walk"
-		player_move.emit()
+	if hit_object:
+		sprite_action = "attack"
 	else:
-		sprite_action = "idle"
-		player_idle.emit()
-
-func _on_player_change_attack():
-	sprite_action = "attack"
+		if velocity_length > 0:
+			sprite_action = "walk"
+		else:
+			sprite_action = "idle"
 	
 func _on_animation_finished():
+	hit_object = false
 	sprite_action = "idle"
-
-func play_animation():
-	if CombatDetail.is_attacking:
-		play(sprite_action + "_" + "right", CombatDetail.battle_speed)
-	else:
-		play(sprite_action + "_" + sprite_direction, animation_speed)
 
 func set_sprite_direction(val):
 	sprite_direction = val
@@ -49,3 +44,9 @@ func set_sprite_direction(val):
 func set_sprite_action(val):
 	sprite_action = val
 	play_animation()
+
+func play_animation():
+	if CombatDetail.is_attacking:
+		play(sprite_action + "_" + "right", CombatDetail.battle_speed)
+	else:
+		play(sprite_action + "_" + sprite_direction, animation_speed)

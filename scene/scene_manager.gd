@@ -14,8 +14,8 @@ func _ready():
 	Autoload.scene_manager = self
 	$PauseLayer/Pause.hide()
 	$ChangeSkinLayer/SkinMenu.hide()
-	Autoload.world.connect("change_scene", _on_change_scene)
-	Autoload.world.connect("start_combat", _on_player_start_combat)
+	#Autoload.world.connect("change_scene", _on_change_scene)
+	#Autoload.world.connect("start_combat", _on_player_start_combat)
 	
 func _on_timeout_spawn_enemy():
 	var random_pos = Autoload.random_position()

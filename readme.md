@@ -1,6 +1,6 @@
-# Top Down Game
-me
-Neko Character, TileSet from https://cupnooble.itch.io/sprout-lands-asset-pack
+# Asset and resource
+
+Neko Character, TileSet, Ore/Rock from https://cupnooble.itch.io/sprout-lands-asset-pack
 
 Slime Enemy from https://game-endeavor.itch.io/mystic-woods
 

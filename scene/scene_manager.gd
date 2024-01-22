@@ -22,6 +22,11 @@ func _on_timeout_spawn_enemy():
 	print("Enemy spawn in position ", random_pos)
 	Autoload.enemy_position.append(random_pos)
 	Autoload.spawn_enemy(Autoload.world, random_pos)	
+
+func _on_timeout_spawn_ore():
+	var random_pos = Autoload.random_position()
+	print("Enemy spawn in position ", random_pos)
+	
 	
 func _on_change_scene(next_path, current, player_pos):
 	next_scene = load(next_path).instantiate()

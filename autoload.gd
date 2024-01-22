@@ -85,3 +85,15 @@ func spawn_enemy(rooms, pos, type = ""):
 		enemy_instance.modulate = "ff0000"
 		red_enemy_list.append(enemy_instance.name)
 	rooms.add_child(enemy_instance)
+	
+func spawn_ore(rooms, pos, type = ""):
+	var enemy_instance = load("res://scene/enemies/slime/slime.tscn").instantiate()
+	enemy_instance.position = pos
+	enemy_instance.name = enemy_instance.name + str(pos.x) + "_" + str(pos.y)
+	enemy_instance.type = type
+	if type == "normal":
+		enemy_list.append(enemy_instance.name)
+	if type == "red":
+		enemy_instance.modulate = "ff0000"
+		red_enemy_list.append(enemy_instance.name)
+	rooms.add_child(enemy_instance)

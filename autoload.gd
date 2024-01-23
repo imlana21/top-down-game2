@@ -33,10 +33,17 @@ var enter_world_position: Dictionary = {
 }
 var chest_store: CharacterBody2D
 var player_inventory: Node2D
-var ore_default_position: Array = [
-	Vector2(128, 384), 
-	Vector2(704, 320), 
-	Vector2(832, 448)
+var tree_position = []
+var ore_position = [
+	Vector2(375, 263),
+	Vector2(473, 263),
+	Vector2(431, 275),
+	Vector2(463, 293),
+	Vector2(467, 328),
+	Vector2(433, 310),
+	Vector2(397, 291),
+	Vector2(395, 263),
+	Vector2(672, 608)
 ]
 
 # Toggle Pause Game
@@ -86,14 +93,15 @@ func spawn_enemy(rooms, pos, type = ""):
 		red_enemy_list.append(enemy_instance.name)
 	rooms.add_child(enemy_instance)
 	
-func spawn_ore(rooms, pos, type = ""):
-	var enemy_instance = load("res://scene/enemies/slime/slime.tscn").instantiate()
-	enemy_instance.position = pos
-	enemy_instance.name = enemy_instance.name + str(pos.x) + "_" + str(pos.y)
-	enemy_instance.type = type
-	if type == "normal":
-		enemy_list.append(enemy_instance.name)
-	if type == "red":
-		enemy_instance.modulate = "ff0000"
-		red_enemy_list.append(enemy_instance.name)
-	rooms.add_child(enemy_instance)
+func spawn_tree(rooms, pos):
+	var object_instance = load("res://scene/other/object/tree/tree.tscn").instantiate()
+	object_instance.position = pos
+	object_instance.name = object_instance.name + str(pos.x) + "_" + str(pos.y)
+	rooms.add_child(object_instance)
+	
+func spawn_ore(rooms, pos):
+	var object_instance = load("res://scene/other/object/ore/ore.tscn").instantiate()
+	object_instance.position = pos
+	object_instance.name = object_instance.name + str(pos.x) + "_" + str(pos.y)
+	rooms.add_child(object_instance)
+

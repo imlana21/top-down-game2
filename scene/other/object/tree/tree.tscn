@@ -1,0 +1,110 @@
+[gd_scene load_steps=15 format=3 uid="uid://bbfhsgo3aecjt"]
+
+[ext_resource type="Script" path="res://scene/other/object/tree/tree.gd" id="1_ho0bd"]
+[ext_resource type="Texture2D" uid="uid://celbmar4p7x" path="res://assets/Objects/tree.png" id="1_m7buc"]
+[ext_resource type="Texture2D" uid="uid://ulklvcpniqoa" path="res://assets/Characters/slime.png" id="3_qthgg"]
+[ext_resource type="Texture2D" uid="uid://dd3q8xbdc5nw4" path="res://assets/Other/smoke.png" id="4_b2510"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iyabp"]
+height = 28.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67blv"]
+atlas = ExtResource("1_m7buc")
+region = Rect2(0, 0, 30, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5m431"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67blv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2id82"]
+radius = 17.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htdi1"]
+atlas = ExtResource("3_qthgg")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8biy"]
+atlas = ExtResource("4_b2510")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2pu5"]
+atlas = ExtResource("4_b2510")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1buh5"]
+atlas = ExtResource("4_b2510")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtctc"]
+atlas = ExtResource("4_b2510")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ibh0i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htdi1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8biy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2pu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1buh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtctc")
+}],
+"loop": false,
+"name": &"destroy",
+"speed": 5.0
+}]
+
+[node name="Tree" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_ho0bd")
+
+[node name="TreeCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_iyabp")
+
+[node name="TreeSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5m431")
+
+[node name="TreeArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="TreeAreaShape" type="CollisionShape2D" parent="TreeArea"]
+shape = SubResource("CircleShape2D_2id82")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(0.556863, 0.937255, 0.592157, 1)
+self_modulate = Color(0.556863, 0.937255, 0.592157, 1)
+offset_left = -15.0
+offset_top = -23.0
+offset_right = 15.0
+offset_bottom = -19.0
+max_value = 8.0
+step = 1.0
+value = 8.0
+rounded = true
+show_percentage = false
+
+[node name="DestroyAnimation" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_ibh0i")
+animation = &"destroy"
+
+[connection signal="body_entered" from="TreeArea" to="." method="_on_tree_area_body_entered"]
+[connection signal="body_exited" from="TreeArea" to="." method="_on_tree_area_body_exited"]
+[connection signal="animation_finished" from="DestroyAnimation" to="." method="_on_destroy_animation_finished"]

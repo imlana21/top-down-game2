@@ -14,19 +14,30 @@ func _ready():
 	Autoload.scene_manager = self
 	$PauseLayer/Pause.hide()
 	$ChangeSkinLayer/SkinMenu.hide()
-	#Autoload.world.connect("change_scene", _on_change_scene)
-	#Autoload.world.connect("start_combat", _on_player_start_combat)
+	Autoload.world.connect("change_scene", _on_change_scene)
+	Autoload.world.connect("start_combat", _on_player_start_combat)
 	
-func _on_timeout_spawn_enemy():
+func _on_timeout_spawn_enemy(pos):
 	var random_pos = Autoload.random_position()
 	print("Enemy spawn in position ", random_pos)
 	Autoload.enemy_position.append(random_pos)
 	Autoload.spawn_enemy(Autoload.world, random_pos)	
 
-func _on_timeout_spawn_ore():
-	var random_pos = Autoload.random_position()
-	print("Enemy spawn in position ", random_pos)
+func _on_timeout_spawn_ore(pos):
+	var world_cave = WorldCave.new()
+	world_cave = world_cave.get_random_cave_position()
+	if Autoload.world.name == 'Cave':
+		print("Ore spawn in position ", world_cave)
+		Autoload.spawn_ore(Autoload.world, world_cave)
+	else:
+		Autoload.ore_position.append(world_cave)
 	
+func _on_timeout_spawn_tree(pos):
+	if Autoload.world.name == 'World':
+		print("Tree spawn in position ", pos)
+		Autoload.spawn_tree(Autoload.world, pos)
+	else:
+		Autoload.tree_position.append(pos)
 	
 func _on_change_scene(next_path, current, player_pos):
 	next_scene = load(next_path).instantiate()

@@ -73,7 +73,7 @@ func lose_action(marker, character, message):
 
 func battle_finished():
 	#Move to world
-	var next_path = 'res://scene/rooms/world.tscn'
+	var next_path = 'res://scene/world/world.tscn'
 	var current_scene = self
 	change_combat.emit(next_path, current_scene)
 	

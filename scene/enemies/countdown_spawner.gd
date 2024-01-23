@@ -2,6 +2,7 @@ extends Timer
 
 @export var MAX_TIME = 10
 var status_world = false
+var spawn_position = Vector2.ZERO
 
 signal spawn_enemy
 
@@ -19,5 +20,5 @@ func _on_timeout():
 		status_world = true
 
 func clear_timer():
-	spawn_enemy.emit()
+	spawn_enemy.emit(spawn_position)
 	queue_free()

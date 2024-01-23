@@ -68,3 +68,6 @@ func walk(delta):
 
 func take_damage(strength):
 	CHAR_DETAIL["curr_hp"] = CHAR_DETAIL["curr_hp"] - strength 
+
+func attacking():
+	player_hit.emit()

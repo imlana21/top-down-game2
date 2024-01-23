@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://4xng4uokthbt"]
+
+[ext_resource type="Script" path="res://scene/other/items/wood/wood.gd" id="1_1qnxo"]
+[ext_resource type="Texture2D" uid="uid://uso3t3cdeosg" path="res://assets/Objects/Basic Grass Biom things 1.png" id="1_p5yur"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y74eu"]
+size = Vector2(12, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohnj0"]
+atlas = ExtResource("1_p5yur")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7e7wo"]
+size = Vector2(18, 8.5)
+
+[node name="Wood" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_1qnxo")
+
+[node name="WoodCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_y74eu")
+
+[node name="WoodSprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ohnj0")
+
+[node name="WoodArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="WoodAreaCollision" type="CollisionShape2D" parent="WoodArea"]
+position = Vector2(0, 0.25)
+shape = SubResource("RectangleShape2D_7e7wo")
+
+[connection signal="body_entered" from="WoodArea" to="." method="_on_wood_area_body_entered"]

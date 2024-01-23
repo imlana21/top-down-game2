@@ -10,6 +10,7 @@ func _ready():
 	call_normal_enemy()
 	call_boss_enemy()
 	call_red_enemy()
+	call_tree()
 
 func _process(_delta):
 	pause_config()
@@ -89,3 +90,10 @@ func call_red_enemy():
 		CombatDetail.spawn_wheat(self, pos, "red")
 	for pos in CombatDetail.silver_key_position:
 		CombatDetail.spawn_silver_key(self, pos, "red")
+		
+func call_tree():
+	for pos in Autoload.tree_position:
+		var index = Autoload.tree_position.find(pos)
+		Autoload.tree_position.remove_at(index)
+		Autoload.spawn_tree(self, pos)
+	

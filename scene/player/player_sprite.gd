@@ -5,8 +5,6 @@ var sprite_action = "idle": set = set_sprite_action
 var animation_speed = 1.0
 var hit_object = false
 
-signal player_hit
-
 func _ready():
 	if CombatDetail.is_attacking:
 		play("idle_right")
@@ -18,6 +16,9 @@ func _physics_process(_delta):
 		hit_object = true
 	else:
 		animation_speed = 1.0
+
+func _on_player_hit():
+	sprite_action = "attack"
 		
 # Convert vector to get player direction
 func _on_player_change_direction(vector):

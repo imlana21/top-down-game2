@@ -16,7 +16,6 @@ func _ready():
 func _process(_delta):
 	Autoload.pause_scale = Vector2(0.5, 0.5)
 	Autoload.pause_position = Autoload.player.get_global_position()
-	get_random_cave_position()
 
 func _on_change_scene():
 	change_scene.emit(next_path, self, player_position)
@@ -24,6 +23,11 @@ func _on_change_scene():
 func _on_outside_cave_body_entered(body):
 	next_path = "res://scene/world/world.tscn"
 	player_position = "CaveToWorld"
+	_on_change_scene()	
+
+func _on_depper_level_body_entered(body):
+	next_path = "res://scene/world/cave/floor2/cave_floor2.tscn"
+	player_position = "CaveToFloor2"
 	_on_change_scene()	
 
 func get_random_cave_position():

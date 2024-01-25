@@ -33,7 +33,7 @@ func _on_destroy_animation_finished():
 	Autoload.world.add_child(ore)
 	
 	var countdown_instance = load("res://scene/enemies/countdown_spawner.tscn").instantiate()
-	countdown_instance.MAX_TIME = 20
+	countdown_instance.MAX_TIME = 3
 	countdown_instance.connect("spawn_enemy", Autoload.scene_manager._on_timeout_spawn_ore)
 	Autoload.scene_manager.add_child(countdown_instance)
 	

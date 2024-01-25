@@ -23,7 +23,7 @@ func _on_door_area_body_entered(_body):
 	Autoload.world = null
 
 func _on_cave_enter_area_body_entered(_body):
-	var next_path = 'res://scene/world/cave/cave.tscn'
+	var next_path = 'res://scene/world/cave/floor1/cave_floor1.tscn'
 	var current_scene = self
 	change_scene.emit(next_path, current_scene, "WorldToCave")
 	Autoload.world = null

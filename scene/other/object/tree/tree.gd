@@ -39,8 +39,8 @@ func _on_destroy_animation_finished():
 
 func count_down_spawn():
 	var countdown_instance = load("res://scene/enemies/countdown_spawner.tscn").instantiate()
-	countdown_instance.spawn_position = get_global_position()
-	countdown_instance.MAX_TIME = 20
+	countdown_instance.spawn_position = Autoload.random_position()
+	countdown_instance.MAX_TIME = 2
 	countdown_instance.connect("spawn_enemy", Autoload.scene_manager._on_timeout_spawn_tree)
 	Autoload.scene_manager.add_child(countdown_instance)
 

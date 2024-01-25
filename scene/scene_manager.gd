@@ -21,7 +21,7 @@ func _on_timeout_spawn_enemy(pos):
 	var random_pos = Autoload.random_position()
 	print("Enemy spawn in position ", random_pos)
 	Autoload.enemy_position.append(random_pos)
-	Autoload.spawn_enemy(Autoload.world, random_pos)	
+	Autoload.spawn_enemy(Autoload.world, random_pos)
 
 func _on_timeout_spawn_ore(pos):
 	var world_cave = WorldCave.new()
@@ -33,9 +33,10 @@ func _on_timeout_spawn_ore(pos):
 		Autoload.ore_position.append(world_cave)
 	
 func _on_timeout_spawn_tree(pos):
+	var random_pos = Autoload.random_position()
 	if Autoload.world.name == 'World':
 		print("Tree spawn in position ", pos)
-		Autoload.spawn_tree(Autoload.world, pos)
+		Autoload.spawn_tree(Autoload.world, random_pos)
 	else:
 		Autoload.tree_position.append(pos)
 	

@@ -29,7 +29,9 @@ var enter_world_position: Dictionary = {
 	"LivingRoomToWorld": Vector2(55, -45),
 	"LivingRoomToKitchen": Vector2(0,0),
 	"KitchenToLivingRoom": Vector2(160, -78),
-	"CaveToWorld": Vector2(680, -68)
+	"CaveToWorld": Vector2(680, -68),
+	"CaveToFloor2": Vector2(0,0),
+	"CaveToFloor1": Vector2(-116, -476)
 }
 var chest_store: CharacterBody2D
 var player_inventory: Node2D

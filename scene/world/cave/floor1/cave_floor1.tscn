@@ -1258,7 +1258,7 @@ size = Vector2(31.3749, 12.1151)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa5gx"]
 size = Vector2(3.99998, 28)
 
-[node name="Cave" type="Node2D"]
+[node name="Cave_Floor2" type="Node2D"]
 position = Vector2(2, 2)
 script = ExtResource("1_in2o7")
 
@@ -1276,7 +1276,7 @@ layer_1/name = "Ladder"
 layer_1/tile_data = PackedInt32Array(655394, 458752, 6, 655395, 524288, 6, 589858, 458752, 6, 589859, 524288, 6)
 
 [node name="Screen" parent="." instance=ExtResource("3_6quf6")]
-position = Vector2(672.868, 632.256)
+position = Vector2(673, 633)
 
 [node name="OutsideCave" type="Area2D" parent="."]
 position = Vector2(666.438, 668.79)

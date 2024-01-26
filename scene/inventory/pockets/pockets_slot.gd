@@ -8,8 +8,8 @@ func _ready():
 
 func put_into_slot(new_item, old_item = null, new_qty = 0):
 	# Configuration item and move item from parent
-	new_item.scale = Vector2(1.4, 1.4)
-	new_item.position = Vector2(5, 5)
+	new_item.scale = Vector2(1.3, 1.3)
+	new_item.position = Vector2(7, 7)
 	find_parent(parent_name).remove_child(new_item)
 	if new_qty > 0 and old_item != null:
 		inventory.stack_item(new_item, old_item, new_qty)

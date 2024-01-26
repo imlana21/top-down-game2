@@ -73,7 +73,6 @@ shape = SubResource("CircleShape2D_hafvl")
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_m65i7")
 animation = &"destroy"
-frame_progress = 0.562612
 
 [node name="OreArea" type="Area2D" parent="."]
 collision_layer = 4

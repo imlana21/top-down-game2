@@ -1255,7 +1255,7 @@ sources/0 = SubResource("TileSetAtlasSource_a5nlp")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nq4jx"]
 size = Vector2(4, 25)
 
-[node name="Cave" type="Node2D"]
+[node name="Cave_Floor2" type="Node2D"]
 script = ExtResource("1_evn5p")
 
 [node name="Background" type="TileMap" parent="."]
@@ -1274,7 +1274,7 @@ layer_1/name = "Terrain"
 layer_1/tile_data = PackedInt32Array(655398, 458752, 6, 720934, 458752, 6)
 
 [node name="Screen" parent="." instance=ExtResource("3_k4020")]
-position = Vector2(777, -10)
+position = Vector2(784, -8)
 
 [node name="UpperLevel" type="Area2D" parent="."]
 position = Vector2(175, -185)

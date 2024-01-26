@@ -1,5 +1,5 @@
-class_name WorldCave
-extends Node2D
+class_name WorldCaveFloor1
+extends WorldCave
 
 signal change_scene
 signal start_combat
@@ -9,13 +9,12 @@ var player_position = ""
 
 func _ready():
 	Autoload.world = self
-	
-	for pos in Autoload.ore_position:
-		Autoload.spawn_ore(self, pos)
+	Autoload.ore_name_1 = []
+	for pos in Autoload.ore_position_1:
+		Autoload.spawn_ore(self, pos, 1)
 		
 func _process(_delta):
-	Autoload.pause_scale = Vector2(0.5, 0.5)
-	Autoload.pause_position = Autoload.player.get_global_position()
+	set_pauce_layout()
 
 func _on_change_scene():
 	change_scene.emit(next_path, self, player_position)
@@ -28,7 +27,7 @@ func _on_outside_cave_body_entered(body):
 func _on_depper_level_body_entered(body):
 	next_path = "res://scene/world/cave/floor2/cave_floor2.tscn"
 	player_position = "CaveToFloor2"
-	_on_change_scene()	
+	_on_change_scene()
 
 func get_random_cave_position():
 	var random1 = Vector2(randi_range(376, 984), randi_range(400, 448))

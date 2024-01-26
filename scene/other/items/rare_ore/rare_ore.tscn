@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://u1an6nc340rg"]
+
+[ext_resource type="Script" path="res://scene/other/items/rare_ore/rare_ore.gd" id="1_e8uwe"]
+[ext_resource type="Texture2D" uid="uid://bc2mfcrgj1885" path="res://assets/Objects/rare_ore.png" id="2_kkg1f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7n0ed"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8mwpc"]
+radius = 4.0
+
+[node name="RareOre" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_e8uwe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7n0ed")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kkg1f")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_8mwpc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_ore_area_body_entered"]

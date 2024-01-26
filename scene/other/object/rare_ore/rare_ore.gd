@@ -25,29 +25,20 @@ func hp_update():
 	$ProgressBar.value = hp
 	if hp < 1:
 		$DestroyAnimation.play("destroy")
-		$RockAnimation.visible = false
+		$RareOreSprite.visible = false
 
 func _on_destroy_animation_finished():
-	var index = -1
+	var index = Autoload.rare_ore_name.find(self.name)
 	var ore_pos = get_global_position()
-	var ore = load("res://scene/other/items/ore/Ore.tscn").instantiate()
+	var ore = load("res://scene/other/items/rare_ore/rare_ore.tscn").instantiate()
 	ore.global_position = ore_pos
 	Autoload.world.add_child(ore)
 	
 	var countdown_instance = load("res://scene/enemies/countdown_spawner.tscn").instantiate()
 	countdown_instance.MAX_TIME = 3
-	
-	if Autoload.world.name == 'Cave_Floor1':
-		countdown_instance.connect("spawn_enemy", Autoload.scene_manager._on_timeout_spawn_ore_on_floor_1)
-		index = Autoload.ore_name_1.find(self.name)
-		Autoload.ore_position_1.remove_at(index)
-		Autoload.ore_name_1.remove_at(index)
-	elif Autoload.world.name == 'Cave_Floor2':
-		countdown_instance.connect("spawn_enemy", Autoload.scene_manager._on_timeout_spawn_ore_on_floor_2)	
-		index = Autoload.ore_name_2.find(self.name)
-		Autoload.ore_position_2.remove_at(index)
-		Autoload.ore_name_2.remove_at(index)
-#
+	countdown_instance.connect("spawn_enemy", Autoload.scene_manager._on_timeout_spawn_rare_ore_on_floor_2)	
+	Autoload.rare_ore_position.remove_at(index)
+	Autoload.rare_ore_name.remove_at(index)
 	Autoload.scene_manager.add_child(countdown_instance)
 	
 	queue_free()

@@ -1,0 +1,96 @@
+[gd_scene load_steps=14 format=3 uid="uid://chc0olac2hm5s"]
+
+[ext_resource type="Texture2D" uid="uid://ulklvcpniqoa" path="res://assets/Characters/slime.png" id="1_3piyl"]
+[ext_resource type="Texture2D" uid="uid://5aefvaw0x3ss" path="res://assets/Objects/cave_resource.png" id="1_5kspt"]
+[ext_resource type="Script" path="res://scene/other/object/rare_ore/rare_ore.gd" id="1_myrr8"]
+[ext_resource type="Texture2D" uid="uid://dd3q8xbdc5nw4" path="res://assets/Other/smoke.png" id="2_pecw1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i31ev"]
+atlas = ExtResource("1_5kspt")
+region = Rect2(37, 50, 22, 26)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k5vcg"]
+radius = 6.0
+height = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gt2jy"]
+radius = 16.0312
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htdi1"]
+atlas = ExtResource("1_3piyl")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8biy"]
+atlas = ExtResource("2_pecw1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2pu5"]
+atlas = ExtResource("2_pecw1")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1buh5"]
+atlas = ExtResource("2_pecw1")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtctc"]
+atlas = ExtResource("2_pecw1")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vub5a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htdi1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8biy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2pu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1buh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtctc")
+}],
+"loop": false,
+"name": &"destroy",
+"speed": 5.0
+}]
+
+[node name="RareOre" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_myrr8")
+
+[node name="RareOreSprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_i31ev")
+
+[node name="RareOreSpriteCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_k5vcg")
+
+[node name="RareOreArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="RareOreAreaCollision" type="CollisionShape2D" parent="RareOreArea"]
+shape = SubResource("CircleShape2D_gt2jy")
+
+[node name="DestroyAnimation" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_vub5a")
+animation = &"destroy"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(0.556863, 0.937255, 0.592157, 1)
+self_modulate = Color(0.556863, 0.937255, 0.592157, 1)
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 10.0
+offset_bottom = -9.0
+show_percentage = false
+
+[connection signal="body_entered" from="RareOreArea" to="." method="_on_ore_area_body_entered"]
+[connection signal="body_exited" from="RareOreArea" to="." method="_on_ore_area_body_exited"]
+[connection signal="animation_finished" from="DestroyAnimation" to="." method="_on_destroy_animation_finished"]

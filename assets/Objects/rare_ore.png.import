@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7y1ec5ngivhh"
-path="res://.godot/imported/cave.png-eb828a11377817d8325c6487b6715d7b.ctex"
+uid="uid://bc2mfcrgj1885"
+path="res://.godot/imported/rare_ore.png-ae1e6f4f8e314a89975012f2bafb3834.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tilesets/cave.png"
-dest_files=["res://.godot/imported/cave.png-eb828a11377817d8325c6487b6715d7b.ctex"]
+source_file="res://assets/Objects/rare_ore.png"
+dest_files=["res://.godot/imported/rare_ore.png-ae1e6f4f8e314a89975012f2bafb3834.ctex"]
 
 [params]
 

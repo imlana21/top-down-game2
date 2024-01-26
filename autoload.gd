@@ -36,7 +36,7 @@ var enter_world_position: Dictionary = {
 var chest_store: CharacterBody2D
 var player_inventory: Node2D
 var tree_position = []
-var ore_position = [
+var ore_position_1 = [
 	Vector2(375, 263),
 	Vector2(473, 263),
 	Vector2(431, 275),
@@ -44,9 +44,19 @@ var ore_position = [
 	Vector2(467, 328),
 	Vector2(433, 310),
 	Vector2(397, 291),
-	Vector2(395, 263),
-	Vector2(672, 608)
+	Vector2(395, 263)
 ]
+var ore_name_1 = []
+var ore_position_2 = [
+	Vector2(375, 263),
+	Vector2(473, 263),
+	Vector2(431, 275),
+	Vector2(467, 328),
+	Vector2(395, 263)
+]
+var ore_name_2 = []
+var rare_ore_position = []
+var rare_ore_name = []
 
 # Toggle Pause Game
 func toggle_pause(layer):
@@ -101,9 +111,24 @@ func spawn_tree(rooms, pos):
 	object_instance.name = object_instance.name + str(pos.x) + "_" + str(pos.y)
 	rooms.add_child(object_instance)
 	
-func spawn_ore(rooms, pos):
+func spawn_ore(rooms, pos, cave_floor):
 	var object_instance = load("res://scene/other/object/ore/ore.tscn").instantiate()
 	object_instance.position = pos
 	object_instance.name = object_instance.name + str(pos.x) + "_" + str(pos.y)
+	if cave_floor == 1:
+		ore_name_1.append(object_instance.name)
+	elif cave_floor == 2:
+		ore_name_2.append(object_instance.name)
 	rooms.add_child(object_instance)
+	
+func spawn_rare_ore(rooms, pos):
+	var object_instance = load("res://scene/other/object/rare_ore/rare_ore.tscn").instantiate()
+	object_instance.position = pos
+	object_instance.name = object_instance.name + str(pos.x) + "_" + str(pos.y)
+	object_instance.scale = Vector2(0.7, 0.7)
+	rare_ore_name.append(object_instance.name)
+	print("Rare Ore Spawn on ", pos)
+	rooms.add_child(object_instance)
+
+
 

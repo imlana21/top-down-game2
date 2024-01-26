@@ -20,8 +20,8 @@ func init_item_into_slot(data):
 	if data != null:
 		if item == null:
 			item = item_scene.instantiate()
-			item.scale = Vector2(1.4, 1.4)
-			item.position = Vector2(5, 5)
+			item.scale = Vector2(1.3, 1.3)
+			item.position = Vector2(7, 7)
 			add_child(item)
 			item.set_item(data)
 		else:

@@ -23,14 +23,28 @@ func _on_timeout_spawn_enemy(pos):
 	Autoload.enemy_position.append(random_pos)
 	Autoload.spawn_enemy(Autoload.world, random_pos)
 
-func _on_timeout_spawn_ore(pos):
-	var world_cave = WorldCave.new()
+func _on_timeout_spawn_ore_on_floor_1(pos):
+	var world_cave = WorldCaveFloor1.new()
 	world_cave = world_cave.get_random_cave_position()
-	if Autoload.world.name == 'Cave':
-		print("Ore spawn in position ", world_cave)
-		Autoload.spawn_ore(Autoload.world, world_cave)
-	else:
-		Autoload.ore_position.append(world_cave)
+	print("Ore spawn in position ", world_cave)
+	Autoload.spawn_ore(Autoload.world, world_cave, 1)
+	Autoload.ore_position_1.append(world_cave)
+
+func _on_timeout_spawn_ore_on_floor_2(pos):
+	var world_cave = WorldCaveFloor2.new()
+	world_cave = world_cave.get_random_cave_position()
+	print("Ore spawn in position ", world_cave)
+	Autoload.ore_position_2.append(world_cave)
+	Autoload.spawn_ore(Autoload.world, world_cave, 2)
+	_on_timeout_spawn_rare_ore_on_floor_2(pos)
+
+func _on_timeout_spawn_rare_ore_on_floor_2(pos):
+	var world_cave = WorldCaveFloor2.new()
+	world_cave = world_cave.get_random_cave_position()
+	if CombatDetail.spawn_chance(0.75):
+		print("Rare Ore spawn in position ", world_cave)
+		Autoload.spawn_rare_ore(Autoload.world, world_cave)
+		Autoload.rare_ore_position.append(world_cave)	
 	
 func _on_timeout_spawn_tree(pos):
 	var random_pos = Autoload.random_position()
@@ -83,5 +97,4 @@ func start_fade_out():
 	if player_point != null:
 		Autoload.player.position = Autoload.enter_world_position[player_point]
 	player_point = null
-
 

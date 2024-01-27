@@ -10,6 +10,8 @@ func _process(delta):
 	if Autoload.chest_store != null and !init_connect:
 		Autoload.chest_store.connect("player_near_chest", _on_player_near_store_chest)
 		init_connect = true
+	elif  Autoload.chest_store == null and init_connect:
+		init_connect = false
 	
 func _input(_event):
 	if Input.is_action_just_pressed("pick_item") and is_store_chest:
@@ -19,7 +21,8 @@ func _input(_event):
 			$ChestStore.scale = Autoload.pause_scale
 			$ChestStore.position = Autoload.pause_position
 			Autoload.toggle_pause("store")
+			print(is_store_chest)
 		
 func _on_player_near_store_chest(val):
-	print("DEkat chest")
+	print("Masuk Zona")
 	is_store_chest = val

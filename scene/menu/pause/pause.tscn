@@ -36,10 +36,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -202.0
-offset_top = -106.0
-offset_right = -36.0
-offset_bottom = 66.0
+offset_left = -268.0
+offset_top = -197.0
+offset_right = -23.0
+offset_bottom = 158.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -55,30 +55,48 @@ theme = ExtResource("2_hr0kl")
 layout_mode = 2
 theme = ExtResource("2_hr0kl")
 
-[node name="StartBtn" type="Button" parent="ButtonAreana/MarginContainer/VBoxContainer"]
+[node name="ContinueBtn" type="Button" parent="ButtonAreana/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_hr0kl")
 action_mode = 0
-text = " ~ CONTINUE ~"
+text = " ~ Continue ~"
+
+[node name="NewBtn" type="Button" parent="ButtonAreana/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+action_mode = 0
+text = " ~ New Game ~ "
+
+[node name="SaveBtn" type="Button" parent="ButtonAreana/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+action_mode = 0
+text = " ~ Save ~ "
+
+[node name="LoadBtn" type="Button" parent="ButtonAreana/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_hr0kl")
+action_mode = 0
+text = " ~ Load Data ~ "
 
 [node name="OptionsBtn" type="Button" parent="ButtonAreana/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_hr0kl")
 action_mode = 0
-text = " ~ OPTIONS ~ "
+text = " ~ Options ~ "
 
 [node name="ExitBtn" type="Button" parent="ButtonAreana/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_hr0kl")
 action_mode = 0
-text = " ~ EXIT ~ "
+text = " ~ Exit ~ "
 
 [node name="PlayerDetail" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 6.0
-offset_top = -176.0
-offset_right = 242.0
-offset_bottom = 164.0
+offset_top = -192.0
+offset_right = 328.0
+offset_bottom = 160.0
 theme = ExtResource("2_hr0kl")
 
 [node name="TextureRect" type="TextureRect" parent="PlayerDetail"]
@@ -180,5 +198,9 @@ offset_top = 204.0
 offset_right = -35.0
 offset_bottom = 204.0
 
-[connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/NewBtn" to="." method="_on_new_btn_pressed"]
+[connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/SaveBtn" to="." method="_on_save_btn_pressed"]
+[connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/LoadBtn" to="." method="_on_load_btn_pressed"]
+[connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]
 [connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]

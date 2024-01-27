@@ -52,21 +52,21 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 theme = ExtResource("1_wr0fu")
-text = " ~ START ~"
+text = " ~ New Start ~"
 
 [node name="OptionsBtn" type="Button" parent="MarginContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 theme = ExtResource("1_wr0fu")
-text = " ~ OPTIONS ~ "
+text = " ~ Options ~ "
 
 [node name="ExitBtn" type="Button" parent="MarginContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 theme = ExtResource("1_wr0fu")
-text = " ~ EXIT ~ "
+text = " ~ Exit ~ "
 
 [connection signal="pressed" from="MarginContainer2/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="MarginContainer2/MarginContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]

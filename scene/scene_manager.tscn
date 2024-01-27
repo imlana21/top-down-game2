@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://bvyhriropkstk"]
 
 [ext_resource type="Script" path="res://scene/scene_manager.gd" id="1_qod2y"]
-[ext_resource type="PackedScene" uid="uid://jnimvhgpoldo" path="res://scene/world/cave/floor2/cave_floor2.tscn" id="2_af5yq"]
+[ext_resource type="PackedScene" uid="uid://dwki8cn7xuhuy" path="res://scene/world/world.tscn" id="2_jwqfh"]
 [ext_resource type="PackedScene" uid="uid://dxlnecjp8nhas" path="res://scene/menu/pause/pause.tscn" id="3_8py1g"]
 [ext_resource type="Script" path="res://scene/pause_layer.gd" id="3_a67ew"]
 [ext_resource type="Script" path="res://scene/change_skin_layer.gd" id="4_8dixf"]
@@ -97,7 +97,7 @@ libraries = {
 process_mode = 1
 z_index = 1
 
-[node name="Cave_Floor2" parent="CurrentScene" instance=ExtResource("2_af5yq")]
+[node name="World" parent="CurrentScene" instance=ExtResource("2_jwqfh")]
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true

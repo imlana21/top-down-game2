@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxlnecjp8nhas"]
+[gd_scene load_steps=7 format=3 uid="uid://dxlnecjp8nhas"]
 
 [ext_resource type="Texture2D" uid="uid://bwc0ccjenmbql" path="res://assets/UI/Sheet/Setting menu.png" id="1_d8b5j"]
 [ext_resource type="Script" path="res://scene/menu/pause/pause.gd" id="1_gvii7"]
 [ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="2_hr0kl"]
 [ext_resource type="PackedScene" uid="uid://b2n66cjkm161f" path="res://scene/combat/battle_speed_btn/battle_speed_btn.tscn" id="4_b3ty6"]
+[ext_resource type="PackedScene" uid="uid://dbxcmcf7768cs" path="res://scene/save_load/save_load_popup.tscn" id="5_uq8fn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_todjq"]
 atlas = ExtResource("1_d8b5j")
@@ -25,8 +26,8 @@ script = ExtResource("1_gvii7")
 layout_mode = 0
 offset_left = -717.0
 offset_top = -411.0
-offset_right = 705.0
-offset_bottom = 402.0
+offset_right = -717.0
+offset_bottom = -411.0
 color = Color(0.431373, 0.431373, 0.431373, 0.509804)
 
 [node name="ButtonAreana" type="MarginContainer" parent="."]
@@ -183,7 +184,7 @@ theme = ExtResource("2_hr0kl")
 text = "0"
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
+layout_mode = 2
 offset_left = -79.0
 offset_top = 188.0
 offset_right = 64.0
@@ -193,10 +194,19 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Battle Speed"
 
 [node name="BattleSpeedBtn" parent="." instance=ExtResource("4_b3ty6")]
+layout_mode = 2
 offset_left = -35.0
 offset_top = 204.0
-offset_right = -35.0
-offset_bottom = 204.0
+offset_right = 108.0
+offset_bottom = 244.0
+
+[node name="SaveLoadContainer" parent="." instance=ExtResource("5_uq8fn")]
+visible = false
+layout_mode = 1
+offset_left = 21.0
+offset_top = -164.0
+offset_right = 314.0
+offset_bottom = 133.0
 
 [connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/NewBtn" to="." method="_on_new_btn_pressed"]
@@ -204,3 +214,4 @@ offset_bottom = 204.0
 [connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/LoadBtn" to="." method="_on_load_btn_pressed"]
 [connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]
 [connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]
+[connection signal="load_game_from_pause" from="SaveLoadContainer" to="." method="_on_save_load_container_load_game_from_pause"]

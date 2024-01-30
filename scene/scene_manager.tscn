@@ -98,6 +98,7 @@ process_mode = 1
 z_index = 1
 
 [node name="World" parent="CurrentScene" instance=ExtResource("2_jwqfh")]
+visible = false
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -140,3 +141,4 @@ process_mode = 2
 visible = false
 
 [connection signal="animation_finished" from="ScreenTransition/AnimationTransition" to="." method="_on_animation_transition_finished"]
+[connection signal="child_entered_tree" from="CurrentScene" to="StoreLayer" method="_on_current_scene_child_entered_tree"]

@@ -10,6 +10,8 @@ func _input(_event):
 			$Pause.z_index = 10
 			$Pause.scale = Autoload.pause_scale
 			$Pause.position = Autoload.pause_position
+			$Pause/SaveLoadContainer.visible = false
+			$Pause/PlayerDetail.visible = true
 			Autoload.toggle_pause("pause")
 
 func _on_load_close_pause():

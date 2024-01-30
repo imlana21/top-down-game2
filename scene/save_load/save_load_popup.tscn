@@ -1,0 +1,107 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbxcmcf7768cs"]
+
+[ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="1_2vg7u"]
+[ext_resource type="Script" path="res://scene/save_load/save_container.gd" id="1_ie4m2"]
+[ext_resource type="Texture2D" uid="uid://bwc0ccjenmbql" path="res://assets/UI/Sheet/Setting menu.png" id="1_u3ygt"]
+[ext_resource type="Script" path="res://scene/save_load/save_slot.gd" id="4_ohyjp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bysur"]
+atlas = ExtResource("1_u3ygt")
+region = Rect2(139, 12, 106, 122)
+
+[node name="SaveLoadContainer" type="MarginContainer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -148.5
+offset_right = 283.0
+offset_bottom = 148.5
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_ie4m2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_bysur")
+
+[node name="SlotContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_2vg7u")
+alignment = 1
+
+[node name="Slot" type="HBoxContainer" parent="SlotContainer"]
+layout_mode = 2
+script = ExtResource("4_ohyjp")
+
+[node name="Label" type="VBoxContainer" parent="SlotContainer/Slot"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Name" type="Label" parent="SlotContainer/Slot/Label"]
+layout_mode = 2
+theme = ExtResource("1_2vg7u")
+text = "Slot 1"
+
+[node name="Date" type="Label" parent="SlotContainer/Slot/Label"]
+layout_mode = 2
+theme = ExtResource("1_2vg7u")
+text = "00/00/00"
+
+[node name="Button" type="Button" parent="SlotContainer/Slot"]
+layout_mode = 2
+theme = ExtResource("1_2vg7u")
+text = "Save"
+icon_alignment = 1
+
+[node name="Slot2" type="HBoxContainer" parent="SlotContainer"]
+layout_mode = 2
+script = ExtResource("4_ohyjp")
+
+[node name="Label" type="VBoxContainer" parent="SlotContainer/Slot2"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Name" type="Label" parent="SlotContainer/Slot2/Label"]
+layout_mode = 2
+theme = ExtResource("1_2vg7u")
+text = "Slot2"
+
+[node name="Date" type="Label" parent="SlotContainer/Slot2/Label"]
+layout_mode = 2
+theme = ExtResource("1_2vg7u")
+text = "00/00/00"
+
+[node name="Button" type="Button" parent="SlotContainer/Slot2"]
+layout_mode = 2
+theme = ExtResource("1_2vg7u")
+text = "Save"
+
+[node name="Slot3" type="HBoxContainer" parent="SlotContainer"]
+layout_mode = 2
+theme = ExtResource("1_2vg7u")
+script = ExtResource("4_ohyjp")
+
+[node name="Label" type="VBoxContainer" parent="SlotContainer/Slot3"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Name" type="Label" parent="SlotContainer/Slot3/Label"]
+layout_mode = 2
+theme = ExtResource("1_2vg7u")
+text = "Slot3"
+
+[node name="Date" type="Label" parent="SlotContainer/Slot3/Label"]
+layout_mode = 2
+theme = ExtResource("1_2vg7u")
+text = "00/00/00"
+
+[node name="Button" type="Button" parent="SlotContainer/Slot3"]
+layout_mode = 2
+theme = ExtResource("1_2vg7u")
+text = "Save"
+
+[connection signal="pressed" from="SlotContainer/Slot/Button" to="SlotContainer/Slot" method="_on_button_pressed"]
+[connection signal="pressed" from="SlotContainer/Slot2/Button" to="SlotContainer/Slot2" method="_on_button_pressed"]
+[connection signal="pressed" from="SlotContainer/Slot3/Button" to="SlotContainer/Slot3" method="_on_button_pressed"]

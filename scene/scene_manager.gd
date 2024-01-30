@@ -14,6 +14,7 @@ func _ready():
 	Autoload.scene_manager = self
 	$PauseLayer/Pause.hide()
 	$ChangeSkinLayer/SkinMenu.hide()
+	await load_game()
 	Autoload.world.connect("change_scene", _on_change_scene)
 	Autoload.world.connect("start_combat", _on_player_start_combat)
 	
@@ -97,4 +98,31 @@ func start_fade_out():
 	if player_point != null:
 		Autoload.player.position = Autoload.enter_world_position[player_point]
 	player_point = null
+	
+func load_game():
+	if Autoload.is_load_game:
+		var save_load = SaveManager.new()
+		save_load.load_world(Autoload.load_data)
+		Autoload.is_load_game = false
+		Autoload.load_data = null
+	else:
+		new_game()
 
+func new_game():
+	var inv = InventoryItems.new()
+	var next_path = 'res://scene/world/world.tscn'
+	var curr_world = $CurrentScene.get_children()[0]
+	_on_change_scene(next_path, curr_world)
+	Autoload.player.CHAR_DETAIL = {
+		"atk_speed": 0.6,
+		"max_hp": 50,
+		"curr_hp": 50,
+		"luk": 0.5,
+		"def": 1,
+		"str": 3,
+		"exp": 0,
+		"level": 1
+	}
+	inv.save_items([])
+	CombatDetail.coin = int(0)
+	CombatDetail.gem = int(0)

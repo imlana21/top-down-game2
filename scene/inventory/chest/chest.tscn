@@ -37,6 +37,7 @@ size = Vector2(17, 16)
 radius = 20.025
 
 [node name="Chest" type="CharacterBody2D"]
+scale = Vector2(1.075, -0.666667)
 script = ExtResource("1_wkml0")
 
 [node name="ChestSprite" type="AnimatedSprite2D" parent="."]

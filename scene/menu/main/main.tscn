@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca1j2yef6th1o"]
+[gd_scene load_steps=6 format=3 uid="uid://ca1j2yef6th1o"]
 
 [ext_resource type="Texture2D" uid="uid://bwc0ccjenmbql" path="res://assets/UI/Sheet/Setting menu.png" id="1_5a1f3"]
 [ext_resource type="Script" path="res://scene/menu/main/main.gd" id="1_e6e11"]
 [ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="1_wr0fu"]
+[ext_resource type="PackedScene" uid="uid://dbxcmcf7768cs" path="res://scene/save_load/save_load_popup.tscn" id="4_31j5y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4dc8k"]
 atlas = ExtResource("1_5a1f3")
@@ -47,6 +48,13 @@ theme = ExtResource("1_wr0fu")
 layout_mode = 2
 theme = ExtResource("1_wr0fu")
 
+[node name="ContinueBtn" type="Button" parent="MarginContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme = ExtResource("1_wr0fu")
+text = " ~ Load ~ "
+
 [node name="StartBtn" type="Button" parent="MarginContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -68,5 +76,14 @@ size_flags_stretch_ratio = 2.0
 theme = ExtResource("1_wr0fu")
 text = " ~ Exit ~ "
 
+[node name="SaveLoadContainer" parent="." instance=ExtResource("4_31j5y")]
+visible = false
+layout_mode = 1
+offset_left = 374.0
+offset_top = 5.0
+offset_right = 657.0
+offset_bottom = 302.0
+
+[connection signal="pressed" from="MarginContainer2/MarginContainer/VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="MarginContainer2/MarginContainer/VBoxContainer/StartBtn" to="." method="_on_start_btn_pressed"]
 [connection signal="pressed" from="MarginContainer2/MarginContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]

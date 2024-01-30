@@ -6,6 +6,8 @@ extends Control
 @onready var StrengthLabel = $PlayerDetail/MarginContainer/VBoxContainer/Strength/StrengthValue
 @onready var LuckLabel = $PlayerDetail/MarginContainer/VBoxContainer/Luck/LuckValue
 
+var popup_state = ""
+
 signal load_game
 	
 func _process(_delta):
@@ -14,10 +16,13 @@ func _process(_delta):
 	AtkSpeedLabel.text = str(Autoload.player.CHAR_DETAIL["atk_speed"])
 	StrengthLabel.text = str(Autoload.player.CHAR_DETAIL["str"])
 	LuckLabel.text = str(Autoload.player.CHAR_DETAIL["luk"])
-
+		
 func _input(_event):
 	if Input.is_action_just_released("pause"):
 		$BattleSpeedBtn.set_pressed_btn()
+		
+	if $PlayerDetail.visible:
+		popup_state = ""
 
 func _on_exit_btn_pressed():
 	get_tree().quit()
@@ -28,21 +33,32 @@ func _on_continue_btn_pressed():
 		$".".hide()
 
 func _on_new_btn_pressed():
-	var curr_world = get_parent().get_parent().get_node("CurrentScene").get_children()[0]
-	var save_load = SaveLoad.new()
-	save_load.new_game(curr_world)
+	Autoload.scene_manager.new_game()
 	load_game.emit()
 	
 func _on_save_btn_pressed():
-	var save_load = SaveLoad.new()
-	save_load.save_data()
-	load_game.emit()
+	if popup_state == "" or popup_state == "save":
+		await get_tree().create_timer(0.3).timeout
+		$PlayerDetail.visible = !$PlayerDetail.visible
+		popup_state = "save"
+		toggle_saveload(popup_state)
 
 func _on_load_btn_pressed():
-	var save_load = SaveLoad.new()
-	save_load.load_data()
-	load_game.emit()
+	if popup_state == "" or popup_state == "load":
+		await get_tree().create_timer(0.3).timeout
+		$PlayerDetail.visible = !$PlayerDetail.visible
+		popup_state = "load"
+		toggle_saveload(popup_state)
 	
 func _on_options_btn_pressed():
 	pass # Replace with function body.
+	
+func toggle_saveload(action):
+	$SaveLoadContainer.save_action = action
+	$SaveLoadContainer.is_from_main = false
+	$SaveLoadContainer.visible = !$SaveLoadContainer.visible
 
+func _on_save_load_container_load_game_from_pause(data, action):
+	if action == "load":
+		Autoload.scene_manager.load_game()
+	load_game.emit()

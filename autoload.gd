@@ -57,6 +57,8 @@ var ore_position_2 = [
 var ore_name_2 = []
 var rare_ore_position = []
 var rare_ore_name = []
+var is_load_game: bool = false
+var load_data = null
 
 # Toggle Pause Game
 func toggle_pause(layer):

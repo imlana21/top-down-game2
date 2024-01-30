@@ -60,7 +60,7 @@ animations = [{
 }]
 
 [node name="RareOre" type="CharacterBody2D"]
-collision_layer = 4
+collision_layer = 9
 collision_mask = 2
 script = ExtResource("1_myrr8")
 
@@ -71,7 +71,7 @@ texture = SubResource("AtlasTexture_i31ev")
 shape = SubResource("CapsuleShape2D_k5vcg")
 
 [node name="RareOreArea" type="Area2D" parent="."]
-collision_layer = 4
+collision_layer = 8
 collision_mask = 2
 
 [node name="RareOreAreaCollision" type="CollisionShape2D" parent="RareOreArea"]

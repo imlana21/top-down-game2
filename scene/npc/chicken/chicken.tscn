@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://d2xq542p2r1qm"]
+
+[ext_resource type="Script" path="res://scene/npc/chicken/chicken.gd" id="1_brdym"]
+[ext_resource type="Texture2D" uid="uid://84r1g8h3ycfk" path="res://assets/Characters/chicken.png" id="1_mfjkc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uexp"]
+atlas = ExtResource("1_mfjkc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjj8w"]
+atlas = ExtResource("1_mfjkc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd2fy"]
+atlas = ExtResource("1_mfjkc")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ky0a6"]
+atlas = ExtResource("1_mfjkc")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h62ss"]
+atlas = ExtResource("1_mfjkc")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gj6q6"]
+atlas = ExtResource("1_mfjkc")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1u0x5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uexp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjj8w")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd2fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ky0a6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h62ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gj6q6")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lofqa"]
+radius = 4.0
+
+[node name="Chicken" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 11
+script = ExtResource("1_brdym")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1u0x5")
+animation = &"idle"
+frame_progress = 0.337049
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("CircleShape2D_lofqa")
+
+[node name="AutoMoveTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="AutoMoveTimer" to="." method="_on_auto_move_timer_timeout"]

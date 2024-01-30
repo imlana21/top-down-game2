@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://dwki8cn7xuhuy"]
+[gd_scene load_steps=67 format=3 uid="uid://dwki8cn7xuhuy"]
 
 [ext_resource type="Script" path="res://scene/world/world.gd" id="1_g8ju8"]
 [ext_resource type="Texture2D" uid="uid://be8lp8jw2bnxj" path="res://assets/Tilesets/Hills.png" id="2_qqjr5"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://dhu6tdggmqa4l" path="res://assets/Objects/TilesetHouse.png" id="10_nvyyn"]
 [ext_resource type="PackedScene" uid="uid://bbfhsgo3aecjt" path="res://scene/other/object/tree/tree.tscn" id="12_ewbpc"]
 [ext_resource type="PackedScene" uid="uid://nmtmi2fu0gk6" path="res://scene/player/screen/screen.tscn" id="12_x1sqv"]
+[ext_resource type="PackedScene" uid="uid://d2xq542p2r1qm" path="res://scene/npc/chicken/chicken.tscn" id="13_vppkm"]
+[ext_resource type="PackedScene" uid="uid://ytcrhvul1nkm" path="res://scene/npc/cow/cow.tscn" id="14_rm3hq"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_tvqbc"]
 tile_data = PackedInt32Array(0, 131072, 1, 65536, 131072, 1, 131072, 131072, 1, 196608, 131072, 1, 1, 131072, 1, 65537, 131072, 1, 131073, 131072, 1, 196609, 131072, 1, 2, 131072, 1, 65538, 131072, 1, 131074, 131072, 1, 196610, 131072, 1, 3, 131072, 1, 65539, 131072, 1, 131075, 131072, 1, 196611, 131072, 1, 4, 131072, 1, 65540, 131072, 1, 131076, 131072, 1, 196612, 131072, 1, 5, 131072, 1, 65541, 131072, 1, 131077, 131072, 1, 196613, 131072, 1, 6, 131072, 1, 65542, 131072, 1, 131078, 131072, 1, 196614, 131072, 1, 7, 131072, 1, 65543, 131072, 1, 131079, 131072, 1, 196615, 131072, 1)
@@ -2884,6 +2886,49 @@ position = Vector2(1111.72, -70.5438)
 
 [node name="Tree17" parent="TreeList" instance=ExtResource("12_ewbpc")]
 position = Vector2(316, 454)
+
+[node name="Chicken" type="Node2D" parent="."]
+
+[node name="Chicken" parent="Chicken" instance=ExtResource("13_vppkm")]
+position = Vector2(-7, 501)
+
+[node name="Chicken2" parent="Chicken" instance=ExtResource("13_vppkm")]
+position = Vector2(78, 491)
+
+[node name="Chicken3" parent="Chicken" instance=ExtResource("13_vppkm")]
+position = Vector2(56, 527)
+
+[node name="Chicken4" parent="Chicken" instance=ExtResource("13_vppkm")]
+position = Vector2(12, 543)
+
+[node name="Cow" type="Node2D" parent="."]
+
+[node name="Cow" parent="Cow" instance=ExtResource("14_rm3hq")]
+position = Vector2(394.75, 508.846)
+
+[node name="Cow2" parent="Cow" instance=ExtResource("14_rm3hq")]
+position = Vector2(623.725, 324.817)
+
+[node name="Cow3" parent="Cow" instance=ExtResource("14_rm3hq")]
+position = Vector2(328.008, 274.349)
+
+[node name="Cow4" parent="Cow" instance=ExtResource("14_rm3hq")]
+position = Vector2(25, 92)
+
+[node name="Cow5" parent="Cow" instance=ExtResource("14_rm3hq")]
+position = Vector2(451, 115)
+
+[node name="Cow6" parent="Cow" instance=ExtResource("14_rm3hq")]
+position = Vector2(140, 245)
+
+[node name="Cow7" parent="Cow" instance=ExtResource("14_rm3hq")]
+position = Vector2(916, 240)
+
+[node name="Cow8" parent="Cow" instance=ExtResource("14_rm3hq")]
+position = Vector2(917.413, 431.725)
+
+[node name="Chicken2" parent="." instance=ExtResource("13_vppkm")]
+position = Vector2(274.867, 131.44)
 
 [connection signal="start_combat" from="Screen" to="." method="_on_player_start_combat"]
 [connection signal="body_entered" from="GateList/DoorArea" to="." method="_on_door_area_body_entered"]

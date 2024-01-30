@@ -85,6 +85,7 @@ offset_right = -158.477
 offset_bottom = -103.683
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.999146, 1)
 color = Color(1, 1, 1, 0)
 metadata/_edit_use_anchors_ = true
 

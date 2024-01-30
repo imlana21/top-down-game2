@@ -75,7 +75,13 @@ frame_progress = 0.337049
 position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_lofqa")
 
-[node name="AutoMoveTimer" type="Timer" parent="."]
-autostart = true
+[node name="WaitTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
-[connection signal="timeout" from="AutoMoveTimer" to="." method="_on_auto_move_timer_timeout"]
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]

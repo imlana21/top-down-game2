@@ -1,0 +1,195 @@
+[gd_scene load_steps=16 format=3 uid="uid://jei0evjg3t1r"]
+
+[ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="1_1hpj8"]
+[ext_resource type="Script" path="res://scene/bulletin_board/panel/panel_detail.gd" id="1_5vrxn"]
+[ext_resource type="Texture2D" uid="uid://b41dlnmuu6hmi" path="res://assets/Characters/MonedaD.png" id="2_e8704"]
+[ext_resource type="Texture2D" uid="uid://4ufvxdklqi7n" path="res://assets/UI/Sheet/Icons/white icons.png" id="3_xm34v"]
+[ext_resource type="Texture2D" uid="uid://7tlec5uo6fru" path="res://assets/Characters/spr_coin_roj.png" id="4_7qxfr"]
+[ext_resource type="Texture2D" uid="uid://dkn0yi4k2ipte" path="res://assets/UI/Sheet/buttons/Square Buttons 26x26.png" id="5_sg0rr"]
+[ext_resource type="Script" path="res://scene/bulletin_board/panel/panel_slot.gd" id="7_87n7r"]
+[ext_resource type="Texture2D" uid="uid://baqlshr3lgy82" path="res://assets/UI/Sheet/UI Big Play Button.png" id="8_ifst7"]
+[ext_resource type="Texture2D" uid="uid://bx7r11ml0uwyx" path="res://assets/UI/Sheet/buttons/Square Buttons 26x19.png" id="9_7clum"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8rc0"]
+atlas = ExtResource("2_e8704")
+region = Rect2(1, 0, 14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qna5"]
+atlas = ExtResource("3_xm34v")
+region = Rect2(82, 2, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypchv"]
+atlas = ExtResource("4_7qxfr")
+region = Rect2(3, 1, 10, 15)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7u5fn"]
+texture = ExtResource("5_sg0rr")
+region_rect = Rect2(59, 59, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pb81k"]
+atlas = ExtResource("8_ifst7")
+region = Rect2(3, 2, 90, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0wbi"]
+atlas = ExtResource("9_7clum")
+region = Rect2(59, 39, 26, 18)
+
+[node name="PanelDetail" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5vrxn")
+
+[node name="RewardContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 228.0
+offset_bottom = 26.0
+alignment = 1
+
+[node name="Coin" type="HBoxContainer" parent="RewardContainer"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="RewardContainer/Coin"]
+layout_mode = 2
+theme = ExtResource("1_1hpj8")
+texture = SubResource("AtlasTexture_t8rc0")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="RewardContainer/Coin"]
+layout_mode = 2
+theme = ExtResource("1_1hpj8")
+theme_override_colors/font_color = Color(0.929412, 0.929412, 0.929412, 1)
+text = "0"
+
+[node name="Exp" type="HBoxContainer" parent="RewardContainer"]
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="RewardContainer/Exp"]
+layout_mode = 2
+theme = ExtResource("1_1hpj8")
+texture = SubResource("AtlasTexture_3qna5")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="RewardContainer/Exp"]
+layout_mode = 2
+theme = ExtResource("1_1hpj8")
+theme_override_colors/font_color = Color(0.968627, 0.968627, 0.968627, 1)
+text = "0"
+
+[node name="Gem" type="HBoxContainer" parent="RewardContainer"]
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="RewardContainer/Gem"]
+layout_mode = 2
+theme = ExtResource("1_1hpj8")
+texture = SubResource("AtlasTexture_ypchv")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="RewardContainer/Gem"]
+layout_mode = 2
+theme = ExtResource("1_1hpj8")
+theme_override_colors/font_color = Color(0.941176, 0.941176, 0.941176, 1)
+text = "0"
+
+[node name="ResourceContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 40.0
+offset_right = 227.0
+offset_bottom = 261.0
+columns = 3
+
+[node name="Slot" type="Panel" parent="ResourceContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7u5fn")
+script = ExtResource("7_87n7r")
+
+[node name="Slot2" type="Panel" parent="ResourceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_7u5fn")
+script = ExtResource("7_87n7r")
+
+[node name="Slot3" type="Panel" parent="ResourceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_7u5fn")
+script = ExtResource("7_87n7r")
+
+[node name="Slot4" type="Panel" parent="ResourceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_7u5fn")
+script = ExtResource("7_87n7r")
+
+[node name="Slot5" type="Panel" parent="ResourceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_7u5fn")
+script = ExtResource("7_87n7r")
+
+[node name="Slot6" type="Panel" parent="ResourceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_7u5fn")
+script = ExtResource("7_87n7r")
+
+[node name="Slot7" type="Panel" parent="ResourceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_7u5fn")
+script = ExtResource("7_87n7r")
+
+[node name="Slot8" type="Panel" parent="ResourceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_7u5fn")
+script = ExtResource("7_87n7r")
+
+[node name="Slot9" type="Panel" parent="ResourceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_7u5fn")
+script = ExtResource("7_87n7r")
+
+[node name="DeliverBtn" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 308.0
+offset_right = 212.0
+offset_bottom = 342.0
+texture_normal = SubResource("AtlasTexture_pb81k")
+texture_pressed = SubResource("AtlasTexture_l0wbi")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="DeliverBtn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -11.0
+offset_right = 24.5
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1hpj8")
+theme_override_font_sizes/font_size = 15
+text = "Deliver"
+
+[connection signal="pressed" from="DeliverBtn" to="." method="_on_deliver_btn_pressed"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3541888pybsn"]
+
+[ext_resource type="Texture2D" uid="uid://dhu6tdggmqa4l" path="res://assets/Objects/TilesetHouse.png" id="1_oqwmq"]
+[ext_resource type="Script" path="res://scene/bulletin_board/board.gd" id="1_ssgcb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqhuf"]
+atlas = ExtResource("1_oqwmq")
+region = Rect2(272, 288, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0ahn"]
+atlas = ExtResource("1_oqwmq")
+region = Rect2(256, 256, 48, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scuxu"]
+size = Vector2(43, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7aas"]
+size = Vector2(47, 26)
+
+[node name="Board" type="CharacterBody2D"]
+collision_mask = 15
+script = ExtResource("1_ssgcb")
+
+[node name="Table" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_sqhuf")
+
+[node name="Sprite2" type="Sprite2D" parent="."]
+position = Vector2(0, -12)
+texture = SubResource("AtlasTexture_i0ahn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -10)
+shape = SubResource("RectangleShape2D_scuxu")
+
+[node name="EnemyDetector" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_j7aas")
+
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]
+[connection signal="body_exited" from="EnemyDetector" to="." method="_on_enemy_detector_body_exited"]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://drop0svr1w6ok"]
+
+[ext_resource type="Script" path="res://scene/other/items/leather/leather.gd" id="1_3hmvu"]
+[ext_resource type="Texture2D" uid="uid://drx5vm2srv5qw" path="res://assets/Objects/raw meats.png" id="1_wp0qp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nlps"]
+atlas = ExtResource("1_wp0qp")
+region = Rect2(166, 5, 19, 22)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g15vt"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0gxe4"]
+height = 28.0
+
+[node name="Leather" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_3hmvu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_6nlps")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_g15vt")
+
+[node name="EnemyDetector" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
+shape = SubResource("CapsuleShape2D_0gxe4")
+
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]

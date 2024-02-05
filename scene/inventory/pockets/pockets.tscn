@@ -214,19 +214,3 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
 script = ExtResource("5_j0al3")
-
-[connection signal="slot_input_event" from="InventoryContainer/Slot1" to="." method="_slot_input_event"]
-[connection signal="slot_input_event" from="InventoryContainer/Slot2" to="." method="_slot_input_event"]
-[connection signal="slot_input_event" from="InventoryContainer/Slot3" to="." method="_slot_input_event"]
-[connection signal="slot_input_event" from="InventoryContainer/Slot4" to="." method="_slot_input_event"]
-[connection signal="slot_input_event" from="InventoryContainer/Slot5" to="." method="_slot_input_event"]
-[connection signal="slot_input_event" from="InventoryContainer/Slot6" to="." method="_slot_input_event"]
-[connection signal="slot_input_event" from="InventoryContainer/Slot7" to="." method="_slot_input_event"]
-[connection signal="slot_input_event" from="InventoryContainer/Slot8" to="." method="_slot_input_event"]
-[connection signal="slot_input_event" from="InventoryContainer/Slot9" to="." method="_slot_input_event"]
-[connection signal="slot_input_event" from="InventoryContainer/Slot10" to="." method="_slot_input_event"]
-[connection signal="slot_input_event" from="InventoryContainer/Slot11" to="." method="_slot_input_event"]
-[connection signal="slot_input_event" from="InventoryContainer/Slot12" to="." method="_slot_input_event"]
-[connection signal="slot_input_event" from="InventoryContainer/Slot13" to="." method="_slot_input_event"]
-[connection signal="slot_input_event" from="InventoryContainer/Slot14" to="." method="_slot_input_event"]
-[connection signal="slot_input_event" from="InventoryContainer/Slot15" to="." method="_slot_input_event"]

@@ -1,0 +1,97 @@
+[
+	{
+		"id": "Bulletin001",
+		"required_item": [
+			{
+				"name": "wheat",
+				"qty": 3
+			},
+			{
+				"name": "tomato",
+				"qty": 7
+			}
+		],
+		"rewards": {
+			"coin": 10,
+			"exp": 0,
+			"gem": 20
+		},
+		"status": true
+	},
+	{
+		"id": "Bulletin002",
+		"required_item": [
+			{
+				"name": "wheat",
+				"qty": 10
+			},
+			{
+				"name": "tomato",
+				"qty": 2
+			}
+		],
+		"rewards": {
+			"coin": 10,
+			"exp": 0,
+			"gem": 1
+		},
+		"status": true
+	},
+	{
+		"id": "Bulletin003",
+		"required_item": [
+			{
+				"name": "wheat",
+				"qty": 1
+			},
+			{
+				"name": "tomato",
+				"qty": 2
+			}
+		],
+		"rewards": {
+			"coin": 0,
+			"exp": 10,
+			"gem": 0
+		},
+		"status": false
+	},
+	{
+		"id": "Bulletin004",
+		"required_item": [
+			{
+				"name": "wheat",
+				"qty": 3
+			},
+			{
+				"name": "tomato",
+				"qty": 3
+			}
+		],
+		"rewards": {
+			"coin": 10,
+			"exp": 10,
+			"gem": 0
+		},
+		"status": false
+	},
+	{
+		"id": "Bulletin005",
+		"required_item": [
+			{
+				"name": "wheat",
+				"qty": 2
+			},
+			{
+				"name": "tomato",
+				"qty": 1
+			}
+		],
+		"rewards": {
+			"coin": 10,
+			"exp": 5,
+			"gem": 0
+		},
+		"status": false
+	}
+]

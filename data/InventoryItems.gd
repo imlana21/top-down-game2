@@ -30,10 +30,24 @@ func search_by_name(item_name):
 		if data.name == item_name:
 			return data
 
-func inc_qty(item, slot_id):
+func search_all_by_name(item_name):
+	var temp = []
+	for data in load_all_data():
+		if data.name == item_name:
+			temp.append(data)
+	return temp
+
+func get_total_qty_by_name(item_name):
+	var data = search_all_by_name(item_name)
+	var qty = 0
+	if data.size() > 0:
+		for d in data:
+			qty += d.qty
+	return qty
+
+func inc_qty(item, slot_id, kategory):
 	var data = load_all_data()
 	var state_inc = false
-	print(item)
 	if data.size() < 1:
 		state_inc = true
 	else:
@@ -47,7 +61,7 @@ func inc_qty(item, slot_id):
 				state_inc = true
 	if state_inc:
 		var temp = item.duplicate()
-		temp.id = data.size() + 1
+		temp.id = kategory + str(data.size() + 1).pad_zeros(3)
 		temp.slot_id = slot_id
 		data.append(temp)
 		

@@ -21,3 +21,5 @@
 - Cave from https://dschunus.itch.io/cave-tileset
 
 - Dungeon from https://kenney-assets.itch.io/tiny-dungeon
+
+- Meat and Leather from https://spiderbr0.itch.io/32x-pixel-raw-meat

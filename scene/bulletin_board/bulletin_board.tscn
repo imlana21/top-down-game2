@@ -1,0 +1,165 @@
+[gd_scene load_steps=8 format=3 uid="uid://25gqe0ogekf6"]
+
+[ext_resource type="Texture2D" uid="uid://bwc0ccjenmbql" path="res://assets/UI/Sheet/Setting menu.png" id="1_mdiw0"]
+[ext_resource type="Script" path="res://scene/bulletin_board/bulletin_board.gd" id="1_s40vc"]
+[ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="3_a6ykq"]
+[ext_resource type="PackedScene" uid="uid://cj21y7vtt6x5q" path="res://scene/bulletin_board/panel/bulletin_panel.tscn" id="3_t4acr"]
+[ext_resource type="PackedScene" uid="uid://jei0evjg3t1r" path="res://scene/bulletin_board/panel/panel_detail.tscn" id="7_28gos"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqfmf"]
+atlas = ExtResource("1_mdiw0")
+region = Rect2(139, 12, 106, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uhf0"]
+atlas = ExtResource("1_mdiw0")
+region = Rect2(139, 12, 106, 122)
+
+[node name="BulletinBoard" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -680.0
+offset_top = -360.0
+offset_right = -680.0
+offset_bottom = -360.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_s40vc")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.5
+offset_top = -211.0
+offset_right = 328.5
+offset_bottom = 251.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_jqfmf")
+
+[node name="LeftBoard" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -260.0
+offset_top = -169.0
+offset_right = 34.0
+offset_bottom = 227.0
+
+[node name="Background" type="TextureRect" parent="LeftBoard"]
+layout_mode = 2
+offset_right = 294.0
+offset_bottom = 393.0
+texture = SubResource("AtlasTexture_1uhf0")
+
+[node name="BoardPanelList" type="Control" parent="LeftBoard"]
+anchors_preset = 0
+offset_right = 291.0
+offset_bottom = 395.0
+
+[node name="BulletinPanel" parent="LeftBoard/BoardPanelList" instance=ExtResource("3_t4acr")]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 34.0
+offset_right = 99.0
+offset_bottom = 116.0
+
+[node name="BulletinPanel2" parent="LeftBoard/BoardPanelList" instance=ExtResource("3_t4acr")]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 47.0
+offset_right = 187.0
+offset_bottom = 129.0
+
+[node name="BulletinPanel3" parent="LeftBoard/BoardPanelList" instance=ExtResource("3_t4acr")]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 21.0
+offset_right = 272.0
+offset_bottom = 103.0
+
+[node name="BulletinPanel4" parent="LeftBoard/BoardPanelList" instance=ExtResource("3_t4acr")]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 151.0
+offset_right = 88.0
+offset_bottom = 233.0
+
+[node name="BulletinPanel5" parent="LeftBoard/BoardPanelList" instance=ExtResource("3_t4acr")]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 164.0
+offset_right = 176.0
+offset_bottom = 246.0
+
+[node name="BulletinPanel6" parent="LeftBoard/BoardPanelList" instance=ExtResource("3_t4acr")]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 138.0
+offset_right = 261.0
+offset_bottom = 220.0
+
+[node name="BulletinPanel7" parent="LeftBoard/BoardPanelList" instance=ExtResource("3_t4acr")]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 267.0
+offset_right = 104.0
+offset_bottom = 349.0
+
+[node name="BulletinPanel8" parent="LeftBoard/BoardPanelList" instance=ExtResource("3_t4acr")]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 280.0
+offset_right = 192.0
+offset_bottom = 362.0
+
+[node name="BulletinPanel9" parent="LeftBoard/BoardPanelList" instance=ExtResource("3_t4acr")]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 254.0
+offset_right = 277.0
+offset_bottom = 336.0
+
+[node name="RightBoard" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 49.0
+offset_top = -163.0
+offset_right = 299.0
+offset_bottom = 229.0
+
+[node name="Label" type="Label" parent="RightBoard"]
+layout_mode = 2
+offset_left = 10.0
+offset_right = 236.0
+offset_bottom = 30.0
+theme = ExtResource("3_a6ykq")
+theme_override_colors/font_color = Color(0.952941, 0.952941, 0.952941, 1)
+theme_override_font_sizes/font_size = 25
+text = "Kinder Garden"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelDetail" parent="RightBoard" instance=ExtResource("7_28gos")]
+offset_left = 28.0
+offset_top = 54.0
+offset_right = 28.0
+offset_bottom = 54.0
+scale = Vector2(0.8, 0.8)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -182.0
+offset_top = -248.0
+offset_right = 233.0
+offset_bottom = -194.0
+theme = ExtResource("3_a6ykq")
+theme_override_colors/font_color = Color(0.894118, 0.894118, 0.894118, 1)
+theme_override_font_sizes/font_size = 40
+text = "Bulletin   Board"
+uppercase = true

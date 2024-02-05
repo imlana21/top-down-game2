@@ -59,6 +59,9 @@ var rare_ore_position = []
 var rare_ore_name = []
 var is_load_game: bool = false
 var load_data = null
+var leather_position: Array
+var meat_position: Array
+var billboard: CharacterBody2D
 
 # Toggle Pause Game
 func toggle_pause(layer):

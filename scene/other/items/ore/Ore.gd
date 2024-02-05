@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+const kategory = "ResourceItem"
 const item_detail: Dictionary = {
 	"inventory":"player",
 	"name":"ore",
@@ -14,7 +15,7 @@ func _on_ore_area_body_entered(body):
 func pick_ore():
 	var empty_slot = Autoload.player_inventory.get_empty_slot("player")
 	var item_class = InventoryItems.new()
-	item_class.inc_qty(item_detail, empty_slot)
+	item_class.inc_qty(item_detail, empty_slot, kategory)
 
 func count_down_spawn():
 	var countdown_instance = load("res://scene/enemies/countdown_spawner.tscn").instantiate()

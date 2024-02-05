@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=3 uid="uid://cj21y7vtt6x5q"]
+
+[ext_resource type="Script" path="res://scene/bulletin_board/panel/bulletin_panel.gd" id="1_1t5pg"]
+[ext_resource type="Texture2D" uid="uid://bwc0ccjenmbql" path="res://assets/UI/Sheet/Setting menu.png" id="2_kdicl"]
+[ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="2_utkph"]
+[ext_resource type="Texture2D" uid="uid://b41dlnmuu6hmi" path="res://assets/Characters/MonedaD.png" id="3_qg313"]
+[ext_resource type="PackedScene" uid="uid://cboc3yjlimtm6" path="res://scene/bulletin_board/other/checklist.tscn" id="3_tn13a"]
+[ext_resource type="Texture2D" uid="uid://4ufvxdklqi7n" path="res://assets/UI/Sheet/Icons/white icons.png" id="4_hgucj"]
+[ext_resource type="Texture2D" uid="uid://7tlec5uo6fru" path="res://assets/Characters/spr_coin_roj.png" id="6_okpt1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvhqm"]
+atlas = ExtResource("2_kdicl")
+region = Rect2(139, 12, 106, 122)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fqxo"]
+atlas = ExtResource("3_qg313")
+region = Rect2(65, 0, 13, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76d21"]
+atlas = ExtResource("4_hgucj")
+region = Rect2(82, 2, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umee4"]
+atlas = ExtResource("6_okpt1")
+region = Rect2(3, 1, 10, 15)
+
+[node name="BulletinPanel" type="MarginContainer"]
+offset_right = 85.0
+offset_bottom = 93.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+script = ExtResource("1_1t5pg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_tvhqm")
+expand_mode = 1
+
+[node name="Checklist" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+
+[node name="Checklist" parent="Checklist" instance=ExtResource("3_tn13a")]
+layout_mode = 2
+stretch_mode = 2
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Coin" type="HBoxContainer" parent="Container"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Container/Coin"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_6fqxo")
+
+[node name="Label" type="Label" parent="Container/Coin"]
+layout_mode = 2
+theme = ExtResource("2_utkph")
+theme_override_font_sizes/font_size = 11
+text = "0"
+
+[node name="Exp" type="HBoxContainer" parent="Container"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Container/Exp"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_76d21")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Container/Exp"]
+layout_mode = 2
+theme = ExtResource("2_utkph")
+theme_override_font_sizes/font_size = 11
+text = "0"
+
+[node name="Gem" type="HBoxContainer" parent="Container"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Container/Gem"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_umee4")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Container/Gem"]
+layout_mode = 2
+theme = ExtResource("2_utkph")
+theme_override_font_sizes/font_size = 11
+text = "0"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cboc3yjlimtm6"]
+
+[ext_resource type="Texture2D" uid="uid://4ufvxdklqi7n" path="res://assets/UI/Sheet/Icons/white icons.png" id="1_rarsy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jkek"]
+atlas = ExtResource("1_rarsy")
+region = Rect2(50, 35, 13, 10)
+
+[node name="Checklist" type="TextureRect"]
+texture = SubResource("AtlasTexture_3jkek")

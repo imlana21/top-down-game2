@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var value: int = 0
 var enemy_status: String = ""
+const kategory = "FoodItem"
 const item_detail: Dictionary = {
 	"inventory":"player",
 	"name":"wheat",
@@ -21,4 +22,4 @@ func pick_wheat() -> void:
 	var empty_slot = Autoload.player_inventory.get_empty_slot("player")
 	var item_class = InventoryItems.new()
 	
-	item_class.inc_qty(item_detail, empty_slot)
+	item_class.inc_qty(item_detail, empty_slot, kategory)

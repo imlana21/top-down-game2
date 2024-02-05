@@ -8,7 +8,7 @@ func _ready():
 
 func _physics_process(delta):
 	if move_state:
-		move_and_collide(move_direction * delta * 30)
+		move_and_collide(move_direction * delta * move_speed)
 
 
 func _on_move_timer_timeout():

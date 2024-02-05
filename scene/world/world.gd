@@ -4,6 +4,7 @@ extends Node2D
 
 signal change_scene
 signal start_combat
+signal player_near_board
 	
 func _ready():
 	Autoload.world = self
@@ -97,3 +98,5 @@ func call_tree():
 		Autoload.tree_position.remove_at(index)
 		Autoload.spawn_tree(self, pos)
 	
+func _on_board_is_near_player(val):
+	player_near_board.emit(val)

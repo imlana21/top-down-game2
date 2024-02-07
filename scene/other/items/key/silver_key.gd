@@ -22,4 +22,3 @@ func pick_key():
 	var empty_slot = Autoload.player_inventory.get_empty_slot("player")
 	var item_class = InventoryItems.new()
 	
-	item_class.inc_qty(item_detail, empty_slot, kategory)

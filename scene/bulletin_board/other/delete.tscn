@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dexhmhyjvmsrq"]
+
+[ext_resource type="Texture2D" uid="uid://cx5ao1hchks72" path="res://assets/UI/Sheet/Icons/All Icons.png" id="1_lwf20"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmcv8"]
+atlas = ExtResource("1_lwf20")
+region = Rect2(66, 34, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xo6ta"]
+atlas = ExtResource("1_lwf20")
+region = Rect2(162, 34, 12, 12)
+
+[node name="Delete" type="TextureButton"]
+texture_normal = SubResource("AtlasTexture_kmcv8")
+texture_pressed = SubResource("AtlasTexture_xo6ta")

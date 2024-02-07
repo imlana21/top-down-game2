@@ -41,3 +41,47 @@ func item_delivered(item):
 			d.status = true
 	save_items(data)
 	
+func delete_item(item_id):
+	var data = get_all_items()
+	for i in data.size():
+		if data[i].id == item_id:
+			data.remove_at(i)
+			save_items(data)
+			return true
+	return false
+	
+func refresh_item(item_id):
+	var data = get_all_items()
+	data.append({
+		"id": item_id,
+		"required_item": _generate_req_items(),
+		"rewards": _generate_rewards(),
+		"status": false
+	})
+	save_items(data)
+
+func _generate_req_items():
+	return [{
+			"name": "wheat",
+			"qty": randi_range(0, 15)
+		}, {
+			"name": "tomato",
+			"qty": randi_range(0, 15)
+		}, {
+			"name": "wood",
+			"qty": randi_range(0, 15)
+		}, {
+			"name": "leather",
+			"qty": randi_range(0, 15)
+		}, {
+			"name": "meat",
+			"qty": randi_range(0, 15)
+		},
+	]
+
+func _generate_rewards():
+	return {
+		"coin": randi_range(0, 1000),
+		"exp": randi_range(100, 700),
+		"gem": randi_range(1, 6)
+	}

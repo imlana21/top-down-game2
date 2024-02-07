@@ -27,13 +27,11 @@ func set_items(val):
 	var items_panel = $ResourceContainer.get_children()
 	var index = 0
 	items = val
-	
 	for panel in items_panel:
+		panel.set_item(null)
 		if val != null:
 			if index < val.size():
 				panel.set_item(items[index])
-		else:
-			panel.set_item(null)
 		index += 1
 	
 	if check_all_qty_items():

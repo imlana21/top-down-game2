@@ -4,6 +4,7 @@ func _ready():
 	var panel_list = $LeftBoard/BoardPanelList.get_children()
 	for panel in panel_list:
 		panel.connect("panel_on_click", _on_panel_click_update_detail)
+		panel.connect("throw_away", _refresh_panel)
 	init_bulletin_panel()
 	$RightBoard/PanelDetail.connect("update_bulletin_panel", init_bulletin_panel)
 
@@ -24,6 +25,11 @@ func init_bulletin_panel():
 			panel.set_item_list(null)
 			panel.set_id(null)
 		index += 1
+		
+func _refresh_panel(item_id):
+	var bulletin_data = BulletinDataManager.new()
+	await bulletin_data.refresh_item(item_id)
+	init_bulletin_panel()
 
 func _on_panel_click_update_detail(panel):
 	$RightBoard/PanelDetail.set_rewards(panel.rewards)

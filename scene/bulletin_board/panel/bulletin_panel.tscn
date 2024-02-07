@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cj21y7vtt6x5q"]
+[gd_scene load_steps=13 format=3 uid="uid://cj21y7vtt6x5q"]
 
 [ext_resource type="Script" path="res://scene/bulletin_board/panel/bulletin_panel.gd" id="1_1t5pg"]
 [ext_resource type="Texture2D" uid="uid://bwc0ccjenmbql" path="res://assets/UI/Sheet/Setting menu.png" id="2_kdicl"]
 [ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="2_utkph"]
 [ext_resource type="Texture2D" uid="uid://b41dlnmuu6hmi" path="res://assets/Characters/MonedaD.png" id="3_qg313"]
 [ext_resource type="PackedScene" uid="uid://cboc3yjlimtm6" path="res://scene/bulletin_board/other/checklist.tscn" id="3_tn13a"]
+[ext_resource type="PackedScene" uid="uid://dexhmhyjvmsrq" path="res://scene/bulletin_board/other/delete.tscn" id="3_vi7mh"]
 [ext_resource type="Texture2D" uid="uid://4ufvxdklqi7n" path="res://assets/UI/Sheet/Icons/white icons.png" id="4_hgucj"]
 [ext_resource type="Texture2D" uid="uid://7tlec5uo6fru" path="res://assets/Characters/spr_coin_roj.png" id="6_okpt1"]
 
@@ -36,14 +37,25 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_tvhqm")
 expand_mode = 1
 
-[node name="Checklist" type="VBoxContainer" parent="."]
-visible = false
+[node name="Mark" type="Control" parent="."]
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
 
-[node name="Checklist" parent="Checklist" instance=ExtResource("3_tn13a")]
+[node name="Delete" parent="Mark" instance=ExtResource("3_vi7mh")]
 layout_mode = 2
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 9.0
+offset_bottom = 4.0
+
+[node name="Checklist" parent="Mark" instance=ExtResource("3_tn13a")]
+visible = false
+layout_mode = 2
+offset_left = -15.0
+offset_top = 67.0
+offset_right = -2.0
+offset_bottom = 77.0
 stretch_mode = 2
 
 [node name="Container" type="VBoxContainer" parent="."]
@@ -97,4 +109,16 @@ theme = ExtResource("2_utkph")
 theme_override_font_sizes/font_size = 11
 text = "0"
 
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Time"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="pressed" from="Mark/Delete" to="." method="_on_delete_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

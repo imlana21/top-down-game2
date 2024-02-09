@@ -6,7 +6,8 @@ extends MarginContainer
 var status: bool = false: set = set_status
 var rewards = null: set = set_rewards
 var item_list = null: set = set_item_list
-var id_item: set = set_id
+var id_item = "": set = set_id
+var tittle = "": set = set_tittle
 var waiting_seconds = 5
 var waiting_minutes = 0
 
@@ -17,6 +18,9 @@ func _ready():
 	$Mark/Checklist.visible = false
 	
 # Setter
+func set_tittle(val):
+	tittle = val
+	
 func set_status(val):
 	status = val
 	if status:
@@ -73,8 +77,9 @@ func _on_timer_timeout():
 		waiting_minutes -= 1
 	$Label.text = str(waiting_minutes) + ":" + str(waiting_seconds)
 	if waiting_minutes < 0:
+		$Timer.stop()
 		waiting_minutes = max_minutes
 		waiting_seconds = max_seconds
-		$Timer.stop()
+		print("Form bulletin panel ", id_item)
 		throw_away.emit(id_item)
 		$Label.visible = false

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://kc5cioeket53"]
+
+[ext_resource type="Script" path="res://scene/other/utils/spectator_eye.gd" id="1_3ucun"]
+
+[node name="SpectatorEye" type="Node2D"]
+script = ExtResource("1_3ucun")

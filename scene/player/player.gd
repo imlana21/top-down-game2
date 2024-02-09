@@ -34,11 +34,11 @@ func _process(_delta):
 		$PlayerSprite.modulate = "ffffff"
 	
 func _physics_process(delta):
-	if !CombatDetail.is_attacking:
+	if !CombatDetail.is_attacking and !Autoload.is_spectator_mode:
 		walk(delta)
 
 func _input(event):
-	if event is InputEventKey and event.pressed:
+	if event is InputEventKey and event.pressed and !Autoload.is_spectator_mode:
 		change_direction.emit(get_axis_input())
 
 func _on_enemy_detector_body_entered(body):

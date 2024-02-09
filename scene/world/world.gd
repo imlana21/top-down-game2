@@ -100,3 +100,7 @@ func call_tree():
 	
 func _on_board_is_near_player(val):
 	player_near_board.emit(val)
+
+
+func _on_screen_start_combat():
+	pass # Replace with function body.

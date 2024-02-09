@@ -1,6 +1,6 @@
 extends Node
 
-var player_skin = "normal"
+var player_skin: String = "normal"
 #var is_paused: bool = false
 var paused_on: String = ""
 var player: CharacterBody2D
@@ -35,8 +35,8 @@ var enter_world_position: Dictionary = {
 }
 var chest_store: CharacterBody2D
 var player_inventory: Node2D
-var tree_position = []
-var ore_position_1 = [
+var tree_position: Array = []
+var ore_position_1: Array = [
 	Vector2(375, 263),
 	Vector2(473, 263),
 	Vector2(431, 275),
@@ -46,22 +46,23 @@ var ore_position_1 = [
 	Vector2(397, 291),
 	Vector2(395, 263)
 ]
-var ore_name_1 = []
-var ore_position_2 = [
+var ore_name_1: Array = []
+var ore_position_2: Array = [
 	Vector2(375, 263),
 	Vector2(473, 263),
 	Vector2(431, 275),
 	Vector2(467, 328),
 	Vector2(395, 263)
 ]
-var ore_name_2 = []
-var rare_ore_position = []
-var rare_ore_name = []
+var ore_name_2: Array = []
+var rare_ore_position: Array = []
+var rare_ore_name: Array = []
 var is_load_game: bool = false
 var load_data = null
 var leather_position: Array
 var meat_position: Array
 var billboard: CharacterBody2D
+var is_spectator_mode: bool = false
 
 # Toggle Pause Game
 func toggle_pause(layer):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://nmtmi2fu0gk6"]
+[gd_scene load_steps=13 format=3 uid="uid://nmtmi2fu0gk6"]
 
 [ext_resource type="Script" path="res://scene/player/screen/screen.gd" id="1_ayc6u"]
 [ext_resource type="PackedScene" uid="uid://clsatwim6pka7" path="res://scene/player/player.tscn" id="1_ch7dy"]
@@ -7,6 +7,19 @@
 [ext_resource type="PackedScene" uid="uid://ijuv1rxcurki" path="res://scene/player/currencies_bar/coin_bar.tscn" id="5_fqgxj"]
 [ext_resource type="PackedScene" uid="uid://ci073ospwb7tw" path="res://scene/player/exp_bar/exp_bar.tscn" id="5_kfqb5"]
 [ext_resource type="PackedScene" uid="uid://ch1hunbc0oru3" path="res://scene/player/currencies_bar/gem_bar.tscn" id="6_8sunh"]
+[ext_resource type="Texture2D" uid="uid://cx5ao1hchks72" path="res://assets/UI/Sheet/Icons/All Icons.png" id="7_6lnpo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dnf6"]
+atlas = ExtResource("7_6lnpo")
+region = Rect2(2, 4, 12, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87b0c"]
+atlas = ExtResource("7_6lnpo")
+region = Rect2(242, 4, 12, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utr3b"]
+atlas = ExtResource("7_6lnpo")
+region = Rect2(98, 4, 12, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8na4g"]
 atlas = ExtResource("2_3ha78")
@@ -19,12 +32,22 @@ script = ExtResource("1_ayc6u")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
+[node name="TextureButton" type="TextureButton" parent="Camera2D"]
+offset_left = -319.0
+offset_top = 155.0
+offset_right = -302.0
+offset_bottom = 168.0
+texture_normal = SubResource("AtlasTexture_4dnf6")
+texture_pressed = SubResource("AtlasTexture_87b0c")
+texture_hover = SubResource("AtlasTexture_utr3b")
+stretch_mode = 0
+
 [node name="Label" type="Label" parent="Camera2D"]
 z_index = 100
 offset_left = 287.0
 offset_top = -171.0
 offset_right = 319.0
-offset_bottom = -162.0
+offset_bottom = -161.0
 theme = ExtResource("2_xtnd7")
 theme_override_font_sizes/font_size = 7
 text = "Energy"
@@ -70,4 +93,5 @@ position = Vector2(18, -158)
 
 [node name="Player" parent="." instance=ExtResource("1_ch7dy")]
 
+[connection signal="pressed" from="Camera2D/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="start_combat" from="Player" to="." method="_on_player_start_combat"]

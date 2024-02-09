@@ -56,8 +56,10 @@ func refresh_item(item_id):
 		"id": item_id,
 		"required_item": _generate_req_items(),
 		"rewards": _generate_rewards(),
-		"status": false
+		"status": false,
+		"from": _generate_from()
 	})
+	#print("From bulletin Manager ", item_id)
 	save_items(data)
 
 func _generate_req_items():
@@ -85,3 +87,8 @@ func _generate_rewards():
 		"exp": randi_range(100, 700),
 		"gem": randi_range(1, 6)
 	}
+	
+func _generate_from():
+	var req_list = ["Kinder Garden", "Shoe Store", "Hana Boutique", "Lumine Store", "Coffee Shop", "Hartono Mall", "Raiden Garage"]
+	
+	return req_list.pick_random()

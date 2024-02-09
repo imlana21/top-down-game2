@@ -3,7 +3,7 @@ extends Control
 var rewards  = null: set = set_rewards
 var items = null: set = set_items
 var status = false: set = set_status
-var id_item: set = set_id
+var id_item = "": set = set_id
 
 signal update_bulletin_panel
 

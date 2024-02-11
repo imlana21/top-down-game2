@@ -13,6 +13,5 @@ func set_item(d):
 
 func reset_item():
 	data = null
-	print($TextureRect.texture)
 	$TextureRect.texture = null
 	$Label.text = ""

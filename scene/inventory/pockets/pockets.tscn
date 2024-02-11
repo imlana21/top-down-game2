@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://jsflbyl7b5c"]
+[gd_scene load_steps=10 format=3 uid="uid://jsflbyl7b5c"]
 
 [ext_resource type="Script" path="res://scene/inventory/pockets/pockets.gd" id="1_1tq2f"]
 [ext_resource type="Texture2D" uid="uid://bwc0ccjenmbql" path="res://assets/UI/Sheet/Setting menu.png" id="2_hjxe8"]
 [ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="3_gjl7f"]
 [ext_resource type="Texture2D" uid="uid://dkn0yi4k2ipte" path="res://assets/UI/Sheet/buttons/Square Buttons 26x26.png" id="4_8oe5w"]
 [ext_resource type="Script" path="res://scene/inventory/pockets/pockets_slot.gd" id="5_j0al3"]
+[ext_resource type="Script" path="res://scene/inventory/pockets/weapon_container.gd" id="6_yqhi2"]
+[ext_resource type="PackedScene" uid="uid://bqapx6lhnn64b" path="res://scene/inventory/_items/item.tscn" id="7_h42xk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5v44r"]
 atlas = ExtResource("2_hjxe8")
@@ -35,10 +37,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -204.0
-offset_top = -154.0
-offset_right = 204.0
-offset_bottom = 154.0
+offset_left = -234.0
+offset_top = -242.5
+offset_right = 234.0
+offset_bottom = 242.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_5v44r")
@@ -51,9 +53,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -78.0
-offset_top = -139.0
+offset_top = -231.0
 offset_right = 78.0
-offset_bottom = -109.0
+offset_bottom = -201.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_gjl7f")
@@ -72,9 +74,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -106.0
-offset_top = -102.0
+offset_top = -193.0
 offset_right = 106.0
-offset_bottom = -100.0
+offset_bottom = -191.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -85,10 +87,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -187.5
-offset_top = -84.0
-offset_right = 187.5
-offset_bottom = 142.0
+offset_left = -214.5
+offset_top = -177.0
+offset_right = 214.5
+offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.909804, 0.811765, 0.65098, 1)
@@ -99,16 +101,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -181.0
-offset_top = -76.5
-offset_right = 181.0
-offset_bottom = 134.5
+offset_left = -25.0
+offset_top = -168.0
+offset_right = 206.0
+offset_bottom = 219.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 5
-columns = 5
+columns = 3
 
 [node name="Slot1" type="Panel" parent="InventoryContainer"]
 layout_mode = 2
@@ -214,3 +216,53 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
 script = ExtResource("5_j0al3")
+
+[node name="WeaponContainer" type="GridContainer" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -128.0
+offset_right = -106.0
+offset_bottom = 178.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("6_yqhi2")
+
+[node name="Slot1" type="Panel" parent="WeaponContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Item" parent="WeaponContainer/Slot1" instance=ExtResource("7_h42xk")]
+
+[node name="Slot2" type="Panel" parent="WeaponContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Item" parent="WeaponContainer/Slot2" instance=ExtResource("7_h42xk")]
+
+[node name="Slot3" type="Panel" parent="WeaponContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Item" parent="WeaponContainer/Slot3" instance=ExtResource("7_h42xk")]
+
+[node name="Slot4" type="Panel" parent="WeaponContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Item" parent="WeaponContainer/Slot4" instance=ExtResource("7_h42xk")]

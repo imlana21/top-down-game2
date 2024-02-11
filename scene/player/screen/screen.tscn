@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://nmtmi2fu0gk6"]
+[gd_scene load_steps=17 format=3 uid="uid://nmtmi2fu0gk6"]
 
 [ext_resource type="Script" path="res://scene/player/screen/screen.gd" id="1_ayc6u"]
 [ext_resource type="PackedScene" uid="uid://clsatwim6pka7" path="res://scene/player/player.tscn" id="1_ch7dy"]
 [ext_resource type="Texture2D" uid="uid://bdlb2giyyg238" path="res://assets/UI/Sheet/buttons/Square Buttons 19x26.png" id="2_3ha78"]
 [ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="2_xtnd7"]
+[ext_resource type="Texture2D" uid="uid://dtcrdos4kujr2" path="res://assets/Objects/Square.png" id="5_716mf"]
+[ext_resource type="Texture2D" uid="uid://n57ux7bnucly" path="res://assets/Objects/square_clicked.jpeg" id="5_e403b"]
 [ext_resource type="PackedScene" uid="uid://ijuv1rxcurki" path="res://scene/player/currencies_bar/coin_bar.tscn" id="5_fqgxj"]
 [ext_resource type="PackedScene" uid="uid://ci073ospwb7tw" path="res://scene/player/exp_bar/exp_bar.tscn" id="5_kfqb5"]
 [ext_resource type="PackedScene" uid="uid://ch1hunbc0oru3" path="res://scene/player/currencies_bar/gem_bar.tscn" id="6_8sunh"]
@@ -24,6 +26,14 @@ region = Rect2(98, 4, 12, 9)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8na4g"]
 atlas = ExtResource("2_3ha78")
 region = Rect2(7, 57, 18, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5glj"]
+atlas = ExtResource("5_716mf")
+region = Rect2(0, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcyfn"]
+atlas = ExtResource("5_e403b")
+region = Rect2(0, 0, 30, 30)
 
 [node name="Screen" type="Node2D"]
 process_mode = 1
@@ -54,7 +64,93 @@ text = "Energy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Energy" type="Label" parent="Camera2D"]
+[node name="TextureRect" type="TextureRect" parent="Camera2D"]
+z_index = 99
+offset_left = 279.0
+offset_top = -174.0
+offset_right = 327.0
+offset_bottom = -144.0
+theme = ExtResource("2_xtnd7")
+texture = SubResource("AtlasTexture_8na4g")
+
+[node name="ButtonGroup" type="Control" parent="Camera2D"]
+visible = false
+z_index = 9
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 155.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/ButtonGroup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -9.0
+offset_right = 30.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/ButtonGroup/MarginContainer"]
+layout_mode = 2
+color = Color(0.862745, 0.72549, 0.541176, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/ButtonGroup/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="Button1" type="TextureButton" parent="Camera2D/ButtonGroup/MarginContainer/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Button Group"
+texture_normal = SubResource("AtlasTexture_x5glj")
+texture_pressed = SubResource("AtlasTexture_kcyfn")
+stretch_mode = 0
+
+[node name="Button2" type="TextureButton" parent="Camera2D/ButtonGroup/MarginContainer/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Button Group"
+texture_normal = SubResource("AtlasTexture_x5glj")
+texture_pressed = SubResource("AtlasTexture_kcyfn")
+stretch_mode = 0
+
+[node name="Button3" type="TextureButton" parent="Camera2D/ButtonGroup/MarginContainer/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Button Group"
+texture_normal = SubResource("AtlasTexture_x5glj")
+texture_pressed = SubResource("AtlasTexture_kcyfn")
+stretch_mode = 0
+
+[node name="Button4" type="TextureButton" parent="Camera2D/ButtonGroup/MarginContainer/HBoxContainer"]
+layout_mode = 2
+tooltip_text = "Button Group"
+texture_normal = SubResource("AtlasTexture_x5glj")
+texture_pressed = SubResource("AtlasTexture_kcyfn")
+stretch_mode = 0
+
+[node name="Curencies" type="Node2D" parent="Camera2D"]
+
+[node name="CoinBar" parent="Camera2D/Curencies" instance=ExtResource("5_fqgxj")]
+position = Vector2(-29, -158)
+
+[node name="GemBar" parent="Camera2D/Curencies" instance=ExtResource("6_8sunh")]
+position = Vector2(18, -158)
+
+[node name="Energy" type="Label" parent="Camera2D/Curencies"]
 modulate = Color(0.136826, 0.136826, 0.136826, 1)
 light_mask = 7
 visibility_layer = 7
@@ -70,26 +166,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="TextureRect" type="TextureRect" parent="Camera2D"]
-z_index = 99
-offset_left = 279.0
-offset_top = -174.0
-offset_right = 327.0
-offset_bottom = -144.0
-theme = ExtResource("2_xtnd7")
-texture = SubResource("AtlasTexture_8na4g")
-
-[node name="ExpBar" parent="Camera2D" instance=ExtResource("5_kfqb5")]
+[node name="ExpBar" parent="Camera2D/Curencies" instance=ExtResource("5_kfqb5")]
 offset_left = -329.0
 offset_top = -169.0
 offset_right = -329.0
 offset_bottom = -169.0
-
-[node name="CoinBar" parent="Camera2D" instance=ExtResource("5_fqgxj")]
-position = Vector2(-29, -158)
-
-[node name="GemBar" parent="Camera2D" instance=ExtResource("6_8sunh")]
-position = Vector2(18, -158)
 
 [node name="Player" parent="." instance=ExtResource("1_ch7dy")]
 

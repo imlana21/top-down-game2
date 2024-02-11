@@ -23,3 +23,7 @@
 - Dungeon from https://kenney-assets.itch.io/tiny-dungeon
 
 - Meat and Leather from https://spiderbr0.itch.io/32x-pixel-raw-meat
+
+- Rect Shape from https://casadogames.itch.io/simple-shapes
+
+- Armor Icon from https://zeno.itch.io/armor-icons

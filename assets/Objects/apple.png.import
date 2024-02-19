@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnudrll3dxwyx"
-path="res://.godot/imported/wheat.png-76b20beb570200f35798bc4a8bd106cf.ctex"
+uid="uid://rbxucagvoq7j"
+path="res://.godot/imported/apple.png-21e911f8f4d2e47b5d51d2b87c1c5403.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Objects/wheat.png"
-dest_files=["res://.godot/imported/wheat.png-76b20beb570200f35798bc4a8bd106cf.ctex"]
+source_file="res://assets/Objects/apple.png"
+dest_files=["res://.godot/imported/apple.png-21e911f8f4d2e47b5d51d2b87c1c5403.ctex"]
 
 [params]
 

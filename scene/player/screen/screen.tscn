@@ -43,10 +43,20 @@ script = ExtResource("1_ayc6u")
 zoom = Vector2(2, 2)
 
 [node name="TextureButton" type="TextureButton" parent="Camera2D"]
-offset_left = -319.0
-offset_top = 155.0
-offset_right = -302.0
-offset_bottom = 168.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -318.0
+offset_top = 154.0
+offset_right = -306.0
+offset_bottom = 163.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture_normal = SubResource("AtlasTexture_4dnf6")
 texture_pressed = SubResource("AtlasTexture_87b0c")
 texture_hover = SubResource("AtlasTexture_utr3b")
@@ -70,6 +80,7 @@ offset_left = 279.0
 offset_top = -174.0
 offset_right = 327.0
 offset_bottom = -144.0
+mouse_filter = 2
 theme = ExtResource("2_xtnd7")
 texture = SubResource("AtlasTexture_8na4g")
 

@@ -27,3 +27,7 @@
 - Rect Shape from https://casadogames.itch.io/simple-shapes
 
 - Armor Icon from https://zeno.itch.io/armor-icons
+
+- Bench and another tileset component from https://pixel-boy.itch.io/
+
+- Food from https://ghostpixxells.itch.io/pixelfood

@@ -8,8 +8,8 @@ var rewards = null: set = set_rewards
 var item_list = null: set = set_item_list
 var id_item = "": set = set_id
 var tittle = "": set = set_tittle
-var waiting_seconds = 5
-var waiting_minutes = 0
+var waiting_seconds = 0
+var waiting_minutes = 4
 
 signal panel_on_click
 signal throw_away
@@ -69,7 +69,7 @@ func _on_delete_pressed():
 		$Label.text = str(waiting_minutes) + ":" + str(waiting_seconds)
 		$Label.visible = true
 		hide_rewards()
-
+		
 func _on_timer_timeout():
 	waiting_seconds -= 1
 	if waiting_seconds < 1:

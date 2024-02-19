@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bvyhriropkstk"]
+[gd_scene load_steps=18 format=3 uid="uid://bvyhriropkstk"]
 
 [ext_resource type="Script" path="res://scene/scene_manager.gd" id="1_qod2y"]
 [ext_resource type="PackedScene" uid="uid://dwki8cn7xuhuy" path="res://scene/world/world.tscn" id="2_jwqfh"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://jsflbyl7b5c" path="res://scene/inventory/pockets/pockets.tscn" id="5_2fi74"]
 [ext_resource type="Script" path="res://scene/store_layer.gd" id="9_bd76d"]
 [ext_resource type="PackedScene" uid="uid://b5meqibplx04s" path="res://scene/inventory/chest/store/chest_store.tscn" id="9_pmjhq"]
+[ext_resource type="PackedScene" uid="uid://dhiiki6cif5k7" path="res://scene/crafting_bench/popup_product.tscn" id="9_xo3op"]
 [ext_resource type="Script" path="res://scene/billboard_layer.gd" id="11_8t8w0"]
 [ext_resource type="PackedScene" uid="uid://25gqe0ogekf6" path="res://scene/bulletin_board/bulletin_board.tscn" id="11_h8v8j"]
 
@@ -69,6 +70,7 @@ _data = {
 
 [node name="SceneManager" type="Node2D"]
 process_mode = 3
+position = Vector2(0, -10)
 script = ExtResource("1_qod2y")
 
 [node name="CurrentScene" type="Node2D" parent="."]
@@ -133,6 +135,10 @@ follow_viewport_enabled = true
 script = ExtResource("5_0u74o")
 
 [node name="Pockets" parent="InventoryLayer" instance=ExtResource("5_2fi74")]
+process_mode = 2
+visible = false
+
+[node name="Crafting" parent="InventoryLayer" instance=ExtResource("9_xo3op")]
 process_mode = 2
 visible = false
 

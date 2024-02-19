@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnudrll3dxwyx"
-path="res://.godot/imported/wheat.png-76b20beb570200f35798bc4a8bd106cf.ctex"
+uid="uid://wom72na4rcos"
+path="res://.godot/imported/meat_ball.png-216b21f7574cd7fcf274db59c3d7d06a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Objects/wheat.png"
-dest_files=["res://.godot/imported/wheat.png-76b20beb570200f35798bc4a8bd106cf.ctex"]
+source_file="res://assets/Objects/food/meat_ball.png"
+dest_files=["res://.godot/imported/meat_ball.png-216b21f7574cd7fcf274db59c3d7d06a.ctex"]
 
 [params]
 

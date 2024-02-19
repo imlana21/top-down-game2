@@ -62,6 +62,7 @@ var load_data = null
 var leather_position: Array
 var meat_position: Array
 var billboard: CharacterBody2D
+var bench: CharacterBody2D
 var is_spectator_mode: bool = false
 
 # Toggle Pause Game

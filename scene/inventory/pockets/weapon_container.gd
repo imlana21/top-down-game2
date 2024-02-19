@@ -9,5 +9,3 @@ func _ready():
 	for i in get_children():
 		i.get_children()[0].scale = Vector2(1.5, 1.5)
 		i.get_children()[0].position = Vector2(5, 5)
-	#$Slot1/Item.scale = Vector2(1.5, 1.5)
-	#$Slot1/Item.position = Vector2(5, 5)

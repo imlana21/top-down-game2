@@ -5,7 +5,7 @@ var enemy_status: String = ""
 const kategory = "FoodItem"
 var item_detail: Dictionary = {
 	"inventory":"player",
-	"name":"tomato",
+	"name":"apple",
 	"qty":1,
 	"stack_size":12
 }

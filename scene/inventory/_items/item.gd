@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var data = null
 
@@ -8,7 +8,7 @@ func set_item(d):
 		return
 	data = d
 	data.qty = int(data.qty)
-	$TextureRect.texture = load("res://assets/Objects/" + data.name + ".png")
+	$TextureRect.texture_normal = load("res://assets/Objects/" + data.name + ".png")
 	$Label.text = str(data.qty)
 
 func reset_item():

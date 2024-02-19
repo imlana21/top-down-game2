@@ -92,6 +92,22 @@ func remove_item(item):
 			data.remove_at(i)
 			break
 	save_items(data)
+
+func remove_item2(data: Dictionary):
+	var all_data = load_all_data()
+	for i in range(0, all_data.size()):	
+		if all_data[i].id == data.id and all_data[i].name == data.name:
+			all_data.remove_at(i)
+			save_items(all_data)
+			return true
+	return false
+
+func add_item(data: Dictionary, new_id = false):
+	var all_data = load_all_data()
+	if new_id:
+		data.id = data.id.left(-3) + str(all_data.size()).pad_zeros(3)
+	all_data.append(data)
+	save_items(all_data)
 	
 func change_inventory(item, inv_name):
 	var data = load_all_data()

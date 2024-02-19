@@ -1,11 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnb2j8htna5hw"]
+[gd_scene load_steps=5 format=3 uid="uid://bnb2j8htna5hw"]
 
 [ext_resource type="Script" path="res://scene/other/items/tomato/tomato.gd" id="1_bpa5i"]
-[ext_resource type="Texture2D" uid="uid://mxt7gnq3y47a" path="res://assets/Objects/tomato.png" id="1_uku1e"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lcuje"]
-atlas = ExtResource("1_uku1e")
-region = Rect2(2, 1, 12, 13)
+[ext_resource type="Texture2D" uid="uid://rbxucagvoq7j" path="res://assets/Objects/apple.png" id="2_v3bp8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1mnmi"]
 radius = 8.0
@@ -19,7 +15,7 @@ script = ExtResource("1_bpa5i")
 
 [node name="TomatoSprite" type="Sprite2D" parent="."]
 scale = Vector2(1.33333, 1.23077)
-texture = SubResource("AtlasTexture_lcuje")
+texture = ExtResource("2_v3bp8")
 
 [node name="TomatoCollision" type="CollisionShape2D" parent="."]
 scale = Vector2(0.7, 0.7)

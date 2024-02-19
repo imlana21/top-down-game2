@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnudrll3dxwyx"
-path="res://.godot/imported/wheat.png-76b20beb570200f35798bc4a8bd106cf.ctex"
+uid="uid://b77frs6dwcgjk"
+path="res://.godot/imported/jam.png-31b1872aa5dce8ec0fb93c24ad2a71d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Objects/wheat.png"
-dest_files=["res://.godot/imported/wheat.png-76b20beb570200f35798bc4a8bd106cf.ctex"]
+source_file="res://assets/Objects/food/jam.png"
+dest_files=["res://.godot/imported/jam.png-31b1872aa5dce8ec0fb93c24ad2a71d2.ctex"]
 
 [params]
 

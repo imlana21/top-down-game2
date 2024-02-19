@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bwc0ccjenmbql" path="res://assets/UI/Sheet/Setting menu.png" id="1_mdiw0"]
 [ext_resource type="Script" path="res://scene/bulletin_board/bulletin_board.gd" id="1_s40vc"]
 [ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="3_a6ykq"]
-[ext_resource type="PackedScene" uid="uid://cj21y7vtt6x5q" path="res://scene/bulletin_board/panel/bulletin_panel.tscn" id="3_t4acr"]
+[ext_resource type="PackedScene" uid="uid://cj21y7vtt6x5q" path="res://scene/crafting_bench/panel/crafting_panel.tscn" id="3_t4acr"]
 [ext_resource type="PackedScene" uid="uid://jei0evjg3t1r" path="res://scene/bulletin_board/panel/panel_detail.tscn" id="7_28gos"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jqfmf"]

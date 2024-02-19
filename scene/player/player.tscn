@@ -293,7 +293,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwpk0"]
-size = Vector2(12, 15)
+size = Vector2(12, 10.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3t38j"]
 radius = 18.2483
@@ -306,16 +306,13 @@ script = ExtResource("1_ipdf2")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dnjfl")
-animation = &"attack_down"
-frame = 1
-frame_progress = 1.0
+animation = &"idle_up"
 script = ExtResource("4_jkodp")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vwpk0")
 
 [node name="EnemyDetector" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 4
 

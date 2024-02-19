@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://chv0gk20e4aa"]
 
 [ext_resource type="Texture2D" uid="uid://cr7ihq3dm4whx" path="res://assets/Sprout Lands color pallet/Sprout Lands defautlt palette snip.PNG" id="1_n5bwf"]
-[ext_resource type="Script" path="res://scene/rooms/home/kitchen/kitchen.gd" id="1_poxyg"]
+[ext_resource type="Script" path="res://scene/world/home/kitchen/kitchen.gd" id="1_poxyg"]
 [ext_resource type="Texture2D" uid="uid://d1pt7v7oiayyy" path="res://assets/Tilesets/Wooden House.png" id="2_sb4pq"]
 [ext_resource type="Texture2D" uid="uid://bav3g3p0dindl" path="res://assets/Tilesets/TilesetInterior.png" id="3_jqcwi"]
 [ext_resource type="Texture2D" uid="uid://jgixfnu4f6mk" path="res://assets/Tilesets/TilesetWallSimple.png" id="4_aa7vl"]
@@ -2313,13 +2313,13 @@ layer_0/tile_data = PackedInt32Array(1441820, 65536, 2, 1441821, 65536, 2, 14418
 
 [node name="ToLivingRoomDoorArea" type="Area2D" parent="."]
 position = Vector2(-1, 0)
-collision_mask = 3
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToLivingRoomDoorArea"]
 position = Vector2(425, 360)
 shape = SubResource("RectangleShape2D_x8kh7")
 
 [node name="Screen" parent="." instance=ExtResource("5_4oenq")]
-position = Vector2(444, 361)
+position = Vector2(451, 360)
 
 [connection signal="body_entered" from="ToLivingRoomDoorArea" to="." method="_on_to_living_room_door_area_body_entered"]

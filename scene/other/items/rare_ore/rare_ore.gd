@@ -1,3 +1,4 @@
+class_name ItemsRareOre
 extends CharacterBody2D
 
 const kategory = "ResourceItem"

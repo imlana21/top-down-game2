@@ -6,8 +6,10 @@ var pimg = null
 var pname = null
 var ptype = null
 var ptime_cook = null
+var pinv = null
 	
 func show_crafting_popup():
+	print(pinv)
 	if pid != null or pingredient != null or pname != null:
 		_set_crafting()
 		_set_btn()
@@ -73,7 +75,7 @@ func _generate_to_inventory():
 		"inventory": "player",
 		"name": pimg,
 		"qty": 1,
-		"stack_size": 3
+		"stack_size": 3,
 	}
 	var kategory = "FoodItem"
 	inv_manager.inc_qty(item_detail, empty_slot, kategory)

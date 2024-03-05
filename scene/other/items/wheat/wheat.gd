@@ -1,3 +1,4 @@
+class_name ItemsWheat
 extends CharacterBody2D
 
 var value: int = 0

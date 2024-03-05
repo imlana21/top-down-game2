@@ -1,3 +1,4 @@
+class_name ItemsWood
 extends CharacterBody2D
 
 const kategory = "ResourceItem"

@@ -1,14 +1,12 @@
 extends InventorySlot
 
-signal slot_hovered
-signal slot_unhovered
-
 func _ready():
 	refresh_style() 
 	parent_name = "Pockets"
 	inventory = InventoryItems.new()
 	connect("mouse_entered", _on_mouse_entered)
 	connect("mouse_exited", _on_mouse_exited)
+	connect("gui_input", _on_gui_input)
 
 func put_into_slot(new_item, old_item = null, new_qty = 0):
 	# Configuration item and move item from parent
@@ -23,11 +21,3 @@ func put_into_slot(new_item, old_item = null, new_qty = 0):
 	self.add_child(new_item)
 	item = new_item
 	refresh_style()
-	
-func _on_mouse_entered():
-	slot_hovered.emit(self)
-	modulate = "eaeaea"
-
-func _on_mouse_exited():
-	slot_unhovered.emit(self)
-	modulate = "fff"

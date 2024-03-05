@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bbfhsgo3aecjt"]
+[gd_scene load_steps=16 format=3 uid="uid://bbfhsgo3aecjt"]
 
 [ext_resource type="Script" path="res://scene/other/object/tree/tree.gd" id="1_ho0bd"]
 [ext_resource type="Texture2D" uid="uid://celbmar4p7x" path="res://assets/Objects/tree.png" id="1_m7buc"]
@@ -8,6 +8,10 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iyabp"]
 height = 28.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb8nl"]
+atlas = ExtResource("1_m7buc")
+region = Rect2(30, 0, 30, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_67blv"]
 atlas = ExtResource("1_m7buc")
 region = Rect2(0, 0, 30, 32)
@@ -16,10 +20,18 @@ region = Rect2(0, 0, 30, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_tb8nl")
+}],
+"loop": true,
+"name": &"available",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_67blv")
 }],
 "loop": true,
-"name": &"default",
+"name": &"empty",
 "speed": 5.0
 }]
 
@@ -70,7 +82,7 @@ animations = [{
 }]
 
 [node name="Tree" type="CharacterBody2D"]
-collision_layer = 9
+collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_ho0bd")
 
@@ -79,6 +91,7 @@ shape = SubResource("CapsuleShape2D_iyabp")
 
 [node name="TreeSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5m431")
+animation = &"available"
 
 [node name="TreeArea" type="Area2D" parent="."]
 collision_layer = 8
@@ -105,6 +118,10 @@ scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_ibh0i")
 animation = &"destroy"
 
+[node name="DroppedItemTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="TreeArea" to="." method="_on_tree_area_body_entered"]
 [connection signal="body_exited" from="TreeArea" to="." method="_on_tree_area_body_exited"]
 [connection signal="animation_finished" from="DestroyAnimation" to="." method="_on_destroy_animation_finished"]
+[connection signal="timeout" from="DroppedItemTimer" to="." method="_on_dropped_item_timer_timeout"]

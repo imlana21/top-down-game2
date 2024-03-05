@@ -6,10 +6,10 @@ func _process(_delta):
 	# Move Camera position to follow user
 	if !Autoload.is_spectator_mode:
 		$Camera2D.position = $Player.position
-		$Camera2D/ButtonGroup.visible = false
+		$Camera2D/Control/BuilderInv.visible = false
 	else: 
 		$Camera2D.position += $Player.get_axis_input() * 5
-		$Camera2D/ButtonGroup.visible = true
+		$Camera2D/Control/BuilderInv.visible = true
 	$Camera2D/Curencies/Energy.text = str(CombatDetail.player_energy)
 
 func _input(event):

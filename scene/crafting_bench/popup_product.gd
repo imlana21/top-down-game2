@@ -26,6 +26,7 @@ func _product_selected(product):
 	$PopupCrafting.pname = product.pname
 	$PopupCrafting.ptype = product.ptype
 	$PopupCrafting.ptime_cook = product.ptime_cook
+	$PopupCrafting.pinv = product.pinv
 	$PopupCrafting.show_crafting_popup()
 
 func set_panel(panel, d):
@@ -36,6 +37,7 @@ func set_panel(panel, d):
 	panel.set_img_path(d.img)
 	panel.set_ingredient(d.ingredient)
 	panel.set_status(d.status)
+	panel.set_pinv(d.inventory)
 	
 func reset_panel(panel):
 	panel.set_product_id(null)
@@ -45,4 +47,4 @@ func reset_panel(panel):
 	panel.set_img_path(null)
 	panel.set_ingredient(null)
 	panel.set_status(null)
-	
+	panel.set_pinv(null)

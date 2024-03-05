@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://dwki8cn7xuhuy"]
+[gd_scene load_steps=70 format=3 uid="uid://dwki8cn7xuhuy"]
 
 [ext_resource type="Script" path="res://scene/world/world.gd" id="1_g8ju8"]
 [ext_resource type="Texture2D" uid="uid://be8lp8jw2bnxj" path="res://assets/Tilesets/Hills.png" id="2_qqjr5"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cpgu8y3vi727l" path="res://assets/Objects/Basic Plants.png" id="8_j7nc6"]
 [ext_resource type="Texture2D" uid="uid://jw7o31p08boe" path="res://assets/Objects/Free_Chicken_House.png" id="9_6oglp"]
 [ext_resource type="Texture2D" uid="uid://dhu6tdggmqa4l" path="res://assets/Objects/TilesetHouse.png" id="10_nvyyn"]
+[ext_resource type="Script" path="res://scene/world/world_tree_list.gd" id="12_6iuhh"]
 [ext_resource type="PackedScene" uid="uid://bbfhsgo3aecjt" path="res://scene/other/object/tree/tree.tscn" id="12_ewbpc"]
 [ext_resource type="PackedScene" uid="uid://nmtmi2fu0gk6" path="res://scene/player/screen/screen.tscn" id="12_x1sqv"]
 [ext_resource type="PackedScene" uid="uid://d2xq542p2r1qm" path="res://scene/npc/chicken/chicken.tscn" id="13_vppkm"]
@@ -2813,9 +2814,6 @@ layer_1/tile_data = PackedInt32Array(1703935, 196612, 0, 1769471, 196612, 0, 183
 layer_2/name = "Fences"
 layer_2/tile_data = PackedInt32Array(2031614, 65538, 0, 2359294, 65538, 2, 2293766, 196610, 2, 1966086, 2, 1, 2228230, 2, 1, 2162694, 2, 1, 2097158, 2, 1, 2031622, 2, 1, 2293758, 2, 1, 2228222, 2, 1, 2162686, 2, 1, 2097150, 2, 1, 1900547, 65538, 0, 2359295, 131074, 3, 2293760, 131074, 3, 2293761, 131074, 3, 2293762, 131074, 3, 2293763, 131074, 3, 2293764, 131074, 3, 2293765, 131074, 3, 2031615, 131074, 3, 1966080, 131074, 3, 1966081, 131074, 3, 1966082, 131074, 3, 1966083, 196610, 2, 1900550, 196610, 0, 1900548, 131074, 3, 1900549, 131074, 3, 327683, 7, 0, 458755, 7, 2, 327684, 65543, 0, 57, 131072, 0, 65593, 131072, 1, 58, 196608, 0, 65594, 196608, 1, -458700, 327685, 0, -458699, 5, 3, -393162, 393221, 0, -393161, 393221, 0, -327624, 524293, 0, -327623, 393221, 0, -393157, 524293, 3, -393158, 393221, 0, -458695, 458757, 0, -458696, 524293, 0, -393153, 458757, 0, -327618, 393221, 0, -327619, 458757, 0, -262084, 393221, 0, -262085, 458757, 0, -196550, 524293, 3, -131015, 458757, 0, -131016, 524293, 0, -65481, 524293, 3, -393164, 524293, 0, -327627, 524293, 0, -262090, 327685, 0, -262088, 393221, 0, -262089, 524293, 3, -196554, 458757, 0, -196555, 524293, 0, -196552, 524293, 0, -196551, 393221, 0, -131014, 327685, 0, -131013, 393221, 0, -65476, 327685, 0, -131012, 524293, 3, -196547, 393221, 0, -262082, 458757, 0, -196545, 458757, 0, -131009, 458757, 0, -65474, 327685, 0, 62, 458757, 0, 65597, 327685, 0, 61, 524293, 0, 60, 327685, 0, 59, 393221, 0, -65478, 393221, 0, -65479, 524293, 0, 56, 131072, 0, 55, 131072, 0, -131010, 393221, 0, -393156, 524293, 0, -327620, 393221, 0, -262081, 327685, 4, -458698, 65541, 3, -458693, 524293, 2, -327625, 524293, 2, -196548, 524293, 2, -262086, 524293, 2, -131017, 524293, 2, 2228256, 524293, 2, 2293792, 524293, 3, 1900576, 524293, 2, 1966112, 524293, 3, 2162716, 524293, 2, 2228252, 524293, 3, 1835034, 524293, 2, 1900570, 524293, 3, 1835022, 524293, 2, 1900558, 524293, 3, 2031633, 524293, 2, 2097169, 524293, 3, 2031634, 524293, 2, 2097170, 524293, 3, 393274, 524293, 2, 458810, 524293, 3, 196623, 1703944, 0, 196624, 1769480, 0, 262160, 1769480, 1, 327696, 1769480, 2, 196625, 1835016, 0, 262161, 1835016, 1, 327697, 1835016, 2, 327695, 1703944, 2, 262159, 1703944, 1, 393220, 65543, 1, 393221, 131079, 1, 458757, 131079, 2, 458756, 65543, 2, 393219, 7, 1, 327685, 131079, 0, 262196, 65536, 2, 262197, 131072, 2, 262198, 131072, 2, 262199, 1441800, 15, 262200, 131072, 2, 131124, 65536, 1, 196660, 65536, 1, 65588, 65536, 1, 53, 262144, 5, 65589, 131072, 1, 54, 327680, 5, 65590, 131072, 1, 65591, 131072, 1, 65592, 131072, 1, 131128, 131072, 1, 196664, 131072, 1, 131125, 131072, 1, 196661, 131072, 1, 131126, 131072, 1, 196662, 131072, 1, 131127, 131072, 1, 196663, 131072, 1, 262202, 196608, 2, 131130, 196608, 1, 196666, 196608, 1, 52, 65536, 0, 262201, 131072, 2, 131129, 131072, 1, 196665, 131072, 1, -131019, 262144, 3, -65483, 262144, 4, -131018, 327680, 3, -65482, 327680, 4)
 
-[node name="Screen" parent="." instance=ExtResource("12_x1sqv")]
-position = Vector2(205, 143)
-
 [node name="GateList" type="Node2D" parent="."]
 
 [node name="DoorArea" type="Area2D" parent="GateList"]
@@ -2834,6 +2832,7 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_yawk4")
 
 [node name="TreeList" type="Node2D" parent="."]
+script = ExtResource("12_6iuhh")
 
 [node name="Tree" parent="TreeList" instance=ExtResource("12_ewbpc")]
 position = Vector2(184.206, 535.335)
@@ -2939,6 +2938,9 @@ position = Vector2(357, 87)
 [node name="Bench" parent="." instance=ExtResource("16_tunrq")]
 position = Vector2(310, 85)
 
-[connection signal="start_combat" from="Screen" to="." method="_on_screen_start_combat"]
+[node name="Screen" parent="." instance=ExtResource("12_x1sqv")]
+position = Vector2(205, 143)
+
 [connection signal="body_entered" from="GateList/DoorArea" to="." method="_on_door_area_body_entered"]
 [connection signal="body_entered" from="GateList/CaveEnterArea" to="." method="_on_cave_enter_area_body_entered"]
+[connection signal="start_combat" from="Screen" to="." method="_on_player_start_combat"]

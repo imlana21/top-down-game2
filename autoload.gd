@@ -31,7 +31,18 @@ var enter_world_position: Dictionary = {
 	"KitchenToLivingRoom": Vector2(160, -78),
 	"CaveToWorld": Vector2(680, -68),
 	"CaveToFloor2": Vector2(0,0),
-	"CaveToFloor1": Vector2(-116, -476)
+	"CaveToFloor1": Vector2(-116, -476),
+	"CaveToRandomRoom1": Vector2(0,0),
+	"CaveToRandomRoom2": Vector2(0,0),
+	"CaveToRandomRoom3": Vector2(0,0),
+	"CaveToRandomRoom4": Vector2(0,0),
+	"CaveToRandomRoom5": Vector2(0,0),
+	"CaveToRandomRoom6": Vector2(0,0),
+	"CaveToRandomRoom7": Vector2(0,0),
+	"CaveToRandomRoom8": Vector2(0,0),
+	"CaveToRandomRoom9": Vector2(0,0),
+	"CaveToRandomRoom10": Vector2(0,0),
+	"OutFromRoom": Vector2(-2, -530)
 }
 var chest_store: CharacterBody2D
 var player_inventory: Node2D
@@ -64,7 +75,16 @@ var meat_position: Array
 var billboard: CharacterBody2D
 var bench: CharacterBody2D
 var is_spectator_mode: bool = false
+var teleport_room: Array
+var teleported_room: Array
+var cheat_mode: bool = false
 
+func reset_teleport_room():
+	teleported_room = []
+	teleport_room = []
+	for i in range(0, 10):
+		teleport_room.append(i + 1)
+		
 # Toggle Pause Game
 func toggle_pause(layer):
 	if paused_on == "":

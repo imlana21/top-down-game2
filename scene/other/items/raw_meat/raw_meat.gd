@@ -1,3 +1,4 @@
+class_name ItemsRawMeet
 extends CharacterBody2D
 
 const kategory = "FoodItem"

@@ -1,3 +1,4 @@
+class_name ItemsLeather
 extends CharacterBody2D
 
 const kategory = "ResourceItem"

@@ -1,3 +1,4 @@
+class_name ItemsApple
 extends CharacterBody2D
 
 var value: int = 0

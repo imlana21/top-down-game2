@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=3 uid="uid://bs4wgqmlxtpjs"]
+
+[ext_resource type="Texture2D" uid="uid://cnw7xnli6exnb" path="res://assets/UI/Sheet/Dialouge UI/dialog box big.png" id="1_mhutl"]
+[ext_resource type="Script" path="res://scene/chat/bubble/chat_bubble.gd" id="1_xobxg"]
+[ext_resource type="FontFile" uid="uid://b2faembn2nemy" path="res://assets/UI/Font/NormalFont.ttf" id="2_1hnfl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oqjwe"]
+content_margin_left = 26.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+texture = ExtResource("1_mhutl")
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+expand_margin_top = 8.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="Animation" id="Animation_v2h0b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_10nnm"]
+resource_name = "disappear"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.207843)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eo76e"]
+_data = {
+"RESET": SubResource("Animation_v2h0b"),
+"disappear": SubResource("Animation_10nnm")
+}
+
+[node name="ChatBubble" type="VBoxContainer"]
+offset_right = 393.0
+offset_bottom = 75.0
+script = ExtResource("1_xobxg")
+
+[node name="Username" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 1
+
+[node name="Label" type="Label" parent="Username"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1hnfl")
+text = "         "
+
+[node name="Status" type="Label" parent="Username"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.976471, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1hnfl")
+text = "$"
+
+[node name="Text" type="Label" parent="Username"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.109804, 0.109804, 0.109804, 1)
+theme_override_fonts/font = ExtResource("2_1hnfl")
+text = "imlana21"
+
+[node name="Chat" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_oqjwe")
+
+[node name="Text" type="RichTextLabel" parent="Chat"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_1hnfl")
+fit_content = true
+scroll_active = false
+scroll_following = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eo76e")
+}
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

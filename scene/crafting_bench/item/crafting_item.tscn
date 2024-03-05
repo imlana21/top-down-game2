@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://buwfvp1ltsbj3"]
 
 [ext_resource type="Script" path="res://scene/crafting_bench/item/crafting_item.gd" id="1_21um2"]
-[ext_resource type="Texture2D" uid="uid://c16nvpy5dxo4s" path="res://assets/Objects/wheat.png" id="1_115eu"]
+[ext_resource type="Texture2D" uid="uid://dnudrll3dxwyx" path="res://assets/Objects/wheat.png" id="1_115eu"]
 [ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="3_ep0ma"]
 [ext_resource type="PackedScene" uid="uid://cboc3yjlimtm6" path="res://scene/bulletin_board/other/checklist.tscn" id="4_bms2n"]
 

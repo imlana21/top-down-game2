@@ -31,3 +31,5 @@
 - Bench and another tileset component from https://pixel-boy.itch.io/
 
 - Food from https://ghostpixxells.itch.io/pixelfood
+
+- Dark Crystal from https://frakassets.itch.io/free-dark-crystal-shrinew

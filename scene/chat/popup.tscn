@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://yjpqlqq8uofb"]
+
+[ext_resource type="Texture2D" uid="uid://bwc0ccjenmbql" path="res://assets/UI/Sheet/Setting menu.png" id="1_lv8x6"]
+[ext_resource type="Script" path="res://scene/chat/popup.gd" id="1_tjd3t"]
+[ext_resource type="FontFile" uid="uid://b2faembn2nemy" path="res://assets/UI/Font/NormalFont.ttf" id="3_8em3e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_idpqf"]
+texture = ExtResource("1_lv8x6")
+texture_margin_left = 5.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+region_rect = Rect2(139, 12, 106, 122)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1h4ff"]
+bg_color = Color(0.678431, 0.678431, 0.678431, 1)
+
+[node name="Popup" type="VBoxContainer"]
+clip_contents = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -306.0
+offset_right = 408.0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+alignment = 2
+script = ExtResource("1_tjd3t")
+
+[node name="ChatContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_idpqf")
+
+[node name="Chat" type="VBoxContainer" parent="ChatContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="MarginContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Status" type="Button" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.882353, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8em3e")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1h4ff")
+disabled = true
+text = "$"
+
+[node name="TextInput" type="LineEdit" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Input Message"
+max_length = 30
+clear_button_enabled = true
+
+[connection signal="text_submitted" from="MarginContainer/TextInput" to="." method="_on_text_input_text_submitted"]

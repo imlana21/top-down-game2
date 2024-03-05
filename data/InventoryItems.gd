@@ -2,7 +2,6 @@ class_name InventoryItems
 extends Node
 
 var file_path: String = "res://data/json/player_inventory.json"
-var all_data: Array
 
 func load_all_data():
 	if !FileAccess.file_exists(file_path):
@@ -102,11 +101,11 @@ func remove_item2(data: Dictionary):
 			return true
 	return false
 
-func add_item(data: Dictionary, new_id = false):
+func add_item(item: Dictionary, new_id = false):
 	var all_data = load_all_data()
 	if new_id:
-		data.id = data.id.left(-3) + str(all_data.size()).pad_zeros(3)
-	all_data.append(data)
+		item.id = item.id.left(-3) + str(all_data.size()).pad_zeros(3)
+	all_data.append(item)
 	save_items(all_data)
 	
 func change_inventory(item, inv_name):

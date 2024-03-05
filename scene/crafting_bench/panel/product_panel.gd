@@ -7,6 +7,7 @@ var pname = null
 var pimg = null
 var pingredient = null
 var pstatus = null
+var pinv = null
 
 signal select_craft
 
@@ -31,6 +32,9 @@ func set_ingredient(val):
 	
 func set_status(val):
 	pstatus = val
+	
+func set_pinv(val):
+	pinv = val
 
 func _init_item_into_slot(img_path):
 	var item = load("res://scene/crafting_bench/item/product_item.tscn").instantiate()

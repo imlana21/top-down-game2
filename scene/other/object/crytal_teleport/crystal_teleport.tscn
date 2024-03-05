@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2dt8hyi0rjvi"]
+
+[ext_resource type="Texture2D" uid="uid://bc7pcpowrud0r" path="res://assets/Objects/crystal.png" id="1_acbiy"]
+[ext_resource type="Script" path="res://scene/other/object/crytal_teleport/crystal_teleport.gd" id="1_wx6h5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crr7w"]
+atlas = ExtResource("1_acbiy")
+region = Rect2(10, 1, 12, 30)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pb6ul"]
+radius = 5.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r5frk"]
+radius = 13.0
+height = 44.0
+
+[node name="CrystalTeleport" type="CharacterBody2D"]
+collision_mask = 2
+collision_priority = 2.0
+script = ExtResource("1_wx6h5")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_crr7w")
+
+[node name="SpriteCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_pb6ul")
+debug_color = Color(1, 0, 0.117647, 0.419608)
+
+[node name="AreaDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetector"]
+shape = SubResource("CapsuleShape2D_r5frk")
+
+[connection signal="body_entered" from="AreaDetector" to="." method="_on_area_detector_body_entered"]
+[connection signal="body_exited" from="AreaDetector" to="." method="_on_area_detector_body_exited"]

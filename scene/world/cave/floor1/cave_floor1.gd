@@ -8,6 +8,7 @@ var next_path = ""
 var player_position = ""
 
 func _ready():
+	Autoload.reset_teleport_room()
 	Autoload.world = self
 	Autoload.ore_name_1 = []
 	for pos in Autoload.ore_position_1:
@@ -36,3 +37,12 @@ func get_random_cave_position():
 	var rand_pos = [random1, random2, random3]
 	
 	return rand_pos[randi_range(0, 2)]
+
+func _on_to_hidden_room_body_entered(body):
+	randomize()
+	var room_index = randi_range(0, Autoload.teleport_room.size() - 1)
+	next_path = "res://scene/world/cave/floor1/room/room_" + str(Autoload.teleport_room[room_index]) +".tscn"
+	player_position = "CaveToRandomRoom" + str(Autoload.teleport_room[room_index])
+	Autoload.teleported_room.append(Autoload.teleport_room[room_index])
+	Autoload.teleport_room.remove_at(room_index)
+	_on_change_scene()

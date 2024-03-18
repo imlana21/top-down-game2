@@ -8,7 +8,7 @@ func _ready():
 	$PopupCrafting.visible = false
 	
 func _init_slot():
-	var panel_list = $ProductContainer.get_children()
+	var panel_list = $ProductContainer.get_children
 	var index = 0
 	var crafting_data = CraftingDataManager.new()
 	crafting_data = crafting_data.get_all_data()

@@ -1,0 +1,358 @@
+[gd_scene load_steps=10 format=3 uid="uid://jsflbyl7b5c"]
+
+[ext_resource type="Script" path="res://scene/inventory/pockets/pockets.gd" id="1_1tq2f"]
+[ext_resource type="Texture2D" uid="uid://bwc0ccjenmbql" path="res://assets/UI/Sheet/Setting menu.png" id="2_hjxe8"]
+[ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="3_gjl7f"]
+[ext_resource type="Texture2D" uid="uid://dkn0yi4k2ipte" path="res://assets/UI/Sheet/buttons/Square Buttons 26x26.png" id="4_8oe5w"]
+[ext_resource type="Script" path="res://scene/inventory/pockets/pockets_slot.gd" id="5_j0al3"]
+[ext_resource type="Script" path="res://scene/inventory/pockets/weapon_container.gd" id="6_yqhi2"]
+[ext_resource type="PackedScene" uid="uid://bqapx6lhnn64b" path="res://scene/inventory/_items/item.tscn" id="7_h42xk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v44r"]
+atlas = ExtResource("2_hjxe8")
+region = Rect2(139, 12, 106, 122)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dn2k3"]
+texture = ExtResource("4_8oe5w")
+region_rect = Rect2(59, 59, 26, 26)
+
+[node name="Pockets" type="Node2D"]
+position = Vector2(300, 300)
+script = ExtResource("1_1tq2f")
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Background" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -242.0
+offset_right = 247.0
+offset_bottom = 243.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_5v44r")
+
+[node name="Label" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = -229.0
+offset_right = 78.0
+offset_bottom = -199.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_gjl7f")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "Inventory"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Line" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -106.0
+offset_top = -201.0
+offset_right = 106.0
+offset_bottom = -199.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Background2" type="ColorRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -179.0
+offset_right = 223.0
+offset_bottom = 223.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.909804, 0.811765, 0.65098, 1)
+
+[node name="InventoryContainer" type="GridContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.0
+offset_top = -169.5
+offset_right = 209.0
+offset_bottom = 217.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 4
+
+[node name="Slot1" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot2" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot3" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot4" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot5" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot6" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot7" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot8" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot9" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot10" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot11" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot12" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot13" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot14" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot15" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot16" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot17" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot18" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot19" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Slot20" type="Panel" parent="InventoryContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="WeaponContainer" type="GridContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -129.0
+offset_right = -139.0
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("6_yqhi2")
+
+[node name="Slot1" type="Panel" parent="WeaponContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Item" parent="WeaponContainer/Slot1" instance=ExtResource("7_h42xk")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot2" type="Panel" parent="WeaponContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Item" parent="WeaponContainer/Slot2" instance=ExtResource("7_h42xk")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot3" type="Panel" parent="WeaponContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Item" parent="WeaponContainer/Slot3" instance=ExtResource("7_h42xk")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot4" type="Panel" parent="WeaponContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
+script = ExtResource("5_j0al3")
+
+[node name="Item" parent="WeaponContainer/Slot4" instance=ExtResource("7_h42xk")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2

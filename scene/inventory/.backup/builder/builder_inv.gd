@@ -94,20 +94,18 @@ func _slot_input_builder(slot: PANEL_BUILDER, input_state = ""):
 		holding_item = slot.item
 		slot.pick_from_slot()
 		holding_item.global_position = get_global_mouse_position()
-
+	
 func _slot_output_event(input_state):
 	if Autoload.is_spectator_mode and holding_item and output_event_state == null:
 		output_event_state = input_state
 
-# Set Data to Tools Inventory
 func set_tools_inventory():
 	var data = [{"id":"ToolItem001","inventory":"builder","name":"flag","qty":1,"slot_id":0,"stack_size": 1}]
 	var index = 0
 	for slot in tool_container.get_children():
 		slot.init_item_into_slot(data[index])
 		index += 1
-
-# Set Data to Builder Inventory
+	
 func set_inventory(slot_container: GridContainer, d = null):
 	var data = get_data(inventory_name, slot_container)
 	var index = 0

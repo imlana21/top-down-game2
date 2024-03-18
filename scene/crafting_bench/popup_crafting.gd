@@ -9,7 +9,6 @@ var ptime_cook = null
 var pinv = null
 	
 func show_crafting_popup():
-	print(pinv)
 	if pid != null or pingredient != null or pname != null:
 		_set_crafting()
 		_set_btn()
@@ -68,15 +67,14 @@ func _on_btn_craft_pressed():
 		_generate_to_inventory()
 
 func _generate_to_inventory():
-	var empty_slot = Autoload.player_inventory.get_empty_slot("player")
+	var empty_slot = Autoload.player_inventory.get_empty_slot(pinv)
 	var inv_manager = InventoryItems.new()
 	var data_manager = CraftingDataManager.new()
 	var item_detail = {
-		"inventory": "player",
+		"inventory": pinv,
 		"name": pimg,
 		"qty": 1,
-		"stack_size": 3,
+		"stack_size": 20,
 	}
-	var kategory = "FoodItem"
-	inv_manager.inc_qty(item_detail, empty_slot, kategory)
+	inv_manager.inc_qty(item_detail, empty_slot, ptype + "Item")
 	data_manager.update_status(self, "order")

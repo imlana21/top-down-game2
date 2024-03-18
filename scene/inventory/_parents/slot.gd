@@ -5,16 +5,18 @@ extends Panel
 var slot_id: int = 0
 var item = null
 var inventory = null
+var inventory_name = null
 var parent_name = null
 var is_mouse_hovered = false
 
 signal slot_input_event
+signal slot_output_event
 signal spread_item
 signal pick_one_item
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		slot_input_event.emit(self)
+		slot_input_event.emit(self, inventory_name)
 	
 func _input(event):
 	if is_mouse_hovered and item != null:
@@ -28,18 +30,20 @@ func _on_mouse_entered():
 	is_mouse_hovered = true
 
 func _on_mouse_exited():
+	if inventory_name != null:
+		slot_output_event.emit(inventory_name)
 	modulate = "fff"
 	is_mouse_hovered = false	
 
 func refresh_style():
 	self.modulate = "fff"
 
-func init_item_into_slot(data):	
+func init_item_into_slot(data, item_size = null):	
 	if data != null:
 		if item == null:
 			item = item_scene.instantiate()
 			item.scale = Vector2(1.3, 1.3)
-			item.position = Vector2(7, 7)
+			set_anchor_center(item)
 			add_child(item)
 			item.set_item(data)
 		else:
@@ -78,3 +82,10 @@ func pick_from_slot2(holding_item=null):
 		item.update_qty(item.data.qty - 1)
 		return new_item
 	return null
+	
+func set_anchor_center(i):
+	i.anchors_preset = Control.PRESET_CENTER
+	#i.anchor_bottom = 0.5
+	#i.anchor_left = 0.5
+	#i.anchor_right = 0.5
+	#i.anchor_top = 0.5

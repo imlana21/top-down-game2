@@ -1,19 +1,10 @@
 class_name ItemsWood
-extends CharacterBody2D
+extends Items
 
-const kategory = "ResourceItem"
-const item_detail: Dictionary = {
-	"inventory":"player",
-	"name":"wood",
-	"qty":1,
-	"stack_size":20
-}
+func _ready():
+	set_item_detail("player", "wood", 1, 20)
+	set_kategory("ResourceItem")
 
-func _on_wood_area_body_entered(body):
+func _on_wood_area_body_entered(body) -> void:
+	pick_item(item_detail.inventory)
 	queue_free()
-	pick_wood()
-	
-func pick_wood():
-	var empty_slot = Autoload.player_inventory.get_empty_slot("player")
-	var item_class = InventoryItems.new()
-	item_class.inc_qty(item_detail, empty_slot, kategory)

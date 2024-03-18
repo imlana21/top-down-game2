@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://bvyhriropkstk"]
 
 [ext_resource type="Script" path="res://scene/scene_manager.gd" id="1_qod2y"]
-[ext_resource type="PackedScene" uid="uid://dwki8cn7xuhuy" path="res://scene/world/world.tscn" id="2_jwqfh"]
+[ext_resource type="PackedScene" uid="uid://chot5i788y7ip" path="res://scene/world/warp/warp_world.tscn" id="2_416io"]
 [ext_resource type="PackedScene" uid="uid://dxlnecjp8nhas" path="res://scene/menu/pause/pause.tscn" id="3_8py1g"]
 [ext_resource type="Script" path="res://scene/pause_layer.gd" id="3_a67ew"]
 [ext_resource type="Script" path="res://scene/change_skin_layer.gd" id="4_8dixf"]
@@ -79,11 +79,12 @@ script = ExtResource("1_qod2y")
 process_mode = 1
 z_index = 1
 
-[node name="World" parent="CurrentScene" instance=ExtResource("2_jwqfh")]
+[node name="WarpWorld" parent="CurrentScene" instance=ExtResource("2_416io")]
 visible = false
 
 [node name="ScreenTransition" type="CanvasLayer" parent="."]
 process_mode = 1
+follow_viewport_enabled = true
 
 [node name="ColorTransition" type="ColorRect" parent="ScreenTransition"]
 z_as_relative = false

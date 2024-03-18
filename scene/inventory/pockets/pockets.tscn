@@ -297,8 +297,14 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
 script = ExtResource("5_j0al3")
 
 [node name="Item" parent="WeaponContainer/Slot1" instance=ExtResource("7_h42xk")]
-offset_top = -2.0
-offset_bottom = -2.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Slot2" type="Panel" parent="WeaponContainer"]
 layout_mode = 2
@@ -308,6 +314,14 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
 script = ExtResource("5_j0al3")
 
 [node name="Item" parent="WeaponContainer/Slot2" instance=ExtResource("7_h42xk")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Slot3" type="Panel" parent="WeaponContainer"]
 layout_mode = 2
@@ -317,6 +331,14 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
 script = ExtResource("5_j0al3")
 
 [node name="Item" parent="WeaponContainer/Slot3" instance=ExtResource("7_h42xk")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Slot4" type="Panel" parent="WeaponContainer"]
 layout_mode = 2
@@ -326,3 +348,11 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_dn2k3")
 script = ExtResource("5_j0al3")
 
 [node name="Item" parent="WeaponContainer/Slot4" instance=ExtResource("7_h42xk")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2

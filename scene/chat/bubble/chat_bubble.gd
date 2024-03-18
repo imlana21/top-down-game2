@@ -35,7 +35,6 @@ func check_main_command(text):
 			Autoload.cheat_mode = false
 			return "cheatmode unactived"
 	elif text_arr[0] == "/getitem" and Autoload.cheat_mode:
-		var inv_manager = InventoryItems.new()
 		var items = null
 		match text_arr[1]:
 			"wheat":
@@ -49,7 +48,6 @@ func check_main_command(text):
 			"leather":
 				items = ItemsLeather.new()
 				items.pick()
-				
 				return "leather in inventory +1"
 			"meet":
 				items = ItemsRawMeet.new()
@@ -73,6 +71,15 @@ func check_main_command(text):
 				return "wood in inventory +1"
 			_:
 				return "items not listed"
+	elif text_arr[0] == "/warp":
+		if text_arr[1] == "testing":
+			var next_path = "res://scene/world/warp/warp_world.tscn"
+			Autoload.scene_manager._on_change_scene(next_path, Autoload.world)
+			return "move to warp world"
+		elif text_arr[1] == "spawn":
+			var next_path = "res://scene/world/world.tscn"
+			Autoload.scene_manager._on_change_scene(next_path, Autoload.world)
+			return "move to warp world"
 	return "unregistered Command"
 
 ## update status player on message

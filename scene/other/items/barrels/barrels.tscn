@@ -2,20 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://cf3iop8uqjnwg" path="res://assets/Objects/barrels.png" id="1_vjato"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pk8o"]
-size = Vector2(20, 12)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2213p"]
+radius = 6.0
+height = 16.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uxllh"]
 
 [node name="Barrels" type="CharacterBody2D"]
+collision_layer = 4
 collision_mask = 255
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.5708
 texture = ExtResource("1_vjato")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_1pk8o")
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_2213p")
 
 [node name="Area2D" type="Area2D" parent="."]
 

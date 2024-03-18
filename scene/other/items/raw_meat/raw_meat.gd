@@ -1,24 +1,13 @@
 class_name ItemsRawMeet
-extends CharacterBody2D
+extends Items
 
-const kategory = "FoodItem"
-const item_detail: Dictionary = {
-	"inventory":"player",
-	"name":"meat",
-	"qty":1,
-	"stack_size":10
-}
+func _ready():
+	set_item_detail("player", "meat", 1, 10)
+	set_kategory("FoodItem")
 
-func _on_enemy_detector_body_entered(body):
+func _on_enemy_detector_body_entered(body) -> void:
 	var index = Autoload.meat_position.find(position)
-	pick()
-	queue_free()
+	pick_item(item_detail.inventory)
 	if index >= 0:
 		Autoload.meat_position.remove_at(index)
-	
-func pick():
-	var empty_slot = Autoload.player_inventory.get_empty_slot("player")
-	var item_class = InventoryItems.new()
-	
-	item_class.inc_qty(item_detail, empty_slot, kategory)
-
+	queue_free()

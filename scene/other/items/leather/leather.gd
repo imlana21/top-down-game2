@@ -1,23 +1,13 @@
 class_name ItemsLeather
-extends CharacterBody2D
+extends Items
 
-const kategory = "ResourceItem"
-const item_detail: Dictionary = {
-	"inventory":"player",
-	"name":"leather",
-	"qty":1,
-	"stack_size":3
-}
-	
-func _on_enemy_detector_body_entered(body):
+func _ready():
+	set_item_detail("player", "leather", 1, 3)
+	set_kategory("ResourceItem")
+
+func _on_enemy_detector_body_entered(body) -> void:
 	var index = Autoload.leather_position.find(position)
-	pick()
-	queue_free()
+	pick_item(item_detail.inventory)
 	if index >= 0:
 		Autoload.leather_position.remove_at(index)
-	
-func pick():
-	var empty_slot = Autoload.player_inventory.get_empty_slot("player")
-	var item_class = InventoryItems.new()
-	
-	item_class.inc_qty(item_detail, empty_slot, kategory)
+	queue_free()

@@ -10,7 +10,7 @@ func set_item(d):
 	data.qty = int(data.qty)
 	$TextureRect.texture_normal = load("res://assets/Objects/" + data.name + ".png")
 	$Label.text = str(data.qty)
-
+	label_visibility()
 func reset_item():
 	data = null
 	$TextureRect.texture_normal = null
@@ -19,3 +19,10 @@ func reset_item():
 func update_qty(qty):
 	data.qty = qty
 	$Label.text = str(data.qty)
+	label_visibility()
+
+func label_visibility():
+	if data.qty < 2:
+		$Label.visible = false
+	else:
+		$Label.visible = true

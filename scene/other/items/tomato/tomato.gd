@@ -1,25 +1,13 @@
 class_name ItemsApple
-extends CharacterBody2D
+extends Items
 
-var value: int = 0
-var enemy_status: String = ""
-const kategory = "FoodItem"
-var item_detail: Dictionary = {
-	"inventory":"player",
-	"name":"apple",
-	"qty":1,
-	"stack_size":12
-}
+func _ready():
+	set_item_detail("player", "apple", 1, 12)
+	set_kategory("FoodItem")
 
-func _on_tomato_area_detector_player_entered(_body):
+func _on_tomato_area_detector_player_entered(body) -> void:
 	var tomato_index = CombatDetail.tomato_position.find(position)
-	pick_apple()
-	queue_free()
+	pick_item(item_detail.inventory)
 	if tomato_index >= 0:
 		CombatDetail.tomato_position.remove_at(tomato_index)
-	
-func pick_apple():
-	var empty_slot = Autoload.player_inventory.get_empty_slot("player")
-	var item_class = InventoryItems.new()
-	
-	item_class.inc_qty(item_detail, empty_slot, kategory)
+	queue_free()

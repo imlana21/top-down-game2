@@ -101,9 +101,9 @@ size = Vector2(5, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmugj"]
 size = Vector2(13, 29)
 
-[node name="SilverKey" type="CharacterBody2D"]
+[node name="SilverKey" type="CharacterBody2D" groups=["items"]]
 collision_layer = 4
-collision_mask = 6
+collision_mask = 2
 script = ExtResource("1_7simv")
 
 [node name="SilverKeySprite" type="AnimatedSprite2D" parent="."]

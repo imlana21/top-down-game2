@@ -1,28 +1,30 @@
 [gd_scene load_steps=6 format=3 uid="uid://xjfdq3wp2pmi"]
 
-[ext_resource type="Script" path="res://scene/other/items/ore/Ore.gd" id="1_lfoab"]
-[ext_resource type="Texture2D" uid="uid://uso3t3cdeosg" path="res://assets/Objects/Basic Grass Biom things 1.png" id="1_riaep"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_7n0ed"]
-radius = 3.0
+[ext_resource type="Script" path="res://scene/other/items/ore/ore.gd" id="1_manqc"]
+[ext_resource type="Texture2D" uid="uid://uso3t3cdeosg" path="res://assets/Objects/Basic Grass Biom things 1.png" id="2_sgcvn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sqv6q"]
-atlas = ExtResource("1_riaep")
+atlas = ExtResource("2_sgcvn")
 region = Rect2(114, 18, 10, 8)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8mwpc"]
-radius = 4.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_7n0ed"]
+radius = 5.0
 
-[node name="Ore" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8mwpc"]
+radius = 8.0
+
+[node name="Ore" type="CharacterBody2D" groups=["items"]]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_lfoab")
+script = ExtResource("1_manqc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, 1)
+scale = Vector2(1.6, 1.75)
+texture = SubResource("AtlasTexture_sqv6q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7n0ed")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_sqv6q")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

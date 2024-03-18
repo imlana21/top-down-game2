@@ -17,3 +17,10 @@ func _input(_event):
 				$Crafting.scale = Autoload.pause_scale
 				$Crafting.position = Autoload.pause_position
 				Autoload.toggle_pause("craft")
+
+func _physics_process(delta):
+	if Autoload.paused_on == "" or Autoload.paused_on == "inventory" or Autoload.paused_on == "craft":
+		if Autoload.bench == null:
+			$Pockets.global_position = Autoload.player.global_position
+		else:
+			$Pockets.global_position = Autoload.player.global_position

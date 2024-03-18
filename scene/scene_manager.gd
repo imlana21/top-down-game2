@@ -55,7 +55,7 @@ func _on_timeout_spawn_tree(pos):
 	else:
 		Autoload.tree_position.append(pos)
 	
-func _on_change_scene(next_path, current, player_pos = null):
+func _on_change_scene(next_path: String, current: Node2D, player_pos = null):
 	next_scene = load(next_path).instantiate()
 	next_scene.connect("change_scene", _on_change_scene)
 	next_scene.connect("start_combat", _on_player_start_combat)

@@ -8,18 +8,21 @@ atlas = ExtResource("1_wp0qp")
 region = Rect2(166, 5, 19, 22)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g15vt"]
-radius = 6.0
-height = 16.0
+radius = 4.0
+height = 12.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0gxe4"]
-height = 28.0
+radius = 8.0
+height = 16.0
 
-[node name="Leather" type="CharacterBody2D"]
-collision_layer = 8
+[node name="Leather" type="CharacterBody2D" groups=["items"]]
+collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_3hmvu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.98023e-08, -1.19209e-07)
+scale = Vector2(0.631579, 0.727273)
 texture = SubResource("AtlasTexture_6nlps")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

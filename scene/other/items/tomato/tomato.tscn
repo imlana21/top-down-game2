@@ -7,14 +7,15 @@
 radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_trtu7"]
+radius = 8.0
 
-[node name="Tomato" type="CharacterBody2D"]
+[node name="Tomato" type="CharacterBody2D" groups=["items"]]
 collision_layer = 4
-collision_mask = 6
+collision_mask = 2
 script = ExtResource("1_bpa5i")
 
 [node name="TomatoSprite" type="Sprite2D" parent="."]
-scale = Vector2(1.33333, 1.23077)
+position = Vector2(-3.57628e-07, 5.96046e-08)
 texture = ExtResource("2_v3bp8")
 
 [node name="TomatoCollision" type="CollisionShape2D" parent="."]

@@ -33,3 +33,7 @@
 - Food from https://ghostpixxells.itch.io/pixelfood
 
 - Dark Crystal from https://frakassets.itch.io/free-dark-crystal-shrinew
+
+- Flag from https://ankousse26.itch.io/free-flag-with-animation
+
+- Circle from https://www.pngegg.com/en/png-siesp/

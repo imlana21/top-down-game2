@@ -1,26 +1,14 @@
 class_name ItemsKey
-extends CharacterBody2D
-
-const kategory = "ResourceItem"
-const item_detail: Dictionary = {
-	"inventory":"player",
-	"name":"silver_key",
-	"qty":1,
-	"stack_size":1
-}
+extends Items
 
 func _ready():
 	$SilverKeySprite.play("idle")
+	set_item_detail("player", "silver_key", 1, 1)
+	set_kategory("ResourceItem")
 	
-func _on_silver_key_area_body_entered(body):
+func _on_silver_key_area_body_entered(body) -> void:
 	var index = CombatDetail.silver_key_position.find(position)
-	pick_key()
-	queue_free()
+	pick_item(item_detail.inventory)
 	if index >= 0:
 		CombatDetail.silver_key_position.remove_at(index)
-	
-func pick_key():
-	var empty_slot = Autoload.player_inventory.get_empty_slot("player")
-	var item_class = InventoryItems.new()
-	item_class.inc_qty(item_detail, empty_slot, kategory)
-	
+	queue_free()

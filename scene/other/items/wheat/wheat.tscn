@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://colufcx6xfu8i"]
 
-[ext_resource type="Texture2D" uid="uid://c16nvpy5dxo4s" path="res://assets/Objects/wheat.png" id="1_ltsb3"]
+[ext_resource type="Texture2D" uid="uid://dnudrll3dxwyx" path="res://assets/Objects/wheat.png" id="1_ltsb3"]
 [ext_resource type="Script" path="res://scene/other/items/wheat/wheat.gd" id="1_pgpyp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cgyll"]
@@ -23,9 +23,9 @@ func _process(delta):
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d2qbq"]
 radius = 8.0
 
-[node name="Wheat" type="CharacterBody2D"]
+[node name="Wheat" type="CharacterBody2D" groups=["items"]]
 collision_layer = 4
-collision_mask = 6
+collision_mask = 2
 script = ExtResource("1_pgpyp")
 
 [node name="WheatSprite" type="Sprite2D" parent="."]

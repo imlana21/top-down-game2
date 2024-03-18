@@ -4,10 +4,9 @@ extends Node2D
 #var slot_container: 
 var inventory_name: String
 		
-func set_inventory(slot_container: GridContainer):
+func set_inventory(slot_container: GridContainer, d = null):
 	var data = get_data(inventory_name, slot_container)
 	var index = 0
-	
 	for slot in slot_container.get_children():
 		slot.init_item_into_slot(data[index])
 		index += 1
@@ -17,10 +16,8 @@ func get_data(inv_name, slot_container: GridContainer):
 	var data = inv_class.load_data(inventory_name) 
 	var index = 0
 	var temp_data = []
-	
 	for i in range(slot_container.get_children().size()):
 		temp_data.append(null)
-		
 	for arr in data:
 		for slot in slot_container.get_children():
 			if arr.slot_id == slot.slot_id and arr.inventory == inv_name and temp_data[index] == null:

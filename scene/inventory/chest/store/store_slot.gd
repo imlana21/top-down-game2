@@ -1,7 +1,5 @@
 extends InventorySlot
 
-var inventory_name
-
 func _ready():
 	inventory_name = get_parent().get_parent().inv_name
 	parent_name = "ChestStore"

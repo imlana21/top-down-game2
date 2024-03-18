@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://nmtmi2fu0gk6"]
+[gd_scene load_steps=10 format=3 uid="uid://nmtmi2fu0gk6"]
 
 [ext_resource type="Script" path="res://scene/player/screen/screen.gd" id="1_ayc6u"]
 [ext_resource type="PackedScene" uid="uid://clsatwim6pka7" path="res://scene/player/player.tscn" id="1_ch7dy"]
@@ -8,23 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://ijuv1rxcurki" path="res://scene/player/currencies_bar/coin_bar.tscn" id="5_fqgxj"]
 [ext_resource type="PackedScene" uid="uid://ci073ospwb7tw" path="res://scene/player/exp_bar/exp_bar.tscn" id="5_kfqb5"]
 [ext_resource type="PackedScene" uid="uid://ch1hunbc0oru3" path="res://scene/player/currencies_bar/gem_bar.tscn" id="6_8sunh"]
-[ext_resource type="Texture2D" uid="uid://cx5ao1hchks72" path="res://assets/UI/Sheet/Icons/All Icons.png" id="7_6lnpo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8na4g"]
 atlas = ExtResource("2_3ha78")
 region = Rect2(7, 57, 18, 30)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4dnf6"]
-atlas = ExtResource("7_6lnpo")
-region = Rect2(2, 4, 12, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_87b0c"]
-atlas = ExtResource("7_6lnpo")
-region = Rect2(242, 4, 12, 9)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_utr3b"]
-atlas = ExtResource("7_6lnpo")
-region = Rect2(98, 4, 12, 9)
 
 [node name="Screen" type="Node2D"]
 process_mode = 1
@@ -37,39 +24,95 @@ zoom = Vector2(2, 2)
 z_index = 9
 
 [node name="CoinBar" parent="Camera2D/Curencies" instance=ExtResource("5_fqgxj")]
-position = Vector2(-29, -158)
+position = Vector2(-29, -154)
 
 [node name="GemBar" parent="Camera2D/Curencies" instance=ExtResource("6_8sunh")]
-position = Vector2(18, -158)
+position = Vector2(18, -154)
 
-[node name="Label" type="Label" parent="Camera2D/Curencies"]
-offset_left = 287.0
-offset_top = -171.0
-offset_right = 319.0
-offset_bottom = -161.0
+[node name="ExpBar" parent="Camera2D/Curencies" instance=ExtResource("5_kfqb5")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -218.0
+offset_top = -146.0
+offset_right = -218.0
+offset_bottom = -146.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="EnergyBar" type="Control" parent="Camera2D/Curencies"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 267.0
+offset_top = -162.0
+offset_right = 307.0
+offset_bottom = -122.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Curencies/EnergyBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -15.0
+offset_right = 24.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_xtnd7")
+texture = SubResource("AtlasTexture_8na4g")
+
+[node name="Label" type="Label" parent="Camera2D/Curencies/EnergyBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -10.0
+offset_right = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
 theme = ExtResource("2_xtnd7")
 theme_override_font_sizes/font_size = 7
 text = "Energy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Camera2D/Curencies"]
-offset_left = 279.0
-offset_top = -174.0
-offset_right = 327.0
-offset_bottom = -144.0
-mouse_filter = 2
-theme = ExtResource("2_xtnd7")
-texture = SubResource("AtlasTexture_8na4g")
-
-[node name="Energy" type="Label" parent="Camera2D/Curencies"]
+[node name="Energy" type="Label" parent="Camera2D/Curencies/EnergyBar"]
 modulate = Color(0.136826, 0.136826, 0.136826, 1)
 light_mask = 7
 visibility_layer = 7
-offset_left = 289.0
-offset_top = -164.0
-offset_right = 317.0
-offset_bottom = -147.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -6.5
+offset_right = 14.0
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("2_xtnd7")
 theme_override_font_sizes/font_size = 12
 text = "-"
@@ -77,52 +120,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="ExpBar" parent="Camera2D/Curencies" instance=ExtResource("5_kfqb5")]
-offset_left = -329.0
-offset_top = -169.0
-offset_right = -329.0
-offset_bottom = -169.0
-
-[node name="Control" type="Control" parent="Camera2D"]
-z_index = 9
-layout_mode = 3
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 144.0
-offset_bottom = 144.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="TextureButton" type="TextureButton" parent="Camera2D/Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.669
-anchor_right = 0.5
-anchor_bottom = 0.669
-offset_left = 302.5
-offset_top = -6.76
-offset_right = 314.5
-offset_bottom = 2.24
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(1.5, 1.5)
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 1
-mouse_default_cursor_shape = 2
-texture_normal = SubResource("AtlasTexture_4dnf6")
-texture_pressed = SubResource("AtlasTexture_87b0c")
-texture_hover = SubResource("AtlasTexture_utr3b")
-stretch_mode = 0
-
-[node name="BuilderInv" parent="Camera2D/Control" instance=ExtResource("5_5giyn")]
+[node name="BuilderInv" parent="Camera2D" instance=ExtResource("5_5giyn")]
 visible = false
-scale = Vector2(0.8, 0.8)
+z_index = 10
+position = Vector2(0, 136)
+scale = Vector2(0.4, 0.4)
 
 [node name="Player" parent="." instance=ExtResource("1_ch7dy")]
+collision_layer = 2
 
-[connection signal="pressed" from="Camera2D/Control/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="start_combat" from="Player" to="." method="_on_player_start_combat"]

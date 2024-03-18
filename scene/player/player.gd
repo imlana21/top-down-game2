@@ -23,21 +23,30 @@ func _init():
 		CombatDetail.player_detail = CHAR_DETAIL
 	
 func _ready():
+	if Autoload.paused_on != "":
+		return
 	if CombatDetail.last_position != null and !CombatDetail.is_attacking:
 		position = CombatDetail.last_position
 		CombatDetail.last_position = null
 
 func _process(_delta):
+	if Autoload.paused_on != "":
+		return
 	if Autoload.player_skin == "red":
 		$PlayerSprite.modulate = "ff0000"
 	else:
 		$PlayerSprite.modulate = "ffffff"
 	
 func _physics_process(delta):
+	if Autoload.paused_on != "":
+		change_direction.emit(Vector2(0, 1))
+		return
 	if !CombatDetail.is_attacking and !Autoload.is_spectator_mode:
 		walk(delta)
 
 func _input(event):
+	if Autoload.paused_on != "":
+		return
 	if event is InputEventKey and event.pressed and !Autoload.is_spectator_mode:
 		change_direction.emit(get_axis_input())
 

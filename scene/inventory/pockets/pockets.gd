@@ -70,13 +70,13 @@ func _spread_item(slot: PANEL_SCRIPT):
 		var qty2 = data.qty - qty1
 		var inv_manager = InventoryItems.new()
 		inv_manager.remove_item(data)
-		#data.qty = qty1
-		#inv_manager.add_item(data)
-		#data.slot_id = get_empty_slot("player")
-		#data.qty = qty2
-		#inv_manager.add_item(data, true)
-		#_init_slot_id(slot_container)
-		#set_inventory(slot_container)
+		data.qty = qty1
+		inv_manager.add_item(data)
+		data.slot_id = get_empty_slot("player")
+		data.qty = qty2
+		inv_manager.add_item(data, true)
+		_init_slot_id(slot_container)
+		set_inventory(slot_container)
 ##
 func _pick_one_item(slot: PANEL_SCRIPT):
 	var pick_one = slot.pick_one_from_slot(holding_item)

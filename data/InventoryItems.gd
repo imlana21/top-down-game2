@@ -79,22 +79,24 @@ func stack_item(new_item, old_item, new_qty):
 	var data = load_all_data()
 	# Update qty
 	for i in range(0, data.size()):
-		if data[i].id == old_item.data.id and data[i].name == old_item.data.name:
+		if data[i].id == old_item.data.id and data[i].name == old_item.data.name and data[i].slot_id == old_item.data.slot_id:
 			data[i].qty = new_qty
 			break
-	# Remove old item
+	# Remove new item
 	for i in range(0, data.size()):
-		if data[i].id == new_item.data.id and data[i].name == new_item.data.name:
-			data.remove_at(i)
+		if old_item.data.id != new_item.data.id:
+			if data[i].id == new_item.data.id and data[i].name == new_item.data.name and data[i].slot_id == new_item.data.slot_id:
+				data.remove_at(i)
+				break
+		else:
 			break
 	data = regenerate_id(data)
-	print(data)
-	#save_items(data)
+	save_items(data)
 	
 func regenerate_id(data):
 	 #Regenerate id
 	for i in range(0, data.size()):
-		var right_id = data[i].id.right(3)
+		#var right_id = data[i].id.right(3)
 		var left_id = data[i].id.left(data[i].id.length()-3)
 		data[i].id = left_id + str(i + 1).pad_zeros(3)
 	return data
@@ -109,10 +111,11 @@ func remove_item(data: Dictionary):
 	return false
 
 func add_item(item: Dictionary, new_id = false):
-	var all_data = load_all_data()
+	var all_data = load_all_data()	
 	if new_id:
 		item.id = item.id.left(-3) + str(all_data.size()).pad_zeros(3)
 	all_data.append(item)
+	all_data = regenerate_id(all_data)
 	save_items(all_data)
 	
 func change_inventory(item, inv_name):

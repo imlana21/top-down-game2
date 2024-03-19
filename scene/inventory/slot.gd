@@ -75,7 +75,6 @@ func pick_one_from_slot(holding_item=null):
 		item.update_qty(item.data.qty - 1)
 		holding_item.update_qty(holding_item.data.qty + 1)
 		inv_manager.update_qty(item.data, item.data.qty - 1)
-		print(holding_item.data)
 		if item.data.qty < 1:
 			remove_child(item)
 			refresh_style()
@@ -97,7 +96,6 @@ func put_into_slot(new_item, old_item = null, new_qty = 0):
 	find_parent(parent_name).remove_child(new_item)
 	if new_qty > 0 and old_item != null:
 		inventory.stack_item(new_item, old_item, new_qty)
-		inventory.remove_item(old_item.data)
 		item = null
 	inventory.update_slot_position(new_item, slot_id)
 	set_anchor_center(new_item)

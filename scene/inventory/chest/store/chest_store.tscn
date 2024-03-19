@@ -17,6 +17,7 @@ texture = ExtResource("3_i7bcv")
 region_rect = Rect2(11, 59, 26, 28)
 
 [node name="ChestStore" type="Node2D"]
+position = Vector2(400, 400)
 script = ExtResource("1_q1n6d")
 
 [node name="Background" type="Node2D" parent="."]

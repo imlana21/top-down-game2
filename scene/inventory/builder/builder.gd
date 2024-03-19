@@ -36,15 +36,6 @@ func _input(event):
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and is_pointer_on_world:
 			put_item_to_world()
 	
-func get_empty_slot(inv_name):
-	var data = get_data(inv_name, builder_container)
-	var index = 0
-	for d in data:
-		if d == null:
-			return index
-		index = index + 1
-	return null
-	
 func _builder_panel_clicked(slot: PANEL_BUILDER, input_state = "") -> void:
 	# if pointer hold item and output state different with input state, reset hodling item
 	if output_from_state != input_state and output_from_state != null:

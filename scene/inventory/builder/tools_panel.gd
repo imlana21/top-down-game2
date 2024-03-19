@@ -3,7 +3,6 @@ extends InventorySlot
 func _ready():
 	refresh_style() 
 	parent_name = "BuilderInv"
-	inventory = InventoryItems.new()
 	inventory_name = "tools"
 	connect("gui_input", _on_gui_input)
 	connect("mouse_exited", _on_mouse_exited)

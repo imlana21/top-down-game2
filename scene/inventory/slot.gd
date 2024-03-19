@@ -4,7 +4,6 @@ extends Panel
 @onready var item_scene = preload("res://scene/inventory/_items/item.tscn")
 var slot_id: int = 0
 var item = null
-var inventory = null
 var inventory_name = null
 var parent_name = null
 var is_mouse_hovered = false
@@ -91,13 +90,14 @@ func pick_one_from_slot(holding_item=null):
 
 func put_into_slot(new_item, old_item = null, new_qty = 0):
 	# Configuration item and move item from parent
+	var inv_manager = InventoryItems.new()
 	new_item.scale = Vector2(1.2,1.2)
 	set_anchor_center(new_item)
 	find_parent(parent_name).remove_child(new_item)
 	if new_qty > 0 and old_item != null:
-		inventory.stack_item(new_item, old_item, new_qty)
+		inv_manager.stack_item(new_item, old_item, new_qty)
 		item = null
-	inventory.update_slot_position(new_item, slot_id)
+	inv_manager.update_slot_position(new_item, slot_id)
 	set_anchor_center(new_item)
 	add_child(new_item)
 	item = new_item

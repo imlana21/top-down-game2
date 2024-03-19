@@ -13,6 +13,7 @@ func _init_slot_id(slot_container: GridContainer):
 # Calling data from memory
 func get_data(inv_name: String, slot_container: GridContainer):
 	var inv_class = InventoryItems.new()
+	inv_class.regenerate_id()
 	var inv_data = inv_class.load_data(inv_name) 
 	var index = 0
 	var temp_data = []
@@ -35,3 +36,12 @@ func set_inventory(slot_container: GridContainer):
 	for slot in slot_container.get_children():
 		slot.init_item_into_slot(data[index])
 		index += 1
+
+func get_empty_slot(inv_name, slot_container):
+	var data = get_data(inv_name, slot_container)
+	var index = 0
+	for d in data:
+		if d == null:
+			return index
+		index = index + 1
+	return -1

@@ -21,15 +21,6 @@ func _input(_event):
 		set_inventory(slot_container)
 	if holding_item:
 		holding_item.global_position = get_global_mouse_position() - Vector2(1, 1)
-
-func get_empty_slot(inv_name):
-	var data = get_data(inv_name, slot_container)
-	var index = 0
-	for d in data:
-		if d == null:
-			return index
-		index = index + 1
-	return null
 	
 func _inv_panel_clicked(slot, inv_name):
 	if holding_item:
@@ -62,7 +53,7 @@ func _inv_panel_clicked(slot, inv_name):
 		holding_item.global_position = get_global_mouse_position()
 
 ## Spread item
-func _spread_item(slot: PANEL_SCRIPT):
+func _spread_item(slot: PANEL_SCRIPT) -> void:
 	var data = slot.item.data
 	if data.qty > 1 and holding_item == null:
 		var mean = floor(data.qty / 2)
@@ -72,12 +63,12 @@ func _spread_item(slot: PANEL_SCRIPT):
 		inv_manager.remove_item(data)
 		data.qty = qty1
 		inv_manager.add_item(data)
-		data.slot_id = get_empty_slot("player")
+		data.slot_id = get_empty_slot("player", slot_container)
 		data.qty = qty2
 		inv_manager.add_item(data, true)
 		_init_slot_id(slot_container)
 		set_inventory(slot_container)
-##
+		
 func _pick_one_item(slot: PANEL_SCRIPT):
 	var pick_one = slot.pick_one_from_slot(holding_item)
 	if holding_item == null and pick_one != null:

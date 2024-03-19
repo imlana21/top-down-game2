@@ -9,9 +9,11 @@ signal inventory_updated
 
 func _ready():
 	for inv in player_container.get_children():
-		inv.connect("slot_input_event", _slot_input_event)
+		#inv.connect("slot_input_event", _slot_input_event)
+		pass
 	for inv in chest_container.get_children():
-		inv.connect("slot_input_event", _slot_input_event)
+		#inv.connect("slot_input_event", _slot_input_event)
+		pass
 
 func _slot_input_event(slot: PANEL_SCRIPT):
 	if holding_item:

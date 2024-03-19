@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://clsatwim6pka7" path="res://scene/player/player.tscn" id="1_ch7dy"]
 [ext_resource type="Texture2D" uid="uid://bdlb2giyyg238" path="res://assets/UI/Sheet/buttons/Square Buttons 19x26.png" id="2_3ha78"]
 [ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="2_xtnd7"]
-[ext_resource type="PackedScene" uid="uid://8uxmk530680s" path="res://scene/inventory/builder/builder_inv.tscn" id="5_5giyn"]
+[ext_resource type="PackedScene" uid="uid://8uxmk530680s" path="res://scene/inventory/builder/builder.tscn" id="5_5giyn"]
 [ext_resource type="PackedScene" uid="uid://ijuv1rxcurki" path="res://scene/player/currencies_bar/coin_bar.tscn" id="5_fqgxj"]
 [ext_resource type="PackedScene" uid="uid://ci073ospwb7tw" path="res://scene/player/exp_bar/exp_bar.tscn" id="5_kfqb5"]
 [ext_resource type="PackedScene" uid="uid://ch1hunbc0oru3" path="res://scene/player/currencies_bar/gem_bar.tscn" id="6_8sunh"]

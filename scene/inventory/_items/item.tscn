@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://b2faembn2nemy" path="res://assets/UI/Font/NormalFont.ttf" id="3_alihg"]
 
 [node name="Item" type="Control"]
+z_index = 10
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2

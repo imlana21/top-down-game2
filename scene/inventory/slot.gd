@@ -9,14 +9,16 @@ var inventory_name = null
 var parent_name = null
 var is_mouse_hovered = false
 
-signal slot_input_event
-signal slot_output_event
+signal inv_panel_hovered
+signal inv_panel_unhovered
+signal inv_panel_clicked
 signal spread_item
 signal pick_one_item
 
 func _on_gui_input(event):
+	inv_panel_hovered.emit(self)
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		slot_input_event.emit(self, inventory_name)
+		inv_panel_clicked.emit(self, inventory_name)
 	
 func _input(event):
 	if is_mouse_hovered and item != null:
@@ -31,7 +33,7 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	if inventory_name != null:
-		slot_output_event.emit(inventory_name)
+		inv_panel_unhovered.emit(inventory_name)
 	modulate = "fff"
 	is_mouse_hovered = false	
 
@@ -53,23 +55,27 @@ func init_item_into_slot(data, item_size = null):
 			remove_child(item)
 		item = null
 	refresh_style()
-
-func pick_from_slot():
+	
+func pick_from_slot(holding_item = null):
 	# remove child from slot panel
 	remove_child(item)
 	# move item to parent and make item floating
+	item.scale = Vector2(0.8, 0.8)
+	set_anchor_center(item)
 	find_parent(parent_name).add_child(item)
 	# reset item variabel
 	item = null
-	# refresh inventory
 	refresh_style()
 	
-func pick_from_slot2(holding_item=null):
+func pick_one_from_slot(holding_item=null):
+	var inv_manager = InventoryItems.new()
 	if holding_item:
 		if item.data.name != holding_item.data.name:
 			return null
 		item.update_qty(item.data.qty - 1)
 		holding_item.update_qty(holding_item.data.qty + 1)
+		inv_manager.update_qty(item.data, item.data.qty - 1)
+		print(holding_item.data)
 		if item.data.qty < 1:
 			remove_child(item)
 			refresh_style()
@@ -79,13 +85,25 @@ func pick_from_slot2(holding_item=null):
 		var new_item =  item.duplicate()
 		new_item.set_item(item.data)
 		new_item.update_qty(1)
+		inv_manager.update_qty(item.data, item.data.qty - 1)
 		item.update_qty(item.data.qty - 1)
 		return new_item
 	return null
+
+func put_into_slot(new_item, old_item = null, new_qty = 0):
+	# Configuration item and move item from parent
+	new_item.scale = Vector2(1.2,1.2)
+	set_anchor_center(new_item)
+	find_parent(parent_name).remove_child(new_item)
+	if new_qty > 0 and old_item != null:
+		inventory.stack_item(new_item, old_item, new_qty)
+		inventory.remove_item(old_item.data)
+		item = null
+	inventory.update_slot_position(new_item, slot_id)
+	set_anchor_center(new_item)
+	add_child(new_item)
+	item = new_item
+	refresh_style()
 	
 func set_anchor_center(i):
 	i.anchors_preset = Control.PRESET_CENTER
-	#i.anchor_bottom = 0.5
-	#i.anchor_left = 0.5
-	#i.anchor_right = 0.5
-	#i.anchor_top = 0.5

@@ -1,27 +1,27 @@
 [gd_scene load_steps=9 format=3 uid="uid://8uxmk530680s"]
 
-[ext_resource type="Texture2D" uid="uid://baqlshr3lgy82" path="res://assets/UI/Sheet/UI Big Play Button.png" id="1_7divp"]
-[ext_resource type="Script" path="res://scene/inventory/builder/builder_inv.gd" id="1_rr3a2"]
-[ext_resource type="Texture2D" uid="uid://dkn0yi4k2ipte" path="res://assets/UI/Sheet/buttons/Square Buttons 26x26.png" id="2_oc4gt"]
-[ext_resource type="Script" path="res://scene/inventory/builder/tools_panel.gd" id="4_jsch7"]
-[ext_resource type="Script" path="res://scene/inventory/builder/builder_panel.gd" id="4_par0n"]
+[ext_resource type="Script" path="res://scene/inventory/builder/builder.gd" id="1_ny4by"]
+[ext_resource type="Texture2D" uid="uid://baqlshr3lgy82" path="res://assets/UI/Sheet/UI Big Play Button.png" id="2_eqnq8"]
+[ext_resource type="Texture2D" uid="uid://dkn0yi4k2ipte" path="res://assets/UI/Sheet/buttons/Square Buttons 26x26.png" id="3_xrsik"]
+[ext_resource type="Script" path="res://scene/inventory/builder/tools_panel.gd" id="4_q13a0"]
+[ext_resource type="Script" path="res://scene/inventory/builder/builder_panel.gd" id="5_ur061"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tjwyw"]
-atlas = ExtResource("1_7divp")
+atlas = ExtResource("2_eqnq8")
 region = Rect2(3, 2, 90, 27)
 margin = Rect2(-5, -5, -10, -12)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4wipj"]
-texture = ExtResource("2_oc4gt")
+texture = ExtResource("3_xrsik")
 region_rect = Rect2(11, 59, 26, 28)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hxl63"]
-texture = ExtResource("2_oc4gt")
+texture = ExtResource("3_xrsik")
 region_rect = Rect2(11, 59, 26, 28)
 
 [node name="BuilderInv" type="Node2D"]
 position = Vector2(400, 400)
-script = ExtResource("1_rr3a2")
+script = ExtResource("1_ny4by")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 8
@@ -62,7 +62,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_4wipj")
-script = ExtResource("4_jsch7")
+script = ExtResource("4_q13a0")
 
 [node name="BuilderContainer" type="GridContainer" parent="."]
 anchors_preset = 8
@@ -88,7 +88,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_hxl63")
-script = ExtResource("4_par0n")
+script = ExtResource("5_ur061")
 
 [node name="Panel2" type="Panel" parent="BuilderContainer"]
 layout_mode = 2
@@ -97,7 +97,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_hxl63")
-script = ExtResource("4_par0n")
+script = ExtResource("5_ur061")
 
 [node name="Panel3" type="Panel" parent="BuilderContainer"]
 layout_mode = 2
@@ -106,7 +106,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_hxl63")
-script = ExtResource("4_par0n")
+script = ExtResource("5_ur061")
 
 [node name="Panel4" type="Panel" parent="BuilderContainer"]
 layout_mode = 2
@@ -115,7 +115,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_hxl63")
-script = ExtResource("4_par0n")
+script = ExtResource("5_ur061")
 
 [node name="Panel5" type="Panel" parent="BuilderContainer"]
 layout_mode = 2
@@ -124,4 +124,4 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_hxl63")
-script = ExtResource("4_par0n")
+script = ExtResource("5_ur061")

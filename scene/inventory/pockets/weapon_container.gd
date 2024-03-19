@@ -8,4 +8,4 @@ func _ready():
 	
 	for i in get_children():
 		i.get_children()[0].scale = Vector2(1.5, 1.5)
-		i.get_children()[0].position = Vector2(5, 5)
+		i.get_children()[0].anchors_preset = Control.PRESET_CENTER

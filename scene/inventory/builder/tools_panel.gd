@@ -9,10 +9,8 @@ func _ready():
 	connect("mouse_exited", _on_mouse_exited)
 	connect("mouse_entered", _on_mouse_entered)
 
-func put_into_slot(new_item, old_item = null, new_qty = 0):
-	print("new_item")
-
-func pick_from_slot2(holding_item=null):
+## Reinitialize function because have diferent method
+func pick_from_slot(holding_item=null):
 	if holding_item:
 		return false
 	var new_item = item.duplicate()
@@ -23,7 +21,3 @@ func pick_from_slot2(holding_item=null):
 	# refresh inventory
 	refresh_style()
 	return new_item
-	
-func _on_gui_input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		slot_input_event.emit(self, "tools")

@@ -14,32 +14,32 @@ signal inv_panel_clicked
 signal spread_item
 signal pick_one_item
 
-func _on_gui_input(event):
+func _on_gui_input(event) -> void:
 	inv_panel_hovered.emit(self)
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		inv_panel_clicked.emit(self, inventory_name)
 	
-func _input(event):
+func _input(event) -> void:
 	if is_mouse_hovered and item != null:
 		if Input.is_action_just_pressed("camera_mode"):
 			spread_item.emit(self)
 		elif Input.is_action_just_pressed("pick_item"):
 			pick_one_item.emit(self)
 	
-func _on_mouse_entered():
+func _on_mouse_entered() -> void:
 	modulate = "eaeaea"
 	is_mouse_hovered = true
 
-func _on_mouse_exited():
+func _on_mouse_exited() -> void:
 	if inventory_name != null:
 		inv_panel_unhovered.emit(inventory_name)
 	modulate = "fff"
 	is_mouse_hovered = false	
 
-func refresh_style():
+func refresh_style() -> void:
 	self.modulate = "fff"
 
-func init_item_into_slot(data, item_size = null):	
+func init_item_into_slot(data, item_size = null) -> void:	
 	if data != null:
 		if item == null:
 			item = item_scene.instantiate()
@@ -55,7 +55,7 @@ func init_item_into_slot(data, item_size = null):
 		item = null
 	refresh_style()
 	
-func pick_from_slot(holding_item = null):
+func pick_from_slot(holding_item = null) -> void:
 	# remove child from slot panel
 	remove_child(item)
 	# move item to parent and make item floating
@@ -88,7 +88,7 @@ func pick_one_from_slot(holding_item=null):
 		return new_item
 	return null
 
-func put_into_slot(new_item, old_item = null, new_qty = 0):
+func put_into_slot(new_item, old_item = null, new_qty = 0) -> void:
 	# Configuration item and move item from parent
 	var inv_manager = InventoryItems.new()
 	new_item.scale = Vector2(1.2,1.2)
@@ -103,5 +103,9 @@ func put_into_slot(new_item, old_item = null, new_qty = 0):
 	item = new_item
 	refresh_style()
 	
+func update_inventory_type(holding_item, inv_name: String) -> void:
+	var inv_manager = InventoryItems.new()
+	inv_manager.update_inv_name(holding_item.data, inv_name)
+
 func set_anchor_center(i):
 	i.anchors_preset = Control.PRESET_CENTER

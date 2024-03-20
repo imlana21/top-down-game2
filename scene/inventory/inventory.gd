@@ -30,8 +30,12 @@ func get_data(inv_name: String, slot_container: GridContainer):
 	return temp_data
 
 # applying data to the inventory panel after calling data from memory
-func set_inventory(slot_container: GridContainer):
-	var data = get_data(inventory_name, slot_container)
+func set_inventory(slot_container: GridContainer, inv_name = null):
+	var data = null
+	if inv_name:
+		data = get_data(inv_name, slot_container)
+	else:
+		data = get_data(inventory_name, slot_container)
 	var index = 0
 	for slot in slot_container.get_children():
 		slot.init_item_into_slot(data[index])

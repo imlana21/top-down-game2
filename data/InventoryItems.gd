@@ -73,7 +73,15 @@ func update_qty(data, new_qty):
 			save_items(all_data)
 			return true
 	return false
-	
+
+func update_inv_name(data, inv_name):
+	var all_data = load_all_data()
+	for i in range(0, all_data.size()):
+		if all_data[i].id == data.id and all_data[i].name == data.name and all_data[i].inventory == data.inventory:
+			all_data[i].inventory = inv_name
+			save_items(all_data)
+			return true
+	return false
 
 func stack_item(new_item, old_item, new_qty):
 	var data = load_all_data()

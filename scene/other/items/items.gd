@@ -34,6 +34,6 @@ func set_item_qty(qty: int):
 	item_detail.qty = qty
 	
 func pick_item(inventory_name: String):
-	var empty_slot = Autoload.player_inventory.get_empty_slot(inventory_name)
+	var empty_slot = Autoload.player_inventory.get_empty_slot(inventory_name, Autoload.player_inventory.slot_container)
 	var item_class = InventoryItems.new()
 	item_class.inc_qty(item_detail, empty_slot, kategory)

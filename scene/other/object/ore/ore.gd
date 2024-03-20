@@ -47,7 +47,5 @@ func _on_destroy_animation_finished():
 		index = Autoload.ore_name_2.find(self.name)
 		Autoload.ore_position_2.remove_at(index)
 		Autoload.ore_name_2.remove_at(index)
-#
 	Autoload.scene_manager.add_child(countdown_instance)
-	
 	queue_free()

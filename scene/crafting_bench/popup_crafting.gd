@@ -65,9 +65,10 @@ func _on_btn_craft_pressed():
 	##update status recipe and add timer
 	if data_manager.update_status(self, "cook") and ptime_cook != null:
 		_generate_to_inventory()
+		self.visible = false
 
 func _generate_to_inventory():
-	var empty_slot = Autoload.player_inventory.get_empty_slot(pinv)
+	var empty_slot = Autoload.player_inventory.get_empty_slot(pinv, Autoload.player_inventory.slot_container)
 	var inv_manager = InventoryItems.new()
 	var data_manager = CraftingDataManager.new()
 	var item_detail = {

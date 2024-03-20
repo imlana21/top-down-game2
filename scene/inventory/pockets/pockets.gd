@@ -54,42 +54,12 @@ func _inv_panel_clicked(slot, inv_name):
 
 ## Spread item
 func _spread_item(slot: PANEL_SCRIPT) -> void:
-	var data = slot.item.data
-	if data.qty > 1 and holding_item == null:
-		var mean = floor(data.qty / 2)
-		var qty1 = data.qty - mean
-		var qty2 = data.qty - qty1
-		var inv_manager = InventoryItems.new()
-		inv_manager.remove_item(data)
-		data.qty = qty1
-		inv_manager.add_item(data)
-		data.slot_id = get_empty_slot("player", slot_container)
-		data.qty = qty2
-		inv_manager.add_item(data, true)
-		_init_slot_id(slot_container)
-		set_inventory(slot_container)
+	if holding_item == null and slot.item:
+		spread_item(slot.item.data, slot_container, "player")
+
 		
 func _pick_one_item(slot: PANEL_SCRIPT):
 	var pick_one = slot.pick_one_from_slot(holding_item)
 	if holding_item == null and pick_one != null:
 		holding_item = pick_one
 		add_child(holding_item)
-	#
-#func _set_holding_item(val):
-	#if holding_item == null and val != null:
-		#print("First Init")
-		#holding_item = val
-		#add_child(holding_item)
-	#elif holding_item != null and val != null:
-		#print("stack item or continue pick")
-		#remove_child(holding_item)
-		#holding_item = val
-		#add_child(holding_item)
-	#elif val == null and holding_item != null:
-		#print("swap item")
-		#remove_child(holding_item)
-		#holding_item = val
-	#elif val == null and holding_item == null:
-		#print("nothing action")
-		#holding_item = val
-		

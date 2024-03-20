@@ -59,34 +59,10 @@ func _inv_panel_clicked(slot, input_state = "") -> void:
 
 ## Spread item
 func _player_spread_item(slot: PANEL_SCRIPT) -> void:
-	var data = slot.item.data
-	if data.qty > 1 and holding_item == null:
-		var mean = floor(data.qty / 2)
-		var qty1 = data.qty - mean
-		var qty2 = data.qty - qty1
-		var inv_manager = InventoryItems.new()
-		inv_manager.remove_item(data)
-		data.qty = qty1
-		inv_manager.add_item(data)
-		data.slot_id = get_empty_slot("player", player_container)
-		data.qty = qty2
-		inv_manager.add_item(data, true)
-		_init_slot_id(player_container)
-		set_inventory(player_container, "player")
+	if holding_item == null and slot.item:
+		spread_item(slot.item.data, player_container, "player")
 
 ## Spread item
 func _chest_spread_item(slot: PANEL_SCRIPT) -> void:
-	var data = slot.item.data
-	if data.qty > 1 and holding_item == null:
-		var mean = floor(data.qty / 2)
-		var qty1 = data.qty - mean
-		var qty2 = data.qty - qty1
-		var inv_manager = InventoryItems.new()
-		inv_manager.remove_item(data)
-		data.qty = qty1
-		inv_manager.add_item(data)
-		data.slot_id = get_empty_slot("chest", player_container)
-		data.qty = qty2
-		inv_manager.add_item(data, true)
-		_init_slot_id(player_container)
-		set_inventory(player_container, "chest")
+	if holding_item == null and slot.item:
+		spread_item(slot.item.data, chest_container, "chest")

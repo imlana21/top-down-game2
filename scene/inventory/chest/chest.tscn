@@ -31,17 +31,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjxeq"]
-size = Vector2(17, 16)
+size = Vector2(13, 10)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ueqpj"]
 radius = 20.025
 
 [node name="Chest" type="CharacterBody2D"]
-scale = Vector2(1.075, -0.666667)
 script = ExtResource("1_wkml0")
 
 [node name="ChestSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -0.49999)
 sprite_frames = SubResource("SpriteFrames_b8vc6")
 animation = &"close"
 

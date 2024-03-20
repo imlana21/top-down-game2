@@ -49,3 +49,19 @@ func get_empty_slot(inv_name, slot_container):
 			return index
 		index = index + 1
 	return -1
+
+func spread_item(slot_data: Dictionary, slot_container: GridContainer, inv_name: String) -> void:
+	var data = slot_data
+	if data.qty > 1:
+		var mean = floor(data.qty / 2)
+		var qty1 = data.qty - mean
+		var qty2 = data.qty - qty1
+		var inv_manager = InventoryItems.new()
+		inv_manager.remove_item(data)
+		data.qty = qty1
+		inv_manager.add_item(data)
+		data.slot_id = get_empty_slot(inv_name, slot_container)
+		data.qty = qty2
+		inv_manager.add_item(data, true)
+		_init_slot_id(slot_container)
+		set_inventory(slot_container, inv_name)

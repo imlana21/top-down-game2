@@ -13,7 +13,7 @@ func _on_timeout():
 	if item_spawned < max_item_spawn:
 		var random_pos = Vector2(randf_range((-spawn_area.scale.x/2), (spawn_area.scale.x/2)), 
 								randf_range((-spawn_area.scale.y/2), (spawn_area.scale.y/2)))
-		print("Item ke-", item_spawned + 1)
+		# print("Item ke-", item_spawned + 1)
 		_spawn_floor(random_pos)
 		item_spawned += 1
 		start()

@@ -18,9 +18,9 @@ func _spawn_item():
 		$TextureRect.modulate = "CFB53B"
 		item_scene.modulate = "CFB53B"
 		item_scene.set_item_qty(5)
-	print("Gold")
-	print(item_scene.get_item_detail())
-	print("Item spawned on ", item_scene.get_global_position())
+	# print("Gold")
+	# print(item_scene.get_item_detail())
+	# print("Item spawned on ", item_scene.get_global_position())
 
 func _on_light_square_area_body_exited(body):
 	if body.is_in_group("player"):

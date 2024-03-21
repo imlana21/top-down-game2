@@ -51,7 +51,13 @@ func _input(event):
 		change_direction.emit(get_axis_input())
 
 func _on_enemy_detector_body_entered(body):
-	if CombatDetail.is_attacking == false and CombatDetail.player_energy > 0 and body.is_in_group("enemy"):
+	if !body.is_in_group("enemy"):
+		return
+	if Autoload.world != null and Autoload.world.name == "WarpWorld":
+		CombatDetail.last_position = position
+		start_combat.emit(body)
+		CombatDetail.is_attacking = true
+	elif CombatDetail.is_attacking == false and CombatDetail.player_energy > 0:
 		CombatDetail.last_position = position
 		start_combat.emit(body)
 		CombatDetail.is_attacking = true

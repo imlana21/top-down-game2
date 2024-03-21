@@ -7,7 +7,7 @@ func _input(_event):
 		if Autoload.paused_on == "" or Autoload.paused_on == "inventory" or Autoload.paused_on == "craft":
 			if Autoload.bench == null:
 				$Pockets.visible = !$Pockets.visible 
-				$Pockets.z_index = 10
+				$Pockets.z_index = 20
 				$Pockets.scale = Autoload.pause_scale
 				$Pockets.position = Autoload.pause_position
 				Autoload.toggle_pause("inventory")
@@ -19,7 +19,7 @@ func _input(_event):
 				Autoload.toggle_pause("craft")
 
 func _physics_process(delta):
-	if Autoload.paused_on == "" or Autoload.paused_on == "inventory" or Autoload.paused_on == "craft":
+	if Autoload.player != null and (Autoload.paused_on == "" or Autoload.paused_on == "inventory" or Autoload.paused_on == "craft"):
 		if Autoload.bench == null:
 			$Pockets.global_position = Autoload.player.global_position
 		else:

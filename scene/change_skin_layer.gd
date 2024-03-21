@@ -8,3 +8,7 @@ func _input(_event):
 			$SkinMenu.scale = Autoload.pause_scale
 			$SkinMenu.position = Autoload.pause_position
 			Autoload.toggle_pause("change_skin")
+	
+func _physics_process(delta):
+	if Autoload.player != null and (Autoload.paused_on == "" or Autoload.paused_on == "change_skin"):
+		$SkinMenu.global_position = Autoload.player.global_position

@@ -9,6 +9,7 @@ extends Node2D
 
 var characters: Array = []
 var repeat_turn = true
+var next_world_name: String
 
 signal change_scene
 signal change_combat
@@ -75,6 +76,11 @@ func battle_finished():
 	#Move to world
 	var next_path = 'res://scene/world/world.tscn'
 	var current_scene = self
+
+	if next_world_name == "WarpWorld":
+		next_path = 'res://scene/world/warp/warp_world.tscn'
+		Autoload.warpworld_enemy_killed = true
+		
 	change_combat.emit(next_path, current_scene)
 	
 func take_damage(character):

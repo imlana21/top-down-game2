@@ -17,3 +17,7 @@ func _input(_event):
 func _on_load_close_pause():
 	$Pause.visible = !$Pause.visible 
 	Autoload.toggle_pause("pause")
+
+func _physics_process(delta):
+	if Autoload.player != null and (Autoload.paused_on == "" or Autoload.paused_on == "pause"):
+			$Pause.global_position = Autoload.player.global_position

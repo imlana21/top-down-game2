@@ -78,6 +78,7 @@ var is_spectator_mode: bool = false
 var teleport_room: Array
 var teleported_room: Array
 var cheat_mode: bool = false
+var warpworld_enemy_killed = false
 
 func reset_teleport_room():
 	teleported_room = []

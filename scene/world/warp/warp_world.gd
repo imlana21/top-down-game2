@@ -11,7 +11,3 @@ func _on_player_start_combat(enemy):
 	CombatDetail.enemy_detail = enemy.CHAR_DETAIL
 	CombatDetail.enemy_type = enemy.type
 	start_combat.emit(self)
-
-
-func _on_door_area_body_entered(body):
-	pass # Replace with function body.

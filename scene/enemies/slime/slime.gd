@@ -11,7 +11,7 @@ var CHAR_DETAIL = {
 	"exp": 0
 }
 
-@export var SPEED = 700
+@export var SPEED = 900
 @onready var nav_agent: NavigationAgent2D = $Node2D/SlimeNavigation
 @export var type: String = ""
 
@@ -44,6 +44,7 @@ func _on_re_calc_timer_timeout():
 
 func _on_player_detector_body_entered(body):
 	if body.is_in_group("player") and CombatDetail.is_attacking == false:
+		visible = true
 		target_node = body
 	
 func _on_slime_navigation_velocity_computed(safe_velocity):

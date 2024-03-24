@@ -22,9 +22,6 @@ func _init_enemy():
 		enemy_scene.type = "bos"
 		$EnemyList.add_child(enemy_scene)	
 
-func _on_door_area_body_exited(body):
-	pass
-
 func _on_door_area_body_entered(body):
 	if !Autoload.warpworld_enemy_killed:
 		_close_the_door()

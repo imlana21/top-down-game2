@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://chot5i788y7ip"]
+[gd_scene load_steps=18 format=3 uid="uid://chot5i788y7ip"]
 
 [ext_resource type="Script" path="res://scene/world/warp/warp_world.gd" id="1_hr5qo"]
 [ext_resource type="PackedScene" uid="uid://nmtmi2fu0gk6" path="res://scene/player/screen/screen.tscn" id="2_qjm6i"]
@@ -26,11 +26,14 @@ size = Vector2(79, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hx5i"]
 size = Vector2(20, 59)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_keqd5"]
+size = Vector2(70, 20)
+
 [node name="WarpWorld" type="Node2D"]
 script = ExtResource("1_hr5qo")
 
 [node name="Screen" parent="." instance=ExtResource("2_qjm6i")]
-position = Vector2(171, -47)
+position = Vector2(1446, 171)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("10_jksj1")
@@ -307,6 +310,7 @@ rotation = 1.57079
 
 [node name="DoorArea2" type="Area2D" parent="Room1"]
 position = Vector2(90, 272)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room1/DoorArea2"]
 position = Vector2(-0.18457, 0)
@@ -314,10 +318,17 @@ shape = SubResource("RectangleShape2D_multe")
 
 [node name="DoorArea" type="Area2D" parent="Room1"]
 position = Vector2(-252, 24)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Room1/DoorArea"]
-position = Vector2(-2, 2)
 shape = SubResource("RectangleShape2D_2hx5i")
+
+[node name="DoorArea3" type="Area2D" parent="Room1"]
+position = Vector2(90, 319)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1/DoorArea3"]
+shape = SubResource("RectangleShape2D_keqd5")
 
 [node name="TreeList" type="Node2D" parent="Room1"]
 
@@ -365,54 +376,67 @@ position = Vector2(734.943, 631.131)
 [node name="EnemyList" type="Node2D" parent="Room2"]
 
 [node name="Slime5" parent="Room2/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(141.057, -193.131)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime" parent="Room2/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(685.057, -149.131)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime2" parent="Room2/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(515.057, -37.131)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime3" parent="Room2/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(289.057, -35.131)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime4" parent="Room2/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(46.3702, 174.181)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime6" parent="Room2/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(-162.256, -191.131)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime7" parent="Room2/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(20.057, -33.131)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime8" parent="Room2/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(-136.943, 81.869)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime9" parent="Room2/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(-311.943, -28.131)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime10" parent="Room2/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(-521.943, -29.131)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime11" parent="Room2/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(-562.943, 162.869)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime12" parent="Room2/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(-505.943, 337.869)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime13" parent="Room2/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(-561.943, 522.869)
 up_direction = Vector2(0.986548, -0.163471)
 
@@ -771,3 +795,6 @@ up_direction = Vector2(0.986548, -0.163471)
 [connection signal="start_combat" from="Screen" to="." method="_on_player_start_combat"]
 [connection signal="timeout" from="SpawnerTimer" to="SpawnerTimer" method="_on_timeout"]
 [connection signal="body_entered" from="Corridor1/DoorSensor" to="Corridor1" method="_on_door_sensor_body_entered"]
+[connection signal="body_entered" from="Room1/DoorArea2" to="Room1" method="_on_room1_to_room2_player_entered"]
+[connection signal="body_entered" from="Room1/DoorArea" to="Room1" method="_on_room1_to_corridor1"]
+[connection signal="body_entered" from="Room1/DoorArea3" to="Room1" method="_on_to_room1_player_entered"]

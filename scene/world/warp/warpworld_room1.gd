@@ -1,11 +1,11 @@
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	call_bos()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func call_bos():
+	var boss_slime = load("res://scene/enemies/slime/slime.tscn").instantiate()
+	boss_slime.type = "bos"
+	boss_slime.modulate = "3160ff"
+	boss_slime.global_position = Vector2(1400, -50)
+	$EnemyList.add_child(boss_slime)

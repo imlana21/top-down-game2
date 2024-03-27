@@ -1,6 +1,8 @@
 class_name WarpWorld
 extends Node2D
 
+var is_finish_reached: bool = false
+
 signal change_scene
 signal start_combat
 	
@@ -13,3 +15,9 @@ func _on_player_start_combat(enemy):
 	CombatDetail.enemy_detail = enemy.CHAR_DETAIL
 	CombatDetail.enemy_type = enemy.type
 	start_combat.emit(self)
+
+func _on_finish_door_player_entered(body):
+	if !is_finish_reached:
+		$Room2.call_slimes()
+		$SpawnerTimer.start()
+	is_finish_reached = true

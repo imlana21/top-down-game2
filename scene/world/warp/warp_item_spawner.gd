@@ -7,7 +7,6 @@ var item_spawned = 0
 
 func _ready():
 	wait_time = spawn_delay
-	start()
 		
 func _on_timeout():
 	if item_spawned < max_item_spawn:

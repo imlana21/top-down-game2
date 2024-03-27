@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://chot5i788y7ip"]
+[gd_scene load_steps=23 format=3 uid="uid://chot5i788y7ip"]
 
 [ext_resource type="Script" path="res://scene/world/warp/warp_world.gd" id="1_hr5qo"]
 [ext_resource type="PackedScene" uid="uid://nmtmi2fu0gk6" path="res://scene/player/screen/screen.tscn" id="2_qjm6i"]
@@ -8,9 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://c25nwa5fehcdw" path="res://scene/world/warp/terrain/wall_door.tscn" id="7_ljvfs"]
 [ext_resource type="PackedScene" uid="uid://bbfhsgo3aecjt" path="res://scene/other/object/tree/tree.tscn" id="8_p1td5"]
 [ext_resource type="PackedScene" uid="uid://cho6dkt3vm80h" path="res://scene/other/object/ore/ore.tscn" id="9_0hwt3"]
+[ext_resource type="Script" path="res://scene/world/warp/warpworld_corridor2.gd" id="9_78kvh"]
 [ext_resource type="PackedScene" uid="uid://chc0olac2hm5s" path="res://scene/other/object/rare_ore/rare_ore.tscn" id="9_b82vl"]
 [ext_resource type="Script" path="res://scene/world/warp/warpworld_room1.gd" id="9_vngu6"]
 [ext_resource type="TileSet" uid="uid://dcdvy43r6grdy" path="res://scene/world/warp/warpworld_tiles.tres" id="10_jksj1"]
+[ext_resource type="Script" path="res://scene/world/warp/warpworld_room2.gd" id="12_lpsqu"]
+[ext_resource type="Script" path="res://scene/world/warp/warpworld_room3.gd" id="13_5xjv3"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_s5470"]
 
@@ -29,11 +32,17 @@ size = Vector2(20, 59)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_keqd5"]
 size = Vector2(70, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1mdc"]
+size = Vector2(20, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2v22v"]
+size = Vector2(20, 87)
+
 [node name="WarpWorld" type="Node2D"]
 script = ExtResource("1_hr5qo")
 
 [node name="Screen" parent="." instance=ExtResource("2_qjm6i")]
-position = Vector2(1446, 171)
+position = Vector2(758, 337)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("10_jksj1")
@@ -121,6 +130,7 @@ up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Corridor2" type="Node2D" parent="."]
 position = Vector2(390, 236)
+script = ExtResource("9_78kvh")
 
 [node name="DoorList" type="Node2D" parent="Corridor2"]
 position = Vector2(369, 172)
@@ -147,6 +157,7 @@ rotation = 1.57079
 
 [node name="DoorSensor" type="Area2D" parent="Corridor2"]
 position = Vector2(370, 150)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Corridor2/DoorSensor"]
 shape = SubResource("RectangleShape2D_d8bfy")
@@ -372,6 +383,7 @@ position = Vector2(-100, -33)
 
 [node name="Room2" type="Node2D" parent="."]
 position = Vector2(734.943, 631.131)
+script = ExtResource("12_lpsqu")
 
 [node name="EnemyList" type="Node2D" parent="Room2"]
 
@@ -516,8 +528,30 @@ position = Vector2(83.057, -104.131)
 [node name="Ore9" parent="Room2/OreList" instance=ExtResource("9_0hwt3")]
 position = Vector2(-143.943, -54.131)
 
+[node name="DoorList" type="Node2D" parent="Room2"]
+position = Vector2(-638.8, -9.04907)
+
+[node name="WallDoor" parent="Room2/DoorList" instance=ExtResource("7_ljvfs")]
+position = Vector2(-6, -40)
+
+[node name="WallDoor2" parent="Room2/DoorList" instance=ExtResource("7_ljvfs")]
+position = Vector2(-6, -24)
+
+[node name="WallDoor3" parent="Room2/DoorList" instance=ExtResource("7_ljvfs")]
+position = Vector2(-6, -8)
+
+[node name="WallDoor4" parent="Room2/DoorList" instance=ExtResource("7_ljvfs")]
+position = Vector2(-6, 8)
+
+[node name="WallDoor5" parent="Room2/DoorList" instance=ExtResource("7_ljvfs")]
+position = Vector2(-6, 24)
+
+[node name="WallDoor6" parent="Room2/DoorList" instance=ExtResource("7_ljvfs")]
+position = Vector2(-6, 29)
+
 [node name="Room3" type="Node2D" parent="."]
 position = Vector2(-816, 443)
+script = ExtResource("13_5xjv3")
 
 [node name="TreeList" type="Node2D" parent="Room3"]
 
@@ -658,6 +692,13 @@ up_direction = Vector2(0.986548, -0.163471)
 position = Vector2(497, 488)
 up_direction = Vector2(0.986548, -0.163471)
 
+[node name="Area2D" type="Area2D" parent="Room3"]
+position = Vector2(885, 183)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room3/Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_j1mdc")
+
 [node name="Room4" type="Node2D" parent="."]
 position = Vector2(-1486, 938)
 
@@ -792,9 +833,19 @@ up_direction = Vector2(0.986548, -0.163471)
 position = Vector2(595, 532)
 up_direction = Vector2(0.986548, -0.163471)
 
+[node name="FinishDoor" type="Area2D" parent="."]
+position = Vector2(991, 1505)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishDoor"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_2v22v")
+
 [connection signal="start_combat" from="Screen" to="." method="_on_player_start_combat"]
 [connection signal="timeout" from="SpawnerTimer" to="SpawnerTimer" method="_on_timeout"]
 [connection signal="body_entered" from="Corridor1/DoorSensor" to="Corridor1" method="_on_door_sensor_body_entered"]
+[connection signal="body_entered" from="Corridor2/DoorSensor" to="Corridor2" method="_on_corridor2_to_room2_player_entered"]
 [connection signal="body_entered" from="Room1/DoorArea2" to="Room1" method="_on_room1_to_room2_player_entered"]
 [connection signal="body_entered" from="Room1/DoorArea" to="Room1" method="_on_room1_to_corridor1"]
 [connection signal="body_entered" from="Room1/DoorArea3" to="Room1" method="_on_to_room1_player_entered"]
+[connection signal="body_entered" from="FinishDoor" to="." method="_on_finish_door_player_entered"]

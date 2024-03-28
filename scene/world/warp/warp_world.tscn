@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://chot5i788y7ip"]
+[gd_scene load_steps=27 format=3 uid="uid://chot5i788y7ip"]
 
 [ext_resource type="Script" path="res://scene/world/warp/warp_world.gd" id="1_hr5qo"]
 [ext_resource type="PackedScene" uid="uid://nmtmi2fu0gk6" path="res://scene/player/screen/screen.tscn" id="2_qjm6i"]
@@ -33,6 +33,9 @@ size = Vector2(20, 59)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_keqd5"]
 size = Vector2(70, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vg7h1"]
+size = Vector2(75, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76r3a"]
 size = Vector2(20, 59)
 
@@ -49,7 +52,7 @@ size = Vector2(20, 87)
 script = ExtResource("1_hr5qo")
 
 [node name="Screen" parent="." instance=ExtResource("2_qjm6i")]
-position = Vector2(761, 352)
+position = Vector2(757, 452)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("10_jksj1")
@@ -556,6 +559,14 @@ position = Vector2(-6, 24)
 [node name="WallDoor6" parent="Room2/DoorList" instance=ExtResource("7_ljvfs")]
 position = Vector2(-6, 29)
 
+[node name="ToCorridor2" type="Area2D" parent="Room2"]
+position = Vector2(26.2476, -203.338)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room2/ToCorridor2"]
+position = Vector2(-0.690552, 0)
+shape = SubResource("RectangleShape2D_vg7h1")
+
 [node name="Room3" type="Node2D" parent="."]
 position = Vector2(-816, 443)
 script = ExtResource("13_5xjv3")
@@ -947,4 +958,5 @@ position = Vector2(0, 40)
 [connection signal="body_entered" from="Room1/ToRoom2" to="Room1" method="_on_room1_to_room2_player_entered"]
 [connection signal="body_entered" from="Room1/ToCorridor1" to="Room1" method="_on_room1_to_corridor1"]
 [connection signal="body_entered" from="Room1/FromRoom2" to="Room1" method="_on_from_room2_player_entered"]
+[connection signal="body_entered" from="Room2/ToCorridor2" to="Room2" method="_on_to_corridor_2_body_entered"]
 [connection signal="body_entered" from="ToWarpPoint" to="." method="_on_finish_door_player_entered"]

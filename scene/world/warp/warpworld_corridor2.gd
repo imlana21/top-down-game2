@@ -19,10 +19,14 @@ func call_slimes():
 		slime.visible = false
 
 func _on_corridor2_to_room2_player_entered(body):
-	print(body)
 	if !door_opened:
 		call_slimes()
-		door_opened = true
+	door_handle()
 
+func door_handle():
 	for door in $DoorList.get_children():
-		door.open_the_door()
+		if !door_opened:
+			door.open_the_door()
+		else:
+			door.close_the_door()
+	door_opened = !door_opened

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://chot5i788y7ip"]
+[gd_scene load_steps=26 format=3 uid="uid://chot5i788y7ip"]
 
 [ext_resource type="Script" path="res://scene/world/warp/warp_world.gd" id="1_hr5qo"]
 [ext_resource type="PackedScene" uid="uid://nmtmi2fu0gk6" path="res://scene/player/screen/screen.tscn" id="2_qjm6i"]
@@ -14,6 +14,7 @@
 [ext_resource type="TileSet" uid="uid://dcdvy43r6grdy" path="res://scene/world/warp/warpworld_tiles.tres" id="10_jksj1"]
 [ext_resource type="Script" path="res://scene/world/warp/warpworld_room2.gd" id="12_lpsqu"]
 [ext_resource type="Script" path="res://scene/world/warp/warpworld_room3.gd" id="13_5xjv3"]
+[ext_resource type="Script" path="res://scene/world/warp/warpworld_room4.gd" id="15_6o3jd"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_s5470"]
 
@@ -32,8 +33,14 @@ size = Vector2(20, 59)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_keqd5"]
 size = Vector2(70, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76r3a"]
+size = Vector2(20, 59)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j1mdc"]
 size = Vector2(20, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5px36"]
+size = Vector2(20, 59.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2v22v"]
 size = Vector2(20, 87)
@@ -42,7 +49,7 @@ size = Vector2(20, 87)
 script = ExtResource("1_hr5qo")
 
 [node name="Screen" parent="." instance=ExtResource("2_qjm6i")]
-position = Vector2(758, 337)
+position = Vector2(-717, 384)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("10_jksj1")
@@ -173,11 +180,11 @@ position = Vector2(-173, -23)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime3" parent="Corridor2/EnemyList" instance=ExtResource("7_ic4qm")]
-position = Vector2(101, -24)
+position = Vector2(109, -19)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime2" parent="Corridor2/EnemyList" instance=ExtResource("7_ic4qm")]
-position = Vector2(394, -20)
+position = Vector2(390, -10)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="TreeList" type="Node2D" parent="Corridor2"]
@@ -650,57 +657,85 @@ position = Vector2(760, 4)
 [node name="Ore8" parent="Room3/OreList" instance=ExtResource("9_0hwt3")]
 position = Vector2(726, -8)
 
-[node name="SlimeList" type="Node2D" parent="Room3"]
+[node name="EnemyList" type="Node2D" parent="Room3"]
 
-[node name="Slime" parent="Room3/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime" parent="Room3/EnemyList" instance=ExtResource("7_ic4qm")]
 position = Vector2(319.828, -65.1833)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime2" parent="Room3/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime2" parent="Room3/EnemyList" instance=ExtResource("7_ic4qm")]
 position = Vector2(-72, 185)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime3" parent="Room3/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime3" parent="Room3/EnemyList" instance=ExtResource("7_ic4qm")]
 position = Vector2(-231, -93)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime4" parent="Room3/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime4" parent="Room3/EnemyList" instance=ExtResource("7_ic4qm")]
 position = Vector2(206, 129)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime5" parent="Room3/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime5" parent="Room3/EnemyList" instance=ExtResource("7_ic4qm")]
 position = Vector2(-40, -48)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime6" parent="Room3/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime6" parent="Room3/EnemyList" instance=ExtResource("7_ic4qm")]
 position = Vector2(516, 15)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime7" parent="Room3/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime7" parent="Room3/EnemyList" instance=ExtResource("7_ic4qm")]
 position = Vector2(756, 28)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime8" parent="Room3/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime8" parent="Room3/EnemyList" instance=ExtResource("7_ic4qm")]
 position = Vector2(742, 198)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime9" parent="Room3/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime9" parent="Room3/EnemyList" instance=ExtResource("7_ic4qm")]
 position = Vector2(568, 299)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime10" parent="Room3/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime10" parent="Room3/EnemyList" instance=ExtResource("7_ic4qm")]
 position = Vector2(497, 488)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Area2D" type="Area2D" parent="Room3"]
+[node name="ToRoom4" type="Area2D" parent="Room3"]
+position = Vector2(326, 499)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room3/ToRoom4"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_76r3a")
+
+[node name="ToRoom2" type="Area2D" parent="Room3"]
 position = Vector2(885, 183)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room3/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room3/ToRoom2"]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_j1mdc")
 
+[node name="DoorList" type="Node2D" parent="Room3"]
+position = Vector2(306.074, 496.585)
+
+[node name="WallDoor" parent="Room3/DoorList" instance=ExtResource("7_ljvfs")]
+position = Vector2(0, -41)
+
+[node name="WallDoor2" parent="Room3/DoorList" instance=ExtResource("7_ljvfs")]
+position = Vector2(0, -25)
+
+[node name="WallDoor3" parent="Room3/DoorList" instance=ExtResource("7_ljvfs")]
+position = Vector2(0, -9)
+
+[node name="WallDoor4" parent="Room3/DoorList" instance=ExtResource("7_ljvfs")]
+
+[node name="WallDoor5" parent="Room3/DoorList" instance=ExtResource("7_ljvfs")]
+position = Vector2(0, 16)
+
+[node name="WallDoor6" parent="Room3/DoorList" instance=ExtResource("7_ljvfs")]
+position = Vector2(0, 32)
+
 [node name="Room4" type="Node2D" parent="."]
 position = Vector2(-1486, 938)
+script = ExtResource("15_6o3jd")
 
 [node name="OreList" type="Node2D" parent="Room4"]
 
@@ -806,7 +841,7 @@ position = Vector2(721, 194)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime5" parent="Room4/SlimeList" instance=ExtResource("7_ic4qm")]
-position = Vector2(776, 396)
+position = Vector2(858, 416)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime6" parent="Room4/SlimeList" instance=ExtResource("7_ic4qm")]
@@ -833,13 +868,66 @@ up_direction = Vector2(0.986548, -0.163471)
 position = Vector2(595, 532)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="FinishDoor" type="Area2D" parent="."]
-position = Vector2(991, 1505)
+[node name="DoorList" type="Node2D" parent="Room4"]
+position = Vector2(943.531, 567.808)
+
+[node name="WallDoor" parent="Room4/DoorList" instance=ExtResource("7_ljvfs")]
+position = Vector2(1, -47)
+
+[node name="WallDoor2" parent="Room4/DoorList" instance=ExtResource("7_ljvfs")]
+position = Vector2(1, -31)
+
+[node name="WallDoor3" parent="Room4/DoorList" instance=ExtResource("7_ljvfs")]
+position = Vector2(1, -15)
+
+[node name="WallDoor4" parent="Room4/DoorList" instance=ExtResource("7_ljvfs")]
+position = Vector2(1, 0)
+
+[node name="WallDoor5" parent="Room4/DoorList" instance=ExtResource("7_ljvfs")]
+position = Vector2(1, 16)
+
+[node name="WallDoor6" parent="Room4/DoorList" instance=ExtResource("7_ljvfs")]
+position = Vector2(1, 23)
+
+[node name="ToRoom5" type="Area2D" parent="Room4"]
+position = Vector2(925, 565)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room4/ToRoom5"]
+shape = SubResource("RectangleShape2D_5px36")
+
+[node name="ToWarpPoint" type="Area2D" parent="."]
+position = Vector2(1003, 1505)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishDoor"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToWarpPoint"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_2v22v")
+
+[node name="FinishDoor" type="Node2D" parent="."]
+position = Vector2(1022.71, 1505.65)
+
+[node name="WallDoor" parent="FinishDoor" instance=ExtResource("7_ljvfs")]
+position = Vector2(0, -62)
+
+[node name="WallDoor2" parent="FinishDoor" instance=ExtResource("7_ljvfs")]
+position = Vector2(0, -46)
+
+[node name="WallDoor3" parent="FinishDoor" instance=ExtResource("7_ljvfs")]
+position = Vector2(0, -30)
+
+[node name="WallDoor4" parent="FinishDoor" instance=ExtResource("7_ljvfs")]
+position = Vector2(0, -14)
+
+[node name="WallDoor5" parent="FinishDoor" instance=ExtResource("7_ljvfs")]
+
+[node name="WallDoor6" parent="FinishDoor" instance=ExtResource("7_ljvfs")]
+position = Vector2(0, 16)
+
+[node name="WallDoor7" parent="FinishDoor" instance=ExtResource("7_ljvfs")]
+position = Vector2(0, 24)
+
+[node name="WallDoor8" parent="FinishDoor" instance=ExtResource("7_ljvfs")]
+position = Vector2(0, 40)
 
 [connection signal="start_combat" from="Screen" to="." method="_on_player_start_combat"]
 [connection signal="timeout" from="SpawnerTimer" to="SpawnerTimer" method="_on_timeout"]
@@ -848,4 +936,4 @@ shape = SubResource("RectangleShape2D_2v22v")
 [connection signal="body_entered" from="Room1/DoorArea2" to="Room1" method="_on_room1_to_room2_player_entered"]
 [connection signal="body_entered" from="Room1/DoorArea" to="Room1" method="_on_room1_to_corridor1"]
 [connection signal="body_entered" from="Room1/DoorArea3" to="Room1" method="_on_to_room1_player_entered"]
-[connection signal="body_entered" from="FinishDoor" to="." method="_on_finish_door_player_entered"]
+[connection signal="body_entered" from="ToWarpPoint" to="." method="_on_finish_door_player_entered"]

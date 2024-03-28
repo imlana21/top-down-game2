@@ -18,6 +18,12 @@ func _on_player_start_combat(enemy):
 
 func _on_finish_door_player_entered(body):
 	if !is_finish_reached:
+		open_door()
 		$Room2.call_slimes()
 		$SpawnerTimer.start()
+		$SpawnerTimer.start()
 	is_finish_reached = true
+
+func open_door():
+	for door in $FinishDoor.get_children():
+		door.open_the_door()

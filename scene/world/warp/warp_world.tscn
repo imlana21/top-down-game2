@@ -49,7 +49,7 @@ size = Vector2(20, 87)
 script = ExtResource("1_hr5qo")
 
 [node name="Screen" parent="." instance=ExtResource("2_qjm6i")]
-position = Vector2(-717, 384)
+position = Vector2(1377, 181)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("10_jksj1")
@@ -822,49 +822,60 @@ position = Vector2(48, 71)
 [node name="Tree9" parent="Room4/TreeList" instance=ExtResource("8_p1td5")]
 position = Vector2(-72, 147)
 
-[node name="SlimeList" type="Node2D" parent="Room4"]
+[node name="EnemyList" type="Node2D" parent="Room4"]
 
-[node name="Slime" parent="Room4/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime" parent="Room4/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(287, 26)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime2" parent="Room4/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime2" parent="Room4/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(552, -16)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime3" parent="Room4/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime3" parent="Room4/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(827, 16)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime4" parent="Room4/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime4" parent="Room4/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(721, 194)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime5" parent="Room4/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime5" parent="Room4/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(858, 416)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime6" parent="Room4/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime6" parent="Room4/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(-33, 250)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime7" parent="Room4/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime7" parent="Room4/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(14, 412)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime8" parent="Room4/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime8" parent="Room4/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(-27, 564)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime9" parent="Room4/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime9" parent="Room4/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(383, 566)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime10" parent="Room4/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime10" parent="Room4/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(175, 532)
 up_direction = Vector2(0.986548, -0.163471)
 
-[node name="Slime11" parent="Room4/SlimeList" instance=ExtResource("7_ic4qm")]
+[node name="Slime11" parent="Room4/EnemyList" instance=ExtResource("7_ic4qm")]
+visible = false
 position = Vector2(595, 532)
 up_direction = Vector2(0.986548, -0.163471)
 

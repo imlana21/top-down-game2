@@ -1,6 +1,7 @@
 extends Node2D
 
 var boss_killed: bool = false
+var room2_door_opened: bool = false
 
 func _ready():
 	call_bos()
@@ -13,13 +14,18 @@ func call_bos():
 
 func _on_room1_to_corridor1(body):
 	# if boss_killed:
-		for door in $".."/Corridor1/DoorList.get_children():
-			door.close_the_door()
-
+		$".."/Corridor1.door_handle()
+		
 func _on_room1_to_room2_player_entered(body):
-	for door in $DoorList.get_children():
-		door.open_the_door()
+	from_room2_door_handled()
 
-func _on_to_room1_player_entered(body):
+func _on_from_room2_player_entered(body):
+	from_room2_door_handled()
+
+func from_room2_door_handled():
 	for door in $DoorList.get_children():
-		door.close_the_door()
+		if !room2_door_opened:
+			door.open_the_door()
+		else:
+			door.close_the_door()
+	room2_door_opened = !room2_door_opened

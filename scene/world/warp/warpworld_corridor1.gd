@@ -11,10 +11,7 @@ func _ready():
 func _on_door_sensor_body_entered(body):
 	if !door_opened:
 		call_slimes()
-		door_opened = true
-
-	for door in $DoorList.get_children():
-		door.open_the_door()
+	door_handle()
 
 func call_slimes():
 	await get_tree().create_timer(1).timeout
@@ -25,3 +22,11 @@ func call_slimes():
 		Autoload.spawn_enemy($EnemyList, pos, "normal")
 	for slime in $EnemyList.get_children():
 		slime.visible = false
+
+func door_handle():
+	for door in $DoorList.get_children():
+		if !door_opened:
+			door.open_the_door()
+		else:
+			door.close_the_door()
+	door_opened = !door_opened

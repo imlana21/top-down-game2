@@ -49,7 +49,7 @@ size = Vector2(20, 87)
 script = ExtResource("1_hr5qo")
 
 [node name="Screen" parent="." instance=ExtResource("2_qjm6i")]
-position = Vector2(1377, 181)
+position = Vector2(761, 352)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("10_jksj1")
@@ -326,26 +326,26 @@ rotation = 1.57079
 position = Vector2(35, -1)
 rotation = 1.57079
 
-[node name="DoorArea2" type="Area2D" parent="Room1"]
+[node name="ToRoom2" type="Area2D" parent="Room1"]
 position = Vector2(90, 272)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1/DoorArea2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1/ToRoom2"]
 position = Vector2(-0.18457, 0)
 shape = SubResource("RectangleShape2D_multe")
 
-[node name="DoorArea" type="Area2D" parent="Room1"]
+[node name="ToCorridor1" type="Area2D" parent="Room1"]
 position = Vector2(-252, 24)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1/DoorArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1/ToCorridor1"]
 shape = SubResource("RectangleShape2D_2hx5i")
 
-[node name="DoorArea3" type="Area2D" parent="Room1"]
+[node name="FromRoom2" type="Area2D" parent="Room1"]
 position = Vector2(90, 319)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1/DoorArea3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room1/FromRoom2"]
 shape = SubResource("RectangleShape2D_keqd5")
 
 [node name="TreeList" type="Node2D" parent="Room1"]
@@ -944,7 +944,7 @@ position = Vector2(0, 40)
 [connection signal="timeout" from="SpawnerTimer" to="SpawnerTimer" method="_on_timeout"]
 [connection signal="body_entered" from="Corridor1/DoorSensor" to="Corridor1" method="_on_door_sensor_body_entered"]
 [connection signal="body_entered" from="Corridor2/DoorSensor" to="Corridor2" method="_on_corridor2_to_room2_player_entered"]
-[connection signal="body_entered" from="Room1/DoorArea2" to="Room1" method="_on_room1_to_room2_player_entered"]
-[connection signal="body_entered" from="Room1/DoorArea" to="Room1" method="_on_room1_to_corridor1"]
-[connection signal="body_entered" from="Room1/DoorArea3" to="Room1" method="_on_to_room1_player_entered"]
+[connection signal="body_entered" from="Room1/ToRoom2" to="Room1" method="_on_room1_to_room2_player_entered"]
+[connection signal="body_entered" from="Room1/ToCorridor1" to="Room1" method="_on_room1_to_corridor1"]
+[connection signal="body_entered" from="Room1/FromRoom2" to="Room1" method="_on_from_room2_player_entered"]
 [connection signal="body_entered" from="ToWarpPoint" to="." method="_on_finish_door_player_entered"]

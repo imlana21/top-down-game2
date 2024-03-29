@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://chot5i788y7ip"]
+[gd_scene load_steps=30 format=3 uid="uid://chot5i788y7ip"]
 
 [ext_resource type="Script" path="res://scene/world/warp/warp_world.gd" id="1_hr5qo"]
 [ext_resource type="PackedScene" uid="uid://nmtmi2fu0gk6" path="res://scene/player/screen/screen.tscn" id="2_qjm6i"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scene/world/warp/warpworld_corridor2.gd" id="9_78kvh"]
 [ext_resource type="PackedScene" uid="uid://chc0olac2hm5s" path="res://scene/other/object/rare_ore/rare_ore.tscn" id="9_b82vl"]
 [ext_resource type="Script" path="res://scene/world/warp/warpworld_room1.gd" id="9_vngu6"]
+[ext_resource type="Script" path="res://scene/world/warp/warpworld_corridor3.gd" id="10_bnbo7"]
 [ext_resource type="TileSet" uid="uid://dcdvy43r6grdy" path="res://scene/world/warp/warpworld_tiles.tres" id="10_jksj1"]
 [ext_resource type="Script" path="res://scene/world/warp/warpworld_room2.gd" id="12_lpsqu"]
 [ext_resource type="Script" path="res://scene/world/warp/warpworld_room3.gd" id="13_5xjv3"]
@@ -24,6 +25,9 @@ size = Vector2(20, 60)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d8bfy"]
 size = Vector2(76, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13ek6"]
+size = Vector2(77, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_multe"]
 size = Vector2(79, 20)
 
@@ -35,6 +39,8 @@ size = Vector2(70, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vg7h1"]
 size = Vector2(75, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2f01"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76r3a"]
 size = Vector2(20, 59)
@@ -52,7 +58,7 @@ size = Vector2(20, 87)
 script = ExtResource("1_hr5qo")
 
 [node name="Screen" parent="." instance=ExtResource("2_qjm6i")]
-position = Vector2(757, 452)
+position = Vector2(-873, 236)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("10_jksj1")
@@ -206,6 +212,15 @@ position = Vector2(-204, -32)
 
 [node name="Corridor3" type="Node2D" parent="."]
 position = Vector2(-689, -53)
+script = ExtResource("10_bnbo7")
+
+[node name="ToRoom3" type="Area2D" parent="Corridor3"]
+position = Vector2(-184.218, 320.891)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Corridor3/ToRoom3"]
+position = Vector2(0.71814, 0)
+shape = SubResource("RectangleShape2D_13ek6")
 
 [node name="EnemyList" type="Node2D" parent="Corridor3"]
 
@@ -222,7 +237,7 @@ position = Vector2(-214, -6)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime4" parent="Corridor3/EnemyList" instance=ExtResource("7_ic4qm")]
-position = Vector2(-213, 215)
+position = Vector2(-208, 145)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="TreeList" type="Node2D" parent="Corridor3"]
@@ -571,6 +586,13 @@ shape = SubResource("RectangleShape2D_vg7h1")
 position = Vector2(-816, 443)
 script = ExtResource("13_5xjv3")
 
+[node name="Area2D" type="Area2D" parent="Room3"]
+position = Vector2(-58, -135)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room3/Area2D"]
+shape = SubResource("RectangleShape2D_y2f01")
+
 [node name="TreeList" type="Node2D" parent="Room3"]
 
 [node name="Tree" parent="Room3/TreeList" instance=ExtResource("8_p1td5")]
@@ -687,7 +709,7 @@ position = Vector2(206, 129)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime5" parent="Room3/EnemyList" instance=ExtResource("7_ic4qm")]
-position = Vector2(-40, -48)
+position = Vector2(-39, -17)
 up_direction = Vector2(0.986548, -0.163471)
 
 [node name="Slime6" parent="Room3/EnemyList" instance=ExtResource("7_ic4qm")]
@@ -955,6 +977,7 @@ position = Vector2(0, 40)
 [connection signal="timeout" from="SpawnerTimer" to="SpawnerTimer" method="_on_timeout"]
 [connection signal="body_entered" from="Corridor1/DoorSensor" to="Corridor1" method="_on_door_sensor_body_entered"]
 [connection signal="body_entered" from="Corridor2/DoorSensor" to="Corridor2" method="_on_corridor2_to_room2_player_entered"]
+[connection signal="body_entered" from="Corridor3/ToRoom3" to="Corridor3" method="_on_to_room_3_body_entered"]
 [connection signal="body_entered" from="Room1/ToRoom2" to="Room1" method="_on_room1_to_room2_player_entered"]
 [connection signal="body_entered" from="Room1/ToCorridor1" to="Room1" method="_on_room1_to_corridor1"]
 [connection signal="body_entered" from="Room1/FromRoom2" to="Room1" method="_on_from_room2_player_entered"]

@@ -30,3 +30,5 @@ func door_handle():
 		else:
 			door.close_the_door()
 	door_opened = !door_opened
+
+	

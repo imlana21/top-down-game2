@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2sabfaag5ubb"]
+
+[ext_resource type="Texture2D" uid="uid://eb3j2iwdgj5" path="res://assets/Objects/slime_bullet.png" id="1_2fewo"]
+[ext_resource type="Script" path="res://scene/other/weapon/enemy_bullet/slime_bullet.gd" id="1_ghfn7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qdl35"]
+radius = 3.0
+height = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_80yha"]
+radius = 4.0
+height = 12.0
+
+[node name="SlimeBullet" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 31
+script = ExtResource("1_ghfn7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2fewo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qdl35")
+
+[node name="BulletDetector" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 27
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletDetector"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_80yha")
+
+[connection signal="body_entered" from="BulletDetector" to="." method="_on_bullet_detector_body_entered"]

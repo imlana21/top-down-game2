@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://dbnh88ysfvkhr"]
+
+[ext_resource type="Script" path="res://scene/enemies/spirit/spirit.gd" id="1_2uear"]
+[ext_resource type="Texture2D" uid="uid://5rgaxqlk3c33" path="res://assets/Characters/GiantSpirit/Idle.png" id="1_4is0u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g372i"]
+atlas = ExtResource("1_4is0u")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d21k"]
+atlas = ExtResource("1_4is0u")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g3ga"]
+atlas = ExtResource("1_4is0u")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpru6"]
+atlas = ExtResource("1_4is0u")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xmj0"]
+atlas = ExtResource("1_4is0u")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iniai"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g372i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d21k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5g3ga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpru6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xmj0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5awu8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6yig6"]
+radius = 190.016
+
+[node name="Spirit" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(0.4, 0.4)
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_2uear")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_iniai")
+animation = &"idle"
+frame_progress = 0.487022
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5awu8")
+
+[node name="EnemyDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
+shape = SubResource("CircleShape2D_6yig6")
+
+[node name="Navigation" type="Node2D" parent="."]
+
+[node name="Path" type="NavigationAgent2D" parent="Navigation"]
+navigation_layers = 3
+avoidance_enabled = true
+debug_enabled = true
+debug_path_custom_color = Color(0.937255, 0.278431, 0.278431, 1)
+
+[node name="Timer" type="Timer" parent="Navigation"]
+wait_time = 0.1
+
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]
+[connection signal="body_exited" from="EnemyDetector" to="." method="_on_enemy_detector_body_exited"]
+[connection signal="velocity_computed" from="Navigation/Path" to="." method="_on_navigation_path_velocity_computed"]
+[connection signal="timeout" from="Navigation/Timer" to="." method="_on_navigation_re_calc_timer_timeout"]

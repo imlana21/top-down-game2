@@ -179,12 +179,12 @@ radius = 15.1327
 
 [node name="Slime" type="CharacterBody2D" groups=["enemy"]]
 process_mode = 1
-position = Vector2(400, 400)
 collision_layer = 4
-collision_mask = 3
+collision_mask = 2
 motion_mode = 1
 up_direction = Vector2(0.986548, -0.163471)
 wall_min_slide_angle = 0.0
+platform_floor_layers = 4294967265
 script = ExtResource("1_fp4nq")
 
 [node name="SlimeSprite" type="AnimatedSprite2D" parent="."]
@@ -198,18 +198,19 @@ shape = SubResource("CircleShape2D_jwq0a")
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="SlimeNavigation" type="NavigationAgent2D" parent="Node2D"]
-navigation_layers = 3
 avoidance_enabled = true
 radius = 100.0
 neighbor_distance = 40.0
-debug_path_custom_color = Color(0.997161, 0.46071, 0.517231, 1)
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0.996078, 0.458824, 0.517647, 1)
 
 [node name="ReCalcTimer" type="Timer" parent="Node2D"]
 wait_time = 0.1
 autostart = true
 
 [node name="PlayerDetector" type="Area2D" parent="."]
-collision_layer = 4
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
@@ -232,7 +233,7 @@ collision_mask = 0
 [node name="BulletPoint" type="Marker2D" parent="BulletArea"]
 modulate = Color(0.0807833, 0.0807833, 0.0807833, 1)
 self_modulate = Color(0.156863, 0.156863, 0.156863, 1)
-position = Vector2(14, 0)
+position = Vector2(16, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletArea"]
 shape = SubResource("CircleShape2D_15aa0")
@@ -242,7 +243,6 @@ one_shot = true
 
 [connection signal="change_attack" from="." to="SlimeSprite" method="_on_slime_change_attack"]
 [connection signal="animation_finished" from="SlimeSprite" to="SlimeSprite" method="_on_animation_finished"]
-[connection signal="navigation_finished" from="Node2D/SlimeNavigation" to="." method="_on_slime_navigation_navigation_finished"]
 [connection signal="velocity_computed" from="Node2D/SlimeNavigation" to="." method="_on_slime_navigation_velocity_computed"]
 [connection signal="timeout" from="Node2D/ReCalcTimer" to="." method="_on_re_calc_timer_timeout"]
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

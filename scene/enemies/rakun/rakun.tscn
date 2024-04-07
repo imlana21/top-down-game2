@@ -1,0 +1,197 @@
+[gd_scene load_steps=26 format=3 uid="uid://c1wifr4wxs0jc"]
+
+[ext_resource type="Script" path="res://scene/enemies/rakun/rakun.gd" id="1_c6xka"]
+[ext_resource type="Texture2D" uid="uid://h18s555wwphk" path="res://assets/Characters/GiantRacoonGold/Charge.png" id="1_feh4o"]
+[ext_resource type="Texture2D" uid="uid://dygtcvakxa5gp" path="res://assets/Characters/GiantRacoonGold/Attack.png" id="2_5fu8g"]
+[ext_resource type="Texture2D" uid="uid://bdvjcyox4vywp" path="res://assets/Characters/GiantRacoonGold/Idle.png" id="3_higch"]
+[ext_resource type="Texture2D" uid="uid://r5rfi6ie614b" path="res://assets/Characters/GiantRacoonGold/Jump.png" id="4_h4qt4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sbuj"]
+atlas = ExtResource("1_feh4o")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ouws"]
+atlas = ExtResource("2_5fu8g")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rg67q"]
+atlas = ExtResource("2_5fu8g")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvaev"]
+atlas = ExtResource("2_5fu8g")
+region = Rect2(120, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da7t2"]
+atlas = ExtResource("2_5fu8g")
+region = Rect2(180, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8fip"]
+atlas = ExtResource("3_higch")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsph6"]
+atlas = ExtResource("3_higch")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l38h2"]
+atlas = ExtResource("3_higch")
+region = Rect2(120, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1mjt"]
+atlas = ExtResource("3_higch")
+region = Rect2(180, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00t2j"]
+atlas = ExtResource("3_higch")
+region = Rect2(240, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcfdl"]
+atlas = ExtResource("3_higch")
+region = Rect2(300, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y53h8"]
+atlas = ExtResource("4_h4qt4")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmgxf"]
+atlas = ExtResource("4_h4qt4")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4inse"]
+atlas = ExtResource("4_h4qt4")
+region = Rect2(120, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsfep"]
+atlas = ExtResource("4_h4qt4")
+region = Rect2(180, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sffq"]
+atlas = ExtResource("4_h4qt4")
+region = Rect2(240, 0, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rk1si"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7sbuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ouws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rg67q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvaev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_da7t2")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8fip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsph6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l38h2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1mjt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00t2j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcfdl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y53h8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmgxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4inse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsfep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sffq")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0lhuc"]
+radius = 16.1245
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r2fv5"]
+radius = 216.667
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tq08r"]
+radius = 28.0179
+
+[node name="Rakun" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(0.4, 0.4)
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_c6xka")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rk1si")
+animation = &"walk"
+frame_progress = 0.13508
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0lhuc")
+
+[node name="EnemyDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
+shape = SubResource("CircleShape2D_r2fv5")
+
+[node name="BulletArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="BulletPoint" type="Marker2D" parent="BulletArea"]
+position = Vector2(32.5, 0)
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletArea"]
+shape = SubResource("CircleShape2D_tq08r")
+
+[node name="BulletTimer" type="Timer" parent="BulletArea"]
+
+[node name="Navigation" type="Node2D" parent="."]
+
+[node name="PathNavigation" type="NavigationAgent2D" parent="Navigation" groups=["enemy"]]
+navigation_layers = 3
+avoidance_enabled = true
+max_neighbors = 2
+debug_enabled = true
+
+[node name="TimerNavigation" type="Timer" parent="Navigation"]
+wait_time = 0.1
+
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]
+[connection signal="body_exited" from="EnemyDetector" to="." method="_on_enemy_detector_body_exited"]
+[connection signal="timeout" from="BulletArea/BulletTimer" to="." method="_on_bullet_timer_timeout"]
+[connection signal="velocity_computed" from="Navigation/PathNavigation" to="." method="_on_path_navigation_velocity_computed"]
+[connection signal="timeout" from="Navigation/TimerNavigation" to="." method="_on_re_calc_navigation_timeout"]

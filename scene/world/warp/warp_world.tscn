@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://chot5i788y7ip"]
+[gd_scene load_steps=30 format=3 uid="uid://chot5i788y7ip"]
 
 [ext_resource type="Script" path="res://scene/world/warp/warp_world.gd" id="1_hr5qo"]
 [ext_resource type="PackedScene" uid="uid://nmtmi2fu0gk6" path="res://scene/player/screen/screen.tscn" id="2_qjm6i"]
@@ -16,8 +16,6 @@
 [ext_resource type="Script" path="res://scene/world/warp/warpworld_room2.gd" id="12_lpsqu"]
 [ext_resource type="Script" path="res://scene/world/warp/warpworld_room3.gd" id="13_5xjv3"]
 [ext_resource type="Script" path="res://scene/world/warp/warpworld_room4.gd" id="15_6o3jd"]
-[ext_resource type="PackedScene" uid="uid://c1wifr4wxs0jc" path="res://scene/enemies/rakun/rakun.tscn" id="17_twk7s"]
-[ext_resource type="PackedScene" uid="uid://dbnh88ysfvkhr" path="res://scene/enemies/spirit/spirit.tscn" id="18_4fx23"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_s5470"]
 
@@ -993,34 +991,6 @@ position = Vector2(0, 40)
 position = Vector2(45.5001, 1501.92)
 
 [node name="EnemyList" type="Node2D" parent="Room5"]
-
-[node name="Rakun" parent="Room5/EnemyList" instance=ExtResource("17_twk7s")]
-position = Vector2(269.5, -162.92)
-platform_floor_layers = 4294967265
-
-[node name="Spirit" parent="Room5/EnemyList" instance=ExtResource("18_4fx23")]
-position = Vector2(-277.5, -204.92)
-platform_floor_layers = 4294967265
-
-[node name="Spirit2" parent="Room5/EnemyList" instance=ExtResource("18_4fx23")]
-position = Vector2(27.4999, -206.92)
-platform_floor_layers = 4294967041
-
-[node name="Rakun2" parent="Room5/EnemyList" instance=ExtResource("17_twk7s")]
-position = Vector2(-171.5, -33.92)
-platform_floor_layers = 4294967265
-
-[node name="Rakun3" parent="Room5/EnemyList" instance=ExtResource("17_twk7s")]
-position = Vector2(70.4999, 71.08)
-platform_floor_layers = 4294967265
-
-[node name="Spirit3" parent="Room5/EnemyList" instance=ExtResource("18_4fx23")]
-position = Vector2(-183.5, 228.08)
-platform_floor_layers = 4294967265
-
-[node name="Rakun4" parent="Room5/EnemyList" instance=ExtResource("17_twk7s")]
-position = Vector2(208.5, 224.08)
-platform_floor_layers = 4294967265
 
 [connection signal="start_combat" from="Screen" to="." method="_on_player_start_combat"]
 [connection signal="timeout" from="SpawnerTimer" to="SpawnerTimer" method="_on_timeout"]

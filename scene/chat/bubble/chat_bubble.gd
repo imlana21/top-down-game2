@@ -1,5 +1,8 @@
 extends VBoxContainer
 
+var min_room5_pos = Vector2( - 255, 1256)
+var max_room5_pos = Vector2(355, 1750)
+
 func set_message(text, account):
 	if !check_is_command(text):
 		$Chat/Text.text = str(text)
@@ -25,8 +28,10 @@ func check_is_command(text):
 
 func check_main_command(text):
 	var text_arr = text.split(" ")
+
 	if text_arr.size() < 2:
 		return "unregistered Command"
+
 	if text_arr[0] == "/cheatmode":
 		if text_arr[1] == "activated":
 			Autoload.cheat_mode = true
@@ -34,7 +39,8 @@ func check_main_command(text):
 		elif text_arr[1] == "unactivated":
 			Autoload.cheat_mode = false
 			return "cheatmode unactived"
-	elif text_arr[0] == "/getitem" and Autoload.cheat_mode:
+
+	if text_arr[0] == "/getitem" and Autoload.cheat_mode:
 		var items = null
 		match text_arr[1]:
 			"wheat":
@@ -71,7 +77,8 @@ func check_main_command(text):
 				return "wood in inventory +1"
 			_:
 				return "items not listed"
-	elif text_arr[0] == "/warp":
+	
+	if text_arr[0] == "/warp":
 		if text_arr[1] == "testing":
 			var next_path = "res://scene/world/warp/warp_world.tscn"
 			Autoload.scene_manager._on_change_scene(next_path, Autoload.world)
@@ -80,12 +87,47 @@ func check_main_command(text):
 			var next_path = "res://scene/world/world.tscn"
 			Autoload.scene_manager._on_change_scene(next_path, Autoload.world)
 			return "move to warp world"
+		
+	if text_arr[0] == "/spawn":
+		if text_arr.size() < 3:
+			return "unregistered Command"
+		if text_arr[1] == "enemy":
+			var enemy_path = ""
+			var random_pos = random_position()
+			match text_arr[2]:
+				"slime":
+					enemy_path = "res://scene/enemies/slime/slime.tscn"
+				"rakun":
+					enemy_path = "res://scene/enemies/rakun/rakun.tscn"
+				"spirit":
+					enemy_path = "res://scene/enemies/spirit/spirit.tscn"
+				_:
+					return "monster not listed"
+			spawn_enemy(enemy_path, Autoload.world, random_position())
+			return "enemy  spawn  on  " + str(random_pos)
+		if text_arr[1] == "to":
+			if text_arr[2] == "mouse":
+				print(Autoload.world.scene_file_path)
+				Autoload.scene_manager._on_change_scene(Autoload.world.scene_file_path, Autoload.world, null, Autoload.world.get_local_mouse_position())
+				return "player move to " + str(Autoload.player.global_position)
+
 	return "unregistered Command"
 
 ## update status player on message
 func update_status_user():
 	if Autoload.cheat_mode:
 		$Username/Status.text = "#"
-	else: 
+	else:
 		$Username/Status.text = "$"
-	
+
+func spawn_enemy(enemy_path, rooms, pos):
+	var enemy_instance = load(enemy_path).instantiate()
+	enemy_instance.position = pos
+	enemy_instance.name = enemy_instance.name + str(pos.x) + "_" + str(pos.y)
+	rooms.add_child(enemy_instance)
+
+func random_position():
+	randomize()
+	var spawn_x = randi_range(min_room5_pos.x, max_room5_pos.x)
+	var spawn_y = randi_range(min_room5_pos.y, max_room5_pos.y)
+	return Vector2(spawn_x, spawn_y)

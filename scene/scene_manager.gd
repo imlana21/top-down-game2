@@ -3,6 +3,7 @@ extends Node2D
 var next_scene = null
 var current_scene = null
 var player_point = null
+var vector_position = null
 
 @export var MAX_ENEMY = 5
 
@@ -55,12 +56,13 @@ func _on_timeout_spawn_tree(pos):
 	else:
 		Autoload.tree_position.append(pos)
 	
-func _on_change_scene(next_path: String, current: Node2D, player_pos = null):
+func _on_change_scene(next_path: String, current: Node2D, player_pos = null, vector_pos = null):
 	next_scene = load(next_path).instantiate()
 	next_scene.connect("change_scene", _on_change_scene)
 	next_scene.connect("start_combat", _on_player_start_combat)
 	current_scene = current
 	player_point = player_pos
+	vector_position = vector_pos
 	anim_trans.play("fade_in")
 
 func _on_player_start_combat(current_world):	
@@ -98,7 +100,10 @@ func start_fade_out():
 	_on_loader_start_combat()
 	if player_point != null:
 		Autoload.player.position = Autoload.enter_world_position[player_point]
-	player_point = null
+		player_point = null
+	if vector_position != null:
+		Autoload.player.global_position = vector_position
+		vector_position = null
 	
 func load_game():
 	if Autoload.is_load_game:

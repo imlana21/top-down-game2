@@ -2,6 +2,7 @@ class_name WarpWorld
 extends Node2D
 
 var is_finish_reached: bool = false
+# const scene_path: String = "res://scene/world/warp/warp_world.tscn"
 
 signal change_scene
 signal start_combat

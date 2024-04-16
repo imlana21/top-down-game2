@@ -110,6 +110,12 @@ func check_main_command(text):
 				print(Autoload.world.scene_file_path)
 				Autoload.scene_manager._on_change_scene(Autoload.world.scene_file_path, Autoload.world, null, Autoload.world.get_local_mouse_position())
 				return "player move to " + str(Autoload.player.global_position)
+		if text_arr[1] == "slime" or text_arr[1] == "rakun" or text_arr[1] == "spirit":
+			if text_arr[2] == "mouse":
+				var enemy_path = "res://scene/enemies/" + text_arr[1] + "/" + text_arr[1] + ".tscn"
+				var mouse_pos = Autoload.world.get_global_mouse_position()
+				spawn_enemy(enemy_path, Autoload.world, mouse_pos)
+				return "spawn  " + text_arr[1] + "  to   " + str(mouse_pos)
 
 	return "unregistered Command"
 

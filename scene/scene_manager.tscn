@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bvyhriropkstk"]
+[gd_scene load_steps=22 format=3 uid="uid://bvyhriropkstk"]
 
 [ext_resource type="Script" path="res://scene/scene_manager.gd" id="1_qod2y"]
 [ext_resource type="PackedScene" uid="uid://chot5i788y7ip" path="res://scene/world/warp/warp_world.tscn" id="2_416io"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://25gqe0ogekf6" path="res://scene/bulletin_board/bulletin_board.tscn" id="11_h8v8j"]
 [ext_resource type="Script" path="res://scene/chat_layer.gd" id="14_0be0k"]
 [ext_resource type="PackedScene" uid="uid://yjpqlqq8uofb" path="res://scene/chat/popup.tscn" id="14_d26xg"]
+[ext_resource type="Script" path="res://scene/machine_layer.gd" id="16_p1u78"]
+[ext_resource type="PackedScene" uid="uid://dgr8vyhjgsviw" path="res://scene/other/items/machine/machine_gui.tscn" id="16_wvtkb"]
 
 [sub_resource type="Animation" id="Animation_ys5mu"]
 length = 0.001
@@ -160,7 +162,15 @@ script = ExtResource("14_0be0k")
 [node name="Popup" parent="ChatLayer" instance=ExtResource("14_d26xg")]
 visible = false
 
+[node name="MachineLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+script = ExtResource("16_p1u78")
+
+[node name="MachineGui" parent="MachineLayer" instance=ExtResource("16_wvtkb")]
+visible = false
+
 [connection signal="child_entered_tree" from="CurrentScene" to="StoreLayer" method="_on_current_scene_child_entered_tree"]
 [connection signal="child_entered_tree" from="CurrentScene" to="ChatLayer" method="_on_current_scene_child_entered_tree"]
 [connection signal="child_exiting_tree" from="CurrentScene" to="ChatLayer" method="_on_current_scene_child_exiting_tree"]
 [connection signal="animation_finished" from="ScreenTransition/AnimationTransition" to="." method="_on_animation_transition_finished"]
+[connection signal="close_window" from="MachineLayer/MachineGui" to="MachineLayer" method="_on_machine_gui_close_window"]

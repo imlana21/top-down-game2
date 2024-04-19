@@ -1,1 +1,1 @@
-[]
+[{"id":"ResourceItem001","inventory":"player","name":"ore","qty":20,"slot_id":0,"stack_size":12},{"id":"ResourceItem002","inventory":"player","name":"wood","qty":0,"slot_id":1,"stack_size":12},{"id":"ResourceItem003","inventory":"player","name":"wood","qty":10,"slot_id":2,"stack_size":12},{"id":"ResourceItem004","inventory":"player","name":"ore","qty":20,"slot_id":3,"stack_size":12},{"id":"ResourceItem005","inventory":"player","name":"ore","qty":3,"slot_id":4,"stack_size":12}]

@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgr8vyhjgsviw"]
+[gd_scene load_steps=7 format=3 uid="uid://dgr8vyhjgsviw"]
 
 [ext_resource type="Script" path="res://scene/other/items/machine/machine_gui.gd" id="1_p6rc5"]
 [ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="1_u4ejo"]
+[ext_resource type="Texture2D" uid="uid://bwc0ccjenmbql" path="res://assets/UI/Sheet/Setting menu.png" id="2_2167v"]
+[ext_resource type="Script" path="res://scene/other/items/machine/gui/panel.gd" id="4_ka8c5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2kab"]
+atlas = ExtResource("2_2167v")
+region = Rect2(139, 12, 106, 122)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rq3ss"]
 
 [node name="MachineGui" type="Control"]
 layout_mode = 3
@@ -10,32 +18,118 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -680.0
+offset_top = -360.0
+offset_right = -680.0
+offset_bottom = -360.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p6rc5")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -723.0
-offset_top = -401.5
-offset_right = 723.0
-offset_bottom = 401.5
+offset_left = -106.0
+offset_top = -62.0
+offset_right = 105.0
+offset_bottom = 83.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.662745, 0.541176, 0.415686, 1)
+texture = SubResource("AtlasTexture_u2kab")
 
-[node name="Button" type="Button" parent="."]
+[node name="ProductName" type="Label" parent="."]
+visible = false
 layout_mode = 0
-offset_left = -38.0
-offset_top = 280.0
-offset_right = 36.0
-offset_bottom = 310.0
+offset_left = -93.0
+offset_top = -54.0
+offset_right = -19.0
+offset_bottom = -37.0
 theme = ExtResource("1_u4ejo")
-text = "   Close "
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Charcoal"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Container" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.5
+offset_top = -27.5
+offset_right = 95.5
+offset_bottom = -0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resources" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+
+[node name="Materials" type="Panel" parent="Container/Resources"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_rq3ss")
+script = ExtResource("4_ka8c5")
+
+[node name="Label" type="Label" parent="Container/Resources"]
+layout_mode = 2
+theme = ExtResource("1_u4ejo")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = " = "
+
+[node name="Results" type="Panel" parent="Container/Resources"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_rq3ss")
+script = ExtResource("4_ka8c5")
+
+[node name="LabelTimer" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -18.0
+offset_top = 14.0
+offset_right = 18.0
+offset_bottom = 31.0
+theme = ExtResource("1_u4ejo")
+theme_override_font_sizes/font_size = 12
+text = "00:00"
+
+[node name="BtnCraft" type="Button" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 10.0
+offset_top = 39.0
+offset_right = 81.0
+offset_bottom = 65.0
+theme = ExtResource("1_u4ejo")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.74902, 0.74902, 0.74902, 0.6)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "    Craft   "
+
+[node name="BtnClose" type="Button" parent="."]
+layout_mode = 0
+offset_left = -81.0
+offset_top = 39.0
+offset_right = -10.0
+offset_bottom = 65.0
+theme = ExtResource("1_u4ejo")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.74902, 0.74902, 0.74902, 0.6)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+text = "    Close   "
+
+[node name="CraftingTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="pressed" from="BtnCraft" to="." method="_on_btn_craft_pressed"]
+[connection signal="pressed" from="BtnClose" to="." method="_on_btn_close_pressed"]
+[connection signal="timeout" from="CraftingTimer" to="." method="_on_crafting_timer_timeout"]

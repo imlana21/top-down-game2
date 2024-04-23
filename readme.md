@@ -37,3 +37,5 @@
 - Flag from https://ankousse26.itch.io/free-flag-with-animation
 
 - Circle from https://www.pngegg.com/en/png-siesp/
+
+- Charcoal from https://www.hiclipart.com/free-transparent-background-png-clipart-yflfb

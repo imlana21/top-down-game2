@@ -1,6 +1,85 @@
 extends Control
 
 signal close_window
+signal craft_success
 
-func _on_button_pressed():
+var result: Dictionary = {
+	"name": "charcoal",
+	"inventory": "player",
+	"qty": 1,
+	"stack_size": 12,
+	"wait_time": 5
+}
+var waiting_minutes = 0
+var waiting_seconds = 0
+var waiting_time = 0
+var in_craft = false
+var is_claimed = false
+
+func _on_btn_close_pressed():
 	close_window.emit()
+
+func _on_btn_craft_pressed():
+	if !in_craft:
+		set_timer(result.wait_time)
+		in_craft = true
+		$BtnCraft.hide()
+	else:
+		var inv_items = InventoryItems.new()
+		var empty_slot = Autoload.player_inventory.get_empty_slot(result.inventory, Autoload.player_inventory.slot_container)
+		inv_items.inc_qty(result, empty_slot, "ResourceItem")
+		$BtnCraft.hide()
+		reset_gui()
+		craft_success.emit()
+
+func _on_crafting_timer_timeout():
+	set_timer(waiting_time - 1)
+
+func set_timer(wait_time):
+	if wait_time >= 0:
+		waiting_time = wait_time
+		waiting_seconds = wait_time % 60
+		waiting_minutes = floor(wait_time / 60)
+		$LabelTimer.text = (str(waiting_minutes).pad_zeros(2) + ":" + str(waiting_seconds).pad_zeros(2))
+		$LabelTimer.show()
+		$CraftingTimer.start()
+	if wait_time == 0:
+		$LabelTimer.text = "00:00"
+		$BtnCraft.text = "Claim"
+		$BtnCraft.show()
+
+func init_gui():
+	var item_needed = {
+		"name": "wood",
+		"qty": 5
+	}
+	var inv_manager = InventoryItems.new()
+	var qty_material = inv_manager.get_total_qty_by_name(item_needed.name)
+	$LabelTimer.hide()
+	$ProductName.hide()
+	if qty_material > 0:
+		set_gui(item_needed)
+		if !in_craft:
+			$BtnCraft.text = "Craft"
+			$BtnCraft.show()
+	else:
+		reset_gui()
+
+func set_gui(item):
+	$Container.show()
+	$ProductName.show()
+	$Container/Resources/Materials.set_item(item)
+	$Container/Resources/Results.set_item(result)
+	
+func reset_gui():
+	in_craft = false
+	is_claimed = false
+	waiting_minutes = 0
+	waiting_seconds = 0
+	waiting_time = 0
+	$Container.hide()
+	$BtnCraft.hide()
+	$LabelTimer.hide()
+	$ProductName.hide()
+	$Container/Resources/Materials.reset_item()
+	$Container/Resources/Results.reset_item()

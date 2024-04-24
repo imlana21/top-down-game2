@@ -1,15 +1,40 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgr8vyhjgsviw"]
+[gd_scene load_steps=15 format=3 uid="uid://dgr8vyhjgsviw"]
 
 [ext_resource type="Script" path="res://scene/other/items/machine/machine_gui.gd" id="1_p6rc5"]
 [ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="1_u4ejo"]
 [ext_resource type="Texture2D" uid="uid://bwc0ccjenmbql" path="res://assets/UI/Sheet/Setting menu.png" id="2_2167v"]
 [ext_resource type="Script" path="res://scene/other/items/machine/gui/panel.gd" id="4_ka8c5"]
+[ext_resource type="Texture2D" uid="uid://bckl18dd8pcm2" path="res://assets/UI/loading.png" id="5_ojsur"]
+[ext_resource type="Texture2D" uid="uid://cfsowp1e72tjo" path="res://assets/UI/icon.png" id="5_p7wvd"]
+[ext_resource type="Texture2D" uid="uid://dkn0yi4k2ipte" path="res://assets/UI/Sheet/buttons/Square Buttons 26x26.png" id="7_xnfwx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2kab"]
 atlas = ExtResource("2_2167v")
 region = Rect2(139, 12, 106, 122)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rq3ss"]
+texture = ExtResource("7_xnfwx")
+region_rect = Rect2(56, 56, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yg52"]
+atlas = ExtResource("5_p7wvd")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36t7p"]
+atlas = ExtResource("5_ojsur")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6jij"]
+atlas = ExtResource("5_ojsur")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixa15"]
+atlas = ExtResource("2_2167v")
+region = Rect2(139, 12, 106, 122)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x2vph"]
+texture = ExtResource("7_xnfwx")
+region_rect = Rect2(59, 59, 26, 26)
 
 [node name="MachineGui" type="Control"]
 layout_mode = 3
@@ -42,52 +67,310 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_u2kab")
 
 [node name="ProductName" type="Label" parent="."]
-visible = false
 layout_mode = 0
 offset_left = -93.0
-offset_top = -54.0
+offset_top = -55.0
 offset_right = -19.0
-offset_bottom = -37.0
+offset_bottom = -38.0
 theme = ExtResource("1_u4ejo")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "Charcoal"
 
-[node name="Container" type="MarginContainer" parent="."]
+[node name="CraftingProcess" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -95.5
-offset_top = -27.5
-offset_right = 95.5
-offset_bottom = -0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Resources" type="HBoxContainer" parent="Container"]
-layout_mode = 2
-
-[node name="Materials" type="Panel" parent="Container/Resources"]
-layout_mode = 2
+[node name="Materials" type="Panel" parent="CraftingProcess"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -40.0
+offset_right = -26.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_rq3ss")
 script = ExtResource("4_ka8c5")
 
-[node name="Label" type="Label" parent="Container/Resources"]
-layout_mode = 2
-theme = ExtResource("1_u4ejo")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 10
-text = " = "
+[node name="Arrow" type="TextureRect" parent="CraftingProcess"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -14.0
+offset_right = 11.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+texture = SubResource("AtlasTexture_2yg52")
 
-[node name="Results" type="Panel" parent="Container/Resources"]
-layout_mode = 2
+[node name="Loading" type="TextureProgressBar" parent="CraftingProcess"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.5
+offset_top = -18.5
+offset_right = 38.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+max_value = 5.0
+rounded = true
+fill_mode = 4
+texture_under = SubResource("AtlasTexture_36t7p")
+texture_progress = SubResource("AtlasTexture_r6jij")
+
+[node name="Results" type="Panel" parent="CraftingProcess"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.5
+offset_top = -40.0
+offset_right = 85.5
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_rq3ss")
 script = ExtResource("4_ka8c5")
+
+[node name="Inventory" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="TextureRect" parent="Inventory"]
+layout_mode = 2
+offset_left = -246.0
+offset_top = -131.0
+offset_right = -140.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_ixa15")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Inventory"]
+layout_mode = 2
+offset_left = -239.0
+offset_top = -123.0
+offset_right = -147.0
+offset_bottom = 121.0
+
+[node name="GridContainer" type="GridContainer" parent="Inventory/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="Slot1" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot2" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot3" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot4" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot5" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot6" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot7" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot8" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot9" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot10" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot11" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot12" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot13" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot14" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot15" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot16" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot17" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot18" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot19" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+
+[node name="Slot20" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
 
 [node name="LabelTimer" type="Label" parent="."]
 visible = false

@@ -6,6 +6,7 @@ func _physics_process(delta):
 			$MachineGui.z_index = 10
 			$MachineGui.scale = Vector2(1, 1)
 			$MachineGui.position = Autoload.pause_position
+			$MachineGui.reset_gui()
 			$MachineGui.init_gui()
 			Autoload.toggle_pause("machine_inv")
 	if Autoload.player and Autoload.paused_on == "machine_inv":

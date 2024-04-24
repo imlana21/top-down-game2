@@ -39,3 +39,5 @@
 - Circle from https://www.pngegg.com/en/png-siesp/
 
 - Charcoal from https://www.hiclipart.com/free-transparent-background-png-clipart-yflfb
+
+- Bar from https://bdragon1727.itch.io/basic-pixel-health-bar-and-scroll-bar

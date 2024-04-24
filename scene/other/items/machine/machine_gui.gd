@@ -24,6 +24,7 @@ func _on_btn_craft_pressed():
 		set_timer(result.wait_time)
 		in_craft = true
 		$BtnCraft.hide()
+		set_progressbar()
 	else:
 		var inv_items = InventoryItems.new()
 		var empty_slot = Autoload.player_inventory.get_empty_slot(result.inventory, Autoload.player_inventory.slot_container)
@@ -35,14 +36,22 @@ func _on_btn_craft_pressed():
 func _on_crafting_timer_timeout():
 	set_timer(waiting_time - 1)
 
+func set_progressbar():
+	$CraftingProcess/Arrow.hide()
+	$CraftingProcess/Loading.show()
+	$CraftingProcess/Loading.min_value = 0
+	$CraftingProcess/Loading.max_value = result.wait_time + 1
+	$CraftingProcess/Loading.step = 1
+
 func set_timer(wait_time):
 	if wait_time >= 0:
 		waiting_time = wait_time
 		waiting_seconds = wait_time % 60
 		waiting_minutes = floor(wait_time / 60)
+		$CraftingProcess/Loading.value += 1
 		$LabelTimer.text = (str(waiting_minutes).pad_zeros(2) + ":" + str(waiting_seconds).pad_zeros(2))
-		$LabelTimer.show()
 		$CraftingTimer.start()
+		$LabelTimer.show()
 	if wait_time == 0:
 		$LabelTimer.text = "00:00"
 		$BtnCraft.text = "Claim"
@@ -66,10 +75,10 @@ func init_gui():
 		reset_gui()
 
 func set_gui(item):
-	$Container.show()
+	$CraftingProcess.show()
 	$ProductName.show()
-	$Container/Resources/Materials.set_item(item)
-	$Container/Resources/Results.set_item(result)
+	$CraftingProcess/Materials.set_item(item)
+	$CraftingProcess/Results.set_item(result)
 	
 func reset_gui():
 	in_craft = false
@@ -77,9 +86,11 @@ func reset_gui():
 	waiting_minutes = 0
 	waiting_seconds = 0
 	waiting_time = 0
-	$Container.hide()
 	$BtnCraft.hide()
 	$LabelTimer.hide()
 	$ProductName.hide()
-	$Container/Resources/Materials.reset_item()
-	$Container/Resources/Results.reset_item()
+	$CraftingProcess.hide()
+	$CraftingProcess/Arrow.show()
+	$CraftingProcess/Loading.hide()
+	$CraftingProcess/Materials.reset_item()
+	$CraftingProcess/Results.reset_item()

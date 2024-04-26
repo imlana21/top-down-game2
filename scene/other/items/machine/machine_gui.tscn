@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dgr8vyhjgsviw"]
+[gd_scene load_steps=17 format=3 uid="uid://dgr8vyhjgsviw"]
 
 [ext_resource type="Script" path="res://scene/other/items/machine/machine_gui.gd" id="1_p6rc5"]
 [ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="1_u4ejo"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bckl18dd8pcm2" path="res://assets/UI/loading.png" id="5_ojsur"]
 [ext_resource type="Texture2D" uid="uid://cfsowp1e72tjo" path="res://assets/UI/icon.png" id="5_p7wvd"]
 [ext_resource type="Texture2D" uid="uid://dkn0yi4k2ipte" path="res://assets/UI/Sheet/buttons/Square Buttons 26x26.png" id="7_xnfwx"]
+[ext_resource type="Script" path="res://scene/other/items/machine/machine_inv.gd" id="8_0iell"]
+[ext_resource type="Script" path="res://scene/other/items/machine/machine_inv_panel.gd" id="9_sk7kd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2kab"]
 atlas = ExtResource("2_2167v")
@@ -105,6 +107,8 @@ offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_rq3ss")
 script = ExtResource("4_ka8c5")
 
@@ -163,14 +167,11 @@ size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxTexture_rq3ss")
 script = ExtResource("4_ka8c5")
 
-[node name="Inventory" type="Control" parent="."]
+[node name="Inventory" type="Node2D" parent="."]
 visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+script = ExtResource("8_0iell")
 
 [node name="Background" type="TextureRect" parent="Inventory"]
-layout_mode = 2
 offset_left = -246.0
 offset_top = -131.0
 offset_right = -140.0
@@ -180,7 +181,6 @@ grow_vertical = 2
 texture = SubResource("AtlasTexture_ixa15")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Inventory"]
-layout_mode = 2
 offset_left = -239.0
 offset_top = -123.0
 offset_right = -147.0
@@ -200,6 +200,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot2" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -209,6 +210,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot3" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -218,6 +220,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot4" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -227,6 +230,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot5" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -236,6 +240,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot6" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -245,6 +250,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot7" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -254,6 +260,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot8" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -263,6 +270,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot9" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -272,6 +280,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot10" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -281,6 +290,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot11" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -290,6 +300,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot12" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -299,6 +310,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot13" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -308,6 +320,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot14" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -317,6 +330,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot15" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -326,6 +340,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot16" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -335,6 +350,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot17" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -344,6 +360,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot18" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -353,6 +370,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot19" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -362,6 +380,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="Slot20" type="Panel" parent="Inventory/ScrollContainer/GridContainer"]
 custom_minimum_size = Vector2(40, 40)
@@ -371,6 +390,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_x2vph")
+script = ExtResource("9_sk7kd")
 
 [node name="LabelTimer" type="Label" parent="."]
 visible = false
@@ -413,6 +433,51 @@ text = "    Close   "
 [node name="CraftingTimer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="inv_panel_clicked" from="CraftingProcess/Materials" to="." method="_on_materials_inv_panel_clicked"]
+[connection signal="inv_panel_clicked" from="CraftingProcess/Materials" to="Inventory" method="_on_materials_inv_panel_clicked"]
+[connection signal="mouse_entered" from="CraftingProcess/Materials" to="CraftingProcess/Materials" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CraftingProcess/Materials" to="CraftingProcess/Materials" method="_on_mouse_exited"]
+[connection signal="send_item_to_crafting" from="Inventory" to="." method="_on_inventory_send_item_to_crafting"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot1" to="Inventory/ScrollContainer/GridContainer/Slot1" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot1" to="Inventory/ScrollContainer/GridContainer/Slot1" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot2" to="Inventory/ScrollContainer/GridContainer/Slot2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot2" to="Inventory/ScrollContainer/GridContainer/Slot2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot3" to="Inventory/ScrollContainer/GridContainer/Slot3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot3" to="Inventory/ScrollContainer/GridContainer/Slot3" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot4" to="Inventory/ScrollContainer/GridContainer/Slot4" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot4" to="Inventory/ScrollContainer/GridContainer/Slot4" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot5" to="Inventory/ScrollContainer/GridContainer/Slot5" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot5" to="Inventory/ScrollContainer/GridContainer/Slot5" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot6" to="Inventory/ScrollContainer/GridContainer/Slot6" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot6" to="Inventory/ScrollContainer/GridContainer/Slot6" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot7" to="Inventory/ScrollContainer/GridContainer/Slot7" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot7" to="Inventory/ScrollContainer/GridContainer/Slot7" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot8" to="Inventory/ScrollContainer/GridContainer/Slot8" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot8" to="Inventory/ScrollContainer/GridContainer/Slot8" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot9" to="Inventory/ScrollContainer/GridContainer/Slot9" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot9" to="Inventory/ScrollContainer/GridContainer/Slot9" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot10" to="Inventory/ScrollContainer/GridContainer/Slot10" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot10" to="Inventory/ScrollContainer/GridContainer/Slot10" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot11" to="Inventory/ScrollContainer/GridContainer/Slot11" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot11" to="Inventory/ScrollContainer/GridContainer/Slot11" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot12" to="Inventory/ScrollContainer/GridContainer/Slot12" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot12" to="Inventory/ScrollContainer/GridContainer/Slot12" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot13" to="Inventory/ScrollContainer/GridContainer/Slot13" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot13" to="Inventory/ScrollContainer/GridContainer/Slot13" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot14" to="Inventory/ScrollContainer/GridContainer/Slot14" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot14" to="Inventory/ScrollContainer/GridContainer/Slot14" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot15" to="Inventory/ScrollContainer/GridContainer/Slot15" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot15" to="Inventory/ScrollContainer/GridContainer/Slot15" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot16" to="Inventory/ScrollContainer/GridContainer/Slot16" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot16" to="Inventory/ScrollContainer/GridContainer/Slot16" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot17" to="Inventory/ScrollContainer/GridContainer/Slot17" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot17" to="Inventory/ScrollContainer/GridContainer/Slot17" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot18" to="Inventory/ScrollContainer/GridContainer/Slot18" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot18" to="Inventory/ScrollContainer/GridContainer/Slot18" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot19" to="Inventory/ScrollContainer/GridContainer/Slot19" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot19" to="Inventory/ScrollContainer/GridContainer/Slot19" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot20" to="Inventory/ScrollContainer/GridContainer/Slot20" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot20" to="Inventory/ScrollContainer/GridContainer/Slot20" method="_on_mouse_exited"]
 [connection signal="pressed" from="BtnCraft" to="." method="_on_btn_craft_pressed"]
 [connection signal="pressed" from="BtnClose" to="." method="_on_btn_close_pressed"]
 [connection signal="timeout" from="CraftingTimer" to="." method="_on_crafting_timer_timeout"]

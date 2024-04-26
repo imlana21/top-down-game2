@@ -14,6 +14,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
 script = ExtResource("1_21um2")
 
 [node name="Texture" type="TextureRect" parent="."]

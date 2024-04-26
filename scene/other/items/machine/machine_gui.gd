@@ -3,13 +3,8 @@ extends Control
 signal close_window
 signal craft_success
 
-var result: Dictionary = {
-	"name": "charcoal",
-	"inventory": "player",
-	"qty": 1,
-	"stack_size": 12,
-	"wait_time": 5
-}
+var result = null
+var item = null
 var waiting_minutes = 0
 var waiting_seconds = 0
 var waiting_time = 0
@@ -57,28 +52,9 @@ func set_timer(wait_time):
 		$BtnCraft.text = "Claim"
 		$BtnCraft.show()
 
-func init_gui():
-	var item_needed = {
-		"name": "wood",
-		"qty": 5
-	}
-	var inv_manager = InventoryItems.new()
-	var qty_material = inv_manager.get_total_qty_by_name(item_needed.name)
-	$LabelTimer.hide()
-	$ProductName.hide()
-	if qty_material > 0:
-		set_gui(item_needed)
-		if !in_craft:
-			$BtnCraft.text = "Craft"
-			$BtnCraft.show()
-	else:
-		reset_gui()
-
-func set_gui(item):
+func set_gui():
 	$CraftingProcess.show()
 	$ProductName.show()
-	$CraftingProcess/Materials.set_item(item)
-	$CraftingProcess/Results.set_item(result)
 	
 func reset_gui():
 	in_craft = false
@@ -86,11 +62,43 @@ func reset_gui():
 	waiting_minutes = 0
 	waiting_seconds = 0
 	waiting_time = 0
+	result = null
+	item = null
 	$BtnCraft.hide()
 	$LabelTimer.hide()
 	$ProductName.hide()
-	$CraftingProcess.hide()
 	$CraftingProcess/Arrow.show()
 	$CraftingProcess/Loading.hide()
 	$CraftingProcess/Materials.reset_item()
 	$CraftingProcess/Results.reset_item()
+	$Inventory.hide()
+
+func _on_materials_inv_panel_clicked():
+	$Inventory.show()
+
+func _on_inventory_send_item_to_crafting(item_data):
+	var inv_manager = InventoryItems.new()
+	var qty_material = inv_manager.get_total_qty_by_name(item_data.name)
+	$LabelTimer.hide()
+	$ProductName.hide()
+	$CraftingProcess/Materials.reset_item()
+	$CraftingProcess/Materials.set_item(item_data)
+	if item_data.name == "wood":
+		result = {
+			"name": "charcoal",
+			"inventory": "player",
+			"qty": 1,
+			"stack_size": 12,
+			"wait_time": 5
+		}
+		if qty_material > 0:
+			set_gui()
+			if !in_craft:
+				$BtnCraft.text = "Craft"
+				$BtnCraft.show()
+		else:
+			reset_gui()
+		$CraftingProcess/Results.set_item(result)
+	else:
+		result = {}
+		$CraftingProcess/Results.reset_item()

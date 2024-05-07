@@ -6,13 +6,17 @@ var is_mouse_hovered = false
 signal inv_panel_hovered
 signal inv_panel_unhovered
 signal inv_panel_clicked
+signal crafting_item_setted
 
-func set_item(val):
+func set_item(val, is_result = false):
+	reset_item()
 	var crafting_item = load("res://scene/crafting_bench/item/crafting_item.tscn").instantiate()
 	item = val
 	crafting_item.set_item(item)
 	crafting_item.scale = Vector2(0.8, 0.8)
 	add_child(crafting_item)
+	if !is_result:
+		crafting_item_setted.emit(item)
 
 func reset_item():
 	item = {}
@@ -32,5 +36,5 @@ func _on_mouse_exited():
 
 func _input(event):
 	if is_mouse_hovered and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		inv_panel_clicked.emit()
+		inv_panel_clicked.emit(self)
 

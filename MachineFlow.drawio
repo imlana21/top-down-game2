@@ -1,0 +1,248 @@
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="l0p0ya0vvuIVqNX67Y1M">
+        <mxGraphModel dx="310" dy="541" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="22" style="edgeStyle=none;html=1;" parent="1" source="17" target="20" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="start" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="527.5" y="100" width="70" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" style="edgeStyle=none;html=1;" parent="1" source="20" target="24" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="400" y="340" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="20" value="click machine" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="170" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" style="edgeStyle=none;html=1;" parent="1" source="24" target="25" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" style="edgeStyle=none;html=1;" parent="1" source="24" target="29" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" style="edgeStyle=none;html=1;dashed=1;endArrow=none;endFill=0;" parent="1" source="24" target="55" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="360" y="280"/>
+                            <mxPoint x="360" y="95"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="24" value="machine is&lt;br&gt;in_craft" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="245" width="95" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" style="edgeStyle=none;html=1;" parent="1" source="25" target="57" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="772.5" y="355" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="773" y="470"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="25" value="set item from&lt;br&gt;machine to GUI" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="725" y="260" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="reset GUI" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="355" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="&lt;h1&gt;Show Machine GUI&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="465" y="40" width="230" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="&lt;h1&gt;Machine is In Craft Mode&lt;/h1&gt;&lt;p&gt;Data save on machine :&amp;nbsp;&lt;/p&gt;&lt;p&gt;- item crafting&lt;/p&gt;&lt;p&gt;- crafting result&lt;/p&gt;&lt;p&gt;- time for crafting&lt;/p&gt;" style="text;html=1;strokeColor=default;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;glass=0;shadow=0;align=left;labelBackgroundColor=none;labelBorderColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="20" width="310" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="" style="edgeStyle=none;html=1;endArrow=classic;endFill=1;" parent="1" source="29" target="57" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="562.7702702702704" y="395" as="sourcePoint"/>
+                        <mxPoint x="447.5" y="560" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="62" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;endFill=1;" parent="1" source="57" target="61" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="show GUI" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="453" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="false" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+                    <mxGeometry x="555" y="315" width="50" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="true" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
+                    <mxGeometry x="670" y="280" width="40" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;endFill=1;" parent="1" source="61" target="63" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="material panel&lt;br&gt;clicked" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="540" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;endFill=1;" parent="1" source="63" target="66" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="show Inventory" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="620" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;endFill=1;" parent="1" source="66" target="68" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" value="inventory panel&lt;br&gt;clicked" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="700" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;endFill=1;" parent="1" source="68" target="71" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" value="send item from inventory to GUI" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="780" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;endFill=1;" parent="1" source="71" target="72" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="get list result from machine" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="860" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="76" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;endFill=1;" parent="1" source="72" target="75" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="Machine send result to GUI" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="940" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="78" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;endFill=1;" parent="1" source="75" target="77" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="75" value="GUI set result" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="1020" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;endFill=1;" parent="1" source="77" target="79" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" value="Show button craft" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="1100" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;endFill=1;" parent="1" source="79" target="81" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" value="btnCraft clicked" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="1180" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="85" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;endFill=1;" parent="1" source="81" target="84" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" value="get timer from machine" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="1260" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="87" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;endFill=1;" parent="1" source="84" target="86" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="84" value="set timer and progress bar" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="1340" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="89" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;endFill=1;" parent="1" source="86" target="88" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" value="hide btnCraft and wait crafting until finish" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="1420" width="95" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="91" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;endFill=1;" parent="1" source="88" target="90" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="88" value="crafting finished" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="1510" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="93" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;endFill=1;" parent="1" source="90" target="92" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="90" value="btnCraft change to btnClaim" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="1590" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="95" style="edgeStyle=none;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;endFill=1;" parent="1" source="92" target="94" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="92" value="Claim item" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="1670" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="97" style="edgeStyle=none;html=1;" parent="1" source="94" target="96" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="94" value="Save to Player's&amp;nbsp;&lt;br&gt;Inventory" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="1750" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="99" style="edgeStyle=none;html=1;" parent="1" source="96" target="98" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="96" value="reset material &amp;amp; result panel" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="1830" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="101" style="edgeStyle=none;html=1;" parent="1" source="98" target="100" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="98" value="close GUI" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="1910" width="95" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="100" value="end" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="522.5" y="2000" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="102" value="machine.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="420" y="170" width="90" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="103" value="machine_gui.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="412.5" y="240" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="105" value="machine_gui.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="615" y="545" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="106" value="machine_gui.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="615" y="625" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="107" value="machine_gui.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="615" y="705" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="108" value="machine_inventory.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="620" y="785" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="109" value="machine_crafting_base1.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="620" y="865" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="110" value="machine_crafting_base1.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="620" y="945" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="111" value="machine_crafting_base1.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="620" y="1025" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="112" value="machine_crafting_base1.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=0;" vertex="1" parent="1">
+                    <mxGeometry x="620" y="1105" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="113" value="machine_crafting_base1.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=0;" vertex="1" parent="1">
+                    <mxGeometry x="630" y="1185" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="114" value="machine_crafting_base1.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=0;" vertex="1" parent="1">
+                    <mxGeometry x="630" y="1265" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="115" value="machine_crafting_base1.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=0;" vertex="1" parent="1">
+                    <mxGeometry x="620" y="1345" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="116" value="machine_crafting_base1.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=0;" vertex="1" parent="1">
+                    <mxGeometry x="630" y="1430" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="117" value="machine_crafting_base1.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=0;" vertex="1" parent="1">
+                    <mxGeometry x="630" y="1515" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="119" value="machine_crafting_base1.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=0;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="1590" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="120" value="machine_crafting_base1.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=0;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="1670" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="121" value="machine_crafting_base1.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=0;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="1750" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="122" value="machine_crafting_base1.gd" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;strokeWidth=0;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="1830" width="170" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

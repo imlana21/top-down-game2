@@ -1,0 +1,1 @@
+- Make another machine with a differnt crafting recipe that turns 3 wheat into bread

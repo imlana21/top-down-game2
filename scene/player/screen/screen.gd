@@ -70,7 +70,6 @@ func zoom_reset():
 	$Camera2D/Curencies.position = Vector2(0, 0)
 	$Camera2D/BuilderInv.scale = Vector2(0.4, 0.4)
 	$Camera2D/BuilderInv.position = Vector2(0, 136)
-	print($Camera2D/Curencies.scale)
 
 func toggle_show_panel():
 	if Autoload.is_spectator_mode:

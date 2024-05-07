@@ -22,7 +22,7 @@ var shoot_target: bool = false
 func follow_path(delta):
 	if target_node:
 		$BulletArea.look_at(target_node.get_global_position())
-	if !nav_agent.is_navigation_finished():
+	if !nav_agent.is_navigation_finished() and !Autoload.prevent_attack:
 		var axis = to_local(nav_agent.get_next_path_position()).normalized()
 		nav_agent.set_velocity(axis * SPEED * delta)
 
@@ -32,10 +32,11 @@ func _ready():
 	nav_agent.target_desired_distance = 4
 
 func _physics_process(delta):
-	follow_path(delta)
+	if !Autoload.prevent_attack:
+		follow_path(delta)
 
 func _on_enemy_detector_body_entered(body):
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and !Autoload.prevent_attack:
 		target_in_area = true
 		target_node = body
 		$Navigation/TimerNavigation.start()
@@ -43,36 +44,39 @@ func _on_enemy_detector_body_entered(body):
 		$BulletArea/BulletTimer.start()
 
 func _on_enemy_detector_body_exited(body):
-	target_node = null
-	$Navigation/TimerNavigation.stop()
-	target_in_area = false
+	if !Autoload.prevent_attack:
+		target_node = null
+		$Navigation/TimerNavigation.stop()
+		target_in_area = false
 
 func _on_re_calc_navigation_timeout():
-	if target_node:
+	if target_node and !Autoload.prevent_attack:
 		# SPEED = 400
 		var direction_to_player = target_node.get_global_position() - get_global_position()
 		var flee_position = get_global_position() - (direction_to_player.normalized() * 50)
 		nav_agent.target_position = flee_position
 
 func _on_path_navigation_velocity_computed(safe_velocity):
-	if target_in_area:
-		velocity = safe_velocity
-	else:
-		velocity = Vector2.ZERO
-	move_and_slide()
-	
+	if !Autoload.prevent_attack:
+		if target_in_area:
+			velocity = safe_velocity
+		else:
+			velocity = Vector2.ZERO
+		move_and_slide()
+
 func enemy_spawn_bullet():
 	var bullet = load("res://scene/other/weapon/enemy_bullet/slime_bullet.tscn").instantiate()
 	bullet.position = $BulletArea/BulletPoint.get_global_position()
 	bullet.rotation_degrees = $BulletArea.rotation_degrees
-	bullet.apply_impulse(Vector2(BULLET_SPEED, 0).rotated($BulletArea.rotation), Vector2())	
+	bullet.apply_impulse(Vector2(BULLET_SPEED, 0).rotated($BulletArea.rotation), Vector2())
 	Autoload.world.add_child(bullet)
 
 func _on_bullet_timer_timeout():
-	if shoot_target:
-		enemy_spawn_bullet()
-	if target_in_area:
-		$BulletArea/BulletTimer.start()
-		shoot_target = !shoot_target
-	else:
-		$BulletArea/BulletTimer.stop()
+	if !Autoload.prevent_attack:
+		if shoot_target:
+			enemy_spawn_bullet()
+		if target_in_area:
+			$BulletArea/BulletTimer.start()
+			shoot_target = !shoot_target
+		else:
+			$BulletArea/BulletTimer.stop()

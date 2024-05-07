@@ -1,1 +1,2 @@
-- Make another machine with a differnt crafting recipe that turns 3 wheat into bread
+- Create a way to turn of the auto battle function in the menu.
+- And when it's off mobs can't attack you and you can't attack mobs.

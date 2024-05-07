@@ -41,27 +41,28 @@ func _ready():
 func _physics_process(delta):
 	if type == "unique" and unique_enemy != null:
 		$BulletArea.look_at(unique_enemy.get_global_position())
-	follow_path(delta)
+	if !Autoload.prevent_attack:
+		follow_path(delta)
 
-func _on_re_calc_timer_timeout(): 
-	if target_node: 
+func _on_re_calc_timer_timeout():
+	if target_node and !Autoload.prevent_attack:
 			nav_agent.target_position = target_node.global_position
 
 func follow_path(delta):
 	if player_in_area and !CombatDetail.is_attacking:
 		$BulletArea.look_at(Autoload.player.get_global_position())
-	if !nav_agent.is_navigation_finished() and !CombatDetail.is_attacking:
+	if !nav_agent.is_navigation_finished() and !CombatDetail.is_attacking and !Autoload.prevent_attack:
 		var axis = to_local(nav_agent.get_next_path_position()).normalized()
 		nav_agent.set_velocity(axis * SPEED * delta)
 
-
 func make_enemy_avoid_player():
-	var direction_to_player = target_node.get_global_position() - get_global_position()
-	var flee_position = get_global_position() - (direction_to_player.normalized() * 50)
-	nav_agent.target_position = flee_position
+	if !Autoload.prevent_attack:
+		var direction_to_player = target_node.get_global_position() - get_global_position()
+		var flee_position = get_global_position() - (direction_to_player.normalized() * 50)
+		nav_agent.target_position = flee_position
 
 func _on_player_detector_body_entered(body):
-	if body.is_in_group("player") and !CombatDetail.is_attacking and !player_in_area and type != "unique":
+	if !Autoload.prevent_attack and body.is_in_group("player") and !CombatDetail.is_attacking and !player_in_area and type != "unique":
 		visible = true
 		target_node = body
 		player_in_area = true
@@ -69,8 +70,9 @@ func _on_player_detector_body_entered(body):
 		$BulletTimer.start()
 
 func _on_player_detector_body_exited(body):
-	player_in_area = false
-	target_node = null
+	if !Autoload.prevent_attack:
+		player_in_area = false
+		target_node = null
 	
 func _on_slime_navigation_velocity_computed(safe_velocity):
 	velocity = safe_velocity
@@ -80,7 +82,8 @@ func take_damage(strength):
 	CHAR_DETAIL["curr_hp"] = CHAR_DETAIL["curr_hp"] - strength
 	
 func attacking():
-	change_attack.emit()
+	if !Autoload.prevent_attack:
+		change_attack.emit()
 
 func set_to_boss():
 	$Name.text = "Slime Boss"
@@ -113,14 +116,15 @@ func enemy_spawn_bullet():
 	var bullet = load("res://scene/other/weapon/enemy_bullet/slime_bullet.tscn").instantiate()
 	bullet.position = $BulletArea/BulletPoint.get_global_position()
 	bullet.rotation_degrees = $BulletArea.rotation_degrees
-	bullet.apply_impulse(Vector2(BULLET_SPEED, 0).rotated($BulletArea.rotation), Vector2())	
+	bullet.apply_impulse(Vector2(BULLET_SPEED, 0).rotated($BulletArea.rotation), Vector2())
 	Autoload.world.add_child(bullet)
 
 func _on_bullet_timer_timeout():
-	if enemy_shoot:
-		enemy_spawn_bullet()
-	enemy_shoot = !enemy_shoot
-	if player_in_area:
-		$BulletTimer.start()
-	else:
-		$BulletTimer.stop()
+	if !Autoload.prevent_attack:
+		if enemy_shoot:
+			enemy_spawn_bullet()
+		enemy_shoot = !enemy_shoot
+		if player_in_area:
+			$BulletTimer.start()
+		else:
+			$BulletTimer.stop()

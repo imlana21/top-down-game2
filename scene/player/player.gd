@@ -25,7 +25,7 @@ func _init():
 func _ready():
 	if Autoload.paused_on != "":
 		return
-	if CombatDetail.last_position != null and !CombatDetail.is_attacking:
+	if CombatDetail.last_position != null and !CombatDetail.is_attacking :
 		position = CombatDetail.last_position
 		CombatDetail.last_position = null
 
@@ -51,16 +51,17 @@ func _input(event):
 		change_direction.emit(get_axis_input())
 
 func _on_enemy_detector_body_entered(body):
-	if !body.is_in_group("enemy"):
-		return
-	if Autoload.world != null and Autoload.world.name == "WarpWorld":
-		CombatDetail.last_position = position
-		start_combat.emit(body)
-		CombatDetail.is_attacking = true
-	elif CombatDetail.is_attacking == false and CombatDetail.player_energy > 0:
-		CombatDetail.last_position = position
-		start_combat.emit(body)
-		CombatDetail.is_attacking = true
+	if !Autoload.prevent_attack:
+		if !body.is_in_group("enemy"):
+			return
+		if Autoload.world != null and Autoload.world.name == "WarpWorld":
+			CombatDetail.last_position = position
+			start_combat.emit(body)
+			CombatDetail.is_attacking = true
+		elif CombatDetail.is_attacking == false and CombatDetail.player_energy > 0:
+			CombatDetail.last_position = position
+			start_combat.emit(body)
+			CombatDetail.is_attacking = true
 
 # if WASD pressed, read as vector
 func get_axis_input():
@@ -86,4 +87,5 @@ func take_damage(strength):
 	CHAR_DETAIL["curr_hp"] = CHAR_DETAIL["curr_hp"] - strength 
 
 func attacking():
-	player_hit.emit()
+	if !Autoload.prevent_attack:
+		player_hit.emit()

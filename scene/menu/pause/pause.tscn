@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dxlnecjp8nhas"]
+[gd_scene load_steps=9 format=3 uid="uid://dxlnecjp8nhas"]
 
 [ext_resource type="Texture2D" uid="uid://bwc0ccjenmbql" path="res://assets/UI/Sheet/Setting menu.png" id="1_d8b5j"]
 [ext_resource type="Script" path="res://scene/menu/pause/pause.gd" id="1_gvii7"]
 [ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="2_hr0kl"]
 [ext_resource type="PackedScene" uid="uid://b2n66cjkm161f" path="res://scene/combat/battle_speed_btn/battle_speed_btn.tscn" id="4_b3ty6"]
 [ext_resource type="PackedScene" uid="uid://dbxcmcf7768cs" path="res://scene/save_load/save_load_popup.tscn" id="5_uq8fn"]
+[ext_resource type="Theme" uid="uid://bnxyqifnolrd1" path="res://scene/combat/combat.tres" id="6_dll6a"]
+[ext_resource type="Script" path="res://scene/menu/pause/pause_prevent_attack.gd" id="6_u5qrc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_todjq"]
 atlas = ExtResource("1_d8b5j")
@@ -17,18 +19,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_top = -120.0
+offset_bottom = -120.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_gvii7")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = -717.0
-offset_top = -411.0
-offset_right = -717.0
-offset_bottom = -411.0
-color = Color(0.431373, 0.431373, 0.431373, 0.509804)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1013.0
+offset_top = -430.0
+offset_right = 805.0
+offset_bottom = 509.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.862745, 0.72549, 0.541176, 1)
 
 [node name="ButtonAreana" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -38,9 +49,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -268.0
-offset_top = -197.0
+offset_top = -221.0
 offset_right = -23.0
-offset_bottom = 158.0
+offset_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -95,9 +106,9 @@ text = " ~ Exit ~ "
 [node name="PlayerDetail" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_left = 6.0
-offset_top = -192.0
+offset_top = -216.0
 offset_right = 328.0
-offset_bottom = 160.0
+offset_bottom = 136.0
 theme = ExtResource("2_hr0kl")
 
 [node name="TextureRect" type="TextureRect" parent="PlayerDetail"]
@@ -186,9 +197,9 @@ text = "0"
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 offset_left = -79.0
-offset_top = 188.0
+offset_top = 148.0
 offset_right = 64.0
-offset_bottom = 216.0
+offset_bottom = 176.0
 theme = ExtResource("2_hr0kl")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Battle Speed"
@@ -196,17 +207,55 @@ text = "Battle Speed"
 [node name="BattleSpeedBtn" parent="." instance=ExtResource("4_b3ty6")]
 layout_mode = 2
 offset_left = -35.0
-offset_top = 204.0
+offset_top = 164.0
 offset_right = 108.0
-offset_bottom = 244.0
+offset_bottom = 204.0
 
 [node name="SaveLoadContainer" parent="." instance=ExtResource("5_uq8fn")]
-visible = false
 layout_mode = 1
 offset_left = 21.0
-offset_top = -164.0
+offset_top = -188.0
 offset_right = 314.0
-offset_bottom = 133.0
+offset_bottom = 109.0
+
+[node name="PreventAttack" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -35.0
+offset_top = 234.0
+offset_right = 5.0
+offset_bottom = 274.0
+script = ExtResource("6_u5qrc")
+
+[node name="TogglePrevent" type="CheckButton" parent="PreventAttack"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -7.0
+offset_right = 94.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PreventAttack"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = -13.5
+offset_right = 43.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_dll6a")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Prevent Attack"
 
 [connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/NewBtn" to="." method="_on_new_btn_pressed"]
@@ -215,3 +264,4 @@ offset_bottom = 133.0
 [connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]
 [connection signal="pressed" from="ButtonAreana/MarginContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]
 [connection signal="load_game_from_pause" from="SaveLoadContainer" to="." method="_on_save_load_container_load_game_from_pause"]
+[connection signal="toggled" from="PreventAttack/TogglePrevent" to="PreventAttack" method="_on_toggle_prevent_toggled"]

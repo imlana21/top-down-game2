@@ -29,15 +29,18 @@ func _ready():
 	nav_agent.target_desired_distance = 4
 
 func _physics_process(delta):
-	follow_path(delta)
+	if !Autoload.prevent_attack:
+		follow_path(delta)
 
 func _on_enemy_detector_body_entered(body):
-	enemy_char = body
-	$Navigation/Timer.start()
+	if !Autoload.prevent_attack:
+		enemy_char = body
+		$Navigation/Timer.start()
 
 func _on_enemy_detector_body_exited(body):
-	enemy_char = null
-	$Navigation/Timer.stop()
+	if !Autoload.prevent_attack:
+		enemy_char = null
+		$Navigation/Timer.stop()
 
 func _on_navigation_path_velocity_computed(safe_velocity):
 	velocity = safe_velocity

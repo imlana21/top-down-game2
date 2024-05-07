@@ -8,6 +8,7 @@ var world: Node2D
 var scene_manager: Node2D
 var pause_scale: Vector2
 var pause_position: Vector2
+var prevent_attack: bool = false
 var enemy_position: Array = [
 	Vector2(64, 256), 
 	Vector2(352, 288), 

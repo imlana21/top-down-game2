@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bvyhriropkstk"]
+[gd_scene load_steps=24 format=3 uid="uid://bvyhriropkstk"]
 
 [ext_resource type="Script" path="res://scene/scene_manager.gd" id="1_qod2y"]
 [ext_resource type="PackedScene" uid="uid://chot5i788y7ip" path="res://scene/world/warp/warp_world.tscn" id="2_416io"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://yjpqlqq8uofb" path="res://scene/chat/popup.tscn" id="14_d26xg"]
 [ext_resource type="Script" path="res://scene/machine_layer.gd" id="16_p1u78"]
 [ext_resource type="PackedScene" uid="uid://dgr8vyhjgsviw" path="res://scene/other/items/machine/machine_gui.tscn" id="16_wvtkb"]
+[ext_resource type="PackedScene" uid="uid://ck1ufu55k80ad" path="res://scene/menu/tab/tab_menu.tscn" id="18_cdda8"]
+[ext_resource type="Script" path="res://scene/tabmenu_layer.gd" id="18_qlkhp"]
 
 [sub_resource type="Animation" id="Animation_ys5mu"]
 length = 0.001
@@ -169,6 +171,13 @@ script = ExtResource("16_p1u78")
 [node name="MachineGui" parent="MachineLayer" instance=ExtResource("16_wvtkb")]
 visible = false
 scale = Vector2(0.7, 0.7)
+
+[node name="TabMenuLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+script = ExtResource("18_qlkhp")
+
+[node name="TabMenu" parent="TabMenuLayer" instance=ExtResource("18_cdda8")]
+visible = false
 
 [connection signal="child_entered_tree" from="CurrentScene" to="StoreLayer" method="_on_current_scene_child_entered_tree"]
 [connection signal="child_entered_tree" from="CurrentScene" to="ChatLayer" method="_on_current_scene_child_entered_tree"]

@@ -1,2 +1,3 @@
-- Create a way to turn of the auto battle function in the menu.
-- And when it's off mobs can't attack you and you can't attack mobs.
+- Make a GUI that's let's say pops up when you click TAB.
+
+- That's split up into 3 sections.

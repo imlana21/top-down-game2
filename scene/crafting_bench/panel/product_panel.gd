@@ -40,7 +40,8 @@ func _init_item_into_slot(img_path):
 	var item = load("res://scene/crafting_bench/item/product_item.tscn").instantiate()
 	if img_path != null:
 		item.scale = Vector2(1.2, 1.2)
-		item.position = Vector2(7, 7)
+		# item.position = Vector2(7, 7)
+		set_anchor_center(item)
 		add_child(item)
 		item.set_item(img_path)
 	else:
@@ -54,3 +55,6 @@ func _on_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		# Signal send to product_panel
 		select_craft.emit(self)
+
+func set_anchor_center(i):
+	i.anchors_preset = Control.PRESET_CENTER

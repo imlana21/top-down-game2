@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcpaoculudmll"
-path="res://.godot/imported/meats.png-c3f0facd85d222a78bf1f386cd5672e5.ctex"
+uid="uid://crah1bvcas"
+path="res://.godot/imported/sword.png-192bde5a3d78d3c60b1882ef6ec5840e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Objects/meats.png"
-dest_files=["res://.godot/imported/meats.png-c3f0facd85d222a78bf1f386cd5672e5.ctex"]
+source_file="res://assets/Objects/food/sword.png"
+dest_files=["res://.godot/imported/sword.png-192bde5a3d78d3c60b1882ef6ec5840e.ctex"]
 
 [params]
 

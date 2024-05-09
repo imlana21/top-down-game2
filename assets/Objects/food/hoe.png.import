@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dunieab5ha7ol"
-path="res://.godot/imported/apple_pie.png-e7a71938eacc7867d7af1cdd16e4b4bc.ctex"
+uid="uid://lcwi0wq7asxp"
+path="res://.godot/imported/hoe.png-7386494887ebb4192aad34a87bd4d01a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Objects/food/apple_pie.png"
-dest_files=["res://.godot/imported/apple_pie.png-e7a71938eacc7867d7af1cdd16e4b4bc.ctex"]
+source_file="res://assets/Objects/food/hoe.png"
+dest_files=["res://.godot/imported/hoe.png-7386494887ebb4192aad34a87bd4d01a.ctex"]
 
 [params]
 

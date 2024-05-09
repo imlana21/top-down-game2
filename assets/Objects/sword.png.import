@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nwahw3khgrn6"
-path="res://.godot/imported/Fantasy RPG (Toony) 32x32.png-060842588402a48ed879e6b42520e1e5.ctex"
+uid="uid://br3kxne0pvqmx"
+path="res://.godot/imported/sword.png-5e396a9046a8783658244d1db8d47c8b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Objects/Fantasy RPG (Toony) 32x32.png"
-dest_files=["res://.godot/imported/Fantasy RPG (Toony) 32x32.png-060842588402a48ed879e6b42520e1e5.ctex"]
+source_file="res://assets/Objects/sword.png"
+dest_files=["res://.godot/imported/sword.png-5e396a9046a8783658244d1db8d47c8b.ctex"]
 
 [params]
 

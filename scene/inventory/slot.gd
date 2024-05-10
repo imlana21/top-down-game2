@@ -27,12 +27,18 @@ func _input(event) -> void:
 			pick_one_item.emit(self)
 	
 func _on_mouse_entered() -> void:
+	mouse_hovered()
+
+func mouse_hovered() -> void:
 	modulate = "eaeaea"
-	is_mouse_hovered = true
+	is_mouse_hovered = true	
 
 func _on_mouse_exited() -> void:
 	if inventory_name != null:
 		inv_panel_unhovered.emit(inventory_name)
+	mouse_unhovered()
+
+func mouse_unhovered() -> void:
 	modulate = "fff"
 	is_mouse_hovered = false	
 

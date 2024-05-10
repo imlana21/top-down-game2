@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://8uxmk530680s"]
+[gd_scene load_steps=10 format=3 uid="uid://8uxmk530680s"]
 
 [ext_resource type="Script" path="res://scene/inventory/builder/builder.gd" id="1_ny4by"]
 [ext_resource type="Texture2D" uid="uid://baqlshr3lgy82" path="res://assets/UI/Sheet/UI Big Play Button.png" id="2_eqnq8"]
 [ext_resource type="Texture2D" uid="uid://dkn0yi4k2ipte" path="res://assets/UI/Sheet/buttons/Square Buttons 26x26.png" id="3_xrsik"]
 [ext_resource type="Script" path="res://scene/inventory/builder/tools_panel.gd" id="4_q13a0"]
+[ext_resource type="Script" path="res://scene/inventory/builder/builder_container.gd" id="5_rxne6"]
 [ext_resource type="Script" path="res://scene/inventory/builder/builder_panel.gd" id="5_ur061"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tjwyw"]
@@ -17,6 +18,7 @@ region_rect = Rect2(11, 59, 26, 28)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hxl63"]
 texture = ExtResource("3_xrsik")
+texture_margin_right = 1.0
 region_rect = Rect2(11, 59, 26, 28)
 
 [node name="BuilderInv" type="Node2D"]
@@ -78,8 +80,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-mouse_filter = 2
 columns = 5
+script = ExtResource("5_rxne6")
 
 [node name="Panel" type="Panel" parent="BuilderContainer"]
 layout_mode = 2
@@ -125,3 +127,11 @@ mouse_filter = 1
 mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_hxl63")
 script = ExtResource("5_ur061")
+
+[connection signal="mouse_entered" from="BuilderContainer" to="BuilderContainer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BuilderContainer" to="BuilderContainer" method="_on_mouse_exited"]
+[connection signal="inv_panel_hovered" from="BuilderContainer/Panel" to="BuilderContainer" method="_on_panel_inv_panel_hovered"]
+[connection signal="inv_panel_hovered" from="BuilderContainer/Panel2" to="BuilderContainer" method="_on_panel_inv_panel_hovered"]
+[connection signal="inv_panel_hovered" from="BuilderContainer/Panel3" to="BuilderContainer" method="_on_panel_inv_panel_hovered"]
+[connection signal="inv_panel_hovered" from="BuilderContainer/Panel4" to="BuilderContainer" method="_on_panel_inv_panel_hovered"]
+[connection signal="inv_panel_hovered" from="BuilderContainer/Panel5" to="BuilderContainer" method="_on_panel_inv_panel_hovered"]

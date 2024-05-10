@@ -30,7 +30,8 @@ func _on_mouse_entered() -> void:
 	mouse_hovered()
 
 func mouse_hovered() -> void:
-	modulate = "eaeaea"
+	# modulate = "eaeaea"
+	modulate = "80ffff"
 	is_mouse_hovered = true	
 
 func _on_mouse_exited() -> void:

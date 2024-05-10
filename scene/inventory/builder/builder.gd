@@ -8,7 +8,7 @@ var output_from_state = null
 var is_pointer_on_world: bool = false
 
 @onready var builder_container: GridContainer = $BuilderContainer
-@onready var tool_container: GridContainer = $ToolsContainer
+# @onready var tool_container: GridContainer = $ToolsContainer
 
 func _ready():
 	inventory_name = "builder"
@@ -16,12 +16,6 @@ func _ready():
 	_init_slot_id(builder_container)
 	for inv in builder_container.get_children():
 		inv.connect("inv_panel_clicked", _builder_panel_clicked)
-		inv.connect("inv_panel_hovered", _inv_panel_hovered)
-		inv.connect("inv_panel_unhovered", _inv_panel_unhovered)
-	# Initialize Tool Panel
-	_init_slot_id(tool_container)
-	for inv in tool_container.get_children():
-		inv.connect("inv_panel_clicked", _tools_panel_clicked)
 		inv.connect("inv_panel_hovered", _inv_panel_hovered)
 		inv.connect("inv_panel_unhovered", _inv_panel_unhovered)
 	
@@ -81,7 +75,6 @@ func _tools_panel_clicked(slot: PANEL_TOOLS, input_state = "") -> void:
 ## For check where last panel clicked after holding item from panel
 func _inv_panel_unhovered(input_state) -> void:
 	is_pointer_on_world = true
-	# Autoload.is_spectator_mode
 	if holding_item and output_from_state == null:
 		output_from_state = input_state
 
@@ -95,15 +88,15 @@ func _reset_holding_item() -> void:
 		output_from_state = null
 		holding_item = null
 	# Initialize panel
+	set_builder_inventory()
+
+func set_builder_inventory():
+	const data = {"id":"ToolItem009","inventory":"builder","name":"flag","qty":1,"slot_id":9,"stack_size": 1}
+	var index: int = 0
 	set_inventory(builder_container)
-	set_tools_inventory()
-	
-## Set Data to Tools Inventory
-func set_tools_inventory() -> void:
-	var data = [{"id":"ToolItem001","inventory":"builder","name":"flag","qty":1,"slot_id":0,"stack_size": 1}]
-	var index = 0
-	for slot in tool_container.get_children():
-		slot.init_item_into_slot(data[index])
+	for slot in builder_container.get_children():
+		if index == (builder_container.get_child_count() - 1):
+			slot.init_item_into_slot(data)
 		index += 1
 
 ## action to put item into world after holding item from clicked 

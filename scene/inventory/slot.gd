@@ -30,8 +30,7 @@ func _on_mouse_entered() -> void:
 	mouse_hovered()
 
 func mouse_hovered() -> void:
-	# modulate = "eaeaea"
-	modulate = "80ffff"
+	self_modulate = "ff9900c9"
 	is_mouse_hovered = true	
 
 func _on_mouse_exited() -> void:
@@ -40,11 +39,11 @@ func _on_mouse_exited() -> void:
 	mouse_unhovered()
 
 func mouse_unhovered() -> void:
-	modulate = "fff"
+	self_modulate = "fff"
 	is_mouse_hovered = false	
 
 func refresh_style() -> void:
-	self.modulate = "fff"
+	self.self_modulate = "fff"
 
 func init_item_into_slot(data, item_size = null) -> void:	
 	if data != null:

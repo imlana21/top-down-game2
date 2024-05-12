@@ -9,7 +9,7 @@ var CHAR_DETAIL = {
 	"luk": 0.5,
 	"def": 1,
 	"str": 3,
-	"exp": 0,
+	"exp": 90,
 	"level": 1
 }
 signal change_direction

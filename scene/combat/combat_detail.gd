@@ -8,7 +8,7 @@ var is_attacking: bool = false
 var last_position = null
 var battle_speed: float = 1.0
 var player_energy: int = 3
-var exp_max: int = 1000
+var exp_max: int = 100
 var coin: int = 0
 var gem: int = 0
 var coin_position: Array = []
@@ -28,9 +28,9 @@ func get_battle_speed(normal_speed: float):
 
 func set_exp_max():
 	if player_detail["level"] == 1:
-		exp_max = 1000
+		exp_max = 100
 	else:
-		exp_max = round(1.11 * exp_max)
+		exp_max = round(1.13 * exp_max)
 
 func level():
 	while player_detail["exp"] > exp_max:

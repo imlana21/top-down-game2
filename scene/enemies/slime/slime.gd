@@ -101,11 +101,10 @@ func set_to_boss():
 func set_to_normal():
 	$Name.text = "Unique Slime"
 	$Name.hide()
-	CHAR_DETAIL["exp"] = randi_range(700, 1500)
+	CHAR_DETAIL["exp"] = 10
 	$PlayerDetector.set_collision_mask_value(3, false)
 
 func set_to_unique():
-	$Name.hide()
 	$PlayerDetector.set_collision_mask_value(3, true)
 
 func set_to_red():

@@ -46,7 +46,7 @@ func _on_player_start_combat(enemy):
 				CombatDetail.silver_key_position.append(Autoload.red_enemy_position[enemy_index] - Vector2(0, 10))
 			Autoload.red_enemy_position.remove_at(enemy_index)
 	# Emit Combat
-	CombatDetail.enemy_detail = enemy.CHAR_DETAIL
+	CombatDetail.set_enemy_detail(enemy.CHAR_DETAIL)
 	CombatDetail.enemy_type = enemy.type
 	start_combat.emit(self)
 

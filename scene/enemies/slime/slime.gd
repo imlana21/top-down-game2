@@ -29,12 +29,13 @@ func _ready():
 	nav_agent.target_desired_distance = 4
 	match type:
 		"bos":
-			set_to_boss()
+			set_to_boss()	
 		"red":
 			set_to_red()
 			set_to_normal()
 		"unique":
 			set_to_unique()
+			set_to_normal()
 		_:
 			set_to_normal()
 
@@ -101,7 +102,7 @@ func set_to_boss():
 func set_to_normal():
 	$Name.text = "Unique Slime"
 	$Name.hide()
-	CHAR_DETAIL["exp"] = 10
+	CHAR_DETAIL["exp"] = 100000
 	$PlayerDetector.set_collision_mask_value(3, false)
 
 func set_to_unique():

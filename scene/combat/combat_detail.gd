@@ -20,6 +20,9 @@ var chance: bool = false
 func set_player_detail(val):
 	player_detail = val
 
+func set_enemy_detail(val):
+	enemy_detail = val
+
 func set_is_attacking(val):
 	is_attacking = val
 
@@ -27,15 +30,15 @@ func get_battle_speed(normal_speed: float):
 	return normal_speed / CombatDetail.battle_speed
 
 func set_exp_max():
-	if player_detail["level"] == 1:
+	if player_detail.level == 1:
 		exp_max = 100
 	else:
 		exp_max = round(1.13 * exp_max)
 
 func level():
-	while player_detail["exp"] > exp_max:
-		player_detail["exp"] -= exp_max
-		player_detail["level"] += 1
+	while player_detail.exp >= exp_max:
+		player_detail.exp -= exp_max
+		player_detail.level += 1
 		set_exp_max()
 		
 func spawn_coin(world, pos, status):

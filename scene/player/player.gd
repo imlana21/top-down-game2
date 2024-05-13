@@ -84,7 +84,7 @@ func walk(delta):
 	move_and_slide()
 
 func take_damage(strength):
-	CHAR_DETAIL["curr_hp"] = CHAR_DETAIL["curr_hp"] - strength 
+	CHAR_DETAIL.curr_hp = CHAR_DETAIL.curr_hp - strength 
 
 func attacking():
 	if !Autoload.prevent_attack:

@@ -17,9 +17,6 @@ signal change_combat
 func _ready():
 	Autoload.pause_scale = Vector2(1, 1)
 	Autoload.pause_position = get_viewport_rect(). size / 2
-	# Setup Enemy is Boss
-	if CombatDetail.enemy_type == "bos":
-		enemy.CHAR_DETAIL = CombatDetail.enemy_detail
 	# SetUp Battle Combat
 	characters.append(player)
 	characters.append(enemy)
@@ -30,18 +27,20 @@ func _ready():
 	generate_turn()
 
 func _process(_delta):
-	player_bar.value = player.CHAR_DETAIL["curr_hp"]
-	enemy_bar.value = enemy.CHAR_DETAIL["curr_hp"]
+	player_bar.value = player.CHAR_DETAIL.curr_hp
+	enemy_bar.value = enemy.CHAR_DETAIL.curr_hp
 	
 func call_character(char_instance, node, bar):
 	if "enemy_name" in char_instance.CHAR_DETAIL and CombatDetail.enemy_type == "bos":
 		char_instance.scale = Vector2(18.0, 18.0)
 		$Character/EnemyMarker.position += Vector2(0, -80)
+		node.add_child(char_instance)
+		enemy.CHAR_DETAIL = CombatDetail.enemy_detail
 	else:
 		char_instance.scale = Vector2(6.0, 6.0)
-	node.add_child(char_instance)
+		node.add_child(char_instance)
 	# Set Bar
-	bar.max_value = char_instance.CHAR_DETAIL["max_hp"]
+	bar.max_value = char_instance.CHAR_DETAIL.max_hp
 	bar.min_value = 0
 
 func generate_turn():
@@ -51,7 +50,7 @@ func generate_turn():
 		for character in character_list:
 			take_damage(character)
 			await get_tree().create_timer(CombatDetail.get_battle_speed(2.0)).timeout
-			if character.CHAR_DETAIL["atk_speed"] >= 2 * character_list[1 - character_list.find(character)].CHAR_DETAIL["atk_speed"]:
+			if character.CHAR_DETAIL.atk_speed >= 2 * character_list[1 - character_list.find(character)].CHAR_DETAIL.atk_speed:
 				take_damage(character)
 				await get_tree().create_timer(CombatDetail.get_battle_speed(2.0)).timeout
 			if !CombatDetail.is_attacking:
@@ -63,7 +62,7 @@ func lose_action(marker, character, message):
 	repeat_turn = false
 	CombatDetail.is_attacking = false
 	CombatDetail.player_energy -= 1
-	CombatDetail.player_detail["exp"] += CombatDetail.enemy_detail["exp"]
+	CombatDetail.player_detail.exp += CombatDetail.enemy_detail.exp
 	if CombatDetail.enemy_type == "bos":
 		CombatDetail.player_energy += 3
 		CombatDetail.enemy_type = "normal"
@@ -87,17 +86,17 @@ func take_damage(character):
 	if CombatDetail.is_attacking == false: return
 	$Label.text = character.name + " Turn"
 	if 'enemy_name' in character.CHAR_DETAIL:
-		player.take_damage(character.CHAR_DETAIL["str"])
+		player.take_damage(character.CHAR_DETAIL.str)
 		enemy.attacking()
 	else:
 		player.attacking()
-		enemy.take_damage(character.CHAR_DETAIL["str"])
+		enemy.take_damage(character.CHAR_DETAIL.str)
 	
-	if player.CHAR_DETAIL["curr_hp"] < 1:
+	if player.CHAR_DETAIL.curr_hp < 1:
 		lose_action($Character/PlayerMarker, player, "Player Kalah")
-	elif enemy.CHAR_DETAIL["curr_hp"] < 1:
+	elif enemy.CHAR_DETAIL.curr_hp < 1:
 		lose_action($Character/EnemyMarker, enemy, "Enemy Kalah")
 
 func _compare_intiative_attack(a, b):
-	return b.CHAR_DETAIL["atk_speed"] < a.CHAR_DETAIL["atk_speed"]
+	return b.CHAR_DETAIL.atk_speed < a.CHAR_DETAIL.atk_speed
 	

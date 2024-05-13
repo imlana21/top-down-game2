@@ -36,6 +36,10 @@ func set_item(val, is_result = false):
 	item = val
 	crafting_item.set_item(item)
 	crafting_item.scale = Vector2(0.8, 0.8)
+	set_anchor_center(crafting_item)
 	add_child(crafting_item)
 	if !is_result:
 		crafting_item_setted.emit(item)
+
+func set_anchor_center(i):
+	i.anchors_preset = Control.PRESET_CENTER

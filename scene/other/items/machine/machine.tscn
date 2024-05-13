@@ -43,6 +43,8 @@ one_shot = true
 [node name="Slot2" type="Timer" parent="TimerList"]
 one_shot = true
 
+[node name="Slot3" type="Timer" parent="TimerList"]
+
 [node name="ProgressBar" type="ProgressBar" parent="."]
 visible = false
 anchors_preset = 8
@@ -114,3 +116,4 @@ color = Color(0, 1, 0, 1)
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="timeout" from="TimerList/Slot1" to="." method="_on_slot_1_timeout"]
 [connection signal="timeout" from="TimerList/Slot2" to="." method="_on_slot_2_timeout"]
+[connection signal="timeout" from="TimerList/Slot3" to="." method="_on_slot_3_timeout"]

@@ -76,7 +76,6 @@ func set_timer(wait_time):
 		$BtnCraft.show()
 
 func init_crafting_base():
-	print(Autoload.machine_inventory.queue_item.slot2)
 	if Autoload.machine_inventory.queue_item.slot2:
 		item = Autoload.machine_inventory.queue_item.slot2
 		$Materials.set_item(item)

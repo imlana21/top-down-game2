@@ -4,15 +4,18 @@ var mouse_in_area: bool = false
 var machine_number: int = 0
 var waiting_time: Dictionary = {
 	"slot1": 0,
-	"slot2": 0
+	"slot2": 0,
+	"slot3": 0
 }
 var queue_item: Dictionary = {
 	"slot1": null,
-	"slot2": null
+	"slot2": null,
+	"slot3": null
 }
 var result_item: Dictionary = {
 	"slot1": null,
-	"slot2": null
+	"slot2": null,
+	"slot3": null
 }
 var crafting_result: Dictionary = {
 	"wood": {
@@ -45,7 +48,7 @@ func _on_area_2d_mouse_entered():
 func _on_area_2d_mouse_exited():
 	mouse_in_area = false
 
-# Timer
+### Timer Timeout
 func _on_slot_1_timeout() -> void:
 	if waiting_time.slot1 > 0:
 		waiting_time.slot1 -= 1
@@ -58,23 +61,39 @@ func _on_slot_1_timeout() -> void:
 func _on_slot_2_timeout():
 	if waiting_time.slot2 > 0:
 		waiting_time.slot2 -= 1
-		$TimerList/Slot1.start()
+		$TimerList/Slot2.start()
 	else:
-		$TimerList/Slot1.stop()
+		$TimerList/Slot2.stop()
 	init_progressbar()
 	print(waiting_time.slot2)
 
+func _on_slot_3_timeout():
+	if waiting_time.slot3 > 0:
+		waiting_time.slot3 -= 1
+		$TimerList/Slot3.start()
+	else:
+		$TimerList/Slot3.stop()
+	init_progressbar()
+	print(waiting_time.slot3)
+### End Timer Timeout
+
+### On/Off Machine Timer
 func start_machine_timer():
 	if queue_item.slot1 and waiting_time.slot1 > 0:
 		$TimerList/Slot1.start()
 	if queue_item.slot2 and waiting_time.slot2 > 0:
 		$TimerList/Slot2.start()
+	if queue_item.slot3 and waiting_time.slot3 > 0:
+		$TimerList/Slot3.start()
 
 func stop_machine_timer():
 	if queue_item.slot1 and waiting_time.slot1 < 1:
 		$TimerList/Slot1.stop()
 	if queue_item.slot2 and waiting_time.slot2 < 1:
 		$TimerList/Slot2.stop()
+	if queue_item.slot3 and waiting_time.slot3 < 1:
+		$TimerList/Slot3.stop()
+### End On/Off Machine Timer
 
 # Set Waiting Time
 func set_waiting_time_slot1(time: int=- 1) -> void:
@@ -90,8 +109,16 @@ func set_waiting_time_slot2(time: int=- 1) -> void:
 		return
 	waiting_time.slot2 = time
 	init_progressbar()
+
+func set_waiting_time_slot3(time: int=- 1) -> void:
+	if time < 0:
+		waiting_time.slot3 = result_item.slot3.wait_time
+		return
+	waiting_time.slot3 = time
+	init_progressbar()
+### End Set Waiting Time
  
-#  Set Item 
+### Set Item 
 func set_item_slot1(item) -> void:
 	queue_item.slot1 = item
 	if crafting_result.has(item.name):
@@ -106,12 +133,24 @@ func set_item_slot2(item) -> void:
 	else:
 		set_result_slot2(null)
 
-# Set Result
+func set_item_slot3(item) -> void:
+	queue_item.slot3 = item
+	if crafting_result.has(item.name):
+		set_result_slot3(crafting_result[item.name])
+	else:
+		set_result_slot3(null)
+### End Set Item 
+
+### Set Result
 func set_result_slot1(item) -> void:
 	result_item.slot1 = item
 
 func set_result_slot2(item) -> void:
 	result_item.slot2 = item
+
+func set_result_slot3(item) -> void:
+	result_item.slot3 = item
+### End Set Result
 
 # Reset slot
 func reset_slot1() -> void:
@@ -124,6 +163,11 @@ func reset_slot2() -> void:
 	result_item.slot2 = null
 	waiting_time.slot2 = -1
 
+func reset_slot3() -> void:
+	queue_item.slot3 = null
+	result_item.slot3 = null
+	waiting_time.slot3 = -1
+
 # ProgressBar
 func init_progressbar():
 	var result_time: Dictionary = {
@@ -134,7 +178,9 @@ func init_progressbar():
 		result_time.slot1 = result_item.slot1.wait_time
 	if result_item.slot2:
 		result_time.slot2 = result_item.slot2.wait_time
+	if result_item.slot3:
+		result_time.slot3 = result_item.slot3.wait_time
 	$ProgressBar.show()
 	$ProgressBar.min_value = 0
-	$ProgressBar.max_value = (result_time.slot1 + result_time.slot2)
-	$ProgressBar.value = (waiting_time.slot1 + waiting_time.slot2)
+	$ProgressBar.max_value = (result_time.slot1 + result_time.slot2 + result_time.slot3)
+	$ProgressBar.value = (waiting_time.slot1 + waiting_time.slot2 + waiting_time.slot3)

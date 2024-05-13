@@ -36,8 +36,5 @@ func _on_materials_inv_panel_clicked(craft_panel):
 	else:
 		$Inventory.hide()
 
-func _on_base_1_crafting_started():
-	$Inventory.hide()
-	
-func _on_base_2_crafting_started():
+func _on_base_crafting_started():
 	$Inventory.hide()

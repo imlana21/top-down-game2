@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dgr8vyhjgsviw"]
+[gd_scene load_steps=22 format=3 uid="uid://dgr8vyhjgsviw"]
 
 [ext_resource type="Script" path="res://scene/other/items/machine/machine_gui.gd" id="1_p6rc5"]
 [ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="1_u4ejo"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scene/other/items/machine/machine_inventory.gd" id="9_rk7jv"]
 [ext_resource type="Script" path="res://scene/other/items/machine/machine_inv_panel.gd" id="9_sk7kd"]
 [ext_resource type="Script" path="res://scene/other/items/machine/machine_crafting_base2.gd" id="9_woyai"]
+[ext_resource type="Script" path="res://scene/other/items/machine/machine_crafting_base3.gd" id="10_r5dt2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2kab"]
 atlas = ExtResource("2_2167v")
@@ -62,10 +63,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -151.0
-offset_top = -113.0
-offset_right = 157.0
-offset_bottom = 114.0
+offset_left = -154.0
+offset_top = -150.0
+offset_right = 154.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_u2kab")
@@ -78,9 +79,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -20.0
+offset_top = -52.0
 offset_right = 20.0
-offset_bottom = 20.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -344,6 +345,141 @@ text = "    Craft   "
 
 [node name="CraftingTimer" type="Timer" parent="CraftingProcess/Base2"]
 
+[node name="Base3" type="Control" parent="CraftingProcess"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = 92.0
+offset_right = -20.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_r5dt2")
+
+[node name="ProductName" type="Label" parent="CraftingProcess/Base3"]
+layout_mode = 0
+offset_left = -73.0
+offset_top = -35.0
+offset_right = 1.0
+offset_bottom = -18.0
+theme = ExtResource("1_u4ejo")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Charcoal"
+
+[node name="Materials" type="Panel" parent="CraftingProcess/Base3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -40.0
+offset_right = -26.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rq3ss")
+script = ExtResource("6_dij7u")
+
+[node name="Arrow" type="TextureRect" parent="CraftingProcess/Base3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -14.0
+offset_right = 11.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+texture = SubResource("AtlasTexture_2yg52")
+
+[node name="Loading" type="TextureProgressBar" parent="CraftingProcess/Base3"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.5
+offset_top = -18.5
+offset_right = 38.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+max_value = 5.0
+rounded = true
+fill_mode = 4
+texture_under = SubResource("AtlasTexture_36t7p")
+texture_progress = SubResource("AtlasTexture_r6jij")
+
+[node name="Results" type="Panel" parent="CraftingProcess/Base3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 26.5
+offset_top = -40.0
+offset_right = 85.5
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_rq3ss")
+script = ExtResource("6_dij7u")
+
+[node name="LabelTimer" type="Label" parent="CraftingProcess/Base3"]
+visible = false
+layout_mode = 0
+offset_left = 146.0
+offset_top = -19.0
+offset_right = 182.0
+offset_bottom = -2.0
+theme = ExtResource("1_u4ejo")
+theme_override_font_sizes/font_size = 12
+text = "00:00"
+
+[node name="BtnCraft" type="Button" parent="CraftingProcess/Base3"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 101.0
+offset_top = -20.0
+offset_right = 172.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_u4ejo")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.74902, 0.74902, 0.74902, 0.6)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_pupa2")
+text = "    Craft   "
+
+[node name="CraftingTimer" type="Timer" parent="CraftingProcess/Base3"]
+
 [node name="Inventory" type="Node2D" parent="."]
 visible = false
 position = Vector2(-32, 0)
@@ -586,10 +722,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -35.5
-offset_top = 67.0
-offset_right = 35.5
-offset_bottom = 93.0
+offset_left = -30.0
+offset_top = 109.0
+offset_right = 41.0
+offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_u4ejo")
@@ -599,20 +735,27 @@ theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 16
 text = "    Close   "
 
-[connection signal="crafting_started" from="CraftingProcess/Base1" to="." method="_on_base_1_crafting_started"]
+[connection signal="crafting_started" from="CraftingProcess/Base1" to="." method="_on_base_crafting_started"]
 [connection signal="crafting_item_setted" from="CraftingProcess/Base1/Materials" to="CraftingProcess/Base1" method="_on_materials_crafting_item_setted"]
 [connection signal="inv_panel_clicked" from="CraftingProcess/Base1/Materials" to="." method="_on_materials_inv_panel_clicked"]
 [connection signal="mouse_entered" from="CraftingProcess/Base1/Materials" to="CraftingProcess/Base1/Materials" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CraftingProcess/Base1/Materials" to="CraftingProcess/Base1/Materials" method="_on_mouse_exited"]
 [connection signal="pressed" from="CraftingProcess/Base1/BtnCraft" to="CraftingProcess/Base1" method="_on_btn_craft_pressed"]
 [connection signal="timeout" from="CraftingProcess/Base1/CraftingTimer" to="CraftingProcess/Base1" method="_on_crafting_timer_timeout"]
-[connection signal="crafting_started" from="CraftingProcess/Base2" to="." method="_on_base_2_crafting_started"]
+[connection signal="crafting_started" from="CraftingProcess/Base2" to="." method="_on_base_crafting_started"]
 [connection signal="crafting_item_setted" from="CraftingProcess/Base2/Materials" to="CraftingProcess/Base2" method="_on_materials_crafting_item_setted"]
 [connection signal="inv_panel_clicked" from="CraftingProcess/Base2/Materials" to="." method="_on_materials_inv_panel_clicked"]
 [connection signal="mouse_entered" from="CraftingProcess/Base2/Materials" to="CraftingProcess/Base2/Materials" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CraftingProcess/Base2/Materials" to="CraftingProcess/Base2/Materials" method="_on_mouse_exited"]
 [connection signal="pressed" from="CraftingProcess/Base2/BtnCraft" to="CraftingProcess/Base2" method="_on_btn_craft_pressed"]
 [connection signal="timeout" from="CraftingProcess/Base2/CraftingTimer" to="CraftingProcess/Base2" method="_on_crafting_timer_timeout"]
+[connection signal="crafting_started" from="CraftingProcess/Base3" to="." method="_on_base_crafting_started"]
+[connection signal="crafting_item_setted" from="CraftingProcess/Base3/Materials" to="CraftingProcess/Base3" method="_on_materials_crafting_item_setted"]
+[connection signal="inv_panel_clicked" from="CraftingProcess/Base3/Materials" to="." method="_on_materials_inv_panel_clicked"]
+[connection signal="mouse_entered" from="CraftingProcess/Base3/Materials" to="CraftingProcess/Base3/Materials" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CraftingProcess/Base3/Materials" to="CraftingProcess/Base3/Materials" method="_on_mouse_exited"]
+[connection signal="pressed" from="CraftingProcess/Base3/BtnCraft" to="CraftingProcess/Base3" method="_on_btn_craft_pressed"]
+[connection signal="timeout" from="CraftingProcess/Base3/CraftingTimer" to="CraftingProcess/Base3" method="_on_crafting_timer_timeout"]
 [connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot1" to="Inventory/ScrollContainer/GridContainer/Slot1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Inventory/ScrollContainer/GridContainer/Slot1" to="Inventory/ScrollContainer/GridContainer/Slot1" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="Inventory/ScrollContainer/GridContainer/Slot2" to="Inventory/ScrollContainer/GridContainer/Slot2" method="_on_mouse_entered"]

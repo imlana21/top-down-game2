@@ -1,4 +1,4 @@
-# Asset and resource
+# Credit Asset and resource
 
 - Neko Character, TileSet, Ore/Rock from https://cupnooble.itch.io/sprout-lands-asset-pack
 
@@ -41,3 +41,7 @@
 - Charcoal from https://www.hiclipart.com/free-transparent-background-png-clipart-yflfb
 
 - Bar from https://bdragon1727.itch.io/basic-pixel-health-bar-and-scroll-bar
+
+- free_paladin_skills from https://free-game-assets.itch.io/free-paladin-pixel-art-skill-icons
+
+- free_undead_skils from https://free-game-assets.itch.io/free-undead-skill-pixel-art-icons

@@ -59,7 +59,6 @@ func refresh_item(item_id):
 		"status": false,
 		"from": _generate_from()
 	})
-	#print("From bulletin Manager ", item_id)
 	save_items(data)
 
 func _generate_req_items():

@@ -1,0 +1,1685 @@
+[
+	{
+		"level": 2,
+		"rewards": {
+			"ore": 4,
+			"wheat": 6,
+			"coin": 20,
+			"gem": 2
+		},
+		"skill_upgrades": {
+			"hp": 20,
+			"defense": 4,
+			"strength": 2,
+			"luck": 1,
+			"attack_speed": 0.1
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 3,
+		"rewards": {
+			"ore": 6,
+			"wheat": 9,
+			"coin": 30,
+			"gem": 3
+		},
+		"skill_upgrades": {
+			"hp": 30,
+			"defense": 6,
+			"strength": 3,
+			"luck": 2,
+			"attack_speed": 0.15
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 4,
+		"rewards": {
+			"ore": 8,
+			"wheat": 12,
+			"coin": 40,
+			"gem": 4
+		},
+		"skill_upgrades": {
+			"hp": 40,
+			"defense": 8,
+			"strength": 4,
+			"luck": 3,
+			"attack_speed": 0.2
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 5,
+		"rewards": {
+			"ore": 10,
+			"wheat": 15,
+			"coin": 50,
+			"gem": 5
+		},
+		"skill_upgrades": {
+			"hp": 50,
+			"defense": 10,
+			"strength": 5,
+			"luck": 4,
+			"attack_speed": 0.25
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 6,
+		"rewards": {
+			"ore": 12,
+			"wheat": 18,
+			"coin": 60,
+			"gem": 6
+		},
+		"skill_upgrades": {
+			"hp": 60,
+			"defense": 12,
+			"strength": 6,
+			"luck": 5,
+			"attack_speed": 0.3
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 7,
+		"rewards": {
+			"ore": 14,
+			"wheat": 21,
+			"coin": 70,
+			"gem": 7
+		},
+		"skill_upgrades": {
+			"hp": 70,
+			"defense": 14,
+			"strength": 7,
+			"luck": 6,
+			"attack_speed": 0.35
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 8,
+		"rewards": {
+			"ore": 16,
+			"wheat": 24,
+			"coin": 80,
+			"gem": 8
+		},
+		"skill_upgrades": {
+			"hp": 80,
+			"defense": 16,
+			"strength": 8,
+			"luck": 7,
+			"attack_speed": 0.4
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 9,
+		"rewards": {
+			"ore": 18,
+			"wheat": 27,
+			"coin": 90,
+			"gem": 9
+		},
+		"skill_upgrades": {
+			"hp": 90,
+			"defense": 18,
+			"strength": 9,
+			"luck": 8,
+			"attack_speed": 0.45
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 10,
+		"rewards": {
+			"ore": 20,
+			"wheat": 30,
+			"coin": 100,
+			"gem": 10
+		},
+		"skill_upgrades": {
+			"hp": 100,
+			"defense": 20,
+			"strength": 10,
+			"luck": 9,
+			"attack_speed": 0.5
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 11,
+		"rewards": {
+			"ore": 22,
+			"wheat": 33,
+			"coin": 110,
+			"gem": 11
+		},
+		"skill_upgrades": {
+			"hp": 110,
+			"defense": 22,
+			"strength": 11,
+			"luck": 10,
+			"attack_speed": 0.55
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 12,
+		"rewards": {
+			"ore": 24,
+			"wheat": 36,
+			"coin": 120,
+			"gem": 12
+		},
+		"skill_upgrades": {
+			"hp": 120,
+			"defense": 24,
+			"strength": 12,
+			"luck": 11,
+			"attack_speed": 0.6
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 13,
+		"rewards": {
+			"ore": 26,
+			"wheat": 39,
+			"coin": 130,
+			"gem": 13
+		},
+		"skill_upgrades": {
+			"hp": 130,
+			"defense": 26,
+			"strength": 13,
+			"luck": 12,
+			"attack_speed": 0.65
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 14,
+		"rewards": {
+			"ore": 28,
+			"wheat": 42,
+			"coin": 140,
+			"gem": 14
+		},
+		"skill_upgrades": {
+			"hp": 140,
+			"defense": 28,
+			"strength": 14,
+			"luck": 13,
+			"attack_speed": 0.7
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 15,
+		"rewards": {
+			"ore": 30,
+			"wheat": 45,
+			"coin": 150,
+			"gem": 15
+		},
+		"skill_upgrades": {
+			"hp": 150,
+			"defense": 30,
+			"strength": 15,
+			"luck": 14,
+			"attack_speed": 0.75
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 16,
+		"rewards": {
+			"ore": 32,
+			"wheat": 48,
+			"coin": 160,
+			"gem": 16
+		},
+		"skill_upgrades": {
+			"hp": 160,
+			"defense": 32,
+			"strength": 16,
+			"luck": 15,
+			"attack_speed": 0.8
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 17,
+		"rewards": {
+			"ore": 34,
+			"wheat": 51,
+			"coin": 170,
+			"gem": 17
+		},
+		"skill_upgrades": {
+			"hp": 170,
+			"defense": 34,
+			"strength": 17,
+			"luck": 16,
+			"attack_speed": 0.85
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 18,
+		"rewards": {
+			"ore": 36,
+			"wheat": 54,
+			"coin": 180,
+			"gem": 18
+		},
+		"skill_upgrades": {
+			"hp": 180,
+			"defense": 36,
+			"strength": 18,
+			"luck": 17,
+			"attack_speed": 0.9
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 19,
+		"rewards": {
+			"ore": 38,
+			"wheat": 57,
+			"coin": 190,
+			"gem": 19
+		},
+		"skill_upgrades": {
+			"hp": 190,
+			"defense": 38,
+			"strength": 19,
+			"luck": 18,
+			"attack_speed": 0.95
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 20,
+		"rewards": {
+			"ore": 40,
+			"wheat": 60,
+			"coin": 200,
+			"gem": 20
+		},
+		"skill_upgrades": {
+			"hp": 200,
+			"defense": 40,
+			"strength": 20,
+			"luck": 19,
+			"attack_speed": 1
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 21,
+		"rewards": {
+			"ore": 42,
+			"wheat": 63,
+			"coin": 210,
+			"gem": 21
+		},
+		"skill_upgrades": {
+			"hp": 210,
+			"defense": 42,
+			"strength": 21,
+			"luck": 20,
+			"attack_speed": 1.05
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 22,
+		"rewards": {
+			"ore": 44,
+			"wheat": 66,
+			"coin": 220,
+			"gem": 22
+		},
+		"skill_upgrades": {
+			"hp": 220,
+			"defense": 44,
+			"strength": 22,
+			"luck": 21,
+			"attack_speed": 1.1
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 23,
+		"rewards": {
+			"ore": 46,
+			"wheat": 69,
+			"coin": 230,
+			"gem": 23
+		},
+		"skill_upgrades": {
+			"hp": 230,
+			"defense": 46,
+			"strength": 23,
+			"luck": 22,
+			"attack_speed": 1.15
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 24,
+		"rewards": {
+			"ore": 48,
+			"wheat": 72,
+			"coin": 240,
+			"gem": 24
+		},
+		"skill_upgrades": {
+			"hp": 240,
+			"defense": 48,
+			"strength": 24,
+			"luck": 23,
+			"attack_speed": 1.2
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 25,
+		"rewards": {
+			"ore": 50,
+			"wheat": 75,
+			"coin": 250,
+			"gem": 25
+		},
+		"skill_upgrades": {
+			"hp": 250,
+			"defense": 50,
+			"strength": 25,
+			"luck": 24,
+			"attack_speed": 1.25
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 26,
+		"rewards": {
+			"ore": 52,
+			"wheat": 78,
+			"coin": 260,
+			"gem": 26
+		},
+		"skill_upgrades": {
+			"hp": 260,
+			"defense": 52,
+			"strength": 26,
+			"luck": 25,
+			"attack_speed": 1.3
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 27,
+		"rewards": {
+			"ore": 54,
+			"wheat": 81,
+			"coin": 270,
+			"gem": 27
+		},
+		"skill_upgrades": {
+			"hp": 270,
+			"defense": 54,
+			"strength": 27,
+			"luck": 26,
+			"attack_speed": 1.35
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 28,
+		"rewards": {
+			"ore": 56,
+			"wheat": 84,
+			"coin": 280,
+			"gem": 28
+		},
+		"skill_upgrades": {
+			"hp": 280,
+			"defense": 56,
+			"strength": 28,
+			"luck": 27,
+			"attack_speed": 1.4
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 29,
+		"rewards": {
+			"ore": 58,
+			"wheat": 87,
+			"coin": 290,
+			"gem": 29
+		},
+		"skill_upgrades": {
+			"hp": 290,
+			"defense": 58,
+			"strength": 29,
+			"luck": 28,
+			"attack_speed": 1.45
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 30,
+		"rewards": {
+			"ore": 60,
+			"wheat": 90,
+			"coin": 300,
+			"gem": 30
+		},
+		"skill_upgrades": {
+			"hp": 300,
+			"defense": 60,
+			"strength": 30,
+			"luck": 29,
+			"attack_speed": 1.5
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 31,
+		"rewards": {
+			"ore": 62,
+			"wheat": 93,
+			"coin": 310,
+			"gem": 31
+		},
+		"skill_upgrades": {
+			"hp": 310,
+			"defense": 62,
+			"strength": 31,
+			"luck": 30,
+			"attack_speed": 1.55
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 32,
+		"rewards": {
+			"ore": 64,
+			"wheat": 96,
+			"coin": 320,
+			"gem": 32
+		},
+		"skill_upgrades": {
+			"hp": 320,
+			"defense": 64,
+			"strength": 32,
+			"luck": 31,
+			"attack_speed": 1.6
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 33,
+		"rewards": {
+			"ore": 66,
+			"wheat": 99,
+			"coin": 330,
+			"gem": 33
+		},
+		"skill_upgrades": {
+			"hp": 330,
+			"defense": 66,
+			"strength": 33,
+			"luck": 32,
+			"attack_speed": 1.65
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 34,
+		"rewards": {
+			"ore": 68,
+			"wheat": 102,
+			"coin": 340,
+			"gem": 34
+		},
+		"skill_upgrades": {
+			"hp": 340,
+			"defense": 68,
+			"strength": 34,
+			"luck": 33,
+			"attack_speed": 1.7
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 35,
+		"rewards": {
+			"ore": 70,
+			"wheat": 105,
+			"coin": 350,
+			"gem": 35
+		},
+		"skill_upgrades": {
+			"hp": 350,
+			"defense": 70,
+			"strength": 35,
+			"luck": 34,
+			"attack_speed": 1.75
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 36,
+		"rewards": {
+			"ore": 72,
+			"wheat": 108,
+			"coin": 360,
+			"gem": 36
+		},
+		"skill_upgrades": {
+			"hp": 360,
+			"defense": 72,
+			"strength": 36,
+			"luck": 35,
+			"attack_speed": 1.8
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 37,
+		"rewards": {
+			"ore": 74,
+			"wheat": 111,
+			"coin": 370,
+			"gem": 37
+		},
+		"skill_upgrades": {
+			"hp": 370,
+			"defense": 74,
+			"strength": 37,
+			"luck": 36,
+			"attack_speed": 1.85
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 38,
+		"rewards": {
+			"ore": 76,
+			"wheat": 114,
+			"coin": 380,
+			"gem": 38
+		},
+		"skill_upgrades": {
+			"hp": 380,
+			"defense": 76,
+			"strength": 38,
+			"luck": 37,
+			"attack_speed": 1.9
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 39,
+		"rewards": {
+			"ore": 78,
+			"wheat": 117,
+			"coin": 390,
+			"gem": 39
+		},
+		"skill_upgrades": {
+			"hp": 390,
+			"defense": 78,
+			"strength": 39,
+			"luck": 38,
+			"attack_speed": 1.95
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 40,
+		"rewards": {
+			"ore": 80,
+			"wheat": 120,
+			"coin": 400,
+			"gem": 40
+		},
+		"skill_upgrades": {
+			"hp": 400,
+			"defense": 80,
+			"strength": 40,
+			"luck": 39,
+			"attack_speed": 2
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 41,
+		"rewards": {
+			"ore": 82,
+			"wheat": 123,
+			"coin": 410,
+			"gem": 41
+		},
+		"skill_upgrades": {
+			"hp": 410,
+			"defense": 82,
+			"strength": 41,
+			"luck": 40,
+			"attack_speed": 2.05
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 42,
+		"rewards": {
+			"ore": 84,
+			"wheat": 126,
+			"coin": 420,
+			"gem": 42
+		},
+		"skill_upgrades": {
+			"hp": 420,
+			"defense": 84,
+			"strength": 42,
+			"luck": 41,
+			"attack_speed": 2.1
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 43,
+		"rewards": {
+			"ore": 86,
+			"wheat": 129,
+			"coin": 430,
+			"gem": 43
+		},
+		"skill_upgrades": {
+			"hp": 430,
+			"defense": 86,
+			"strength": 43,
+			"luck": 42,
+			"attack_speed": 2.15
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 44,
+		"rewards": {
+			"ore": 88,
+			"wheat": 132,
+			"coin": 440,
+			"gem": 44
+		},
+		"skill_upgrades": {
+			"hp": 440,
+			"defense": 88,
+			"strength": 44,
+			"luck": 43,
+			"attack_speed": 2.2
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 45,
+		"rewards": {
+			"ore": 90,
+			"wheat": 135,
+			"coin": 450,
+			"gem": 45
+		},
+		"skill_upgrades": {
+			"hp": 450,
+			"defense": 90,
+			"strength": 45,
+			"luck": 44,
+			"attack_speed": 2.25
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 46,
+		"rewards": {
+			"ore": 92,
+			"wheat": 138,
+			"coin": 460,
+			"gem": 46
+		},
+		"skill_upgrades": {
+			"hp": 460,
+			"defense": 92,
+			"strength": 46,
+			"luck": 45,
+			"attack_speed": 2.3
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 47,
+		"rewards": {
+			"ore": 94,
+			"wheat": 141,
+			"coin": 470,
+			"gem": 47
+		},
+		"skill_upgrades": {
+			"hp": 470,
+			"defense": 94,
+			"strength": 47,
+			"luck": 46,
+			"attack_speed": 2.35
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 48,
+		"rewards": {
+			"ore": 96,
+			"wheat": 144,
+			"coin": 480,
+			"gem": 48
+		},
+		"skill_upgrades": {
+			"hp": 480,
+			"defense": 96,
+			"strength": 48,
+			"luck": 47,
+			"attack_speed": 2.4
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 49,
+		"rewards": {
+			"ore": 98,
+			"wheat": 147,
+			"coin": 490,
+			"gem": 49
+		},
+		"skill_upgrades": {
+			"hp": 490,
+			"defense": 98,
+			"strength": 49,
+			"luck": 48,
+			"attack_speed": 2.45
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 50,
+		"rewards": {
+			"ore": 100,
+			"wheat": 150,
+			"coin": 500,
+			"gem": 50
+		},
+		"skill_upgrades": {
+			"hp": 500,
+			"defense": 100,
+			"strength": 50,
+			"luck": 49,
+			"attack_speed": 2.5
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 51,
+		"rewards": {
+			"ore": 102,
+			"wheat": 153,
+			"coin": 510,
+			"gem": 51
+		},
+		"skill_upgrades": {
+			"hp": 510,
+			"defense": 102,
+			"strength": 51,
+			"luck": 50,
+			"attack_speed": 2.55
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 52,
+		"rewards": {
+			"ore": 104,
+			"wheat": 156,
+			"coin": 520,
+			"gem": 52
+		},
+		"skill_upgrades": {
+			"hp": 520,
+			"defense": 104,
+			"strength": 52,
+			"luck": 51,
+			"attack_speed": 2.6
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 53,
+		"rewards": {
+			"ore": 106,
+			"wheat": 159,
+			"coin": 530,
+			"gem": 53
+		},
+		"skill_upgrades": {
+			"hp": 530,
+			"defense": 106,
+			"strength": 53,
+			"luck": 52,
+			"attack_speed": 2.65
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 54,
+		"rewards": {
+			"ore": 108,
+			"wheat": 162,
+			"coin": 540,
+			"gem": 54
+		},
+		"skill_upgrades": {
+			"hp": 540,
+			"defense": 108,
+			"strength": 54,
+			"luck": 53,
+			"attack_speed": 2.7
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 55,
+		"rewards": {
+			"ore": 110,
+			"wheat": 165,
+			"coin": 550,
+			"gem": 55
+		},
+		"skill_upgrades": {
+			"hp": 550,
+			"defense": 110,
+			"strength": 55,
+			"luck": 54,
+			"attack_speed": 2.75
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 56,
+		"rewards": {
+			"ore": 112,
+			"wheat": 168,
+			"coin": 560,
+			"gem": 56
+		},
+		"skill_upgrades": {
+			"hp": 560,
+			"defense": 112,
+			"strength": 56,
+			"luck": 55,
+			"attack_speed": 2.8
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 57,
+		"rewards": {
+			"ore": 114,
+			"wheat": 171,
+			"coin": 570,
+			"gem": 57
+		},
+		"skill_upgrades": {
+			"hp": 570,
+			"defense": 114,
+			"strength": 57,
+			"luck": 56,
+			"attack_speed": 2.85
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 58,
+		"rewards": {
+			"ore": 116,
+			"wheat": 174,
+			"coin": 580,
+			"gem": 58
+		},
+		"skill_upgrades": {
+			"hp": 580,
+			"defense": 116,
+			"strength": 58,
+			"luck": 57,
+			"attack_speed": 2.9
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 59,
+		"rewards": {
+			"ore": 118,
+			"wheat": 177,
+			"coin": 590,
+			"gem": 59
+		},
+		"skill_upgrades": {
+			"hp": 590,
+			"defense": 118,
+			"strength": 59,
+			"luck": 58,
+			"attack_speed": 2.95
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 60,
+		"rewards": {
+			"ore": 120,
+			"wheat": 180,
+			"coin": 600,
+			"gem": 60
+		},
+		"skill_upgrades": {
+			"hp": 600,
+			"defense": 120,
+			"strength": 60,
+			"luck": 59,
+			"attack_speed": 3
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 61,
+		"rewards": {
+			"ore": 122,
+			"wheat": 183,
+			"coin": 610,
+			"gem": 61
+		},
+		"skill_upgrades": {
+			"hp": 610,
+			"defense": 122,
+			"strength": 61,
+			"luck": 60,
+			"attack_speed": 3.05
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 62,
+		"rewards": {
+			"ore": 124,
+			"wheat": 186,
+			"coin": 620,
+			"gem": 62
+		},
+		"skill_upgrades": {
+			"hp": 620,
+			"defense": 124,
+			"strength": 62,
+			"luck": 61,
+			"attack_speed": 3.1
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 63,
+		"rewards": {
+			"ore": 126,
+			"wheat": 189,
+			"coin": 630,
+			"gem": 63
+		},
+		"skill_upgrades": {
+			"hp": 630,
+			"defense": 126,
+			"strength": 63,
+			"luck": 62,
+			"attack_speed": 3.15
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 64,
+		"rewards": {
+			"ore": 128,
+			"wheat": 192,
+			"coin": 640,
+			"gem": 64
+		},
+		"skill_upgrades": {
+			"hp": 640,
+			"defense": 128,
+			"strength": 64,
+			"luck": 63,
+			"attack_speed": 3.2
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 65,
+		"rewards": {
+			"ore": 130,
+			"wheat": 195,
+			"coin": 650,
+			"gem": 65
+		},
+		"skill_upgrades": {
+			"hp": 650,
+			"defense": 130,
+			"strength": 65,
+			"luck": 64,
+			"attack_speed": 3.25
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 66,
+		"rewards": {
+			"ore": 132,
+			"wheat": 198,
+			"coin": 660,
+			"gem": 66
+		},
+		"skill_upgrades": {
+			"hp": 660,
+			"defense": 132,
+			"strength": 66,
+			"luck": 65,
+			"attack_speed": 3.3
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 67,
+		"rewards": {
+			"ore": 134,
+			"wheat": 201,
+			"coin": 670,
+			"gem": 67
+		},
+		"skill_upgrades": {
+			"hp": 670,
+			"defense": 134,
+			"strength": 67,
+			"luck": 66,
+			"attack_speed": 3.35
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 68,
+		"rewards": {
+			"ore": 136,
+			"wheat": 204,
+			"coin": 680,
+			"gem": 68
+		},
+		"skill_upgrades": {
+			"hp": 680,
+			"defense": 136,
+			"strength": 68,
+			"luck": 67,
+			"attack_speed": 3.4
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 69,
+		"rewards": {
+			"ore": 138,
+			"wheat": 207,
+			"coin": 690,
+			"gem": 69
+		},
+		"skill_upgrades": {
+			"hp": 690,
+			"defense": 138,
+			"strength": 69,
+			"luck": 68,
+			"attack_speed": 3.45
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 70,
+		"rewards": {
+			"ore": 140,
+			"wheat": 210,
+			"coin": 700,
+			"gem": 70
+		},
+		"skill_upgrades": {
+			"hp": 700,
+			"defense": 140,
+			"strength": 70,
+			"luck": 69,
+			"attack_speed": 3.5
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 71,
+		"rewards": {
+			"ore": 142,
+			"wheat": 213,
+			"coin": 710,
+			"gem": 71
+		},
+		"skill_upgrades": {
+			"hp": 710,
+			"defense": 142,
+			"strength": 71,
+			"luck": 70,
+			"attack_speed": 3.55
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 72,
+		"rewards": {
+			"ore": 144,
+			"wheat": 216,
+			"coin": 720,
+			"gem": 72
+		},
+		"skill_upgrades": {
+			"hp": 720,
+			"defense": 144,
+			"strength": 72,
+			"luck": 71,
+			"attack_speed": 3.6
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 73,
+		"rewards": {
+			"ore": 146,
+			"wheat": 219,
+			"coin": 730,
+			"gem": 73
+		},
+		"skill_upgrades": {
+			"hp": 730,
+			"defense": 146,
+			"strength": 73,
+			"luck": 72,
+			"attack_speed": 3.65
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 74,
+		"rewards": {
+			"ore": 148,
+			"wheat": 222,
+			"coin": 740,
+			"gem": 74
+		},
+		"skill_upgrades": {
+			"hp": 740,
+			"defense": 148,
+			"strength": 74,
+			"luck": 73,
+			"attack_speed": 3.7
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 75,
+		"rewards": {
+			"ore": 150,
+			"wheat": 225,
+			"coin": 750,
+			"gem": 75
+		},
+		"skill_upgrades": {
+			"hp": 750,
+			"defense": 150,
+			"strength": 75,
+			"luck": 74,
+			"attack_speed": 3.75
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 76,
+		"rewards": {
+			"ore": 152,
+			"wheat": 228,
+			"coin": 760,
+			"gem": 76
+		},
+		"skill_upgrades": {
+			"hp": 760,
+			"defense": 152,
+			"strength": 76,
+			"luck": 75,
+			"attack_speed": 3.8
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 77,
+		"rewards": {
+			"ore": 154,
+			"wheat": 231,
+			"coin": 770,
+			"gem": 77
+		},
+		"skill_upgrades": {
+			"hp": 770,
+			"defense": 154,
+			"strength": 77,
+			"luck": 76,
+			"attack_speed": 3.85
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 78,
+		"rewards": {
+			"ore": 156,
+			"wheat": 234,
+			"coin": 780,
+			"gem": 78
+		},
+		"skill_upgrades": {
+			"hp": 780,
+			"defense": 156,
+			"strength": 78,
+			"luck": 77,
+			"attack_speed": 3.9
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 79,
+		"rewards": {
+			"ore": 158,
+			"wheat": 237,
+			"coin": 790,
+			"gem": 79
+		},
+		"skill_upgrades": {
+			"hp": 790,
+			"defense": 158,
+			"strength": 79,
+			"luck": 78,
+			"attack_speed": 3.95
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 80,
+		"rewards": {
+			"ore": 160,
+			"wheat": 240,
+			"coin": 800,
+			"gem": 80
+		},
+		"skill_upgrades": {
+			"hp": 800,
+			"defense": 160,
+			"strength": 80,
+			"luck": 79,
+			"attack_speed": 4
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 81,
+		"rewards": {
+			"ore": 162,
+			"wheat": 243,
+			"coin": 810,
+			"gem": 81
+		},
+		"skill_upgrades": {
+			"hp": 810,
+			"defense": 162,
+			"strength": 81,
+			"luck": 80,
+			"attack_speed": 4.05
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 82,
+		"rewards": {
+			"ore": 164,
+			"wheat": 246,
+			"coin": 820,
+			"gem": 82
+		},
+		"skill_upgrades": {
+			"hp": 820,
+			"defense": 164,
+			"strength": 82,
+			"luck": 81,
+			"attack_speed": 4.1
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 83,
+		"rewards": {
+			"ore": 166,
+			"wheat": 249,
+			"coin": 830,
+			"gem": 83
+		},
+		"skill_upgrades": {
+			"hp": 830,
+			"defense": 166,
+			"strength": 83,
+			"luck": 82,
+			"attack_speed": 4.15
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 84,
+		"rewards": {
+			"ore": 168,
+			"wheat": 252,
+			"coin": 840,
+			"gem": 84
+		},
+		"skill_upgrades": {
+			"hp": 840,
+			"defense": 168,
+			"strength": 84,
+			"luck": 83,
+			"attack_speed": 4.2
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 85,
+		"rewards": {
+			"ore": 170,
+			"wheat": 255,
+			"coin": 850,
+			"gem": 85
+		},
+		"skill_upgrades": {
+			"hp": 850,
+			"defense": 170,
+			"strength": 85,
+			"luck": 84,
+			"attack_speed": 4.25
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 86,
+		"rewards": {
+			"ore": 172,
+			"wheat": 258,
+			"coin": 860,
+			"gem": 86
+		},
+		"skill_upgrades": {
+			"hp": 860,
+			"defense": 172,
+			"strength": 86,
+			"luck": 85,
+			"attack_speed": 4.3
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 87,
+		"rewards": {
+			"ore": 174,
+			"wheat": 261,
+			"coin": 870,
+			"gem": 87
+		},
+		"skill_upgrades": {
+			"hp": 870,
+			"defense": 174,
+			"strength": 87,
+			"luck": 86,
+			"attack_speed": 4.35
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 88,
+		"rewards": {
+			"ore": 176,
+			"wheat": 264,
+			"coin": 880,
+			"gem": 88
+		},
+		"skill_upgrades": {
+			"hp": 880,
+			"defense": 176,
+			"strength": 88,
+			"luck": 87,
+			"attack_speed": 4.4
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 89,
+		"rewards": {
+			"ore": 178,
+			"wheat": 267,
+			"coin": 890,
+			"gem": 89
+		},
+		"skill_upgrades": {
+			"hp": 890,
+			"defense": 178,
+			"strength": 89,
+			"luck": 88,
+			"attack_speed": 4.45
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 90,
+		"rewards": {
+			"ore": 180,
+			"wheat": 270,
+			"coin": 900,
+			"gem": 90
+		},
+		"skill_upgrades": {
+			"hp": 900,
+			"defense": 180,
+			"strength": 90,
+			"luck": 89,
+			"attack_speed": 4.5
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 91,
+		"rewards": {
+			"ore": 182,
+			"wheat": 273,
+			"coin": 910,
+			"gem": 91
+		},
+		"skill_upgrades": {
+			"hp": 910,
+			"defense": 182,
+			"strength": 91,
+			"luck": 90,
+			"attack_speed": 4.55
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 92,
+		"rewards": {
+			"ore": 184,
+			"wheat": 276,
+			"coin": 920,
+			"gem": 92
+		},
+		"skill_upgrades": {
+			"hp": 920,
+			"defense": 184,
+			"strength": 92,
+			"luck": 91,
+			"attack_speed": 4.6
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 93,
+		"rewards": {
+			"ore": 186,
+			"wheat": 279,
+			"coin": 930,
+			"gem": 93
+		},
+		"skill_upgrades": {
+			"hp": 930,
+			"defense": 186,
+			"strength": 93,
+			"luck": 92,
+			"attack_speed": 4.65
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 94,
+		"rewards": {
+			"ore": 188,
+			"wheat": 282,
+			"coin": 940,
+			"gem": 94
+		},
+		"skill_upgrades": {
+			"hp": 940,
+			"defense": 188,
+			"strength": 94,
+			"luck": 93,
+			"attack_speed": 4.7
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 95,
+		"rewards": {
+			"ore": 190,
+			"wheat": 285,
+			"coin": 950,
+			"gem": 95
+		},
+		"skill_upgrades": {
+			"hp": 950,
+			"defense": 190,
+			"strength": 95,
+			"luck": 94,
+			"attack_speed": 4.75
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 96,
+		"rewards": {
+			"ore": 192,
+			"wheat": 288,
+			"coin": 960,
+			"gem": 96
+		},
+		"skill_upgrades": {
+			"hp": 960,
+			"defense": 192,
+			"strength": 96,
+			"luck": 95,
+			"attack_speed": 4.8
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 97,
+		"rewards": {
+			"ore": 194,
+			"wheat": 291,
+			"coin": 970,
+			"gem": 97
+		},
+		"skill_upgrades": {
+			"hp": 970,
+			"defense": 194,
+			"strength": 97,
+			"luck": 96,
+			"attack_speed": 4.85
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 98,
+		"rewards": {
+			"ore": 196,
+			"wheat": 294,
+			"coin": 980,
+			"gem": 98
+		},
+		"skill_upgrades": {
+			"hp": 980,
+			"defense": 196,
+			"strength": 98,
+			"luck": 97,
+			"attack_speed": 4.9
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 99,
+		"rewards": {
+			"ore": 198,
+			"wheat": 297,
+			"coin": 990,
+			"gem": 99
+		},
+		"skill_upgrades": {
+			"hp": 990,
+			"defense": 198,
+			"strength": 99,
+			"luck": 98,
+			"attack_speed": 4.95
+		},
+		"is_claimed": false
+	},
+	{
+		"level": 100,
+		"rewards": {
+			"ore": 200,
+			"wheat": 300,
+			"coin": 1000,
+			"gem": 100
+		},
+		"skill_upgrades": {
+			"hp": 1000,
+			"defense": 200,
+			"strength": 100,
+			"luck": 99,
+			"attack_speed": 5
+		},
+		"is_claimed": false
+	}
+]

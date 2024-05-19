@@ -96,13 +96,13 @@ func set_to_boss():
 	CHAR_DETAIL["max_hp"] = CHAR_DETAIL["max_hp"] * 3
 	CHAR_DETAIL["curr_hp"] = CHAR_DETAIL["max_hp"]
 	CHAR_DETAIL["str"] = CHAR_DETAIL["str"] * 3
-	CHAR_DETAIL["exp"] = randi_range(3000, 5000)
+	CHAR_DETAIL["exp"] = randi_range(20, 50)
 	$PlayerDetector.set_collision_mask_value(3, false)
 
 func set_to_normal():
 	$Name.text = "Unique Slime"
 	$Name.hide()
-	CHAR_DETAIL["exp"] = 100000
+	CHAR_DETAIL["exp"] = randi_range(10, 15)
 	$PlayerDetector.set_collision_mask_value(3, false)
 
 func set_to_unique():

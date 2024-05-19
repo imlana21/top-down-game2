@@ -1,0 +1,198 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8uclh8v4ypxc"]
+
+[ext_resource type="Script" path="res://scene/menu/level_system/level_popup.gd" id="1_58lne"]
+[ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="1_bs1u7"]
+
+[node name="LevelPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -684.0
+offset_top = -360.0
+offset_right = 684.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_58lne")
+
+[node name="LeftBar" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -359.0
+offset_right = 962.0
+offset_bottom = 351.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="LeftBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -43.0
+offset_right = 66.0
+offset_bottom = -9.99997
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+theme = ExtResource("1_bs1u7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Level Up!!!!"
+
+[node name="RightBar" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -403.0
+offset_top = -360.0
+offset_bottom = 353.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="RightBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.662745, 0.541176, 0.415686, 1)
+
+[node name="LevelArea" type="Control" parent="RightBar"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 190.0
+grow_horizontal = 2
+
+[node name="Level" type="Label" parent="RightBar/LevelArea"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.5
+offset_top = 65.0
+offset_right = -25.5
+offset_bottom = 93.0
+grow_horizontal = 2
+scale = Vector2(3, 3)
+theme = ExtResource("1_bs1u7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SkillArea" type="Control" parent="RightBar"]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.647
+anchor_right = 0.5
+anchor_bottom = 0.647
+offset_left = -165.5
+offset_top = -223.311
+offset_right = 166.5
+offset_bottom = 82.689
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="RightBar/SkillArea"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.5
+offset_top = 1.0
+offset_right = 21.5
+offset_bottom = 29.0
+grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+theme = ExtResource("1_bs1u7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Skill Up"
+
+[node name="SkillUp" type="VBoxContainer" parent="RightBar/SkillArea"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 56.0
+offset_bottom = 183.0
+grow_horizontal = 2
+theme = ExtResource("1_bs1u7")
+
+[node name="HP" type="Label" parent="RightBar/SkillArea/SkillUp"]
+layout_mode = 2
+text = "HP +100"
+
+[node name="Def" type="Label" parent="RightBar/SkillArea/SkillUp"]
+layout_mode = 2
+text = "Def +1"
+
+[node name="AtkSpd" type="Label" parent="RightBar/SkillArea/SkillUp"]
+layout_mode = 2
+text = "Attack Speed +1"
+
+[node name="Str" type="Label" parent="RightBar/SkillArea/SkillUp"]
+layout_mode = 2
+text = "Strength +1"
+
+[node name="Luck" type="Label" parent="RightBar/SkillArea/SkillUp"]
+layout_mode = 2
+text = "Luck +0"
+
+[node name="RewardArea" type="Control" parent="RightBar"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -154.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="RightBar/RewardArea"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.5
+offset_top = 1.0
+offset_right = 21.5
+offset_bottom = 29.0
+grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+theme = ExtResource("1_bs1u7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Reward"
+
+[node name="RewardContainer" type="ScrollContainer" parent="RightBar/RewardArea"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -181.5
+offset_top = 56.0
+offset_right = 183.5
+offset_bottom = 127.0
+grow_horizontal = 2
+vertical_scroll_mode = 0
+
+[node name="RewardsList" type="HBoxContainer" parent="RightBar/RewardArea/RewardContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="mouse_entered" from="LeftBar" to="." method="_on_left_bar_mouse_entered"]
+[connection signal="mouse_exited" from="LeftBar" to="." method="_on_left_bar_mouse_exited"]

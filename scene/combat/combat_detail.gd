@@ -2,7 +2,7 @@ extends Node
 
 var enemy_type: String = "normal"
 var enemy_detail: Dictionary
-var status_boss:String = "alive"
+var status_boss: String = "alive"
 var player_detail: Dictionary
 var is_attacking: bool = false
 var last_position = null
@@ -16,6 +16,8 @@ var wheat_position: Array = []
 var tomato_position: Array = []
 var silver_key_position: Array = []
 var chance: bool = false
+var first_init_level: bool = true
+var level_popup: Control = null
 
 func set_player_detail(val):
 	player_detail = val
@@ -35,12 +37,14 @@ func set_exp_max():
 	else:
 		exp_max = round(1.13 * exp_max)
 
-func level():
+func level_up():
 	while player_detail.exp >= exp_max:
 		player_detail.exp -= exp_max
 		player_detail.level += 1
 		set_exp_max()
-		
+		if level_popup and player_detail.level > 1:
+			level_popup.init_level_popup(CombatDetail.player_detail.level)
+
 func spawn_coin(world, pos, status):
 	var coin_instance = load("res://scene/other/currencies/coins/coin.tscn").instantiate()
 	if status != "bos":
@@ -80,4 +84,3 @@ func spawn_chance(percent: float):
 	if random >= percent:
 		return true
 	return false
-

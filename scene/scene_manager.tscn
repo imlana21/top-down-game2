@@ -1,7 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://bvyhriropkstk"]
+[gd_scene load_steps=26 format=3 uid="uid://bvyhriropkstk"]
 
 [ext_resource type="Script" path="res://scene/scene_manager.gd" id="1_qod2y"]
-[ext_resource type="PackedScene" uid="uid://chot5i788y7ip" path="res://scene/world/warp/warp_world.tscn" id="2_416io"]
+[ext_resource type="PackedScene" uid="uid://dwki8cn7xuhuy" path="res://scene/world/world.tscn" id="2_0jndl"]
 [ext_resource type="PackedScene" uid="uid://dxlnecjp8nhas" path="res://scene/menu/pause/pause.tscn" id="3_8py1g"]
 [ext_resource type="Script" path="res://scene/pause_layer.gd" id="3_a67ew"]
 [ext_resource type="Script" path="res://scene/change_skin_layer.gd" id="4_8dixf"]
@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://dgr8vyhjgsviw" path="res://scene/other/items/machine/machine_gui.tscn" id="16_wvtkb"]
 [ext_resource type="PackedScene" uid="uid://ck1ufu55k80ad" path="res://scene/menu/tab/tab_menu.tscn" id="18_cdda8"]
 [ext_resource type="Script" path="res://scene/tabmenu_layer.gd" id="18_qlkhp"]
+[ext_resource type="PackedScene" uid="uid://c8uclh8v4ypxc" path="res://scene/menu/level_system/level_popup.tscn" id="20_2ybwr"]
+[ext_resource type="Script" path="res://scene/level_layer.gd" id="20_apupc"]
 
 [sub_resource type="Animation" id="Animation_ys5mu"]
 length = 0.001
@@ -74,7 +76,7 @@ _data = {
 "fade_out": SubResource("Animation_ovb1h")
 }
 
-[node name="SceneManager" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 process_mode = 3
 position = Vector2(0, -10)
 script = ExtResource("1_qod2y")
@@ -83,19 +85,25 @@ script = ExtResource("1_qod2y")
 process_mode = 1
 z_index = 1
 
-[node name="WarpWorld" parent="CurrentScene" instance=ExtResource("2_416io")]
+[node name="World" parent="CurrentScene" instance=ExtResource("2_0jndl")]
 visible = false
 
 [node name="ScreenTransition" type="CanvasLayer" parent="."]
 process_mode = 1
-follow_viewport_enabled = true
 
 [node name="ColorTransition" type="ColorRect" parent="ScreenTransition"]
 z_as_relative = false
-offset_left = -2073.0
-offset_top = -1845.0
-offset_right = 2115.0
-offset_bottom = 1857.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -692.5
+offset_top = -389.5
+offset_right = 692.5
+offset_bottom = 389.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
@@ -179,8 +187,15 @@ script = ExtResource("18_qlkhp")
 [node name="TabMenu" parent="TabMenuLayer" instance=ExtResource("18_cdda8")]
 visible = false
 
+[node name="LevelLayer" type="CanvasLayer" parent="."]
+script = ExtResource("20_apupc")
+
+[node name="LevelPopup" parent="LevelLayer" instance=ExtResource("20_2ybwr")]
+
 [connection signal="child_entered_tree" from="CurrentScene" to="StoreLayer" method="_on_current_scene_child_entered_tree"]
 [connection signal="child_entered_tree" from="CurrentScene" to="ChatLayer" method="_on_current_scene_child_entered_tree"]
 [connection signal="child_exiting_tree" from="CurrentScene" to="ChatLayer" method="_on_current_scene_child_exiting_tree"]
 [connection signal="animation_finished" from="ScreenTransition/AnimationTransition" to="." method="_on_animation_transition_finished"]
 [connection signal="close_window" from="MachineLayer/MachineGui" to="MachineLayer" method="_on_machine_gui_close_window"]
+[connection signal="mouse_on_leftbar" from="LevelLayer/LevelPopup" to="LevelLayer" method="_on_level_popup_mouse_on_leftbar"]
+[connection signal="mouse_out_leftbar" from="LevelLayer/LevelPopup" to="LevelLayer" method="_on_level_popup_mouse_out_leftbar"]

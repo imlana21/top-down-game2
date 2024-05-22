@@ -45,3 +45,5 @@
 - free_paladin_skills from https://free-game-assets.itch.io/free-paladin-pixel-art-skill-icons
 
 - free_undead_skils from https://free-game-assets.itch.io/free-undead-skill-pixel-art-icons
+
+- Pet Cat from https://elthen.itch.io/2d-pixel-art-cat-sprites

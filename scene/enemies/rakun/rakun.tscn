@@ -1,10 +1,10 @@
 [gd_scene load_steps=26 format=3 uid="uid://c1wifr4wxs0jc"]
 
 [ext_resource type="Script" path="res://scene/enemies/rakun/rakun.gd" id="1_c6xka"]
-[ext_resource type="Texture2D" uid="uid://h18s555wwphk" path="res://assets/Characters/GiantRacoonGold/Charge.png" id="1_feh4o"]
-[ext_resource type="Texture2D" uid="uid://dygtcvakxa5gp" path="res://assets/Characters/GiantRacoonGold/Attack.png" id="2_5fu8g"]
-[ext_resource type="Texture2D" uid="uid://bdvjcyox4vywp" path="res://assets/Characters/GiantRacoonGold/Idle.png" id="3_higch"]
-[ext_resource type="Texture2D" uid="uid://r5rfi6ie614b" path="res://assets/Characters/GiantRacoonGold/Jump.png" id="4_h4qt4"]
+[ext_resource type="Texture2D" uid="uid://h18s555wwphk" path="res://assets/GiantRacoonGold/Charge.png" id="1_feh4o"]
+[ext_resource type="Texture2D" uid="uid://dygtcvakxa5gp" path="res://assets/GiantRacoonGold/Attack.png" id="2_5fu8g"]
+[ext_resource type="Texture2D" uid="uid://bdvjcyox4vywp" path="res://assets/GiantRacoonGold/Idle.png" id="3_higch"]
+[ext_resource type="Texture2D" uid="uid://r5rfi6ie614b" path="res://assets/GiantRacoonGold/Jump.png" id="4_h4qt4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7sbuj"]
 atlas = ExtResource("1_feh4o")

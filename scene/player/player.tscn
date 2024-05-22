@@ -1,9 +1,10 @@
-[gd_scene load_steps=40 format=3 uid="uid://clsatwim6pka7"]
+[gd_scene load_steps=41 format=3 uid="uid://clsatwim6pka7"]
 
 [ext_resource type="Texture2D" uid="uid://dw8bxihcui6hl" path="res://assets/Characters/Basic Charakter Actions.png" id="1_d8pbi"]
 [ext_resource type="Script" path="res://scene/player/player.gd" id="1_ipdf2"]
 [ext_resource type="Texture2D" uid="uid://jtoc0ua8ft8r" path="res://assets/Characters/Basic Charakter Spritesheet.png" id="2_bem04"]
 [ext_resource type="Script" path="res://scene/player/player_sprite.gd" id="4_jkodp"]
+[ext_resource type="PackedScene" uid="uid://eg8kti3r4vsk" path="res://scene/npc/pet/cat.tscn" id="5_hi2la"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3vmh1"]
 atlas = ExtResource("1_d8pbi")
@@ -302,6 +303,8 @@ radius = 18.2483
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 process_mode = 1
 z_index = 9
+position = Vector2(98, 47)
+scale = Vector2(2, 2)
 collision_layer = 31
 collision_mask = 255
 script = ExtResource("1_ipdf2")
@@ -320,6 +323,9 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetector"]
 shape = SubResource("CircleShape2D_3t38j")
+
+[node name="Cat" parent="." instance=ExtResource("5_hi2la")]
+position = Vector2(-38, -11)
 
 [connection signal="change_direction" from="." to="PlayerSprite" method="_on_player_change_direction"]
 [connection signal="change_velocity" from="." to="PlayerSprite" method="_on_player_change_velocity"]

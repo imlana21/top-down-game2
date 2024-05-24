@@ -20,7 +20,7 @@ func _physics_process(_delta):
 func _on_player_hit():
 	sprite_action = "attack"
 		
-# Convert vector to get player direction
+# Convert vector to get po0ayer direction
 func _on_player_change_direction(vector):
 	var vector_to_angle = (round(rad_to_deg(vector.angle()))/90)*90
 	sprite_direction = Autoload.angle_to_text(vector_to_angle)

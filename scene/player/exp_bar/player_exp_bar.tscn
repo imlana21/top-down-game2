@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci073ospwb7tw"]
+[gd_scene load_steps=5 format=3 uid="uid://dtd3vn0b0h6ob"]
 
+[ext_resource type="Script" path="res://scene/player/exp_bar/player_exp_bar.gd" id="1_4lyv3"]
 [ext_resource type="Theme" uid="uid://bnxyqifnolrd1" path="res://scene/combat/combat.tres" id="1_t30ia"]
-[ext_resource type="Script" path="res://scene/player/exp_bar/exp_bar.gd" id="1_u82hg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rftu3"]
 bg_color = Color(0, 0, 0, 0)
@@ -27,7 +27,18 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_u82hg")
+script = ExtResource("1_4lyv3")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -88.0
+offset_top = -24.0
+offset_right = -48.0
+offset_bottom = -9.0
+theme = ExtResource("1_t30ia")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Player"
 
 [node name="ProgressLevel" type="Label" parent="."]
 layout_mode = 1

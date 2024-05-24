@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=3 uid="uid://kahxtchhaasp"]
+
+[ext_resource type="Script" path="res://scene/player/exp_bar/pet_exp_bar.gd" id="1_sn8su"]
+[ext_resource type="Theme" uid="uid://bnxyqifnolrd1" path="res://scene/combat/combat.tres" id="1_t30ia"]
+[ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="2_bpah6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rftu3"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1pv2l"]
+bg_color = Color(0.856494, 3.65794e-06, 8.66354e-07, 1)
+
+[node name="ExpBar" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sn8su")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -89.0
+offset_top = -23.0
+offset_right = -11.0
+offset_bottom = -8.0
+theme = ExtResource("2_bpah6")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Pet
+"
+
+[node name="ProgressLevel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -9.0
+offset_right = -79.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_t30ia")
+theme_override_font_sizes/font_size = 10
+text = "1"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -2.5
+offset_right = 78.5
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_rftu3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1pv2l")
+step = 1.0
+rounded = true
+show_percentage = false
+
+[node name="ProgressNumber" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 81.0
+offset_top = -9.0
+offset_right = 240.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_t30ia")
+theme_override_font_sizes/font_size = 10
+text = "0"
+vertical_alignment = 1

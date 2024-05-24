@@ -2,11 +2,13 @@ extends Node2D
 
 @onready var player = preload("res://scene/player/player.tscn").instantiate()
 @onready var enemy = preload("res://scene/enemies/slime/slime.tscn").instantiate()
+@onready var pet = preload("res://scene/npc/pet/cat.tscn").instantiate()
 @onready var player_node = $Character/PlayerMarker
 @onready var enemy_node = $Character/EnemyMarker
+@onready var pet_node = $Character/PetMarker
 @onready var player_bar = $HealthBar/Player/ProgressBar
-@onready var enemy_bar = $HealthBar/Enemy/ProgressBar2
-
+@onready var enemy_bar = $HealthBar/Enemy/ProgressBar
+@onready var pet_bar = $HealthBar/Pet/ProgressBar
 var characters: Array = []
 var repeat_turn = true
 var next_world_name: String
@@ -14,21 +16,25 @@ var next_world_name: String
 signal change_scene
 signal change_combat
 
-func _ready():
+func _ready(): 	
 	Autoload.pause_scale = Vector2(1, 1)
 	Autoload.pause_position = get_viewport_rect(). size / 2
 	# SetUp Battle Combat
 	characters.append(player)
 	characters.append(enemy)
+	characters.append(pet)
 	call_character(player, player_node, player_bar)
 	call_character(enemy, enemy_node, enemy_bar)
+	call_character(pet, pet_node, pet_bar)
 	await get_tree().create_timer(2).timeout
 	# Start Battle
 	generate_turn()
+	print(Autoload.pet_detail)
 
 func _process(_delta):
 	player_bar.value = player.CHAR_DETAIL.curr_hp
 	enemy_bar.value = enemy.CHAR_DETAIL.curr_hp
+	pet_bar.value = pet.CHAR_DETAIL.curr_hp
 	
 func call_character(char_instance, node, bar):
 	if "enemy_name" in char_instance.CHAR_DETAIL and CombatDetail.enemy_type == "bos":
@@ -54,6 +60,7 @@ func generate_turn():
 				take_damage(character)
 				await get_tree().create_timer(CombatDetail.get_battle_speed(2.0)).timeout
 			if !CombatDetail.is_attacking:
+				await get_tree().create_timer(CombatDetail.get_battle_speed(2.0)).timeout
 				battle_finished()
 			
 func lose_action(marker, character, message):
@@ -75,25 +82,29 @@ func battle_finished():
 	#Move to world
 	var next_path = 'res://scene/world/world.tscn'
 	var current_scene = self
-
 	if next_world_name == "WarpWorld":
 		next_path = 'res://scene/world/warp/warp_world.tscn'
 		Autoload.warpworld_enemy_killed = true
-		
 	change_combat.emit(next_path, current_scene)
 	
 func take_damage(character):
 	if CombatDetail.is_attacking == false: return
 	$Label.text = character.name + " Turn"
 	if 'enemy_name' in character.CHAR_DETAIL:
-		player.take_damage(character.CHAR_DETAIL.str)
+		var player_team = [player, pet]
+		var random_attacked = player_team[randi_range(0, player_team.size() - 1)]
 		enemy.attacking()
+		random_attacked.take_damage(character.CHAR_DETAIL.str)
+	elif 'pet_name' in character.CHAR_DETAIL:
+		pet.attacking()
+		enemy.take_damage(character.CHAR_DETAIL.str)
 	else:
 		player.attacking()
 		enemy.take_damage(character.CHAR_DETAIL.str)
 	
 	if player.CHAR_DETAIL.curr_hp < 1:
 		lose_action($Character/PlayerMarker, player, "Player Kalah")
+		lose_action($Character/PetMarker, pet, "Player Kalah")
 	elif enemy.CHAR_DETAIL.curr_hp < 1:
 		lose_action($Character/EnemyMarker, enemy, "Enemy Kalah")
 

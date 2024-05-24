@@ -304,7 +304,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n4hpd")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
 "speed": 5.0
 }, {
@@ -471,8 +471,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q1y6r")
 }],
-"loop": true,
-"name": &"walk",
+"loop": false,
+"name": &"walk_right",
 "speed": 5.0
 }]
 
@@ -480,14 +480,16 @@ animations = [{
 size = Vector2(6, 5)
 
 [node name="Cat" type="CharacterBody2D"]
-position = Vector2(24, 24)
+collision_layer = 2
+collision_mask = 29
 script = ExtResource("1_xo56c")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1gn6u")
-animation = &"walk"
-frame_progress = 0.889858
+animation = &"jump"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_3crfs")
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

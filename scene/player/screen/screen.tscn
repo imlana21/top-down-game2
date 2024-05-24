@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://nmtmi2fu0gk6"]
+[gd_scene load_steps=11 format=3 uid="uid://nmtmi2fu0gk6"]
 
 [ext_resource type="Script" path="res://scene/player/screen/screen.gd" id="1_ayc6u"]
 [ext_resource type="PackedScene" uid="uid://clsatwim6pka7" path="res://scene/player/player.tscn" id="1_ch7dy"]
@@ -6,8 +6,9 @@
 [ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="2_xtnd7"]
 [ext_resource type="PackedScene" uid="uid://8uxmk530680s" path="res://scene/inventory/builder/builder.tscn" id="5_5giyn"]
 [ext_resource type="PackedScene" uid="uid://ijuv1rxcurki" path="res://scene/player/currencies_bar/coin_bar.tscn" id="5_fqgxj"]
-[ext_resource type="PackedScene" uid="uid://ci073ospwb7tw" path="res://scene/player/exp_bar/exp_bar.tscn" id="5_kfqb5"]
+[ext_resource type="PackedScene" uid="uid://dtd3vn0b0h6ob" path="res://scene/player/exp_bar/player_exp_bar.tscn" id="5_kfqb5"]
 [ext_resource type="PackedScene" uid="uid://ch1hunbc0oru3" path="res://scene/player/currencies_bar/gem_bar.tscn" id="6_8sunh"]
+[ext_resource type="PackedScene" uid="uid://eg8kti3r4vsk" path="res://scene/npc/pet/cat.tscn" id="9_uyao0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8na4g"]
 atlas = ExtResource("2_3ha78")
@@ -28,7 +29,7 @@ position = Vector2(-29, -154)
 [node name="GemBar" parent="Camera2D/Curencies" instance=ExtResource("6_8sunh")]
 position = Vector2(18, -154)
 
-[node name="ExpBar" parent="Camera2D/Curencies" instance=ExtResource("5_kfqb5")]
+[node name="PlayerExpBar" parent="Camera2D/Curencies" instance=ExtResource("5_kfqb5")]
 anchors_preset = 0
 anchor_left = 0.0
 anchor_top = 0.0
@@ -126,5 +127,8 @@ scale = Vector2(0.4, 0.4)
 
 [node name="Player" parent="." instance=ExtResource("1_ch7dy")]
 collision_layer = 2
+
+[node name="Cat" parent="." instance=ExtResource("9_uyao0")]
+position = Vector2(-39, 0)
 
 [connection signal="start_combat" from="Player" to="." method="_on_player_start_combat"]

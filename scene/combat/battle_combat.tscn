@@ -564,10 +564,13 @@ layer_1/tile_data = PackedInt32Array(1114111, 2, 2, 1048576, 131074, 2, 1048577,
 [node name="Character" type="Node2D" parent="."]
 
 [node name="PlayerMarker" type="Node2D" parent="Character"]
-position = Vector2(369, 326)
+position = Vector2(387, 378)
 
 [node name="EnemyMarker" type="Node2D" parent="Character"]
 position = Vector2(991, 326)
+
+[node name="PetMarker" type="Node2D" parent="Character"]
+position = Vector2(224, 269)
 
 [node name="HealthBar" type="Node2D" parent="."]
 
@@ -575,18 +578,37 @@ position = Vector2(991, 326)
 
 [node name="Label" type="Label" parent="HealthBar/Player"]
 offset_left = 124.0
-offset_top = 540.0
+offset_top = 484.0
 offset_right = 198.0
-offset_bottom = 567.0
+offset_bottom = 511.0
 theme = ExtResource("3_yrmua")
 text = "Player"
 
 [node name="ProgressBar" type="ProgressBar" parent="HealthBar/Player"]
 modulate = Color(0, 0, 0, 1)
 offset_left = 123.0
-offset_top = 570.0
+offset_top = 514.0
 offset_right = 600.0
-offset_bottom = 630.0
+offset_bottom = 574.0
+rounded = true
+show_percentage = false
+
+[node name="Pet" type="Node2D" parent="HealthBar"]
+
+[node name="Label" type="Label" parent="HealthBar/Pet"]
+offset_left = 124.0
+offset_top = 596.0
+offset_right = 198.0
+offset_bottom = 623.0
+theme = ExtResource("3_yrmua")
+text = "Pet"
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthBar/Pet"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 123.0
+offset_top = 626.0
+offset_right = 600.0
+offset_bottom = 686.0
 rounded = true
 show_percentage = false
 
@@ -611,7 +633,7 @@ offset_bottom = 566.0
 theme = ExtResource("3_yrmua")
 text = "Enemy Slime"
 
-[node name="ProgressBar2" type="ProgressBar" parent="HealthBar/Enemy"]
+[node name="ProgressBar" type="ProgressBar" parent="HealthBar/Enemy"]
 modulate = Color(0, 0, 0, 1)
 offset_left = 747.0
 offset_top = 570.0

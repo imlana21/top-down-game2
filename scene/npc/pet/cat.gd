@@ -18,7 +18,7 @@ var follow_distance: float = 39
 var speed: int = 90
 
 func _ready():
-	Autoload.pet_detail = CHAR_DETAIL
+	update_stats(AutoloadPet.set_node(self))
 	if !CombatDetail.is_attacking:
 		player = get_parent().get_node("Player")
 	$Sprite.play('idle')
@@ -56,31 +56,6 @@ func play_animation(d):
 		if new_direction == Vector2( - 1, 0):
 			$Sprite.flip_h = true
 			$Sprite.play('walk_right')
-		
-func set_curr_hp(val) -> void:
-	CHAR_DETAIL.curr_hp = val
-
-func set_up_exp(val) -> void:
-	CHAR_DETAIL.exp += val
-
-func set_up_level(val) -> void:
-	CHAR_DETAIL.level += val
-
-func set_up_bond(val) -> void:
-	CHAR_DETAIL.bond += val
-
-func set_stats(
-	max_hp: int=0,
-	atk_speed: float=0.0,
-	luk: float=0.0,
-	def: int=0,
-	strength: int=0
-) -> void:
-	CHAR_DETAIL.max_hp = max_hp
-	CHAR_DETAIL.atk_speed = atk_speed
-	CHAR_DETAIL.luk = luk
-	CHAR_DETAIL.def = def
-	CHAR_DETAIL.str = strength
 
 func _on_sprite_animation_finished():
 		$Sprite.play('idle')	
@@ -91,3 +66,13 @@ func attacking():
 
 func take_damage(strength):
 	CHAR_DETAIL["curr_hp"] = CHAR_DETAIL["curr_hp"] - strength
+
+func update_stats(val):
+	if val == null: return
+	CHAR_DETAIL = val
+
+func _on_mouse_entered():
+	AutoloadPet.mouse_on_pet = true
+
+func _on_mouse_exited():
+	AutoloadPet.mouse_on_pet = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bvyhriropkstk"]
+[gd_scene load_steps=27 format=3 uid="uid://bvyhriropkstk"]
 
 [ext_resource type="Script" path="res://scene/scene_manager.gd" id="1_qod2y"]
 [ext_resource type="PackedScene" uid="uid://dwki8cn7xuhuy" path="res://scene/world/world.tscn" id="2_0jndl"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://scene/tabmenu_layer.gd" id="18_qlkhp"]
 [ext_resource type="PackedScene" uid="uid://c8uclh8v4ypxc" path="res://scene/menu/level_system/level_popup.tscn" id="20_2ybwr"]
 [ext_resource type="Script" path="res://scene/level_layer.gd" id="20_apupc"]
+[ext_resource type="PackedScene" uid="uid://8kqqmys7r570" path="res://scene/menu/pet_detail/pet_detail.tscn" id="22_01o8c"]
 
 [sub_resource type="Animation" id="Animation_ys5mu"]
 length = 0.001
@@ -191,6 +192,12 @@ visible = false
 script = ExtResource("20_apupc")
 
 [node name="LevelPopup" parent="LevelLayer" instance=ExtResource("20_2ybwr")]
+visible = false
+
+[node name="PetDetailLayer" type="CanvasLayer" parent="."]
+
+[node name="PetDetail" parent="PetDetailLayer" instance=ExtResource("22_01o8c")]
+visible = false
 
 [connection signal="child_entered_tree" from="CurrentScene" to="StoreLayer" method="_on_current_scene_child_entered_tree"]
 [connection signal="child_entered_tree" from="CurrentScene" to="ChatLayer" method="_on_current_scene_child_entered_tree"]

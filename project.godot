@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Autoload="*res://autoload.gd"
 CombatDetail="*res://scene/combat/combat_detail.gd"
+AutoloadPet="*res://autoload_pet.gd"
 
 [debug]
 
@@ -174,6 +175,11 @@ number_9={
 buy={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":66,"key_label":0,"unicode":98,"echo":false,"script":null)
+]
+}
+show_pet_detail={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"echo":false,"script":null)
 ]
 }
 

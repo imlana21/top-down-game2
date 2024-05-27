@@ -7,7 +7,7 @@ var player_detail: Dictionary
 var is_attacking: bool = false
 var last_position = null
 var battle_speed: float = 1.0
-var player_energy: int = 3
+var player_energy: int = 20
 var exp_max: int = 100
 var coin: int = 0
 var gem: int = 0

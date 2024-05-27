@@ -3,8 +3,8 @@ extends CharacterBody2D
 var CHAR_DETAIL = {
 	"enemy_name": "slime",
 	"atk_speed": 0.3,
-	"max_hp": 20,
-	"curr_hp": 20,
+	"max_hp": 10,
+	"curr_hp": 3,
 	"luk": 0.5,
 	"def": 1,
 	"str": 1,

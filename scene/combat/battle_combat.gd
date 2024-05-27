@@ -29,7 +29,6 @@ func _ready():
 	await get_tree().create_timer(2).timeout
 	# Start Battle
 	generate_turn()
-	print(Autoload.pet_detail)
 
 func _process(_delta):
 	player_bar.value = player.CHAR_DETAIL.curr_hp
@@ -69,7 +68,9 @@ func lose_action(marker, character, message):
 	repeat_turn = false
 	CombatDetail.is_attacking = false
 	CombatDetail.player_energy -= 1
+	print(CombatDetail.enemy_detail.exp)
 	CombatDetail.player_detail.exp += CombatDetail.enemy_detail.exp
+	AutoloadPet.level_up(CombatDetail.enemy_detail.exp)
 	if CombatDetail.enemy_type == "bos":
 		CombatDetail.player_energy += 3
 		CombatDetail.enemy_type = "normal"

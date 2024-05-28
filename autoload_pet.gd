@@ -2,7 +2,7 @@ extends Node
 
 var pet_detail = null
 var pet_node = null : set = set_node
-var pet_exp_max: int = 20
+var pet_exp_max: int = 50
 var mouse_on_pet: bool = false
 
 func set_node(node: CharacterBody2D): 

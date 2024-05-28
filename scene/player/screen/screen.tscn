@@ -46,10 +46,10 @@ size_flags_horizontal = 4
 mouse_filter = 2
 
 [node name="ExpBar" parent="Camera2D/Curencies" instance=ExtResource("5_agbme")]
-offset_left = -224.0
-offset_top = -128.0
-offset_right = -224.0
-offset_bottom = -128.0
+offset_left = -307.0
+offset_top = -131.0
+offset_right = -307.0
+offset_bottom = -131.0
 
 [node name="EnergyBar" type="Control" parent="Camera2D/Curencies"]
 layout_mode = 3

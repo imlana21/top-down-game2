@@ -29,6 +29,15 @@ func _input(event):
 		holding_item.global_position = get_global_mouse_position()
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and holding_item and Autoload.paused_on == "":
 		put_to_world()
+	if Input.is_action_pressed('control') and Autoload.paused_on == "tab_menu":
+		$ScrollContainer.mouse_filter = MOUSE_FILTER_IGNORE
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_WHEEL_UP):
+			zoom_in()
+		elif Input.is_mouse_button_pressed(MOUSE_BUTTON_WHEEL_DOWN):
+			zoom_out()
+	if Input.is_action_just_released('control'):
+		$ScrollContainer.mouse_filter = MOUSE_FILTER_PASS
+		reset_zoom()
 
 func initialize_container():
 	var index = 0
@@ -72,3 +81,26 @@ func put_to_world():
 		z_index = 10
 		get_tree().paused = true
 		
+var scale_step: float = 0.1
+var max_scale: Vector2 = Vector2(2, 2)
+var min_scale: Vector2 = Vector2(1, 1)
+@onready var viewport_scale: Vector2 = Vector2(get_viewport().size.x, get_viewport().size.y)
+var anchor_factors: Vector2
+
+func zoom_in():
+	anchor_factors = get_global_mouse_position() - viewport_scale / 2
+	if scale < max_scale:
+		scale += Vector2(scale_step, scale_step)
+		pivot_offset = anchor_factors
+
+func zoom_out():
+	anchor_factors = get_global_mouse_position() - viewport_scale / 2
+	if scale > min_scale:
+		scale -= Vector2(scale_step, scale_step)
+		pivot_offset = anchor_factors	
+
+func reset_zoom():
+	scale = min_scale
+	pivot_offset = viewport_scale / 2
+	anchors_preset = Control.PRESET_CENTER
+	

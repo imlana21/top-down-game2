@@ -79,7 +79,6 @@ _data = {
 
 [node name="Node2D" type="Node2D"]
 process_mode = 3
-position = Vector2(0, -10)
 script = ExtResource("1_qod2y")
 
 [node name="CurrentScene" type="Node2D" parent="."]

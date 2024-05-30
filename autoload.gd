@@ -1,7 +1,7 @@
 extends Node
 
 var player_skin: String = "normal"
-#var is_paused: bool = false
+var pause_content = null
 var paused_on: String = ""
 var player: CharacterBody2D
 var world: Node2D
@@ -90,11 +90,13 @@ func reset_teleport_room():
 		teleport_room.append(i + 1)
 		
 # Toggle Pause Game
-func toggle_pause(layer):
+func toggle_pause(layer, content = null):
 	if paused_on == "":
+		pause_content = content
 		paused_on = layer
 		get_tree().paused = true
 	else: 
+		pause_content = content
 		paused_on = ""
 		get_tree().paused = false
 

@@ -27,11 +27,9 @@ func init_pet_popup():
 func _input(event):
 	if Input.is_action_just_pressed("show_pet_detail") and AutoloadPet.pet_node:
 		init_pet_popup()
-		visible = true
-		z_index = 20
-		visible = true
 		await get_tree().create_timer(0.5).timeout
-		print("Muncul")
+		visible = !visible
+		z_index = 20
 		Autoload.toggle_pause("pet_detail")
 	if mouse_on_leftbar and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		visible = false

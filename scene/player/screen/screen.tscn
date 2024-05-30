@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://nmtmi2fu0gk6"]
+[gd_scene load_steps=13 format=3 uid="uid://nmtmi2fu0gk6"]
 
 [ext_resource type="Script" path="res://scene/player/screen/screen.gd" id="1_ayc6u"]
 [ext_resource type="PackedScene" uid="uid://clsatwim6pka7" path="res://scene/player/player.tscn" id="1_ch7dy"]
 [ext_resource type="Texture2D" uid="uid://bdlb2giyyg238" path="res://assets/UI/Sheet/buttons/Square Buttons 19x26.png" id="2_3ha78"]
+[ext_resource type="Script" path="res://scene/player/screen/screen_camera.gd" id="2_34323"]
 [ext_resource type="Theme" uid="uid://d1nkmrepinfb0" path="res://scene/menu/menu.tres" id="2_xtnd7"]
 [ext_resource type="PackedScene" uid="uid://8uxmk530680s" path="res://scene/inventory/builder/builder.tscn" id="5_5giyn"]
 [ext_resource type="PackedScene" uid="uid://kahxtchhaasp" path="res://scene/player/exp_bar/pet_exp_bar.tscn" id="5_agbme"]
@@ -20,6 +21,8 @@ process_mode = 1
 script = ExtResource("1_ayc6u")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+script = ExtResource("2_34323")
 
 [node name="Curencies" type="Node2D" parent="Camera2D"]
 z_index = 9

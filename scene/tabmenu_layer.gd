@@ -7,7 +7,7 @@ func _input(_event):
 			$TabMenu.z_index = 10
 			$TabMenu.scale = Autoload.pause_scale
 			$TabMenu.position = Autoload.pause_position
-			Autoload.toggle_pause("tab_menu")
+			Autoload.toggle_pause("tab_menu", $TabMenu)
 	
 func _physics_process(delta):
 	if Autoload.player != null and (Autoload.paused_on == "" or Autoload.paused_on == "tab_menu"):

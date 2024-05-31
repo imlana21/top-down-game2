@@ -955,6 +955,306 @@ mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
 script = ExtResource("3_xb8ix")
 
+[node name="Panel91" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel92" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel93" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel94" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel95" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel96" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel97" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel98" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel99" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel100" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel101" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel102" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel103" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel104" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel105" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel106" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel107" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel108" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel109" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel110" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel111" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel112" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel113" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel114" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel115" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel116" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel117" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel118" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel119" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
+[node name="Panel120" type="Panel" parent="ScrollContainer/GridContainer"]
+custom_minimum_size = Vector2(118, 118)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2fkua")
+script = ExtResource("3_xb8ix")
+
 [node name="SkillDetail" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -1548,3 +1848,183 @@ vertical_alignment = 1
 [connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel90" to="." method="_on_panel_skills_clicked"]
 [connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel90" to="." method="_on_panel_skills_hovered"]
 [connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel90" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel91" to="ScrollContainer/GridContainer/Panel91" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel91" to="ScrollContainer/GridContainer/Panel91" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel91" to="ScrollContainer/GridContainer/Panel91" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel91" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel91" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel91" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel92" to="ScrollContainer/GridContainer/Panel92" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel92" to="ScrollContainer/GridContainer/Panel92" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel92" to="ScrollContainer/GridContainer/Panel92" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel92" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel92" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel92" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel93" to="ScrollContainer/GridContainer/Panel93" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel93" to="ScrollContainer/GridContainer/Panel93" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel93" to="ScrollContainer/GridContainer/Panel93" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel93" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel93" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel93" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel94" to="ScrollContainer/GridContainer/Panel94" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel94" to="ScrollContainer/GridContainer/Panel94" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel94" to="ScrollContainer/GridContainer/Panel94" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel94" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel94" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel94" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel95" to="ScrollContainer/GridContainer/Panel95" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel95" to="ScrollContainer/GridContainer/Panel95" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel95" to="ScrollContainer/GridContainer/Panel95" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel95" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel95" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel95" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel96" to="ScrollContainer/GridContainer/Panel96" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel96" to="ScrollContainer/GridContainer/Panel96" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel96" to="ScrollContainer/GridContainer/Panel96" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel96" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel96" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel96" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel97" to="ScrollContainer/GridContainer/Panel97" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel97" to="ScrollContainer/GridContainer/Panel97" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel97" to="ScrollContainer/GridContainer/Panel97" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel97" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel97" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel97" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel98" to="ScrollContainer/GridContainer/Panel98" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel98" to="ScrollContainer/GridContainer/Panel98" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel98" to="ScrollContainer/GridContainer/Panel98" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel98" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel98" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel98" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel99" to="ScrollContainer/GridContainer/Panel99" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel99" to="ScrollContainer/GridContainer/Panel99" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel99" to="ScrollContainer/GridContainer/Panel99" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel99" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel99" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel99" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel100" to="ScrollContainer/GridContainer/Panel100" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel100" to="ScrollContainer/GridContainer/Panel100" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel100" to="ScrollContainer/GridContainer/Panel100" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel100" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel100" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel100" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel101" to="ScrollContainer/GridContainer/Panel101" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel101" to="ScrollContainer/GridContainer/Panel101" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel101" to="ScrollContainer/GridContainer/Panel101" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel101" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel101" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel101" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel102" to="ScrollContainer/GridContainer/Panel102" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel102" to="ScrollContainer/GridContainer/Panel102" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel102" to="ScrollContainer/GridContainer/Panel102" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel102" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel102" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel102" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel103" to="ScrollContainer/GridContainer/Panel103" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel103" to="ScrollContainer/GridContainer/Panel103" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel103" to="ScrollContainer/GridContainer/Panel103" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel103" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel103" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel103" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel104" to="ScrollContainer/GridContainer/Panel104" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel104" to="ScrollContainer/GridContainer/Panel104" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel104" to="ScrollContainer/GridContainer/Panel104" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel104" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel104" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel104" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel105" to="ScrollContainer/GridContainer/Panel105" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel105" to="ScrollContainer/GridContainer/Panel105" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel105" to="ScrollContainer/GridContainer/Panel105" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel105" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel105" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel105" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel106" to="ScrollContainer/GridContainer/Panel106" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel106" to="ScrollContainer/GridContainer/Panel106" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel106" to="ScrollContainer/GridContainer/Panel106" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel106" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel106" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel106" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel107" to="ScrollContainer/GridContainer/Panel107" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel107" to="ScrollContainer/GridContainer/Panel107" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel107" to="ScrollContainer/GridContainer/Panel107" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel107" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel107" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel107" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel108" to="ScrollContainer/GridContainer/Panel108" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel108" to="ScrollContainer/GridContainer/Panel108" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel108" to="ScrollContainer/GridContainer/Panel108" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel108" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel108" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel108" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel109" to="ScrollContainer/GridContainer/Panel109" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel109" to="ScrollContainer/GridContainer/Panel109" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel109" to="ScrollContainer/GridContainer/Panel109" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel109" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel109" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel109" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel110" to="ScrollContainer/GridContainer/Panel110" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel110" to="ScrollContainer/GridContainer/Panel110" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel110" to="ScrollContainer/GridContainer/Panel110" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel110" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel110" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel110" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel111" to="ScrollContainer/GridContainer/Panel111" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel111" to="ScrollContainer/GridContainer/Panel111" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel111" to="ScrollContainer/GridContainer/Panel111" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel111" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel111" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel111" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel112" to="ScrollContainer/GridContainer/Panel112" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel112" to="ScrollContainer/GridContainer/Panel112" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel112" to="ScrollContainer/GridContainer/Panel112" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel112" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel112" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel112" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel113" to="ScrollContainer/GridContainer/Panel113" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel113" to="ScrollContainer/GridContainer/Panel113" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel113" to="ScrollContainer/GridContainer/Panel113" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel113" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel113" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel113" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel114" to="ScrollContainer/GridContainer/Panel114" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel114" to="ScrollContainer/GridContainer/Panel114" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel114" to="ScrollContainer/GridContainer/Panel114" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel114" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel114" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel114" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel115" to="ScrollContainer/GridContainer/Panel115" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel115" to="ScrollContainer/GridContainer/Panel115" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel115" to="ScrollContainer/GridContainer/Panel115" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel115" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel115" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel115" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel116" to="ScrollContainer/GridContainer/Panel116" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel116" to="ScrollContainer/GridContainer/Panel116" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel116" to="ScrollContainer/GridContainer/Panel116" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel116" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel116" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel116" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel117" to="ScrollContainer/GridContainer/Panel117" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel117" to="ScrollContainer/GridContainer/Panel117" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel117" to="ScrollContainer/GridContainer/Panel117" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel117" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel117" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel117" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel118" to="ScrollContainer/GridContainer/Panel118" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel118" to="ScrollContainer/GridContainer/Panel118" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel118" to="ScrollContainer/GridContainer/Panel118" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel118" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel118" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel118" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel119" to="ScrollContainer/GridContainer/Panel119" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel119" to="ScrollContainer/GridContainer/Panel119" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel119" to="ScrollContainer/GridContainer/Panel119" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel119" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel119" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel119" to="." method="_on_panel_skills_unhovered"]
+[connection signal="gui_input" from="ScrollContainer/GridContainer/Panel120" to="ScrollContainer/GridContainer/Panel120" method="_on_gui_input"]
+[connection signal="mouse_entered" from="ScrollContainer/GridContainer/Panel120" to="ScrollContainer/GridContainer/Panel120" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/GridContainer/Panel120" to="ScrollContainer/GridContainer/Panel120" method="_on_mouse_exited"]
+[connection signal="skills_clicked" from="ScrollContainer/GridContainer/Panel120" to="." method="_on_panel_skills_clicked"]
+[connection signal="skills_hovered" from="ScrollContainer/GridContainer/Panel120" to="." method="_on_panel_skills_hovered"]
+[connection signal="skills_unhovered" from="ScrollContainer/GridContainer/Panel120" to="." method="_on_panel_skills_unhovered"]

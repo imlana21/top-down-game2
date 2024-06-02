@@ -25,3 +25,12 @@ func update_status(item, status: bool):
 			save_items(data)
 			return true
 	return false
+
+func update_panel_position(item_data: Dictionary, slot_id):
+	var data = get_all_items()
+	for d in data:
+		if d.id == item_data.id:
+			d.panel_pos = slot_id
+			save_items(data)
+			return true
+	return false

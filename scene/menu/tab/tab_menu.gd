@@ -2,6 +2,7 @@ extends Control
 
 var skills_hovered
 var holding_item = null
+var status_hold = 'idle'
 
 @onready var panel_container: GridContainer = $ScrollContainer/GridContainer
 
@@ -23,22 +24,84 @@ func _on_panel_skills_unhovered():
 	skills_hovered = null
 
 func _input(event):
-	if Input.is_action_just_pressed("buy") and skills_hovered != null:
-		buy_skills()
 	if holding_item:
-		holding_item.global_position = get_global_mouse_position()
+		if status_hold == "hold":
+			holding_item.global_position = get_global_mouse_position() + Vector2(50, 50)
+		else:
+			holding_item.global_position = get_global_mouse_position()
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and holding_item and Autoload.paused_on == "":
 		put_to_world()
+	control_zoom(event)
+	control_buy(event)
+	if Input.is_action_just_released('control'):
+		$ScrollContainer.mouse_filter = MOUSE_FILTER_PASS
+		reset_zoom()
+		for i in get_children():
+			if i == holding_item:
+				remove_child(holding_item)
+		holding_item = null
+		status_hold = 'idle'
+		initialize_container()
+
+func control_zoom(event):
 	if Input.is_action_pressed('control') and Autoload.paused_on == "tab_menu":
 		$ScrollContainer.mouse_filter = MOUSE_FILTER_IGNORE
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_WHEEL_UP):
 			zoom_in()
 		elif Input.is_mouse_button_pressed(MOUSE_BUTTON_WHEEL_DOWN):
 			zoom_out()
-	if Input.is_action_just_released('control'):
-		$ScrollContainer.mouse_filter = MOUSE_FILTER_PASS
-		reset_zoom()
 
+func control_buy(event):
+	if Input.is_action_just_pressed("buy") and skills_hovered != null:
+		buy_skills()
+
+func buy_skills():
+	var skill_manager = SkillDataManager.new()
+	skill_manager.update_status(skills_hovered, true)
+	reset_containter()
+	initialize_container()
+
+func _on_panel_hold_skills_clicked(skill):
+	if holding_item and status_hold == 'hold':
+		if skill.item:
+			var temp = skill.item
+			skill.pick_from_slot()
+			temp.global_position = get_global_mouse_position()
+			skill.put_to_panel(holding_item)
+			holding_item = temp
+		else:
+			skill.put_to_panel(holding_item)
+			holding_item = null
+	elif skill.item and status_hold == 'idle':
+		holding_item = skill.pick_from_slot('hold')
+		holding_item.global_position = get_global_mouse_position()
+		status_hold = 'hold'
+
+func _on_panel_just_skills_clicked(skill):
+	if holding_item and status_hold == 'clicked':
+		put_to_world()
+	elif skill.item and status_hold == 'idle':
+		holding_item = skill.pick_from_slot('clicked')
+		holding_item.global_position = get_global_mouse_position()
+		visible = false
+		z_index = 0
+		get_tree().paused = false
+		Autoload.paused_on = ""
+		status_hold = 'clicked'
+
+func put_to_world():
+	if holding_item and status_hold == 'clicked':
+		holding_item.get_parent().remove_child(holding_item)
+		holding_item = null
+		initialize_container()
+		await get_tree().create_timer(0.5).timeout
+		visible = true
+		Autoload.paused_on = "tab_menu"
+		z_index = 10
+		get_tree().paused = true
+		status_hold = 'idle'
+
+# Resetter and Initializer
 func initialize_container():
 	var index = 0
 	var skill_manager = SkillDataManager.new()
@@ -51,36 +114,8 @@ func reset_containter():
 	skills_hovered = null
 	for panel in panel_container.get_children():
 		panel.reset_panel()
-
-func buy_skills():
-	var skill_manager = SkillDataManager.new()
-	skill_manager.update_status(skills_hovered, true)
-	reset_containter()
-	initialize_container()
-
-func _on_panel_skills_clicked(skill):
-	if holding_item:
-		put_to_world()
-	elif skill.item:
-		holding_item = skill.pick_from_slot()
-		holding_item.global_position = get_global_mouse_position()
-		visible = false
-		z_index = 0
-		get_tree().paused = false
-		Autoload.paused_on = ""
-
-func put_to_world():
-	if holding_item:
-		print("Putting")
-		holding_item.get_parent().remove_child(holding_item)
-		holding_item = null
-		initialize_container()
-		await get_tree().create_timer(0.5).timeout
-		visible = true
-		Autoload.paused_on = "tab_menu"
-		z_index = 10
-		get_tree().paused = true
 		
+# Zoom in and out
 var scale_step: float = 0.1
 var max_scale: Vector2 = Vector2(2, 2)
 var min_scale: Vector2 = Vector2(1, 1)
@@ -97,10 +132,9 @@ func zoom_out():
 	anchor_factors = get_global_mouse_position() - viewport_scale / 2
 	if scale > min_scale:
 		scale -= Vector2(scale_step, scale_step)
-		pivot_offset = anchor_factors	
+		pivot_offset = anchor_factors
 
 func reset_zoom():
 	scale = min_scale
 	pivot_offset = viewport_scale / 2
 	anchors_preset = Control.PRESET_CENTER
-	

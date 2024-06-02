@@ -87,6 +87,10 @@ func check_main_command(text):
 			var next_path = "res://scene/world/world.tscn"
 			Autoload.scene_manager._on_change_scene(next_path, Autoload.world)
 			return "move to warp world"
+		elif text_arr[1] == "empty":
+			var next_path = "res://scene/world/warp_empty/warp_empty.tscn"
+			Autoload.scene_manager._on_change_scene(next_path, Autoload.world)
+			return "move to emptywarp world"
 		
 	if text_arr[0] == "/spawn":
 		if text_arr.size() < 3:

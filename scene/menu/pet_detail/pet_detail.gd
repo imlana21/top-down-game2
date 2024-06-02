@@ -26,11 +26,12 @@ func init_pet_popup():
 
 func _input(event):
 	if Input.is_action_just_pressed("show_pet_detail") and AutoloadPet.pet_node:
-		init_pet_popup()
-		await get_tree().create_timer(0.5).timeout
-		visible = !visible
-		z_index = 20
-		Autoload.toggle_pause("pet_detail")
+		if Autoload.paused_on == "" or Autoload.paused_on == "pet_detail":
+			init_pet_popup()
+			await get_tree().create_timer(0.5).timeout
+			visible = !visible
+			z_index = 20
+			Autoload.toggle_pause("pet_detail")
 	if mouse_on_leftbar and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		visible = false
 		z_index = 0 

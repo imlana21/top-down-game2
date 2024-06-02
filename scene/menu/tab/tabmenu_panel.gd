@@ -4,15 +4,20 @@ extends Panel
 var item = null
 var data = null
 var is_mouse_hovered = false
+var slot_id: int = 0
 
 signal skills_hovered
 signal skills_unhovered
-signal skills_clicked
+signal skills_just_clicked
+signal skills_hold_clicked
 
 func _on_gui_input(event) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and data != null:
+	if Input.is_action_pressed("control"):
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			skills_hold_clicked.emit(self)
+	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and data != null:
 		if data.active:
-			skills_clicked.emit(self)
+			skills_just_clicked.emit(self)
 
 func set_panel(skill_data):
 	data = skill_data
@@ -50,14 +55,23 @@ func reset_panel() -> void:
 			remove_child(item)
 			item = null
 
-func pick_from_slot():
+func pick_from_slot(state):
 	var new_item = item.duplicate()
-	new_item.scale = Vector2(0.2, 0.2)
 	new_item.data = item.data
-	new_item.anchors_preset = Control.PRESET_TOP_LEFT
-	new_item.position = Vector2(0, 0)
-	find_parent('TabMenuLayer').add_child(new_item)
+	if state == 'hold':
+		find_parent("TabMenu").add_child(new_item)
+	else:
+		new_item.scale = Vector2(0.2, 0.2)
+		find_parent('TabMenuLayer').add_child(new_item)
 	# refresh inventory
 	reset_panel()
 	return new_item
 
+func put_to_panel(new_item, old_item = null):
+	var skills_manager = SkillDataManager.new()
+	find_parent("TabMenu").remove_child(new_item)
+	skills_manager.update_panel_position(data, slot_id)
+	set_anchor_center(new_item)
+	add_child(new_item)
+	item = new_item
+	self_modulate = "fff"

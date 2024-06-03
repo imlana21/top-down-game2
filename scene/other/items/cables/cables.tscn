@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://boki1qv0wnjim"]
+
+[ext_resource type="Texture2D" uid="uid://cftrs7twe1mpb" path="res://assets/Objects/machine/cable.png" id="1_crm7d"]
+[ext_resource type="Script" path="res://scene/other/items/cables/cables.gd" id="1_g2x2y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3x00x"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j8fhi"]
+radius = 7.00446
+
+[node name="Cables" type="CharacterBody2D" groups=["items"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_g2x2y")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_crm7d")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3x00x")
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="AreaCollision" type="CollisionShape2D" parent="Area"]
+position = Vector2(0, 0.25)
+shape = SubResource("CircleShape2D_j8fhi")
+
+[connection signal="body_entered" from="Area" to="." method="_on_wood_area_body_entered"]

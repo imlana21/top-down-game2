@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c44sr344ftlvy"]
+
+[ext_resource type="Script" path="res://scene/other/items/cpu/cpu.gd" id="1_2eb58"]
+[ext_resource type="Texture2D" uid="uid://s1dwkfuw7s18" path="res://assets/Objects/machine/cpu.png" id="2_ac2a8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y74eu"]
+size = Vector2(6, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7e7wo"]
+size = Vector2(10, 10)
+
+[node name="CPU" type="CharacterBody2D" groups=["items"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_2eb58")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_ac2a8")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_y74eu")
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="AreaCollision" type="CollisionShape2D" parent="Area"]
+shape = SubResource("RectangleShape2D_7e7wo")
+
+[connection signal="body_entered" from="Area" to="." method="_on_wood_area_body_entered"]

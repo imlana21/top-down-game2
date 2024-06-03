@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dafu3jooxjb3w"]
+
+[ext_resource type="Script" path="res://scene/other/items/capacitor/capacitor.gd" id="1_7v4wg"]
+[ext_resource type="Texture2D" uid="uid://csund1bc6hyju" path="res://assets/Objects/machine/capacitor.png" id="2_texyh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y74eu"]
+size = Vector2(4.36603, 5.23205)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7e7wo"]
+size = Vector2(9.03109, 7.9282)
+
+[node name="Capacitors" type="CharacterBody2D" groups=["items"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_7v4wg")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_texyh")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0.0759619, -0.899519)
+rotation = -1.0472
+shape = SubResource("RectangleShape2D_y74eu")
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="AreaCollision" type="CollisionShape2D" parent="Area"]
+position = Vector2(-0.0257214, 0.0445508)
+rotation = -1.0472
+shape = SubResource("RectangleShape2D_7e7wo")
+
+[connection signal="body_entered" from="Area" to="." method="_on_wood_area_body_entered"]

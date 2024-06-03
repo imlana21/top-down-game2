@@ -49,3 +49,5 @@
 - pirate_skills from https://free-game-assets.itch.io/free-rpg-pirate-skill-icons
  
 - Pet Cat from https://elthen.itch.io/2d-pixel-art-cat-sprites
+
+- Machine Parts from https://free-game-assets.itch.io/free-cyberpunk-resource-pixel-art-3232-icons

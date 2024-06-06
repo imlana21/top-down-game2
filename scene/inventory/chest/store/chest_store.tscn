@@ -16,8 +16,13 @@ region = Rect2(139, 12, 106, 122)
 texture = ExtResource("3_i7bcv")
 region_rect = Rect2(11, 59, 26, 28)
 
-[node name="ChestStore" type="Node2D"]
-position = Vector2(400, 400)
+[node name="ChestStore" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 400.0
+offset_top = 400.0
+offset_right = 400.0
+offset_bottom = 400.0
 script = ExtResource("1_q1n6d")
 
 [node name="Background" type="Node2D" parent="."]
@@ -37,8 +42,12 @@ grow_vertical = 2
 theme = ExtResource("2_vk262")
 texture = SubResource("AtlasTexture_gnv7n")
 
-[node name="ChestInventory" type="Node2D" parent="."]
-position = Vector2(-8, -32)
+[node name="ChestInventory" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -8.0
+offset_top = -32.0
+offset_right = -8.0
+offset_bottom = -32.0
 script = ExtResource("4_vj1ma")
 
 [node name="ColorRect" type="ColorRect" parent="ChestInventory"]
@@ -49,6 +58,7 @@ offset_bottom = 296.0
 color = Color(0.909804, 0.811765, 0.65098, 1)
 
 [node name="Container" type="GridContainer" parent="ChestInventory"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -226,6 +236,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_keeqv")
 script = ExtResource("8_70ggp")
 
 [node name="Label" type="Label" parent="ChestInventory"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -246,6 +257,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="ColorRect2" type="ColorRect" parent="ChestInventory"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -258,8 +270,12 @@ offset_bottom = -203.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayerInventory" type="Node2D" parent="."]
-position = Vector2(-302, -32)
+[node name="PlayerInventory" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -302.0
+offset_top = -32.0
+offset_right = -302.0
+offset_bottom = -32.0
 script = ExtResource("7_dk27l")
 
 [node name="ColorRect" type="ColorRect" parent="PlayerInventory"]
@@ -270,6 +286,7 @@ offset_bottom = 296.0
 color = Color(0.909804, 0.811765, 0.65098, 1)
 
 [node name="Container" type="GridContainer" parent="PlayerInventory"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -447,6 +464,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_keeqv")
 script = ExtResource("8_70ggp")
 
 [node name="Label" type="Label" parent="PlayerInventory"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -467,6 +485,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="ColorRect2" type="ColorRect" parent="PlayerInventory"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

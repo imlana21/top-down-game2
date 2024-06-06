@@ -1,13 +1,6 @@
 extends Node2D
 
-var coord_lists: Array = [
-	Vector2(-328, -168),
-	Vector2(-44, -150),
-	Vector2(80, -80),
-	Vector2(320, 104),
-	Vector2(-320, 164),
-	Vector2(20, 100)
-];
+@export var max_parts_spawn = 10
 var parts_list: Array = [
 	'cables', 
 	'capacitor',
@@ -20,13 +13,25 @@ var index_spawn: int = 0
 signal change_scene
 signal start_combat
 
+func _ready():
+	$Spawner.start()
+	Autoload.world = self
+
 func _on_spawner_timeout():
-	if index_spawn >=  coord_lists.size():
-		index_spawn = 0
+	if index_spawn > max_parts_spawn:
 		$Spawner.stop()
 		return
-	var item = load("res://scene/other/items/" + parts_list[index_spawn] + "/" + parts_list[index_spawn] +".tscn").instantiate()
-	item.global_position = coord_lists[index_spawn]
-	print("Items " + parts_list[index_spawn] + " spawned on " + str(coord_lists[index_spawn]))
+	var randi_index = randi_range(0, parts_list.size() - 1)
+	var randi_list = [
+		Vector2(randi_range(-688, -32), randi_range(-448, -32)),
+		Vector2(randi_range(16, 720), randi_range(-432, -32)),
+		Vector2(randi_range(16, 720), randi_range(16, 416)),
+		Vector2(randi_range(-752, -32), randi_range(16, 400))
+	]
+	var randi_pos = randi_list[randi_range(0, 3)]
+	var item = load("res://scene/other/items/" + parts_list[randi_index] + "/" + parts_list[randi_index] +".tscn").instantiate()
+	item.global_position = randi_pos
+	print("Items " + parts_list[randi_index] + " spawned on " + str(randi_pos))
 	add_child(item)
 	index_spawn += 1
+	$Spawner.start()

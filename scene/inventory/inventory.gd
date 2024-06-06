@@ -1,5 +1,5 @@
 class_name Inventory
-extends Node2D
+extends Control
 
 #var slot_container: 
 var inventory_name: String

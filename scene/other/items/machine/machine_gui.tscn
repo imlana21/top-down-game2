@@ -480,9 +480,11 @@ text = "    Craft   "
 
 [node name="CraftingTimer" type="Timer" parent="CraftingProcess/Base3"]
 
-[node name="Inventory" type="Node2D" parent="."]
+[node name="Inventory" type="Control" parent="."]
 visible = false
-position = Vector2(-32, 0)
+anchors_preset = 0
+offset_left = -32.0
+offset_right = -32.0
 script = ExtResource("9_rk7jv")
 
 [node name="Background" type="TextureRect" parent="Inventory"]

@@ -46,7 +46,7 @@ var enter_world_position: Dictionary = {
 	"OutFromRoom": Vector2(-2, -530)
 }
 var chest_store: CharacterBody2D
-var player_inventory: Node2D
+var player_inventory: Control
 var tree_position: Array = []
 var ore_position_1: Array = [
 	Vector2(375, 263),

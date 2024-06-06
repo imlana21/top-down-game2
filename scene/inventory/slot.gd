@@ -1,7 +1,7 @@
 class_name InventorySlot
 extends Panel
 
-@onready var item_scene = preload("res://scene/inventory/_items/item.tscn")
+@onready var item_scene = preload ("res://scene/inventory/_items/item.tscn")
 var slot_id: int = 0
 var item = null
 var inventory_name = null
@@ -13,11 +13,17 @@ signal inv_panel_unhovered
 signal inv_panel_clicked
 signal spread_item
 signal pick_one_item
+signal inv_panel_hold_item
 
 func _on_gui_input(event) -> void:
-	inv_panel_hovered.emit(self)
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		inv_panel_clicked.emit(self, inventory_name)
+	if Autoload.paused_on == 'inventory':
+		inv_panel_hovered.emit(self)
+		if Input.is_action_pressed('control') and item != null:
+			var item_type = item.data.id.substr(0, item.data.id.length() - 3)
+			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and item_type == 'MachineParts':
+				inv_panel_hold_item.emit(self)
+		elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			inv_panel_clicked.emit(self, inventory_name)
 	
 func _input(event) -> void:
 	if is_mouse_hovered and item != null:
@@ -31,7 +37,7 @@ func _on_mouse_entered() -> void:
 
 func mouse_hovered() -> void:
 	self_modulate = "ff9900c9"
-	is_mouse_hovered = true	
+	is_mouse_hovered = true
 
 func _on_mouse_exited() -> void:
 	if inventory_name != null:
@@ -40,12 +46,12 @@ func _on_mouse_exited() -> void:
 
 func mouse_unhovered() -> void:
 	self_modulate = "fff"
-	is_mouse_hovered = false	
+	is_mouse_hovered = false
 
 func refresh_style() -> void:
 	self.self_modulate = "fff"
 
-func init_item_into_slot(data, item_size = null) -> void:	
+func init_item_into_slot(data, item_size=null) -> void:
 	if data != null:
 		if item == null:
 			item = item_scene.instantiate()
@@ -61,7 +67,7 @@ func init_item_into_slot(data, item_size = null) -> void:
 		item = null
 	refresh_style()
 	
-func pick_from_slot(holding_item = null) -> void:
+func pick_from_slot(holding_item=null) -> void:
 	# remove child from slot panel
 	remove_child(item)
 	# move item to parent and make item floating
@@ -86,7 +92,7 @@ func pick_one_from_slot(holding_item=null):
 			item = null
 		return holding_item
 	elif item.data.qty > 1:
-		var new_item =  item.duplicate()
+		var new_item = item.duplicate()
 		new_item.set_item(item.data)
 		new_item.update_qty(1)
 		inv_manager.update_qty(item.data, item.data.qty - 1)
@@ -94,10 +100,10 @@ func pick_one_from_slot(holding_item=null):
 		return new_item
 	return null
 
-func put_into_slot(new_item, old_item = null, new_qty = 0) -> void:
+func put_into_slot(new_item, old_item=null, new_qty=0) -> void:
 	# Configuration item and move item from parent
 	var inv_manager = InventoryItems.new()
-	new_item.scale = Vector2(1.2,1.2)
+	new_item.scale = Vector2(1.2, 1.2)
 	set_anchor_center(new_item)
 	find_parent(parent_name).remove_child(new_item)
 	if new_qty > 0 and old_item != null:
@@ -115,3 +121,20 @@ func update_inventory_type(holding_item, inv_name: String) -> void:
 
 func set_anchor_center(i):
 	i.anchors_preset = Control.PRESET_CENTER
+
+func pick_machine_parts():
+	var new_item = item.duplicate()
+	new_item.data = item.data
+	new_item.scale = Vector2(0.4, 0.4)
+	find_parent("InventoryLayer").add_child(new_item)
+	# refresh inventory 
+	reset_panel()
+	return new_item
+
+func reset_panel() -> void:
+	for i in get_children():
+		item = null
+		i.reset_item()
+		if item:
+			remove_child(item)
+			item = null

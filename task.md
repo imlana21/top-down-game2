@@ -1,5 +1,8 @@
-- In the skill tree menu make sure you can click /hold and drag around the menu
+-  I want you to make a huge walls around it in the way of a BIG oval. (ok)
 
-- add 3 more rows of skills (ok)
+- Make a location where you can put all the parts (ok)
+  
+- that has 4 slots (ok)
 
-- make a warp to a HUGE empty basic room simple no decorations. (ok)
+- and you can drag the parts into the slots from your inventory 
+

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bnb2j8htna5hw"]
 
-[ext_resource type="Script" path="res://scene/other/items/tomato/tomato.gd" id="1_bpa5i"]
+[ext_resource type="Script" path="res://scene/other/items/apple/apple.gd" id="1_riadc"]
 [ext_resource type="Texture2D" uid="uid://rbxucagvoq7j" path="res://assets/Objects/apple.png" id="2_v3bp8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1mnmi"]
@@ -12,7 +12,7 @@ radius = 8.0
 [node name="Tomato" type="CharacterBody2D" groups=["items"]]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_bpa5i")
+script = ExtResource("1_riadc")
 
 [node name="TomatoSprite" type="Sprite2D" parent="."]
 position = Vector2(-3.57628e-07, 5.96046e-08)

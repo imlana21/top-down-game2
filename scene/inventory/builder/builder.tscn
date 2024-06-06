@@ -21,11 +21,17 @@ region_rect = Rect2(11, 59, 26, 28)
 texture = ExtResource("3_xrsik")
 region_rect = Rect2(11, 59, 26, 28)
 
-[node name="BuilderInv" type="Node2D"]
-position = Vector2(400, 400)
+[node name="BuilderInv" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 400.0
+offset_top = 400.0
+offset_right = 400.0
+offset_bottom = 400.0
 script = ExtResource("1_ny4by")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -43,6 +49,7 @@ texture = SubResource("AtlasTexture_tjwyw")
 expand_mode = 3
 
 [node name="BuilderContainer" type="GridContainer" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

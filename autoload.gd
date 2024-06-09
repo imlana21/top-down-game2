@@ -82,6 +82,7 @@ var cheat_mode: bool = false
 var warpworld_enemy_killed = false
 var machine_inventory: CharacterBody2D
 var pet_detail: Dictionary
+var prevent_inventory: bool = false
 
 func reset_teleport_room():
 	teleported_room = []

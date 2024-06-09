@@ -67,8 +67,13 @@ func inc_qty(item, slot_id, kategory):
 
 func update_qty(data, new_qty):
 	var all_data = load_all_data()
+	print(data)
 	for i in range(0, all_data.size()):	
-		if all_data[i].id == data.id and all_data[i].name == data.name and data.qty == all_data[i].qty:
+		if all_data[i].id == data.id:
+			if new_qty < 1:
+				remove_item(data)
+				regenerate_id()
+				return true
 			all_data[i].qty = new_qty
 			save_items(all_data)
 			return true

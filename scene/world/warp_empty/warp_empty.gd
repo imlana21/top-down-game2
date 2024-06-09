@@ -33,5 +33,5 @@ func _on_spawner_timeout():
 	item.global_position = randi_pos
 	print("Items " + parts_list[randi_index] + " spawned on " + str(randi_pos))
 	add_child(item)
-	index_spawn += 1
+	index_spawn += 1 
 	$Spawner.start()

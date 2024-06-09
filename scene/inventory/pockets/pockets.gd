@@ -93,6 +93,10 @@ func _on__inv_panel_hold_item(panel):
 func put_to_world():
 	if holding_item:
 		var new_item = load("res://scene/other/items/" + holding_item.data.name + "/" + holding_item.data.name + ".tscn").instantiate()
+		var inv_manager = InventoryItems.new()
 		new_item.global_position = get_global_mouse_position()
 		Autoload.world.add_child(new_item)
+		var new_qty = holding_item.data.qty - 1
+		holding_item.update_qty(new_qty)
+		inv_manager.update_qty(holding_item.data, new_qty)
 		reset_inv_guy()

@@ -3,7 +3,7 @@ extends CanvasLayer
 var is_content_show: bool = false
 
 func _input(_event):
-	if Input.is_action_just_pressed("inventory")and !CombatDetail.is_attacking:
+	if Input.is_action_just_pressed("inventory")and !CombatDetail.is_attacking and !Autoload.prevent_inventory:
 		if Autoload.paused_on == "" or Autoload.paused_on == "inventory" or Autoload.paused_on == "craft":
 			if Autoload.bench == null:
 				$Pockets.visible = !$Pockets.visible 

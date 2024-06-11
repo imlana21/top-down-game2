@@ -57,9 +57,6 @@ size = Vector2(20, 87)
 [node name="WarpWorld" type="Node2D"]
 script = ExtResource("1_hr5qo")
 
-[node name="Screen" parent="." instance=ExtResource("2_qjm6i")]
-position = Vector2(194, 1250)
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("10_jksj1")
 format = 2
@@ -70,8 +67,8 @@ layer_1/tile_data = PackedInt32Array(-1245094, 393216, 4, -1245087, 393216, 4, -
 
 [node name="MeshInstance" type="MeshInstance2D" parent="."]
 modulate = Color(0, 0, 0, 0.380392)
-position = Vector2(1613, 1492)
-scale = Vector2(1114, -776)
+position = Vector2(1612, 1510.5)
+scale = Vector2(1114, -819)
 mesh = SubResource("QuadMesh_s5470")
 
 [node name="SpawnerTimer" type="Timer" parent="."]
@@ -992,7 +989,11 @@ position = Vector2(45.5001, 1501.92)
 
 [node name="EnemyList" type="Node2D" parent="Room5"]
 
-[connection signal="start_combat" from="Screen" to="." method="_on_player_start_combat"]
+[node name="ConveyorBeltList" type="Node2D" parent="."]
+
+[node name="Screen" parent="." instance=ExtResource("2_qjm6i")]
+position = Vector2(1230, 1348)
+
 [connection signal="timeout" from="SpawnerTimer" to="SpawnerTimer" method="_on_timeout"]
 [connection signal="body_entered" from="Corridor1/DoorSensor" to="Corridor1" method="_on_door_sensor_body_entered"]
 [connection signal="body_entered" from="Corridor2/DoorSensor" to="Corridor2" method="_on_corridor2_to_room2_player_entered"]
@@ -1002,3 +1003,4 @@ position = Vector2(45.5001, 1501.92)
 [connection signal="body_entered" from="Room1/FromRoom2" to="Room1" method="_on_from_room2_player_entered"]
 [connection signal="body_entered" from="Room2/ToCorridor2" to="Room2" method="_on_to_corridor_2_body_entered"]
 [connection signal="body_entered" from="ToWarpPoint" to="." method="_on_finish_door_player_entered"]
+[connection signal="start_combat" from="Screen" to="." method="_on_player_start_combat"]

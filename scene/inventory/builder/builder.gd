@@ -6,6 +6,7 @@ const PANEL_TOOLS: GDScript = preload("res://scene/inventory/builder/tools_panel
 var holding_item = null
 var output_from_state = null
 var is_pointer_on_world: bool = false
+var rotate_state = 0
 
 @onready var builder_container: GridContainer = $BuilderContainer
 # @onready var tool_container: GridContainer = $ToolsContainer
@@ -29,6 +30,20 @@ func _input(event):
 		holding_item.global_position = get_global_mouse_position()
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and is_pointer_on_world:
 			put_item_to_world()
+		elif Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+			if rotate_state < 3:
+				rotate_state += 1
+			else:
+				rotate_state = 0
+			match rotate_state:
+				0:
+					holding_item.rotation_degrees = 0
+				1:
+					holding_item.rotation_degrees = 90
+				2:
+					holding_item.rotation_degrees = -180
+				3:
+					holding_item.rotation_degrees = -90
 	
 func _builder_panel_clicked(slot: PANEL_BUILDER, input_state = "") -> void:
 	# if pointer hold item and output state different with input state, reset hodling item
@@ -108,6 +123,7 @@ func put_item_to_world() -> void:
 	new_item.position = Vector2.ZERO
 	new_item.global_position = get_global_mouse_position()
 	new_item.scale = Vector2(0.8, 0.8)
+	new_item.rotation_degrees = holding_item.rotation_degrees
 	Autoload.world.add_child(new_item)
 	if holding_item.data.qty > 1:
 		inv_manager.remove_item(holding_item.data)

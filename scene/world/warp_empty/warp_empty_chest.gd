@@ -13,9 +13,10 @@ func _on_area_touch_body_exited(body) -> void:
 func _input(event) -> void:
 	Autoload.prevent_inventory = player_in_area
 	if Input.is_action_just_pressed('inventory') and Autoload.prevent_inventory:
-		popup_state = !popup_state
-		if popup_state:
-			get_parent().find_child('ChestPopup').init_popup()
-		else:
-			get_parent().find_child('ChestPopup').reset_popup()
+		if Autoload.paused_on == "" or Autoload.paused_on == "popup_warp_chest":	
+			popup_state = !popup_state
+			if popup_state:
+				get_parent().find_child('ChestPopup').init_popup()
+			else:
+				get_parent().find_child('ChestPopup').reset_popup()
 

@@ -16,8 +16,9 @@ signal pick_one_item
 signal inv_panel_hold_item
 
 func _on_gui_input(event) -> void:
-	if Autoload.paused_on == 'inventory':
-		inv_panel_hovered.emit(self)
+	mouse_hovered()
+	inv_panel_hovered.emit(self)
+	if Autoload.paused_on == 'inventory' or Autoload.paused_on == "":
 		if Input.is_action_pressed('control') and item != null:
 			var item_type = item.data.id.substr(0, item.data.id.length() - 3)
 			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and item_type == 'MachineParts':
@@ -33,7 +34,7 @@ func _input(event) -> void:
 			pick_one_item.emit(self)
 	
 func _on_mouse_entered() -> void:
-	mouse_hovered()
+	pass
 
 func mouse_hovered() -> void:
 	self_modulate = "ff9900c9"

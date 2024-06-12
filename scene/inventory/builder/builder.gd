@@ -121,8 +121,9 @@ func put_item_to_world() -> void:
 	var new_item = load("res://scene/other/items/" + item_name +"/" + item_name +".tscn").instantiate()
 	var inv_manager = InventoryItems.new()
 	new_item.position = Vector2.ZERO
-	new_item.global_position = get_global_mouse_position()
-	new_item.scale = Vector2(0.8, 0.8)
+	# new_item.global_position = get_global_mouse_position()
+	new_item.global_position = Autoload.world.get_node('MeshTileMap').get_clicked_tile()
+	new_item.scale = Vector2(1, 1)
 	new_item.rotation_degrees = holding_item.rotation_degrees
 	Autoload.world.add_child(new_item)
 	if holding_item.data.qty > 1:

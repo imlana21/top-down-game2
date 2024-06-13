@@ -2,25 +2,33 @@ extends CharacterBody2D
 
 @export var SPEED: int = 10
 
-var player_body: CharacterBody2D
+var player_body: Array
 var conveyor_direction: int
 
 func _ready():
 	$Sprite.play('left')
 
 func _process(delta):
-	if player_body:
-		move_player(delta)
-
+	if player_body.size() > 0:
+		for p in player_body:
+			if p.move_state:
+				move_player(p, delta)
+		# else:
 func _on_area_body_entered(body:CharacterBody2D) -> void:
-	player_body = body
-	conveyor_direction = round(rotation_degrees)
+	if body:
+		player_body.append(body)
+		conveyor_direction = round(rotation_degrees)
 
 func _on_area_body_exited(body:CharacterBody2D) -> void:
-	player_body = null
-	conveyor_direction = 0
+	if body:
+		body.move_state = false		
+		await get_tree().create_timer(0.5).timeout
+		body.move_state = true
+		conveyor_direction = 0
+		var index = player_body.find(body)
+		player_body.remove_at(index)
 	
-func move_player(delta: float) -> void:
+func move_player(body, delta: float) -> void:
 	var player_position = Vector2.ZERO
 	if conveyor_direction == 0:
 		# left
@@ -35,6 +43,6 @@ func move_player(delta: float) -> void:
 		# down
 		player_position = Vector2(0, 1)
 	var player_direction = player_position * SPEED * delta
-	player_body.position += player_direction
-	# move_and_slide()
+	body.position += player_direction
 	print(player_direction)
+	# move_and_slide()

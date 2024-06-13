@@ -198,7 +198,7 @@ mouse_left_click={
 2d_physics/layer_1="world"
 2d_navigation/layer_1="world"
 2d_physics/layer_2="player"
-2d_physics/layer_3="enemy"
+2d_physics/layer_3="items"
 2d_physics/layer_4="npc"
 2d_physics/layer_5="terrain"
 

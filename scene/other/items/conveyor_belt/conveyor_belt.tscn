@@ -155,7 +155,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etpto"]
-size = Vector2(19, 8)
+size = Vector2(14, 8)
 
 [node name="ConveyorBelt" type="CharacterBody2D"]
 collision_layer = 0
@@ -172,10 +172,9 @@ frame_progress = 0.227981
 
 [node name="Area" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 6
 
 [node name="Collision" type="CollisionShape2D" parent="Area"]
-position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_etpto")
 
 [connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]

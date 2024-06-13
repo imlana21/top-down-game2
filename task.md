@@ -1,15 +1,7 @@
 :white_check_mark: 
 
-# Remember the admin area? 
+# June 12, 2024
 
-- Make a "warehouse" small room near the ores
+Can you make it so when a item is dropped onto the rail it also goes moves? :white_check_mark: 
 
-- make a placeable called a Conveyer Belt. 
-  
-- Make it so when a item is place on the belt , It goes where the belt goes. 
-  
-Similar to a video below 
-
-https://www.youtube.com/watch?v=WUGpi7yWo88&ab_channel=CodingWithRuss
-
-I'll give you 2 days to create belts and also make them placeable from the character. 
+also make it so the belt "keeps going" between the 2 belts when they are placed next to each other. (*The character looks like it stopped when in the middle of two belts for a few moments before getting carded ti the next belt*) 

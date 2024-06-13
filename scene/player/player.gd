@@ -12,6 +12,8 @@ var CHAR_DETAIL = {
 	"exp": 90,
 	"level": 1
 }
+# Moveming State (For conveyor etc)
+var move_state: bool = true
 signal change_direction
 signal change_velocity
 signal start_combat

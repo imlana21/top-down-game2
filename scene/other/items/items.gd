@@ -10,6 +10,7 @@ var item_detail: Dictionary = {
 	"qty":0,
 	"stack_size":0
 }
+var move_state: bool = true
 
 func set_kategory(val):
 	kategory = val

@@ -20,8 +20,9 @@ func _on_gui_input(event) -> void:
 	inv_panel_hovered.emit(self)
 	if Autoload.paused_on == 'inventory' or Autoload.paused_on == "":
 		if Input.is_action_pressed('control') and item != null:
-			var item_type = item.data.id.substr(0, item.data.id.length() - 3)
-			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and item_type == 'MachineParts':
+			# var item_type = item.data.id.substr(0, item.data.id.length() - 3)
+			#  and item_type == 'MachineParts'
+			if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 				inv_panel_hold_item.emit(self)
 		elif Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			inv_panel_clicked.emit(self, inventory_name)

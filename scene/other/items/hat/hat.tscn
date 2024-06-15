@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=3 uid="uid://07iy7jr5pqhn"]
+
+[ext_resource type="Script" path="res://scene/other/items/hat/hat.gd" id="1_4lmwu"]
+[ext_resource type="Texture2D" uid="uid://bp1x1wwmx7g8q" path="res://assets/Characters/hat/hat.png" id="1_7qybn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnkjp"]
+atlas = ExtResource("1_7qybn")
+region = Rect2(32, 672, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4y70"]
+atlas = ExtResource("1_7qybn")
+region = Rect2(96, 672, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8s5oh"]
+atlas = ExtResource("1_7qybn")
+region = Rect2(160, 672, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3an0g"]
+atlas = ExtResource("1_7qybn")
+region = Rect2(224, 672, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvgic"]
+atlas = ExtResource("1_7qybn")
+region = Rect2(288, 672, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t275a"]
+atlas = ExtResource("1_7qybn")
+region = Rect2(352, 672, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m3xg1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnkjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4y70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8s5oh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3an0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvgic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t275a")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_228rl"]
+radius = 3.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v7iqb"]
+radius = 4.5
+height = 21.0
+
+[node name="Hat" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_4lmwu")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -13)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_m3xg1")
+frame_progress = 0.646598
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_228rl")
+
+[node name="FarmZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 9
+
+[node name="Collision" type="CollisionShape2D" parent="FarmZone"]
+position = Vector2(-0.5, -2.5)
+shape = SubResource("CapsuleShape2D_v7iqb")
+
+[node name="FarmTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]
+[connection signal="body_entered" from="FarmZone" to="." method="_on_farm_zone_body_entered"]
+[connection signal="body_exited" from="FarmZone" to="." method="_on_farm_zone_body_exited"]
+[connection signal="timeout" from="FarmTimer" to="." method="_on_farm_timer_timeout"]

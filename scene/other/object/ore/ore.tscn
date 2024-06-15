@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cho6dkt3vm80h"]
+[gd_scene load_steps=20 format=3 uid="uid://cho6dkt3vm80h"]
 
 [ext_resource type="Texture2D" uid="uid://uso3t3cdeosg" path="res://assets/Objects/Basic Grass Biom things 1.png" id="1_csb1h"]
 [ext_resource type="Script" path="res://scene/other/object/ore/ore.gd" id="1_ysju5"]
 [ext_resource type="Texture2D" uid="uid://dd3q8xbdc5nw4" path="res://assets/Other/smoke.png" id="2_onkiw"]
 [ext_resource type="Texture2D" uid="uid://ulklvcpniqoa" path="res://assets/Characters/slime.png" id="3_120us"]
+[ext_resource type="Texture2D" uid="uid://dndv8a82mfcvv" path="res://assets/Other/slash.png" id="5_k6sfh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p3lig"]
 atlas = ExtResource("1_csb1h")
@@ -32,6 +33,26 @@ region = Rect2(128, 0, 32, 32)
 atlas = ExtResource("2_onkiw")
 region = Rect2(160, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yr82o"]
+atlas = ExtResource("3_120us")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhf7t"]
+atlas = ExtResource("5_k6sfh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq7n5"]
+atlas = ExtResource("5_k6sfh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdimp"]
+atlas = ExtResource("5_k6sfh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpdl3"]
+atlas = ExtResource("5_k6sfh")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_m65i7"]
 animations = [{
 "frames": [{
@@ -53,12 +74,35 @@ animations = [{
 "loop": false,
 "name": &"destroy",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yr82o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhf7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq7n5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdimp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpdl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yr82o")
+}],
+"loop": false,
+"name": &"slash",
+"speed": 4.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7met2"]
 radius = 8.0
 
-[node name="Ore" type="CharacterBody2D"]
+[node name="Ore" type="CharacterBody2D" groups=["ore"]]
 collision_layer = 9
 collision_mask = 2
 script = ExtResource("1_ysju5")
@@ -72,7 +116,9 @@ shape = SubResource("CircleShape2D_hafvl")
 [node name="DestroyAnimation" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_m65i7")
-animation = &"destroy"
+animation = &"slash"
+frame = 5
+frame_progress = 1.0
 
 [node name="OreArea" type="Area2D" parent="."]
 collision_layer = 4

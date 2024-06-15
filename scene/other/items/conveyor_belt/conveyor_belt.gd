@@ -21,8 +21,9 @@ func _on_area_body_entered(body:CharacterBody2D) -> void:
 
 func _on_area_body_exited(body:CharacterBody2D) -> void:
 	if body:
-		body.move_state = false		
-		await get_tree().create_timer(0.5).timeout
+		if body.is_in_group('player'):
+			body.move_state = false		
+			await get_tree().create_timer(0.5).timeout
 		body.move_state = true
 		conveyor_direction = 0
 		var index = player_body.find(body)

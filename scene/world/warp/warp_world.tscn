@@ -1000,6 +1000,25 @@ position = Vector2(45.5001, 1501.92)
 [node name="EnemyList" type="Node2D" parent="Room5"]
 
 [node name="ConveyorBeltList" type="Node2D" parent="."]
+position = Vector2(1610, 1479)
+
+[node name="OreList" type="Node2D" parent="."]
+position = Vector2(1610, 1479)
+
+[node name="Ore" parent="OreList" instance=ExtResource("9_0hwt3")]
+position = Vector2(18, -273)
+
+[node name="Ore4" parent="OreList" instance=ExtResource("9_0hwt3")]
+position = Vector2(-49, -242)
+
+[node name="Ore5" parent="OreList" instance=ExtResource("9_0hwt3")]
+position = Vector2(11, -211)
+
+[node name="Ore7" parent="OreList" instance=ExtResource("9_0hwt3")]
+position = Vector2(-54, -298)
+
+[node name="Ore8" parent="OreList" instance=ExtResource("9_0hwt3")]
+position = Vector2(15, -324)
 
 [node name="Screen" parent="." instance=ExtResource("2_qjm6i")]
 position = Vector2(1230, 1348)
